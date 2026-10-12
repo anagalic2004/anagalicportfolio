@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Galic</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>
+(function () {
+  var map = {
+    "": "work", "work": "work", "about-me": "about", "about": "about", "resume": "resume",
+    "play": "play", "peaceland-research": "peaceland-research",
+    "work/peaceland": "peaceland", "work/soulshine": "soulshine", "work/vals": "vals",
+    "work/promotional-material": "promotional-material"
+  };
+  var base = location.hostname.slice(-10) === ".github.io" ? "/anagalicportfolio/" : "/";
+  var path = location.pathname;
+  if (path.indexOf(base) === 0) path = path.slice(base.length);
+  path = path.replace(/\/+$/, "").toLowerCase();
+  var target = map[path];
+  location.replace(base + (target ? "#" + target : ""));
+})();
+</script>
+<style>body{margin:0;font:16px/1.5 system-ui,sans-serif;background:#fff;color:#0B0C0E;display:grid;place-items:center;min-height:100vh}a{color:inherit}</style>
+</head>
+<body><p>Taking you to <a href="/">Ana Galic's portfolio</a>…</p></body>
+</html>
