@@ -206,6 +206,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .cs-title.long{font-size:clamp(34px,7vw,96px)}
 .cs-banner{aspect-ratio:21/9}
 @media (max-width:640px){.cs-banner{aspect-ratio:4/3}}
+.cs-banner.tall{aspect-ratio:16/9}
+@media (max-width:640px){.cs-banner.tall{aspect-ratio:4/3}}
+.photo-wide{margin:0;display:flex;flex-direction:column;gap:10px}
+.photo-wide img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .cs-intro{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
 @media (max-width:860px){.cs-intro{grid-template-columns:minmax(0,1fr)}}
 .lede{font-family:var(--display);font-weight:460;font-size:clamp(22px,2.5vw,30px);line-height:1.25;margin:0;text-wrap:pretty}
@@ -497,8 +501,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Narrative-driven video game</p>
         <h1 class="cs-title">Peaceland</h1>
       </header>
-      <div class="cover cs-banner">
-        <img class="cover-img" src="img/peaceland-cover.jpg" alt="Peaceland title art: a willow tree hung with paper memories inside a domed museum, under the words Choose Your Memory">
+      <div class="cover cs-banner tall">
+        <img class="cover-img" src="img/peaceland-town.jpg" alt="3D model of Peaceland's town square: half-timbered houses and street lamps around a domed pavilion on columns">
       </div>
     </div>
 
@@ -523,9 +527,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </span>
     </a>
 
-    <div class="highlights two">
-      <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Grant</h3><p>Awarded by the University of Rochester for full-time summer 2026 research on Peaceland.</p></div>
-      <div class="hl"><p class="label">April 25, 2026</p><h3>IMAGINE RIT Creativity + Innovation Festival</h3><p>Presenting Peaceland to a wide audience of visitors.</p></div>
+    <div class="block-section">
+      <div class="highlights two">
+        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Grant</h3><p>Awarded by the University of Rochester for full-time summer 2026 research on Peaceland.</p></div>
+        <div class="hl"><p class="label">April 25, 2026</p><h3>IMAGINE RIT Creativity + Innovation Festival</h3><p>Presenting Peaceland to a wide audience of visitors.</p></div>
+      </div>
+      <figure class="photo-wide">
+        <img src="img/imagine-rit.jpg" alt="The Peaceland team at IMAGINE RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
+        <figcaption class="label">Peaceland at IMAGINE RIT · April 25, 2026</figcaption>
+      </figure>
     </div>
 
     <section class="block-section" aria-labelledby="pitch-h">
