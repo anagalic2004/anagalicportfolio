@@ -8,15 +8,20 @@
 <script>
 (function () {
   var map = {
-    "": "work", "work": "work", "about-me": "about", "about": "about", "resume": "resume",
-    "play": "play", "peaceland-research": "peaceland-research",
-    "work/peaceland": "peaceland", "work/soulshine": "soulshine", "work/vals": "vals",
-    "work/promotional-material": "promotional-material"
+    "": "professional", "work": "professional", "professional": "professional",
+    "play": "personal", "personal": "personal", "about-me": "about", "about": "about",
+    "peaceland-research": "peaceland-research",
+    "work/peaceland": "peaceland", "peaceland": "peaceland",
+    "work/soulshine": "soulshine", "soulshine": "soulshine",
+    "work/vals": "vals", "vals": "vals",
+    "work/promotional-material": "promotional-material", "promotional-material": "promotional-material"
   };
+  var files = { "resume": "AnaGalic_Resume.pdf" };
   var base = location.hostname.slice(-10) === ".github.io" ? "/anagalicportfolio/" : "/";
   var path = location.pathname;
   if (path.indexOf(base) === 0) path = path.slice(base.length);
   path = path.replace(/\/+$/, "").toLowerCase();
+  if (files[path]) { location.replace(base + files[path]); return; }
   var target = map[path];
   location.replace(base + (target ? "#" + target : ""));
 })();

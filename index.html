@@ -80,6 +80,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .nav{display:flex;gap:clamp(14px,2.6vw,30px);font-size:var(--fs-small);font-weight:600}
 .nav a{text-decoration:none;padding-bottom:5px;background:linear-gradient(var(--blue),var(--blue)) left bottom/0 3px no-repeat;transition:background-size .3s var(--ease)}
 .nav a:hover,.nav a[aria-current="page"]{background-size:100% 3px}
+.nav .ext{font-size:.85em}
+.nav a{white-space:nowrap}
+@media (max-width:400px){.nav{gap:11px;font-size:13px}}
 @media (max-width:520px){.brand-name{display:none}}
 
 /* Views */
@@ -317,12 +320,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="#work"><span class="mono-mark" aria-hidden="true">AG</span><span class="brand-name">Ana Galic</span></a>
+    <a class="brand" href="#professional"><span class="mono-mark" aria-hidden="true">AG</span><span class="brand-name">Ana Galic</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="#work" data-nav="work">Work</a>
-      <a href="#play" data-nav="play">Play</a>
+      <a href="#professional" data-nav="professional">Professional</a>
+      <a href="#personal" data-nav="personal">Personal</a>
       <a href="#about" data-nav="about">About</a>
-      <a href="#resume" data-nav="resume">Resume</a>
+      <a href="AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
     </nav>
   </div>
 </header>
@@ -330,7 +333,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <main id="main">
 
   <!-- HOME -->
-  <div class="view wrap" data-view="work">
+  <div class="view wrap" data-view="professional">
     <section class="hero-wrap" aria-labelledby="hero-name">
       <div class="hero" id="hero">
         <img class="hero-art hero-img" id="hero-img" alt="" aria-hidden="true" src="img/painting.jpg">
@@ -458,7 +461,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- PEACELAND -->
   <article class="view wrap" data-view="peaceland" hidden>
     <div class="cs-top">
-      <a class="back" href="#work">&larr; All work</a>
+      <a class="back" href="#professional">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Narrative-driven video game</p>
         <h1 class="cs-title">Peaceland</h1>
@@ -595,41 +598,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
   </article>
 
-  <!-- RESUME -->
-  <article class="view wrap" data-view="resume" hidden>
-    <header class="cs-head">
-      <p class="label">Resume</p>
-      <h1 class="cs-title long">Experience, skills, and selected contributions.</h1>
-    </header>
-    <section class="rs-group" aria-labelledby="rs-proj">
-      <h2 id="rs-proj">Projects</h2>
-      <ul class="rs-list">
-        <li class="rs-item"><strong>Peaceland</strong><time>Jan – Jul 2026</time><span>Narrative and UX/UI design teams. World and character building, branching decisions, in-game notebook, playtesting across the Balkans.</span></li>
-        <li class="rs-item"><strong>Soulshine</strong><time>Jan – May 2026</time><span>Team lead. Product design, UX/UI, and user research for a multi-sensory focus lamp and companion app.</span></li>
-        <li class="rs-item"><strong>VALS</strong><time>Aug – Dec 2025</time><span>Full-stack development and accessible UX/UI for a multilingual AI voice assistant.</span></li>
-        <li class="rs-item"><strong>Promotional Material</strong><time>2026</time><span>Promotional design and communications for University of Rochester initiatives.</span></li>
-      </ul>
-    </section>
-    <section class="rs-group" aria-labelledby="rs-rec">
-      <h2 id="rs-rec">Recognition</h2>
-      <ul class="rs-list">
-        <li class="rs-item"><strong>Schwartz Discover Grant</strong><time>2026</time><span>University of Rochester. Full-time summer research on Peaceland.</span></li>
-        <li class="rs-item"><strong>IMAGINE RIT Creativity + Innovation Festival</strong><time>Apr 2026</time><span>Presented Peaceland to visitors.</span></li>
-      </ul>
-    </section>
-    <section class="rs-group" aria-labelledby="rs-skills">
-      <h2 id="rs-skills">Skills &amp; tools</h2>
-      <ul class="skill-cloud">
-        <li class="tool">Figma</li><li class="tool">Adobe Photoshop</li><li class="tool">Cinema4D</li>
-        <li>UX/UI</li><li>Visual graphics</li><li>Product design</li><li>Web design</li><li>User research</li><li>Full-stack development</li><li>Accessible design</li><li>Storytelling</li><li>Team leadership</li>
-      </ul>
-    </section>
-  </article>
-
   <!-- PLAY -->
-  <article class="view wrap" data-view="play" hidden>
+  <article class="view wrap" data-view="personal" hidden>
     <header class="cs-head">
-      <p class="label">Play</p>
+      <p class="label">Personal</p>
       <h1 class="cs-title long">Small experiments, studies, and things made for the joy of it.</h1>
       <p class="statement-sub">A place for sketchbook thinking: unexpected directions, unfinished ideas, and visual tests.</p>
     </header>
@@ -659,7 +631,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#work">Work</a><a href="#play">Play</a><a href="#about">About</a><a href="#resume">Resume</a>
+        <a href="#professional">Professional</a><a href="#personal">Personal</a><a href="#about">About</a><a href="AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume &#8599;</a>
       </nav>
     </div>
     <div class="foot-small"><span>© 2026 Ana Galic</span><span>Designed and created by Ana Galic</span></div>
@@ -704,7 +676,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     el.hidden = true;
     el.innerHTML = `
       <div class="cs-top">
-        <a class="back" href="#work">&larr; All work</a>
+        <a class="back" href="#professional">&larr; All work</a>
         <header class="cs-head"><p class="label">${esc(p.type)}</p><h1 class="cs-title${names[id].length > 12 ? ' long' : ''}">${names[id]}</h1></header>
         <div class="cover cs-banner" aria-hidden="true">${artHTML[p.art]}</div>
       </div>
@@ -850,19 +822,20 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); layoutArt(); sizePad(); }, 120); });
 
   /* Router: one view per bare #anchor */
-  const routes = ['work','play','about','resume','peaceland','soulshine','vals','promotional-material','peaceland-research'];
+  const routes = ['professional','personal','about','peaceland','soulshine','vals','promotional-material','peaceland-research'];
+  const aliases = {'selected-work':'professional', work:'professional', play:'personal'};
   function route(){
-    let r = location.hash.replace(/^#/, '') || 'work';
-    if (r === 'selected-work') r = 'work';
-    if (!routes.includes(r)) r = 'work';
+    let r = location.hash.replace(/^#/, '') || 'professional';
+    r = aliases[r] || r;
+    if (!routes.includes(r)) r = 'professional';
     document.querySelectorAll('[data-view]').forEach(v => { v.hidden = v.dataset.view !== r; });
-    const section = order.includes(r) || r === 'peaceland-research' ? 'work' : r;
+    const section = order.includes(r) || r === 'peaceland-research' ? 'professional' : r;
     document.querySelectorAll('.nav a').forEach(a => {
       if (a.dataset.nav === section) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
     window.scrollTo(0, 0);
-    if (r === 'work'){ fit(); layoutArt(); }
-    if (r === 'play') sizePad();
+    if (r === 'professional'){ fit(); layoutArt(); }
+    if (r === 'personal') sizePad();
   }
   window.addEventListener('hashchange', route);
 
