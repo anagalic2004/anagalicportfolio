@@ -155,12 +155,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:720px){.grid{grid-template-columns:minmax(0,1fr)}}
 .card{display:flex;flex-direction:column;gap:18px;text-decoration:none;transition:opacity .4s var(--ease)}
 .card.is-dim{opacity:.2}
-.card.feature{grid-column:1 / -1}
-@media (min-width:721px){
-  .card.feature{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:end}
-  .card.feature .cover{aspect-ratio:16/10}
-  .card.feature h3{font-size:clamp(34px,4vw,52px)}
-}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .cover-img{transform:scale(1.045)}
 .card h3{min-width:0}
 .nc{text-transform:none}
 .card-body{display:flex;flex-direction:column;gap:6px}
@@ -248,7 +244,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @keyframes rise{from{opacity:0;transform:translateY(10px)}}
 
 /* Image slots */
-.boards{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(170px,21vw,230px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.boards{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(200px,24vw,270px);align-items:start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.board-btn{display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--paper);cursor:zoom-in;transition:transform .3s var(--ease),border-color .3s}
+.board-btn:hover{transform:translateY(-4px);border-color:var(--ink)}
+.board-btn img{display:block;width:100%;height:auto}
+.lightbox{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:clamp(16px,4vw,48px);background:color-mix(in srgb,var(--block) 92%,transparent);cursor:zoom-out}
+.lightbox img{max-width:min(92vw,900px);max-height:84vh;width:auto;height:auto;cursor:default}
+.lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;font-size:14px;font-weight:700;border:0;background:var(--blue);color:var(--on-blue);padding:10px 16px;cursor:pointer}
+.lb-close:focus-visible{outline-color:var(--on-block)}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);margin:0;text-align:center;color:var(--on-block);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .board{scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;margin:0}
 .slot{aspect-ratio:1/2;max-width:100%;border:1.5px dashed color-mix(in srgb,var(--ink) 35%,transparent);background:var(--blue-soft);display:grid;place-items:center;text-align:center;padding:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .slot.wide{aspect-ratio:3/1}
@@ -412,10 +416,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
       <div class="grid">
-        <a class="card feature" href="#peaceland" data-tags="games graphic research">
+        <a class="card" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
-            <div class="art art-peace"></div>
-            <span class="mem" style="left:31%;top:38%"></span><span class="mem" style="left:62%;top:57%"></span><span class="mem" style="left:47%;top:26%"></span>
+            <img class="cover-img" src="img/peaceland-cover.jpg" alt="" loading="lazy">
             <span class="cover-tag">Game · 2026</span>
           </div>
           <div class="card-body">
@@ -494,9 +497,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Narrative-driven video game</p>
         <h1 class="cs-title">Peaceland</h1>
       </header>
-      <div class="cover cs-banner" aria-hidden="true">
-        <div class="art art-peace"></div>
-        <span class="mem" style="left:22%;top:42%"></span><span class="mem" style="left:58%;top:60%"></span><span class="mem" style="left:44%;top:28%"></span><span class="mem" style="left:76%;top:34%"></span>
+      <div class="cover cs-banner">
+        <img class="cover-img" src="img/peaceland-cover.jpg" alt="Peaceland title art: a willow tree hung with paper memories inside a domed museum, under the words Choose Your Memory">
       </div>
     </div>
 
@@ -550,14 +552,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <section class="block-section" aria-labelledby="boards-h">
       <div class="sec-head">
         <h2 class="sec-title" id="boards-h">Brainstorming in Figma</h2>
-        <p class="label">Scroll &rarr;</p>
+        <p class="label">Click a board to enlarge &rarr;</p>
       </div>
       <div class="boards">
-        <figure class="board"><div class="slot">Image<br>coming</div><figcaption>Endings brainstorm board</figcaption></figure>
-        <figure class="board"><div class="slot">Image<br>coming</div><figcaption>Three factions brainstorm board</figcaption></figure>
-        <figure class="board"><div class="slot">Image<br>coming</div><figcaption>Brainstorm board</figcaption></figure>
-        <figure class="board"><div class="slot">Image<br>coming</div><figcaption>Brainstorm board</figcaption></figure>
-        <figure class="board"><div class="slot">Image<br>coming</div><figcaption>Brainstorm board</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
       </div>
     </section>
 
@@ -665,6 +667,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="foot-small"><span>© 2026 Ana Galic</span><span>Designed and created by Ana Galic</span></div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+  <img id="lb-img" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+  <button type="button" class="lb-close" id="lb-close">Close</button>
+</div>
 
 <script>
 (() => {
@@ -928,6 +936,33 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       if (e.key === 'End'){ e.preventDefault(); choose(tabs.length - 1, true); }
     });
   });
+
+  /* Brainstorm boards: click one to see it large */
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-cap');
+  const lbClose = document.getElementById('lb-close');
+  let lbReturn = null;
+  function openLb(btn){
+    const img = btn.querySelector('img');
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = btn.closest('figure').querySelector('figcaption').textContent;
+    lbReturn = btn;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+  function closeLb(){
+    if (lb.hidden) return;
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lbReturn) lbReturn.focus();
+  }
+  document.querySelectorAll('.board-btn').forEach(b => b.addEventListener('click', () => openLb(b)));
+  lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  window.addEventListener('hashchange', closeLb);
 
   /* Copy email */
   const copyBtn = document.getElementById('copy-email');
