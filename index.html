@@ -155,6 +155,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:720px){.grid{grid-template-columns:minmax(0,1fr)}}
 .card{display:flex;flex-direction:column;gap:18px;text-decoration:none;transition:opacity .4s var(--ease)}
 .card.is-dim{opacity:.2}
+.card.feature{grid-column:1 / -1}
+@media (min-width:721px){
+  .card.feature{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:end}
+  .card.feature .cover{aspect-ratio:16/10}
+  .card.feature h3{font-size:clamp(34px,4vw,52px)}
+}
+.card h3{min-width:0}
+.nc{text-transform:none}
 .card-body{display:flex;flex-direction:column;gap:6px}
 .card-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .card h3{font-family:var(--display);font-size:clamp(26px,2.8vw,34px);font-weight:700;margin:0;line-height:1.05;text-transform:uppercase;text-decoration-line:underline;text-decoration-thickness:.12em;text-underline-offset:.16em;text-decoration-color:transparent;transition:text-decoration-color .3s}
@@ -186,6 +194,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .art-posters i:nth-child(3n){border:2px solid var(--on-block)}
 .card:hover .art-posters i:nth-child(odd){transform:rotate(-3deg) translateY(-4%)}
 .card:hover .art-posters i:nth-child(even){transform:rotate(2deg) translateY(3%)}
+.art-feed{display:grid;place-items:center}
+.phone{height:78%;aspect-ratio:9/16;max-width:90%;border:2px solid var(--on-block);border-radius:18px;padding:16px 10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-content:start;gap:4px}
+.phone i{display:block;aspect-ratio:1;background:color-mix(in srgb,var(--on-block) 16%,transparent);transition:transform .45s var(--ease)}
+.phone i:nth-child(3n+2){background:var(--blue)}
+.phone i:nth-child(5n){background:var(--on-block)}
+.card:hover .phone i:nth-child(odd){transform:scale(.84)}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -201,6 +215,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .lede{font-family:var(--display);font-weight:460;font-size:clamp(22px,2.5vw,30px);line-height:1.25;margin:0;text-wrap:pretty}
 .cs-copy{display:flex;flex-direction:column;gap:14px}
 .cs-copy p{margin:0;max-width:62ch}
+.did{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:62ch}
+.did li{position:relative;padding-left:24px}
+.did li::before{content:"";position:absolute;left:0;top:.8em;width:12px;height:2px;background:var(--ink)}
 .meta{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin:0}
 .meta div{display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid var(--line)}
 .meta dd{margin:0;font-weight:600;line-height:1.45}
@@ -395,7 +412,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
       <div class="grid">
-        <a class="card" href="#peaceland" data-tags="games graphic research">
+        <a class="card feature" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
             <div class="art art-peace"></div>
             <span class="mem" style="left:31%;top:38%"></span><span class="mem" style="left:62%;top:57%"></span><span class="mem" style="left:47%;top:26%"></span>
@@ -432,16 +449,28 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <ul class="tags"><li>Full-stack development</li><li>Accessible design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
-        <a class="card" href="#promotional-material" data-tags="graphic product">
+        <a class="card" href="#izone" data-tags="graphic">
           <div class="cover" aria-hidden="true">
-            <div class="art art-posters"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <span class="cover-tag">Graphic · 2026</span>
+            <div class="art art-feed"><div class="phone"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="cover-tag">Marketing · 2026</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>Promotional Material</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
-            <p class="card-type">Promotional design &amp; communications</p>
-            <p class="card-meta">2026</p>
-            <ul class="tags"><li>Visual graphics</li><li>Product design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
+            <div class="card-row"><h3><span class="nc">iZone</span></h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <p class="card-type">Marketing &amp; graphic design</p>
+            <p class="card-meta">Aug 2026 – present</p>
+            <ul class="tags"><li>Social media graphics</li><li>Event campaigns</li><li>Brand guidelines</li><li>Adobe Creative Suite</li></ul>
+          </div>
+        </a>
+        <a class="card" href="#university-organizations" data-tags="graphic">
+          <div class="cover" aria-hidden="true">
+            <div class="art art-posters"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="cover-tag">Graphic · 2025–26</span>
+          </div>
+          <div class="card-body">
+            <div class="card-row"><h3>University Organizations Material</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <p class="card-type">Promotional design for student organizations</p>
+            <p class="card-meta">Sep 2025 – present</p>
+            <ul class="tags"><li>Visual graphics</li><li>Brand identity</li><li>Social media</li><li>Web design</li></ul>
           </div>
         </a>
       </div>
@@ -655,16 +684,38 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const artHTML = {
     sun: '<div class="art art-sun"></div>',
     wave: '<div class="art art-wave" data-bars="44"></div>',
-    posters: '<div class="art art-posters"><i></i><i></i><i></i><i></i><i></i><i></i></div>'
+    posters: '<div class="art art-posters"><i></i><i></i><i></i><i></i><i></i><i></i></div>',
+    feed: '<div class="art art-feed"><div class="phone">' + '<i></i>'.repeat(12) + '</div></div>'
   };
 
-  /* Case studies still waiting on Ana's content */
-  const order = ['peaceland','soulshine','vals','promotional-material'];
-  const names = {peaceland:'Peaceland',soulshine:'Soulshine',vals:'VALS','promotional-material':'Promotional Material'};
+  /* Case studies still waiting on Ana's full write-up */
+  const order = ['peaceland','soulshine','vals','izone','university-organizations'];
+  const names = {peaceland:'Peaceland', soulshine:'Soulshine', vals:'VALS', izone:'iZone', 'university-organizations':'University Organizations Material'};
+  const keepCase = new Set(['izone']);
+  const title = id => keepCase.has(id) ? `<span class="nc">${names[id]}</span>` : names[id];
+  const emptyNote = "This case study is empty on your current site (it shows Peaceland's text). Send me what the project was, your role, the problem, your process, the outcome, and 4 to 8 images.";
   const stubs = {
-    soulshine: {type:'Multi-sensory focus lamp & companion app', lede:'Soulshine is a multi-sensory focus lamp with a companion app.', role:'Team lead<br>Product design, UX/UI', time:'Jan 2026 – May 2026', focus:'Team leadership, Product design, UX/UI, User research, Web design', art:'sun'},
-    vals: {type:'Multilingual AI voice assistant', lede:'VALS is a multilingual AI voice assistant, designed to be accessible.', role:'Full-stack development<br>UX/UI', time:'Aug 2025 – Dec 2025', focus:'Full-stack development, Accessible design, UX/UI, User research, Web design', art:'wave'},
-    'promotional-material': {type:'Promotional design & communications', lede:'A unified set of promotional materials that gives University of Rochester initiatives a consistent, adaptable visual voice.', role:'Visual graphics', time:'2026', focus:'Visual graphics, Product design, UX/UI, User research, Web design', art:'posters'}
+    soulshine: {type:'Multi-sensory focus lamp & companion app', art:'sun', note:emptyNote,
+      lede:'Soulshine is a multi-sensory focus lamp with a companion app.',
+      meta:[['Role','Team lead<br>Product design, UX/UI'], ['Timeline','Jan 2026 – May 2026'], ['Focus','Team leadership, Product design, UX/UI, User research, Web design']]},
+    vals: {type:'Multilingual AI voice assistant', art:'wave', note:emptyNote,
+      lede:'VALS is a multilingual AI voice assistant, designed to be accessible.',
+      meta:[['Role','Full-stack development<br>UX/UI'], ['Timeline','Aug 2025 – Dec 2025'], ['Focus','Full-stack development, Accessible design, UX/UI, User research, Web design']]},
+    izone: {type:'Marketing & graphic design', art:'feed',
+      note:'I wrote this from your résumé. Send me 4 to 8 images of your iZone work (social posts, flyers, campaign graphics) and anything you want to change here.',
+      lede:'At the Barbara J. Burger iZone at the University of Rochester, I design the graphics behind its social media, events, and campaigns.',
+      did:['Design social media graphics that stay consistent with the iZone brand guidelines.',
+           'Planned TEDx event programming and created its promotional flyers, social media, and visual campaigns.',
+           'Coordinate with event staff and the marketing team on timelines and asset delivery.',
+           'Keep the digital asset library and design templates organized for future campaigns.'],
+      meta:[['Role','Marketing Assistant<br>Graphic Design Team'], ['Tools','Adobe Photoshop, Illustrator, Lightroom, Figma, Canva'], ['Timeline','Aug 2026 – present']]},
+    'university-organizations': {type:'Promotional design for student organizations', art:'posters',
+      note:'I wrote this from your résumé. Send me 4 to 8 images (posters, social posts, web pages) and tell me if other organizations belong here too.',
+      lede:'Promotional graphics, social content, and brand work for student organizations at the University of Rochester.',
+      did:['Rochester Design Hub: direct the website (UX/UI) and lead graphic design projects from concept to finished piece.',
+           'Rochester Design Hub: shape the brand identity and the content on its social platforms.',
+           'Girls Who Code: run the social media strategy and create content across platforms.'],
+      meta:[['Role','Executive Board, Rochester Design Hub<br>Executive Board, Girls Who Code'], ['Timeline','Sep 2025 – present'], ['Focus','Visual graphics, Brand identity, Social media, Web design']]}
   };
   const esc = s => s.replace(/&/g,'&amp;');
   for (const [id, p] of Object.entries(stubs)){
@@ -673,23 +724,21 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     el.className = 'view wrap';
     el.dataset.view = id;
     el.hidden = true;
+    const did = p.did ? `<ul class="did">${p.did.map(d => `<li>${d}</li>`).join('')}</ul>` : '';
+    const meta = p.meta.map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${v}</dd></div>`).join('');
     el.innerHTML = `
       <div class="cs-top">
         <a class="back" href="#professional">&larr; All work</a>
-        <header class="cs-head"><p class="label">${esc(p.type)}</p><h1 class="cs-title${names[id].length > 12 ? ' long' : ''}">${names[id]}</h1></header>
+        <header class="cs-head"><p class="label">${esc(p.type)}</p><h1 class="cs-title${names[id].length > 12 ? ' long' : ''}">${title(id)}</h1></header>
         <div class="cover cs-banner" aria-hidden="true">${artHTML[p.art]}</div>
       </div>
       <div class="cs-intro">
-        <div class="cs-copy"><p class="lede">${p.lede}</p>
+        <div class="cs-copy"><p class="lede">${p.lede}</p>${did}
           <p class="label">Full case study coming soon</p>
         </div>
-        <dl class="meta">
-          <div><dt class="label">Role</dt><dd>${p.role}</dd></div>
-          <div><dt class="label">Timeline</dt><dd>${p.time}</dd></div>
-          <div><dt class="label">Focus</dt><dd>${p.focus}</dd></div>
-        </dl>
+        <dl class="meta">${meta}</dl>
       </div>
-      <a class="next" href="#${next}"><span class="label">Next project</span><span class="next-title">${names[next]} &rarr;</span></a>`;
+      <a class="next" href="#${next}"><span class="label">Next project</span><span class="next-title">${title(next)} &rarr;</span></a>`;
     main.appendChild(el);
   }
   document.querySelectorAll('.art-wave').forEach(waveBars);
@@ -821,8 +870,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); layoutArt(); sizePad(); }, 120); });
 
   /* Router: one view per bare #anchor */
-  const routes = ['professional','personal','about','peaceland','soulshine','vals','promotional-material','peaceland-research'];
-  const aliases = {'selected-work':'professional', work:'professional', play:'personal'};
+  const routes = ['professional','personal','about','peaceland','soulshine','vals','izone','university-organizations','peaceland-research'];
+  const aliases = {'selected-work':'professional', work:'professional', play:'personal', 'promotional-material':'university-organizations'};
   function route(){
     let r = location.hash.replace(/^#/, '') || 'professional';
     r = aliases[r] || r;
