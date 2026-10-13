@@ -286,6 +286,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .f-sg{font-family:"Space Grotesk",var(--body)}
 .f-in{font-family:"Inter",var(--body)}
 .type-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.type-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1000px){.type-grid.three{grid-template-columns:minmax(0,1fr)}}
+.type-card.light-card{background:var(--art-paper);color:var(--art-ink);border-color:var(--line)}
+.type-card.light-card .type-use{color:var(--ss-chrome-text)}
+.type-card.light-card .type-img{margin-top:8px;width:86%}
+.type-hero{display:block;width:78%;height:auto;margin-block:6px 10px}
 @media (max-width:760px){.type-grid{grid-template-columns:minmax(0,1fr)}}
 .type-card{display:flex;flex-direction:column;gap:8px;background:var(--ss-ink);color:var(--art-paper);border:1px solid var(--block-line);padding:clamp(18px,2.6vw,28px);min-width:0}
 .type-aa{font-size:clamp(56px,7vw,88px);font-weight:700;line-height:1;letter-spacing:-.02em}
@@ -295,6 +301,19 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .f-sg .type-sample{color:var(--art-paper);font-weight:600;font-size:clamp(20px,2vw,26px);line-height:1.2}
 .weights{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .weights span{font-size:14px;padding:3px 10px;border:1px solid color-mix(in srgb,var(--art-paper) 14%,transparent);border-radius:999px;font-variant-numeric:tabular-nums}
+.lsteps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px);margin-block:6px 14px}
+@media (max-width:760px){.lsteps{grid-template-columns:minmax(0,1fr)}}
+.lstep{display:flex;flex-direction:column;gap:10px;min-width:0}
+.lstep.full{grid-column:1 / -1}
+.wordmarks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1.2vw,14px)}
+@media (max-width:1000px){.wordmarks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.wordmarks{grid-template-columns:minmax(0,1fr)}}
+.wm-tile{display:grid;place-items:center;padding:clamp(14px,2.4vw,26px) clamp(16px,3vw,32px);background:var(--art-paper);border:1px solid var(--line)}
+.wm-tile img{display:block;width:100%;height:auto}
+.shots,.bgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1.2vw,14px)}
+@media (max-width:520px){.bgs{grid-template-columns:minmax(0,1fr)}}
+.shots figure,.bgs figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.shots img,.bgs img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .logo-origin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(16px,3vw,32px);align-items:center;margin-bottom:12px}
 @media (max-width:640px){.logo-origin{grid-template-columns:minmax(0,1fr)}}
 .logo-origin figure{margin:0;display:flex;flex-direction:column;gap:8px}
@@ -853,12 +872,18 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <p class="kit-note">Borders are white at 6% opacity, rising to 10–12% on hover, so cards separate softly without hard lines.</p>
         </div>
         <div class="brand-block">
-          <p class="label">Typography · Google Fonts</p>
-          <div class="type-grid">
+          <p class="label">Typography</p>
+          <div class="type-grid three">
+            <div class="type-card light-card">
+              <img class="type-hero" src="img/soulshine/wordmark-black.jpg" alt="" loading="lazy">
+              <span class="type-name">All Round Gothic Bold</span>
+              <span class="type-use">The logo wordmark</span>
+              <img class="type-img" src="img/soulshine/type-allround.jpg" alt="The words All Round Gothic Bold, set in All Round Gothic Bold" loading="lazy">
+            </div>
             <div class="type-card f-sg">
               <span class="type-aa" aria-hidden="true">Aa</span>
               <span class="type-name">Space Grotesk</span>
-              <span class="type-use">Headings, titles and the logo wordmark</span>
+              <span class="type-use">Website headings and titles</span>
               <span class="type-sample">Your attention is worth protecting.</span>
               <span class="weights"><span style="font-weight:400">400</span><span style="font-weight:500">500</span><span style="font-weight:600">600</span><span style="font-weight:700">700</span></span>
             </div>
@@ -872,19 +897,48 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </div>
         <div class="brand-block logos-block">
-          <p class="label">Logo</p>
-          <div class="logo-origin">
-            <figure><span class="logo-tile fit" style="background:#030202"><img src="img/soulshine/brand-logo-original.jpg" alt="The original flat Soulshine logo: a light blue lamp shade with the word Soulshine, casting warm light downward on black" loading="lazy"></span><figcaption class="label">Original · Adobe Photoshop</figcaption></figure>
-            <div class="origin-text">
-              <h3>From a flat sketch to a 3D lamp</h3>
-              <p>I first designed the logo as a flat shape in Adobe Photoshop: a lamp shade carrying the Soulshine wordmark, with warm light falling from underneath. I then rebuilt it as a 3D model in Figma and made three versions of it.</p>
+          <p class="label">Logo · Adobe Photoshop, then Figma</p>
+          <div class="origin-text">
+            <h3>From a wordmark to a 3D lamp</h3>
+            <p>I designed the Soulshine logo myself. In Adobe Photoshop I started with the wordmark, set in All Round Gothic Bold, and tried it in black, in blue and with halftone glows. Then I drew a flat lamp shade carrying the name, with light falling from underneath, in a version for dark mode and one for light mode. Finally I rebuilt the lamp as a 3D model in Figma.</p>
+          </div>
+          <div class="lsteps">
+            <div class="lstep full">
+              <p class="label">1 · Wordmark · Adobe Photoshop</p>
+              <div class="wordmarks">
+                <span class="wm-tile"><img src="img/soulshine/wordmark-black.jpg" alt="Soulshine wordmark in black" loading="lazy"></span>
+                <span class="wm-tile"><img src="img/soulshine/wordmark-blue.jpg" alt="Soulshine wordmark in blue" loading="lazy"></span>
+                <span class="wm-tile"><img src="img/soulshine/wordmark-halftone-blue.jpg" alt="Soulshine wordmark in black with a blue halftone glow" loading="lazy"></span>
+                <span class="wm-tile"><img src="img/soulshine/wordmark-halftone-black.jpg" alt="Soulshine wordmark in blue with a black halftone glow" loading="lazy"></span>
+              </div>
+            </div>
+            <div class="lstep">
+              <p class="label">2 · Flat lamp · Adobe Photoshop</p>
+              <div class="shots">
+                <figure><img src="img/soulshine/logo-idea-dark.jpg" alt="Flat Soulshine lamp logo in dark mode: a light blue shade with the name, glowing warm light onto black" loading="lazy"><figcaption class="label">Dark mode</figcaption></figure>
+                <figure><img src="img/soulshine/logo-idea-light.jpg" alt="Flat Soulshine lamp logo in light mode: the same blue shade with a soft yellow glow on white" loading="lazy"><figcaption class="label">Light mode</figcaption></figure>
+              </div>
+            </div>
+            <div class="lstep">
+              <p class="label">3 · 3D lamp · Figma</p>
+              <div class="shots">
+                <figure><img src="img/soulshine/logo-3d-dark.jpg" alt="3D Soulshine lamp logo on black: a glossy blue shade with a navy wordmark and a warm bulb" loading="lazy"><figcaption class="label">Dark mode</figcaption></figure>
+                <figure><img src="img/soulshine/logo-3d-light.jpg" alt="3D Soulshine lamp logo on white" loading="lazy"><figcaption class="label">Light mode</figcaption></figure>
+              </div>
             </div>
           </div>
-          <p class="label">3D logo · Figma · three versions</p>
+          <p class="label">4 · 3D logo · three color versions</p>
           <div class="logos">
             <figure><span class="logo-tile fill" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine 3D logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
             <figure><span class="logo-tile fit" style="background:#F5F5F5"><img src="img/soulshine/brand-logo-blue.jpg" alt="Soulshine 3D logo, blue version: a blue lamp shade with the word Soulshine in navy and a glowing warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
             <figure><span class="logo-tile fill" style="background:#7FA6E6"><img src="img/soulshine/brand-logo-dark.jpg" alt="Soulshine 3D logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span><figcaption class="label">Version 3 · Dark</figcaption></figure>
+          </div>
+        </div>
+        <div class="brand-block">
+          <p class="label">Background design</p>
+          <div class="bgs">
+            <figure><img src="img/soulshine/bg-glow.jpg" alt="Background design: a single soft halo of blue light on black" loading="lazy"><figcaption class="label">Halo, like the lamp's light</figcaption></figure>
+            <figure><img src="img/soulshine/bg-wave.jpg" alt="Background design: slow, blurred waves of blue on black" loading="lazy"><figcaption class="label">Slow wave of blue</figcaption></figure>
           </div>
         </div>
       </div>
