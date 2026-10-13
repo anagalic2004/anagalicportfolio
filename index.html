@@ -246,7 +246,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .ss-window .ss-bar{padding:10px 14px;font-size:12px;gap:14px}
 .ss-window .ss-url{background:var(--win-bg,var(--ss-ink));padding:5px 10px;border-radius:6px}
 .ss-window .ss-bar{background:var(--win-bar,var(--ss-chrome))}
-.ss-open{flex:none;color:var(--art-paper);font-family:var(--body);font-weight:700;font-size:13px;text-decoration:none;background:var(--win-accent,var(--ss-blue));padding:6px 12px;border-radius:6px}
+.ss-open{flex:none;color:var(--art-paper);font-family:var(--body);font-weight:700;font-size:14px;text-decoration:none;background:var(--win-accent,var(--ss-blue));padding:8px 16px;border-radius:999px;box-shadow:0 0 0 0 color-mix(in srgb,var(--win-accent,var(--ss-blue)) 60%,transparent);animation:visit-pulse 2.6s ease-out infinite}
 .ss-open:hover{background:color-mix(in srgb,var(--win-accent,var(--ss-blue)) 85%,var(--art-paper))}
 .ss-open:focus-visible{outline-color:var(--art-paper)}
 .ss-viewport{height:clamp(340px,64vh,660px);overflow-y:auto;overscroll-behavior:contain;background:var(--win-bg,var(--ss-ink));scrollbar-color:color-mix(in srgb,var(--art-paper) 25%,transparent) transparent}
@@ -358,6 +358,28 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .vl-explore{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .vl-explore figure{margin:0}
 .vl-explore .label{grid-column:1 / -1}
+
+/* Visit the live website: a clear button under the title and a banner at the end, in each project's colors */
+.v-ss{--v-bg:var(--ss-blue);--v-glow:var(--ss-light);--v-fg:#FFFFFF}
+.v-vl{--v-bg:var(--vl-burgundy);--v-glow:var(--vl-sky);--v-fg:var(--vl-white)}
+.visit-top{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;margin-top:6px;padding:14px 22px;border-radius:999px;background:var(--v-bg);color:var(--v-fg);font-weight:700;font-size:clamp(15px,1.4vw,17px);text-decoration:none;box-shadow:0 0 0 0 color-mix(in srgb,var(--v-bg) 55%,transparent);animation:visit-pulse 2.6s ease-out infinite;transition:transform .25s var(--ease)}
+.visit-top:hover{transform:translateY(-2px)}
+.visit-top:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.visit-dot{width:9px;height:9px;border-radius:50%;background:var(--v-glow);box-shadow:0 0 10px 2px color-mix(in srgb,var(--v-glow) 70%,transparent)}
+.visit-arrow{font-size:1.15em;line-height:1;transition:transform .3s var(--ease)}
+.visit-top:hover .visit-arrow{transform:translate(3px,-3px)}
+@keyframes visit-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--v-bg,var(--win-accent,var(--ss-blue))) 55%,transparent)}70%,100%{box-shadow:0 0 0 14px transparent}}
+.visit-banner{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,3vw,40px);padding:clamp(28px,5vw,56px) clamp(22px,4vw,56px);background:radial-gradient(ellipse 55% 120% at 92% 50%,color-mix(in srgb,var(--v-glow) 55%,transparent),transparent 70%),var(--v-bg);color:var(--v-fg);text-decoration:none;border-radius:clamp(14px,2vw,22px);transition:transform .35s var(--ease)}
+.visit-banner:hover{transform:translateY(-3px)}
+.visit-banner:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.visit-copy{display:flex;flex-direction:column;gap:8px;min-width:0}
+.visit-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.visit-title{font-family:var(--display);font-weight:760;font-size:clamp(28px,4.4vw,58px);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+.visit-url{font-family:var(--mono);font-size:clamp(12px,1.2vw,14px);opacity:.8;overflow-wrap:anywhere}
+.visit-circle{flex:none;display:grid;place-items:center;width:clamp(60px,8vw,104px);aspect-ratio:1;border-radius:50%;background:var(--v-fg);color:var(--v-bg);font-size:clamp(26px,3.4vw,42px);font-weight:700;transition:transform .4s var(--ease)}
+.visit-banner:hover .visit-circle{transform:rotate(45deg) scale(1.06)}
+.back-row{margin-top:-24px}
+@media (max-width:520px){.visit-banner{flex-direction:column;align-items:flex-start}}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -817,6 +839,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <header class="cs-head">
         <p class="label">Multi-sensory focus lamp, companion app &amp; website</p>
         <h1 class="cs-title">Soulshine</h1>
+        <a class="visit-top v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live Soulshine website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
       <div class="ss-explorer" data-dir="img/soulshine/ss-">
         <div class="ss-tabs" role="tablist" aria-label="Soulshine website pages">
@@ -983,10 +1006,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
 
-    <div class="linkrow">
-      <a class="biglink" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span><small>Figma Sites</small><strong>Visit the Soulshine website</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="biglink" href="#professional"><span><small>Portfolio</small><strong>Back to all work</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
+    <a class="visit-banner v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">
+      <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the Soulshine website</span><span class="visit-url">linter-berry-84402425.figma.site</span></span>
+      <span class="visit-circle" aria-hidden="true">&#8599;</span>
+    </a>
+    <a class="back back-row" href="#professional">&larr; Back to all work</a>
 
     <a class="next" href="#vals"><span class="label">Next project</span><span class="next-title">VALS &rarr;</span></a>
   </article>
@@ -998,6 +1022,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <header class="cs-head">
         <p class="label">Multilingual AI voice assistant &amp; website</p>
         <h1 class="cs-title">VALS</h1>
+        <a class="visit-top v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live VALS website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
       <div class="ss-explorer vl-explorer" data-dir="img/vals/vals-">
         <div class="ss-tabs" role="tablist" aria-label="VALS website pages">
@@ -1126,10 +1151,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </section>
 
-    <div class="linkrow">
-      <a class="biglink" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span><small>Figma Sites</small><strong>Visit the VALS website</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="biglink" href="#professional"><span><small>Portfolio</small><strong>Back to all work</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
+    <a class="visit-banner v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener">
+      <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the VALS website</span><span class="visit-url">serene-july-87892059.figma.site</span></span>
+      <span class="visit-circle" aria-hidden="true">&#8599;</span>
+    </a>
+    <a class="back back-row" href="#professional">&larr; Back to all work</a>
 
     <a class="next" href="#izone"><span class="label">Next project</span><span class="next-title"><span class="nc">iZone</span> &rarr;</span></a>
   </article>
