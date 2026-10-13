@@ -258,9 +258,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
 @media (max-width:960px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.team-grid{grid-template-columns:minmax(0,1fr)}}
-.brand{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,36px) clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
+.brand-kit{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,36px) clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
 .brand-block:first-child{grid-row:span 2}
-@media (max-width:860px){.brand{grid-template-columns:minmax(0,1fr)}.brand-block:first-child{grid-row:auto}}
+@media (max-width:860px){.brand-kit{grid-template-columns:minmax(0,1fr)}.brand-block:first-child{grid-row:auto}}
 .brand-block{display:flex;flex-direction:column;gap:12px;min-width:0}
 .swatches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .swatch{display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center}
@@ -772,7 +772,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="hl"><p class="label">A choice for the viewer</p><h3 class="with-icons">Light and dark mode <span class="mode-icons" aria-hidden="true"><img src="img/soulshine/icon-moon.png" alt=""><img src="img/soulshine/icon-sun.png" alt=""></span></h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
         <div class="hl"><p class="label">Made in Adobe Photoshop</p><h3>Logo and brand</h3><p>I created the Soulshine logo and brand myself. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
       </div>
-      <div class="brand">
+      <div class="brand-kit">
         <div class="brand-block">
           <p class="label">Colors</p>
           <ul class="swatches">
