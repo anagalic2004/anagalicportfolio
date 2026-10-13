@@ -255,12 +255,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .steps h3{margin:0 0 4px;font-family:var(--display);font-weight:640;font-size:20px;line-height:1.2}
 .steps p{margin:0;color:var(--muted);max-width:62ch}
 .steps li.key h3::after{content:"Stakeholder meeting";margin-left:10px;vertical-align:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--blue);color:var(--on-blue);padding:3px 7px}
-.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
-@media (max-width:960px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.team-grid{grid-template-columns:minmax(0,1fr)}}
 .brand-kit{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,36px) clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
-.brand-block:first-child{grid-row:span 2}
-@media (max-width:860px){.brand-kit{grid-template-columns:minmax(0,1fr)}.brand-block:first-child{grid-row:auto}}
+.logos-block{grid-column:1 / -1}
+@media (max-width:860px){.brand-kit{grid-template-columns:minmax(0,1fr)}}
 .brand-block{display:flex;flex-direction:column;gap:12px;min-width:0}
 .swatches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .swatch{display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center}
@@ -269,16 +266,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .sw-meta{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .type-tile{margin:0;background:var(--ss-type-bg);border:1px solid var(--block-line);padding:clamp(14px,2.4vw,24px)}
 .type-tile img{display:block;width:100%;height:auto}
-.logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
 .logos figure{margin:0;display:flex;flex-direction:column;gap:8px}
-.logo-tile{display:grid;place-items:center;aspect-ratio:16/10;max-width:100%;padding:8%;border:1px solid var(--block-line);overflow:hidden}
+.logo-tile{display:grid;place-items:center;aspect-ratio:17/10;max-width:100%;padding:8%;border:1px solid var(--block-line);overflow:hidden}
 .logo-tile img{display:block;width:100%;height:100%;object-fit:contain}
+.logo-tile.fill{padding:0}
+.logo-tile.fill img{object-fit:cover}
 .mockup{margin:0;display:flex;flex-direction:column;gap:10px}
 .mockup img{display:block;width:100%;height:auto;border-radius:clamp(10px,1.6vw,18px)}
 .with-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mode-icons{display:inline-flex;gap:4px}
 .mode-icons img{width:26px;height:26px;border-radius:6px;border:1px solid var(--line)}
-.team-grid .me h3::after{content:" (me)";font-weight:500;color:var(--muted)}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -787,11 +785,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <p class="label">Typeface</p>
           <figure class="type-tile"><img src="img/soulshine/brand-type.jpg" alt="The headline typeface on the Soulshine website, in the line Designed for Real People" loading="lazy"></figure>
         </div>
-        <div class="brand-block">
-          <p class="label">Logo · two versions</p>
+        <div class="brand-block logos-block">
+          <p class="label">Logo · three versions</p>
           <div class="logos">
-            <figure><span class="logo-tile" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
+            <figure><span class="logo-tile fill" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
             <figure><span class="logo-tile" style="background:#E0E0E0"><img src="img/soulshine/brand-logo-blue.jpg" alt="Soulshine logo, blue version: a blue lamp shade with the word Soulshine in navy and a warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
+            <figure><span class="logo-tile fill" style="background:#7FA6E6"><img src="img/soulshine/brand-logo-dark.jpg" alt="Soulshine logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span><figcaption class="label">Version 3 · Dark</figcaption></figure>
           </div>
         </div>
       </div>
@@ -823,13 +822,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="ss-people-h">
-      <h2 class="sec-title" id="ss-people-h">Designed for real people</h2>
-      <div class="highlights two">
-        <div class="hl"><p class="label">Persona · Financial Analyst, 24</p><h3>Sarah Jenkins</h3><p>Picks up her phone to decompress after long days of spreadsheets, and short-form content keeps her up late. She needs a cue that feels gentle, not punishing.</p></div>
-        <div class="hl"><p class="label">Persona · IT PM &amp; Technical Lead, 38</p><h3>Marcus Smith</h3><p>Evaluates hardware and security risks before anything reaches campus. He needs exact specs, a transparent budget and no overpromising.</p></div>
-      </div>
-    </section>
 
     <section class="block-section" aria-labelledby="ss-process-h">
       <h2 class="sec-title" id="ss-process-h">From concept to launch</h2>
@@ -842,15 +834,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </ol>
     </section>
 
-    <section class="block-section" aria-labelledby="ss-team-h">
-      <h2 class="sec-title" id="ss-team-h">The team</h2>
-      <div class="team-grid">
-        <div class="hl me"><p class="label">Team Lead &amp; Visual Designer</p><h3>Ana Galić</h3><p>Led the team's workflow, managed the budget and timelines, developed the personas and shaped the design vision.</p></div>
-        <div class="hl"><p class="label">Visual Designer</p><h3>Rosemary Trotter</h3><p>Built wireframes and app layouts.</p></div>
-        <div class="hl"><p class="label">Generator / Synthesizer</p><h3>Yufan Lin</h3><p>Conducted research, sourced materials, generated ideas and synthesized the physical product's properties.</p></div>
-        <div class="hl"><p class="label">Industrial Designer</p><h3>Arthur Chow</h3><p>Created the 3D product designs, contributed to research and developed user personas.</p></div>
-      </div>
-    </section>
 
     <div class="linkrow">
       <a class="biglink" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span><small>Figma Sites</small><strong>Visit the Soulshine website</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
