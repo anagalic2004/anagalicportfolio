@@ -44,6 +44,9 @@
   --vl-sky:#A7C6ED;
   --vl-sky-light:#C8E3F5;
   --vl-type-bg:#191313;
+  /* iZone introduction posts */
+  --iz-pink:#E0AFD9;
+  --iz-yellow:#F6D934;
   --ss-light:#A9C4FF;
   --ss-deep:#1A375C;
   --on-blue:#0B0C0E;
@@ -381,6 +384,32 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .back-row{margin-top:-24px}
 @media (max-width:520px){.visit-banner{flex-direction:column;align-items:flex-start}}
 
+/* iZone: introduction posts fanned out on the cover, spreading apart on hover */
+.iz-cover{background:radial-gradient(circle at 30% 62%,color-mix(in srgb,var(--iz-pink) 38%,transparent),transparent 55%),radial-gradient(circle at 72% 62%,color-mix(in srgb,var(--iz-yellow) 30%,transparent),transparent 55%),var(--block)}
+.iz-fan{position:absolute;inset:0}
+.iz-fan img{position:absolute;left:50%;top:52%;width:34%;max-width:none;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:6px;box-shadow:0 18px 40px color-mix(in srgb,var(--art-ink) 50%,transparent);transition:transform .7s var(--ease)}
+.iz-fan .a{transform:translate(-86%,-50%) rotate(-7deg)}
+.iz-fan .b{transform:translate(-14%,-46%) rotate(6deg)}
+.card:hover .iz-fan .a,.card:focus-visible .iz-fan .a,.card.lit .iz-fan .a,.iz-banner .iz-fan .a{transform:translate(-106%,-52%) rotate(-3deg) scale(1.04)}
+.card:hover .iz-fan .b,.card:focus-visible .iz-fan .b,.card.lit .iz-fan .b,.iz-banner .iz-fan .b{transform:translate(6%,-50%) rotate(3deg) scale(1.04)}
+.iz-banner .iz-fan img{width:21%}
+@media (max-width:640px){.iz-banner .iz-fan img{width:34%}}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
+.flow li{display:flex;align-items:center;gap:10px;font-size:15px}
+.flow-n{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blue);color:var(--on-blue);font-family:var(--mono);font-size:12px;font-weight:500}
+.iposts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);max-width:980px}
+@media (max-width:720px){.iposts{grid-template-columns:minmax(0,1fr)}}
+.ipost{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ipost-btn{display:block;padding:0;border:1px solid var(--line);background:none;cursor:zoom-in;overflow:hidden;border-radius:6px}
+.ipost-btn img{display:block;width:100%;height:auto;transition:transform .6s var(--ease)}
+.ipost-btn:hover img{transform:scale(1.02)}
+.ipost figcaption{display:flex;flex-direction:column;gap:4px}
+.ipost-name{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.2vw,28px);line-height:1.1}
+.draws{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.draw-tile{position:relative;display:block;aspect-ratio:1;max-width:100%;background:var(--art-paper);border:1px solid var(--line);overflow:hidden;transition:transform .35s var(--ease)}
+.draw-tile:hover{transform:translateY(-3px) rotate(-2deg)}
+.draw-tile img{position:absolute;left:10%;top:10%;width:80%;height:80%;max-width:none;object-fit:contain}
+
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
 .back:hover{color:var(--ink)}
@@ -671,8 +700,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#izone" data-tags="graphic">
-          <div class="cover" aria-hidden="true">
-            <div class="art art-feed"><div class="phone"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="cover iz-cover" aria-hidden="true">
+            <div class="iz-fan"><img class="a" src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img class="b" src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
             <span class="cover-tag">Marketing · 2026</span>
           </div>
           <div class="card-body">
@@ -1169,7 +1198,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Marketing &amp; graphic design</p>
         <h1 class="cs-title"><span class="nc">iZone</span></h1>
       </header>
-      <div class="cover cs-banner" aria-hidden="true"><div class="art art-feed"><div class="phone"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      <div class="cover cs-banner iz-cover iz-banner" aria-hidden="true"><div class="iz-fan"><img class="a" src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img class="b" src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div></div>
     </div>
 
     <div class="cs-intro">
@@ -1186,7 +1215,26 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
     <section class="block-section" aria-labelledby="iz-intro-h">
       <div class="sec-head"><h2 class="sec-title" id="iz-intro-h">Introduction posts</h2><p class="label">Instagram · 2 posts</p></div>
-      <div class="cs-copy"><p>Two posts for iZone's Instagram page, introducing iZone to its followers.</p></div>
+      <div class="cs-copy"><p>A series that introduces the people behind iZone on Instagram. Each post pairs a cut-out portrait with a painted band of color, hand-drawn graphics that say something about the person, and a name tag with their last name in hand lettering.</p></div>
+      <ol class="flow" aria-label="How I made each post">
+        <li><span class="flow-n">1</span><span><b>Draw</b> the graphics and lettering by hand in Procreate</span></li>
+        <li><span class="flow-n">2</span><span><b>Build</b> the post in Adobe Photoshop</span></li>
+        <li><span class="flow-n">3</span><span><b>Publish</b> on iZone's Instagram</span></li>
+      </ol>
+      <div class="iposts">
+        <figure class="ipost">
+          <button type="button" class="ipost-btn" data-full="img/izone/post-ana.jpg" aria-label="Enlarge Ana's introduction post"><img src="img/izone/post-ana.jpg" alt="Instagram introduction post for Ana Galić: Ana in a striped sweater over a painted pink band, with a hand-drawn paint palette, sparkles, and a name tag reading Ana Galić" loading="lazy"></button>
+          <figcaption><span class="ipost-name">Ana Galić</span><span class="label">The first post · that's me</span></figcaption>
+          <p class="label">Drawn in Procreate</p>
+          <div class="draws"><span class="draw-tile"><img src="img/izone/draw-palette.jpg" alt="Hand-drawn paint palette with two brushes and five colors" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-sparkles.jpg" alt="Hand-drawn yellow sparkles" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-lily.jpg" alt="Hand-drawn pink lily" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-galic.jpg" alt="Hand-lettered Galić in pink" loading="lazy"></span></div>
+        </figure>
+        <figure class="ipost">
+          <button type="button" class="ipost-btn" data-full="img/izone/post-chase.jpg" aria-label="Enlarge Chase's introduction post"><img src="img/izone/post-chase.jpg" alt="Instagram introduction post for Chase Hayden: Chase reading a large dictionary over a painted yellow band, with hand-drawn music notes and a name tag reading Chase Hayden" loading="lazy"></button>
+          <figcaption><span class="ipost-name">Chase Hayden</span><span class="label">A fellow iZone employee</span></figcaption>
+          <p class="label">Drawn in Procreate</p>
+          <div class="draws"><span class="draw-tile"><img src="img/izone/draw-notes.jpg" alt="Hand-drawn music staff with a treble clef and notes" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-hayden.jpg" alt="Hand-lettered Hayden in yellow" loading="lazy"></span></div>
+        </figure>
+      </div>
     </section>
 
     <section class="block-section" aria-labelledby="iz-tedx-h">
@@ -1627,12 +1675,24 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       lb.scrollTop = Math.max(0, fy * z.height - lb.clientHeight / 2);
     }
   });
+  document.querySelectorAll('.ipost-btn').forEach(b => b.addEventListener('click', () => {
+    const img = b.querySelector('img');
+    openLb(b.dataset.full, img.alt, b.closest('figure').querySelector('.ipost-name').textContent, b);
+  }));
   document.querySelectorAll('.peek').forEach(b => b.addEventListener('click', () => {
     const img = b.querySelector('img');
     openLb(b.dataset.full, img.alt, b.dataset.cap, b, b.hasAttribute('data-zoom'));
   }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   window.addEventListener('hashchange', closeLb);
+
+  /* iZone card: on phones the posts spread apart once the card is in view */
+  if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
+    document.querySelectorAll('.iz-cover').forEach(c => {
+      const card = c.closest('.card');
+      if (card) new IntersectionObserver(es => es.forEach(en => card.classList.toggle('lit', en.isIntersecting)), {threshold: 0.6}).observe(card);
+    });
+  }
 
   /* Soulshine card: the aura leans toward the pointer and settles back when it leaves */
   document.querySelectorAll('[data-aura]').forEach(aura => {
