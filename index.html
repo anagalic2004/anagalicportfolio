@@ -35,6 +35,15 @@
   --ss-blue:#3B8EF3;
   --ss-glow:#3057AE;
   --ss-text-2:#888888;
+  /* VALS brand (its site is dark in both themes) */
+  --vl-black:#13100F;
+  --vl-card:#1E191A;
+  --vl-white:#EDE8E7;
+  --vl-burgundy:#64313E;
+  --vl-burgundy-hover:#7A3B4A;
+  --vl-sky:#A7C6ED;
+  --vl-sky-light:#C8E3F5;
+  --vl-type-bg:#191313;
   --ss-light:#A9C4FF;
   --ss-deep:#1A375C;
   --on-blue:#0B0C0E;
@@ -233,13 +242,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .ss-tabs{display:flex;flex-wrap:wrap;gap:8px}
 .chip[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
 .chip[role="tab"]:hover:not([aria-selected="true"]){background:var(--blue-soft)}
-.ss-window{border-radius:12px;overflow:hidden;border:1px solid var(--block-line);background:var(--ss-ink)}
+.ss-window{border-radius:12px;overflow:hidden;border:1px solid var(--block-line);background:var(--win-bg,var(--ss-ink))}
 .ss-window .ss-bar{padding:10px 14px;font-size:12px;gap:14px}
-.ss-window .ss-url{background:var(--ss-ink);padding:5px 10px;border-radius:6px}
-.ss-open{flex:none;color:var(--art-paper);font-family:var(--body);font-weight:700;font-size:13px;text-decoration:none;background:var(--ss-blue);padding:6px 12px;border-radius:6px}
-.ss-open:hover{background:color-mix(in srgb,var(--ss-blue) 85%,var(--art-paper))}
+.ss-window .ss-url{background:var(--win-bg,var(--ss-ink));padding:5px 10px;border-radius:6px}
+.ss-window .ss-bar{background:var(--win-bar,var(--ss-chrome))}
+.ss-open{flex:none;color:var(--art-paper);font-family:var(--body);font-weight:700;font-size:13px;text-decoration:none;background:var(--win-accent,var(--ss-blue));padding:6px 12px;border-radius:6px}
+.ss-open:hover{background:color-mix(in srgb,var(--win-accent,var(--ss-blue)) 85%,var(--art-paper))}
 .ss-open:focus-visible{outline-color:var(--art-paper)}
-.ss-viewport{height:clamp(340px,64vh,660px);overflow-y:auto;overscroll-behavior:contain;background:var(--ss-ink);scrollbar-color:color-mix(in srgb,var(--art-paper) 25%,transparent) transparent}
+.ss-viewport{height:clamp(340px,64vh,660px);overflow-y:auto;overscroll-behavior:contain;background:var(--win-bg,var(--ss-ink));scrollbar-color:color-mix(in srgb,var(--art-paper) 25%,transparent) transparent}
 .ss-viewport img{display:block;width:100%;height:auto;max-width:none}
 .ss-viewport:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
 @media (max-width:520px){.ss-window .ss-url{display:none}.ss-window .ss-bar{justify-content:space-between}}
@@ -295,6 +305,25 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .with-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mode-icons{display:inline-flex;gap:4px}
 .mode-icons img{width:26px;height:26px;border-radius:6px;border:1px solid var(--line)}
+
+/* VALS cover: a voice wave in the brand's sky blue that follows the pointer; the tagline cycles through its six languages */
+.vl-cover{background:radial-gradient(ellipse 70% 55% at 50% 44%,color-mix(in srgb,var(--vl-burgundy) 70%,transparent),transparent 72%),var(--vl-black)}
+.vl-wave{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vl-word{position:absolute;left:0;right:0;bottom:10%;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding-inline:16px;pointer-events:none}
+.vl-word b{font-family:var(--display);font-weight:760;font-size:clamp(28px,3.4vw,42px);line-height:1;letter-spacing:.02em;color:var(--vl-white)}
+.vl-say{font-size:clamp(14px,1.3vw,16px);line-height:1.35;color:var(--vl-sky);min-height:1.35em;transition:opacity .3s}
+.vl-say.fade{opacity:0}
+.vl-lang{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--vl-white) 45%,transparent)}
+.vl-explorer{--win-bg:var(--vl-black);--win-bar:var(--vl-card);--win-accent:var(--vl-burgundy)}
+.swatches.seven{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media (max-width:900px){.swatches.seven{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:420px){.swatches.seven{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kit-row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+@media (max-width:760px){.kit-row{grid-template-columns:minmax(0,1fr)}}
+.vl-kit .type-card{background:var(--vl-type-bg);color:var(--vl-white)}
+.type-img{display:block;width:100%;height:auto;margin-top:10px}
+.vl-logo-tile{margin:0;display:grid;place-items:center;aspect-ratio:1;width:100%;max-width:300px;padding:12%;border:1px solid var(--block-line);background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--vl-burgundy) 55%,transparent),transparent 70%),var(--vl-black)}
+.vl-logo-tile img{display:block;width:100%;height:auto}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -568,13 +597,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#vals" data-tags="research code">
-          <div class="cover" aria-hidden="true">
-            <div class="art art-wave" data-bars="30"></div>
+          <div class="cover vl-cover" aria-hidden="true">
+            <canvas class="vl-wave" data-voice></canvas>
+            <span class="vl-word"><b>VALS</b><span class="vl-say" lang="en">Understand before you accept.</span><small class="vl-lang">English</small></span>
             <span class="cover-tag">AI · 2025</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>VALS</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
-            <p class="card-type">Multilingual AI voice assistant</p>
+            <p class="card-type">Multilingual AI voice assistant &amp; website</p>
             <p class="card-meta">Aug 2025 – Dec 2025</p>
             <ul class="tags"><li>Full-stack development</li><li>Accessible design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
           </div>
@@ -750,9 +780,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Multi-sensory focus lamp, companion app &amp; website</p>
         <h1 class="cs-title">Soulshine</h1>
       </header>
-      <div class="ss-explorer">
+      <div class="ss-explorer" data-dir="img/soulshine/ss-">
         <div class="ss-tabs" role="tablist" aria-label="Soulshine website pages">
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-about" aria-controls="ss-viewport" aria-selected="true" tabindex="0" data-page="about" data-alt="Soulshine About page: the hero line "Your attention is worth protecting. We help you do it.", our approach, research-backed insights, the gap Soulshine fills, and two user personas">About</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-about" aria-controls="ss-viewport" aria-selected="true" tabindex="0" data-page="about" data-alt="Soulshine About page: the hero line “Your attention is worth protecting. We help you do it.”, our approach, research-backed insights, the gap Soulshine fills, and two user personas">About</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-product" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="product" data-alt="Soulshine Product page: the physical lamp with its dimensions, features and materials, next to the companion app controls">Product</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-research" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="research" data-alt="Soulshine Research page: key findings from 11 academic sources and the survey results of 71, 74 and 61 percent">Research</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-timeline" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="timeline" data-alt="Soulshine Timeline page: six monthly milestones from January to June 2026">Timeline</button>
@@ -760,8 +790,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-team" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="team" data-alt="Soulshine Team page: Ana Galić, Rosemary Trotter, Yufan Lin and Arthur Chow, and a contact form">Team</button>
         </div>
         <div class="ss-window">
-          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">linter-berry-84402425.figma.site / <b id="ss-path">about</b></span><a class="ss-open" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">Visit live site &#8599;</a></div>
-          <div class="ss-viewport" id="ss-viewport" role="tabpanel" aria-labelledby="ss-tab-about" tabindex="0"><img id="ss-page" src="img/soulshine/ss-about.jpg" alt="Soulshine About page: the hero line "Your attention is worth protecting. We help you do it.", our approach, research-backed insights, the gap Soulshine fills, and two user personas"></div>
+          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">linter-berry-84402425.figma.site / <b class="ss-path">about</b></span><a class="ss-open" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">Visit live site &#8599;</a></div>
+          <div class="ss-viewport" id="ss-viewport" role="tabpanel" aria-labelledby="ss-tab-about" tabindex="0"><img class="ss-page" src="img/soulshine/ss-about.jpg" alt="Soulshine About page: the hero line “Your attention is worth protecting. We help you do it.”, our approach, research-backed insights, the gap Soulshine fills, and two user personas"></div>
         </div>
         <p class="label">Scroll inside the window, or switch pages above</p>
       </div>
@@ -888,6 +918,124 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <a class="next" href="#vals"><span class="label">Next project</span><span class="next-title">VALS &rarr;</span></a>
   </article>
 
+  <!-- VALS -->
+  <article class="view wrap" data-view="vals" hidden>
+    <div class="cs-top">
+      <a class="back" href="#professional">&larr; All work</a>
+      <header class="cs-head">
+        <p class="label">Multilingual AI voice assistant &amp; website</p>
+        <h1 class="cs-title">VALS</h1>
+      </header>
+      <div class="ss-explorer vl-explorer" data-dir="img/vals/vals-">
+        <div class="ss-tabs" role="tablist" aria-label="VALS website pages">
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-home" aria-controls="vl-viewport" aria-selected="true" tabindex="0" data-page="home" data-path="home" data-alt="VALS homepage: the VALS logo above the headline “Understand Before You Accept” and a picker for six languages">Home</button>
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-about" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="about" data-path="about" data-alt="VALS About page: the mission, the problem with Terms &amp; Conditions, how the browser extension works, and who VALS is for">About</button>
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-team" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="team" data-path="team" data-alt="VALS Team page: Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang and Phong Nguyen with their roles">Team</button>
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-demo" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="demo" data-path="demo" data-alt="VALS Demo page: phone mockups that scan a document and play a summary, and sample agreements rated by risk">Demo</button>
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-signup" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="signup" data-path="sign-up" data-alt="VALS Sign up page: a one-time $5.99 purchase for lifetime access, and the account form">Sign up</button>
+          <button type="button" class="chip ss-tab" role="tab" id="vl-tab-account" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="account" data-path="my-account" data-alt="VALS My Account page: the active account, the lifetime plan and the included features">My account</button>
+        </div>
+        <div class="ss-window">
+          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">vals / <b class="ss-path">home</b></span></div>
+          <div class="ss-viewport" id="vl-viewport" role="tabpanel" aria-labelledby="vl-tab-home" tabindex="0"><img class="ss-page" src="img/vals/vals-home.jpg" alt="VALS homepage: the VALS logo above the headline “Understand Before You Accept” and a picker for six languages"></div>
+        </div>
+        <p class="label">Scroll inside the window, or switch pages above</p>
+      </div>
+    </div>
+
+    <div class="cs-intro">
+      <div class="cs-copy">
+        <p class="lede">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
+        <p>I was the Full-Stack Developer and Designer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens.</p>
+      </div>
+      <dl class="meta">
+        <div><dt class="label">Role</dt><dd>Full-Stack Developer &amp; Designer</dd></div>
+        <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma, React</dd></div>
+        <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
+      </dl>
+    </div>
+
+    <section class="block-section" aria-labelledby="vl-problem-h">
+      <h2 class="sec-title" id="vl-problem-h">The problem</h2>
+      <div class="cs-copy"><p>Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p></div>
+      <div class="stats">
+        <div class="stat"><p class="label">Deloitte, 2017</p><strong>91%</strong><span>of people accept terms without reading them</span></div>
+        <div class="stat"><p class="label">Average agreement</p><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span></div>
+        <div class="stat"><p class="label">The Atlantic, 2012</p><strong>73</strong><span>days a year to read every policy we agree to</span></div>
+      </div>
+      <div class="highlights">
+        <div class="hl"><p class="label">Barrier 1</p><h3>Length and complexity</h3><p>Most people don't have half an hour to read one agreement, so they skip it.</p></div>
+        <div class="hl"><p class="label">Barrier 2</p><h3>Language</h3><p>Agreements come in only a handful of languages, leaving billions of non-native speakers in the dark.</p></div>
+        <div class="hl"><p class="label">Barrier 3</p><h3>Accessibility</h3><p>Text-only documents exclude visually impaired, dyslexic and elderly users, and screen readers can't simplify legal language.</p></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="vl-how-h">
+      <h2 class="sec-title" id="vl-how-h">How it works</h2>
+      <ol class="steps">
+        <li><p class="label">Step 1</p><div><h3>Install</h3><p>Add VALS to Chrome, Edge or Firefox in one click. It sits quietly in the toolbar.</p></div></li>
+        <li><p class="label">Step 2</p><div><h3>Browse normally</h3><p>VALS scans each page in the background, and its icon lights up the moment it finds Terms of Service, a privacy policy or any legal agreement.</p></div></li>
+        <li><p class="label">Step 3</p><div><h3>Hear your summary</h3><p>Click the icon, or turn on Auto Mode, and VALS reads the agreement back as a spoken summary in your language in under two minutes.</p></div></li>
+        <li><p class="label">Step 4</p><div><h3>Decide with confidence</h3><p>VALS rates the risk as low, medium or high and flags the clauses that matter, such as data sharing, arbitration and cancellation rights.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block-section" aria-labelledby="vl-who-h">
+      <h2 class="sec-title" id="vl-who-h">Who it's for</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">2.2 billion people</p><h3>Visually impaired</h3><p>Screen readers can't simplify dense legal text. A voice-first design removes that barrier.</p></div>
+        <div class="hl"><p class="label">15–20% have dyslexia</p><h3>Reading difficulties</h3><p>Audio and plain-language summaries replace impenetrable paragraphs, for the 130 million US adults who struggle with literacy too.</p></div>
+        <div class="hl"><p class="label">761 million aged 65+</p><h3>Elderly users</h3><p>Small print gets harder to read with age. Voice guidance feels like a familiar phone call.</p></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="vl-site-h">
+      <h2 class="sec-title" id="vl-site-h">Designing the website</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">Built by me</p><h3>Six pages, start to finish</h3><p>A landing page with a language picker, the about page, the team, an interactive demo, sign-up and an account page, with the animations and navigation that connect them.</p></div>
+        <div class="hl"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p></div>
+        <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
+      </div>
+      <ul class="did">
+        <li>Available in six languages: English, Mandarin, Hindi, Spanish, Arabic and French</li>
+        <li>Full screen reader compatibility</li>
+        <li>Audio-first design</li>
+        <li>Large text and high contrast modes</li>
+      </ul>
+      <div class="brand-kit vl-kit">
+        <div class="brand-block">
+          <p class="label">Color palette</p>
+          <ul class="swatches seven">
+            <li class="swatch"><span class="chip-color" style="background:#13100F"></span><span class="sw-name">Deep black</span><span class="sw-meta">#13100F</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#1E191A"></span><span class="sw-name">Card dark</span><span class="sw-meta">#1E191A</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#EDE8E7"></span><span class="sw-name">Off-white</span><span class="sw-meta">#EDE8E7</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#64313E"></span><span class="sw-name">Burgundy</span><span class="sw-meta">#64313E</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#7A3B4A"></span><span class="sw-name">Burgundy hover</span><span class="sw-meta">#7A3B4A</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#A7C6ED"></span><span class="sw-name">Sky blue</span><span class="sw-meta">#A7C6ED</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#C8E3F5"></span><span class="sw-name">Light sky blue</span><span class="sw-meta">#C8E3F5</span></li>
+          </ul>
+        </div>
+        <div class="kit-row">
+          <div class="brand-block">
+            <p class="label">Typography · Adobe Fonts</p>
+            <div class="type-card">
+              <span class="type-name">Proxima Nova</span>
+              <span class="type-use">Everything: headings, body text, buttons, UI and badges</span>
+              <img class="type-img" src="img/vals/vals-type.jpg" alt="The VALS headline Understand Before You Accept, set in Proxima Nova" loading="lazy">
+            </div>
+          </div>
+          <div class="brand-block">
+            <p class="label">Logo</p>
+            <figure class="vl-logo-tile"><img src="img/vals/vals-logo.png" alt="The VALS logo: a round black character with two small ears and a light blue band across its face that spells VALS in burgundy, with two eyes peeking out" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a class="next" href="#izone"><span class="label">Next project</span><span class="next-title"><span class="nc">iZone</span> &rarr;</span></a>
+  </article>
+
   <!-- ABOUT -->
   <article class="view wrap" data-view="about" hidden>
     <header class="cs-head">
@@ -996,11 +1144,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const names = {peaceland:'Peaceland', soulshine:'Soulshine', vals:'VALS', izone:'iZone', 'university-organizations':'University Organizations Material'};
   const keepCase = new Set(['izone']);
   const title = id => keepCase.has(id) ? `<span class="nc">${names[id]}</span>` : names[id];
-  const emptyNote = "This case study is empty on your current site (it shows Peaceland's text). Send me what the project was, your role, the problem, your process, the outcome, and 4 to 8 images.";
   const stubs = {
-    vals: {type:'Multilingual AI voice assistant', art:'wave', note:emptyNote,
-      lede:'VALS is a multilingual AI voice assistant, designed to be accessible.',
-      meta:[['Role','Full-stack development<br>UX/UI'], ['Timeline','Aug 2025 – Dec 2025'], ['Focus','Full-stack development, Accessible design, UX/UI, User research, Web design']]},
     izone: {type:'Marketing & graphic design', art:'feed',
       note:'I wrote this from your résumé. Send me 4 to 8 images of your iZone work (social posts, flyers, campaign graphics) and anything you want to change here.',
       lede:'At the Barbara J. Burger iZone at the University of Rochester, I design the graphics behind its social media, events, and campaigns.',
@@ -1184,7 +1328,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     window.scrollTo(0, 0);
     if (r === 'professional'){ fit(); layoutArt(); }
     if (r === 'personal') sizePad();
-    if (r === 'soulshine') ssPreload();
+    preloadExplorer(r);
   }
   window.addEventListener('hashchange', route);
 
@@ -1325,36 +1469,133 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     cover.addEventListener('pointerleave', () => { tx = 0; ty = 0; go(); });
   });
 
-  /* Soulshine page: click through the website inside the window */
-  const ssTabs = [...document.querySelectorAll('.ss-tab')];
-  const ssImg = document.getElementById('ss-page');
-  const ssPath = document.getElementById('ss-path');
-  const ssView = document.getElementById('ss-viewport');
-  let ssPreloaded = false;
-  function ssPreload(){
-    if (ssPreloaded) return;
-    ssPreloaded = true;
-    ssTabs.forEach(t => { const im = new Image(); im.src = `img/soulshine/ss-${t.dataset.page}.jpg`; });
-  }
-  function ssShow(i, focus){
-    ssTabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
-    const t = ssTabs[i];
-    ssImg.src = `img/soulshine/ss-${t.dataset.page}.jpg`;
-    ssImg.alt = t.dataset.alt;
-    ssPath.textContent = t.dataset.page;
-    ssView.setAttribute('aria-labelledby', t.id);
-    ssView.scrollTop = 0;
-    if (focus) t.focus();
-  }
-  ssTabs.forEach((t, i) => {
-    t.addEventListener('click', () => ssShow(i));
-    t.addEventListener('keydown', e => {
-      const keys = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1};
-      if (keys[e.key]){ e.preventDefault(); ssShow((i + keys[e.key] + ssTabs.length) % ssTabs.length, true); }
-      if (e.key === 'Home'){ e.preventDefault(); ssShow(0, true); }
-      if (e.key === 'End'){ e.preventDefault(); ssShow(ssTabs.length - 1, true); }
-    });
+  /* VALS card: a voice wave that rises near the pointer, and the tagline in VALS's six languages */
+  const sayings = [
+    ['en', 'ltr', 'English', 'Understand before you accept.'],
+    ['zh', 'ltr', 'Mandarin', '接受之前，先理解。'],
+    ['hi', 'ltr', 'Hindi', 'स्वीकार करने से पहले समझें।'],
+    ['es', 'ltr', 'Spanish', 'Entiende antes de aceptar.'],
+    ['ar', 'rtl', 'Arabic', 'افهم قبل أن توافق.'],
+    ['fr', 'ltr', 'French', 'Comprenez avant d’accepter.']
+  ];
+  document.querySelectorAll('[data-voice]').forEach(cv => {
+    const cover = cv.parentElement;
+    const card = cover.closest('.card');
+    const say = cover.querySelector('.vl-say');
+    const langEl = cover.querySelector('.vl-lang');
+    const g = cv.getContext('2d');
+    const css = getComputedStyle(document.documentElement);
+    const col = n => css.getPropertyValue(n).trim();
+    const lines = [
+      {c: col('--vl-burgundy-hover'), a: .9, w: 2, f: 2.3, sp: .8, off: 1.7, k: .75},
+      {c: col('--vl-sky'), a: .22, w: 9, f: 1.6, sp: 1.1, off: 0, k: 1},
+      {c: col('--vl-sky'), a: .9, w: 2.2, f: 1.6, sp: 1.1, off: 0, k: 1},
+      {c: col('--vl-sky-light'), a: 1, w: 1.2, f: 3.2, sp: 1.6, off: .6, k: .45}
+    ];
+    let W = 0, Hh = 0, dpr = 1, amp = .45, target = .45, fx = .5, tfx = .5, t = 1.2, raf = 0, active = false, last = 0;
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      if (!r.width) return false;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = r.width; Hh = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr);
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return true;
+    };
+    const draw = () => {
+      g.clearRect(0, 0, W, Hh);
+      const mid = Hh * 0.42, A = Hh * 0.2 * amp;
+      for (const L of lines){
+        g.beginPath();
+        for (let x = 0; x <= W; x += 3){
+          const n = x / W;
+          const env = Math.exp(-((n - fx) ** 2) / (2 * 0.17 * 0.17)) * 0.85 + 0.15 * Math.sin(Math.PI * n);
+          const y = mid + A * L.k * env * Math.sin(n * L.f * Math.PI * 2 * 2 + t * L.sp + L.off) * Math.cos(n * 3.1 - t * .35);
+          x ? g.lineTo(x, y) : g.moveTo(x, y);
+        }
+        g.strokeStyle = L.c; g.globalAlpha = L.a; g.lineWidth = L.w; g.lineCap = 'round';
+        g.stroke();
+      }
+      g.globalAlpha = 1;
+    };
+    const tick = now => {
+      raf = 0;
+      const dt = last ? Math.min(.05, (now - last) / 1000) : .016; last = now;
+      t += dt * 1.6;
+      amp += (target - amp) * .08; fx += (tfx - fx) * .08;
+      draw();
+      if (active || Math.abs(target - amp) > .005 || Math.abs(tfx - fx) > .002) raf = requestAnimationFrame(tick);
+      else last = 0;
+    };
+    const go = () => { if (!raf && !reduce) raf = requestAnimationFrame(tick); };
+    let li = 0, timer = 0;
+    const speak = i => {
+      say.classList.add('fade');
+      setTimeout(() => {
+        const [l, dir, name, text] = sayings[i];
+        say.textContent = text; say.lang = l; say.dir = dir; langEl.textContent = name;
+        say.classList.remove('fade');
+      }, 280);
+    };
+    const on = () => {
+      if (active) return;
+      active = true; target = 1; go();
+      if (!reduce && !timer){ timer = setInterval(() => { li = (li + 1) % sayings.length; speak(li); }, 1700); }
+    };
+    const off = () => {
+      active = false; target = .45; tfx = .5; go();
+      clearInterval(timer); timer = 0;
+      if (li){ li = 0; speak(0); }
+    };
+    cover.addEventListener('pointermove', e => { const r = cover.getBoundingClientRect(); tfx = Math.min(.9, Math.max(.1, (e.clientX - r.left) / r.width)); go(); });
+    card.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') on(); });
+    card.addEventListener('pointerleave', off);
+    card.addEventListener('focus', on);
+    card.addEventListener('blur', off);
+    if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
+      new IntersectionObserver(es => es.forEach(en => en.isIntersecting ? on() : off()), {threshold: 0.6}).observe(card);
+    }
+    const redraw = () => { if (size()) draw(); };
+    if ('ResizeObserver' in window) new ResizeObserver(redraw).observe(cover);
+    redraw();
   });
+
+  /* Project pages: click through a website inside the window */
+  const explorers = [...document.querySelectorAll('.ss-explorer')].map(ex => {
+    const tabs = [...ex.querySelectorAll('.ss-tab')];
+    const img = ex.querySelector('.ss-page');
+    const path = ex.querySelector('.ss-path');
+    const view = ex.querySelector('.ss-viewport');
+    const dir = ex.dataset.dir;
+    const src = t => `${dir}${t.dataset.page}.jpg`;
+    let preloaded = false;
+    const preload = () => {
+      if (preloaded) return;
+      preloaded = true;
+      tabs.forEach(t => { const im = new Image(); im.src = src(t); });
+    };
+    const show = (i, focus) => {
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+      const t = tabs[i];
+      img.src = src(t);
+      img.alt = t.dataset.alt;
+      path.textContent = t.dataset.path || t.dataset.page;
+      view.setAttribute('aria-labelledby', t.id);
+      view.scrollTop = 0;
+      if (focus) t.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => show(i));
+      t.addEventListener('keydown', e => {
+        const keys = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1};
+        if (keys[e.key]){ e.preventDefault(); show((i + keys[e.key] + tabs.length) % tabs.length, true); }
+        if (e.key === 'Home'){ e.preventDefault(); show(0, true); }
+        if (e.key === 'End'){ e.preventDefault(); show(tabs.length - 1, true); }
+      });
+    });
+    return {view: ex.closest('[data-view]').dataset.view, preload};
+  });
+  const preloadExplorer = r => explorers.forEach(x => { if (x.view === r) x.preload(); });
 
   /* Copy email */
   const copyBtn = document.getElementById('copy-email');
