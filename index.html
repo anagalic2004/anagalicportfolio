@@ -408,6 +408,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .draws{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .draw-tile{position:relative;display:block;aspect-ratio:1;max-width:100%;background:var(--art-paper);border:1px solid var(--line);overflow:hidden;transition:transform .35s var(--ease)}
 .draw-tile:hover{transform:translateY(-3px) rotate(-2deg)}
+.unused-tag{position:absolute;left:6px;top:6px;z-index:1;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--art-ink);background:var(--art-paper);border:1px solid color-mix(in srgb,var(--art-ink) 30%,transparent);padding:2px 5px}
+.draw-tile.unused img{opacity:.85}
 .draw-tile img{position:absolute;left:10%;top:10%;width:80%;height:80%;max-width:none;object-fit:contain}
 
 /* Case studies */
@@ -1226,7 +1228,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <button type="button" class="ipost-btn" data-full="img/izone/post-ana.jpg" aria-label="Enlarge Ana's introduction post"><img src="img/izone/post-ana.jpg" alt="Instagram introduction post for Ana Galić: Ana in a striped sweater over a painted pink band, with a hand-drawn paint palette, sparkles, and a name tag reading Ana Galić" loading="lazy"></button>
           <figcaption><span class="ipost-name">Ana Galić</span><span class="label">The first post · that's me</span></figcaption>
           <p class="label">Drawn in Procreate</p>
-          <div class="draws"><span class="draw-tile"><img src="img/izone/draw-palette.jpg" alt="Hand-drawn paint palette with two brushes and five colors" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-sparkles.jpg" alt="Hand-drawn yellow sparkles" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-lily.jpg" alt="Hand-drawn pink lily" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-galic.jpg" alt="Hand-lettered Galić in pink" loading="lazy"></span></div>
+          <div class="draws"><span class="draw-tile"><img src="img/izone/draw-palette.jpg" alt="Hand-drawn paint palette with two brushes and five colors" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-sparkles.jpg" alt="Hand-drawn yellow sparkles" loading="lazy"></span><span class="draw-tile unused"><img src="img/izone/draw-lily.jpg" alt="Hand-drawn pink lily, designed for this post but not used in the final" loading="lazy"><span class="unused-tag">Not used</span></span><span class="draw-tile"><img src="img/izone/draw-galic.jpg" alt="Hand-lettered Galić in pink" loading="lazy"></span></div>
         </figure>
         <figure class="ipost">
           <button type="button" class="ipost-btn" data-full="img/izone/post-chase.jpg" aria-label="Enlarge Chase's introduction post"><img src="img/izone/post-chase.jpg" alt="Instagram introduction post for Chase Hayden: Chase reading a large dictionary over a painted yellow band, with hand-drawn music notes and a name tag reading Chase Hayden" loading="lazy"></button>
@@ -1235,6 +1237,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="draws"><span class="draw-tile"><img src="img/izone/draw-notes.jpg" alt="Hand-drawn music staff with a treble clef and notes" loading="lazy"></span><span class="draw-tile"><img src="img/izone/draw-hayden.jpg" alt="Hand-lettered Hayden in yellow" loading="lazy"></span></div>
         </figure>
       </div>
+      <p class="kit-note">I also drew a lily for my post but left it out of the final design.</p>
+      <div class="linkrow"><a class="biglink" href="https://www.instagram.com/p/DeR3EieEZH-/" target="_blank" rel="noopener"><span><small>Instagram · iZone</small><strong>View the post on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
 
     <section class="block-section" aria-labelledby="iz-tedx-h">
