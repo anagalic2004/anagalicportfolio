@@ -33,7 +33,9 @@
   --ss-chrome:#161616;
   --ss-chrome-text:#9AA0A6;
   --ss-blue:#4C8BF5;
-  --ss-deep:#0D1B3D;
+  --ss-glow:#3057AE;
+  --ss-light:#A9C4FF;
+  --ss-deep:#1A375C;
   --on-blue:#0B0C0E;
   --block:#0B0C0E;
   --on-block:#F4F7FA;
@@ -203,21 +205,30 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .phone i:nth-child(5n){background:var(--on-block)}
 .card:hover .phone i:nth-child(odd){transform:scale(.84)}
 
-/* Soulshine: a little browser that shows the real website */
-.ss-cover{background:radial-gradient(ellipse 75% 65% at 50% 58%,var(--ss-deep) 0%,var(--ss-ink) 78%)}
-.ss-mini{position:absolute;left:50%;top:55%;width:84%;transform:translate(-50%,-50%);border-radius:10px;overflow:hidden;background:var(--ss-ink);border:1px solid color-mix(in srgb,var(--art-paper) 14%,transparent);box-shadow:0 24px 60px color-mix(in srgb,var(--art-ink) 60%,transparent);transition:transform .6s var(--ease)}
-.card:hover .ss-mini,.card:focus-visible .ss-mini{transform:translate(-50%,-52%) scale(1.025)}
+/* Soulshine cover: a breathing aura of light in the website's blues that leans toward the pointer */
+@property --lift{syntax:"<number>";inherits:true;initial-value:0}
+.ss-cover{background:var(--ss-ink)}
+.aura{position:absolute;inset:0;--dx:0px;--dy:0px;--lift:0;transition:--lift .9s var(--ease)}
+.card:hover .aura,.card:focus-visible .aura,.card.lit .aura{--lift:1}
+.aura-glow,.aura-core,.aura-ring{position:absolute;left:50%;top:44%;border-radius:50%;pointer-events:none}
+.aura-glow{width:100%;aspect-ratio:1;max-width:none;transform:translate(calc(-50% + var(--dx) * .5),calc(-50% + var(--dy) * .5));background:radial-gradient(circle,color-mix(in srgb,var(--ss-blue) 90%,transparent) 0%,color-mix(in srgb,var(--ss-glow) 75%,transparent) 20%,color-mix(in srgb,var(--ss-deep) 65%,transparent) 40%,transparent 66%);filter:blur(16px);opacity:calc(.72 + var(--lift) * .28);animation:breathe 7s ease-in-out infinite}
+.aura-core{width:18%;aspect-ratio:1;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(calc(1 + var(--lift) * .35));background:radial-gradient(circle,var(--art-paper) 0%,color-mix(in srgb,var(--ss-light) 80%,transparent) 32%,transparent 72%);filter:blur(5px);opacity:calc(.7 + var(--lift) * .3)}
+.aura-ring{width:28%;aspect-ratio:1;transform:translate(calc(-50% + var(--dx) * .7),calc(-50% + var(--dy) * .7));border:1px solid color-mix(in srgb,var(--ss-light) 60%,transparent);opacity:0;animation:ripple 3.6s ease-out infinite;animation-play-state:paused}
+.aura-ring.r2{animation-delay:1.2s}
+.aura-ring.r3{animation-delay:2.4s}
+.card:hover .aura-ring,.card:focus-visible .aura-ring,.card.lit .aura-ring{animation-play-state:running}
+@keyframes breathe{0%,100%{scale:.93}50%{scale:1.05}}
+@keyframes ripple{0%{scale:.7;opacity:0}12%{opacity:.55}100%{scale:3.4;opacity:0}}
+.ss-word{position:absolute;left:0;right:0;bottom:13%;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;pointer-events:none}
+.ss-word b{font-family:var(--display);font-weight:760;font-size:clamp(28px,3.4vw,42px);line-height:1;letter-spacing:-.01em;color:var(--art-paper);text-shadow:0 0 28px color-mix(in srgb,var(--ss-blue) 70%,transparent)}
+.ss-word small{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ss-chrome-text)}
+
+/* Soulshine page: a little browser that shows the real website */
 .ss-bar{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--ss-chrome);border-bottom:1px solid color-mix(in srgb,var(--art-paper) 8%,transparent);font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--ss-chrome-text);min-width:0}
 .ss-dots{display:flex;gap:4px;flex:none}
 .ss-dots i{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--art-paper) 22%,transparent)}
 .ss-url{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ss-url b{font-weight:500;color:var(--art-paper)}
-.ss-screen{position:relative;aspect-ratio:1100/606;max-width:100%}
-.ss-screen img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:top;opacity:0;transition:opacity .45s var(--ease)}
-.ss-screen img.on{opacity:1}
-.ss-pips{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);display:flex;gap:5px;z-index:2}
-.ss-pips i{width:16px;height:3px;border-radius:2px;background:color-mix(in srgb,var(--art-paper) 25%,transparent);transition:background .3s}
-.ss-pips i.on{background:var(--ss-blue)}
 .ss-explorer{display:flex;flex-direction:column;gap:12px}
 .ss-tabs{display:flex;flex-wrap:wrap;gap:8px}
 .chip[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
@@ -509,18 +520,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </a>
         <a class="card" href="#soulshine" data-tags="product research">
           <div class="cover ss-cover" aria-hidden="true">
-            <div class="ss-mini" data-cycle>
-              <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">soulshine / <b>about</b></span></div>
-              <div class="ss-screen">
-                <img class="on" src="img/soulshine/ss-about-top.jpg" alt="" data-path="about">
-                <img src="img/soulshine/ss-product-top.jpg" alt="" data-path="product" loading="lazy">
-                <img src="img/soulshine/ss-research-top.jpg" alt="" data-path="research" loading="lazy">
-                <img src="img/soulshine/ss-timeline-top.jpg" alt="" data-path="timeline" loading="lazy">
-                <img src="img/soulshine/ss-budget-top.jpg" alt="" data-path="budget" loading="lazy">
-                <img src="img/soulshine/ss-team-top.jpg" alt="" data-path="team" loading="lazy">
-              </div>
-            </div>
-            <div class="ss-pips"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="aura" data-aura><span class="aura-glow"></span><span class="aura-ring"></span><span class="aura-ring r2"></span><span class="aura-ring r3"></span><span class="aura-core"></span></div>
+            <span class="ss-word"><b>Soulshine</b><small>Your attention is worth protecting.</small></span>
             <span class="cover-tag">Product · 2026</span>
           </div>
           <div class="card-body">
@@ -1219,32 +1220,29 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   window.addEventListener('hashchange', closeLb);
 
-  /* Soulshine card: hovering flips through the real website's pages */
-  document.querySelectorAll('[data-cycle]').forEach(mini => {
-    const imgs = [...mini.querySelectorAll('.ss-screen img')];
-    const pips = [...mini.parentElement.querySelectorAll('.ss-pips i')];
-    const path = mini.querySelector('.ss-url b');
-    const card = mini.closest('.card');
-    let i = 0, timer = 0;
-    const show = n => {
-      imgs[i].classList.remove('on'); if (pips[i]) pips[i].classList.remove('on');
-      i = n;
-      imgs[i].classList.add('on'); if (pips[i]) pips[i].classList.add('on');
-      path.textContent = imgs[i].dataset.path;
-    };
-    const start = () => {
-      if (reduce || timer) return;
-      show((i + 1) % imgs.length);
-      timer = setInterval(() => show((i + 1) % imgs.length), 1400);
-    };
-    const stop = () => { clearInterval(timer); timer = 0; if (i) show(0); };
-    card.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') start(); });
-    card.addEventListener('pointerleave', stop);
-    card.addEventListener('focus', start);
-    card.addEventListener('blur', stop);
+  /* Soulshine card: the aura leans toward the pointer and settles back when it leaves */
+  document.querySelectorAll('[data-aura]').forEach(aura => {
+    const cover = aura.parentElement;
+    const card = cover.closest('.card');
     if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
-      new IntersectionObserver(es => es.forEach(en => en.isIntersecting ? start() : stop()), {threshold: 0.6}).observe(card);
+      new IntersectionObserver(es => es.forEach(en => card.classList.toggle('lit', en.isIntersecting)), {threshold: 0.6}).observe(card);
     }
+    if (reduce) return;
+    let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+    const tick = () => {
+      x += (tx - x) * 0.08; y += (ty - y) * 0.08;
+      aura.style.setProperty('--dx', x.toFixed(1) + 'px');
+      aura.style.setProperty('--dy', y.toFixed(1) + 'px');
+      raf = (Math.abs(tx - x) > 0.3 || Math.abs(ty - y) > 0.3) ? requestAnimationFrame(tick) : 0;
+    };
+    const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    cover.addEventListener('pointermove', e => {
+      const r = cover.getBoundingClientRect();
+      tx = (e.clientX - r.left - r.width / 2) * 0.35;
+      ty = (e.clientY - r.top - r.height * 0.44) * 0.35;
+      go();
+    });
+    cover.addEventListener('pointerleave', () => { tx = 0; ty = 0; go(); });
   });
 
   /* Soulshine page: click through the website inside the window */
