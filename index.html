@@ -1317,7 +1317,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="flow-n">3</span><h3>Certificates</h3></div>
-          <p class="kit-note">One template for every participant, with their name written in a script face on the line. Pick a name to write it in.</p>
+          <p class="kit-note">One template for the event's five speakers, with each name written in a script face on the line. The speakers received their certificates at the end of the event, right after their talks. Pick a name to write it in.</p>
           <div class="tx-cert" id="tx-cert">
             <button type="button" class="tx-cert-stage" aria-label="Enlarge Jacob Factor's certificate">
               <img class="tx-cert-base" src="img/izone/tedx/cert-template.jpg" alt="" loading="lazy" width="1600" height="1235">
@@ -1854,7 +1854,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     });
     stage.addEventListener('click', () => {
       const b = btns[cur], name = nameOf(b);
-      openLb(`img/izone/tedx/cert-${b.dataset.n}.jpg`, `TEDxURochester certificate presented to ${name} for their participation in the 2026 event`, `Certificate · ${name}`, stage, true);
+      openLb(`img/izone/tedx/cert-${b.dataset.n}.jpg`, `TEDxURochester certificate presented to speaker ${name} at the 2026 event`, `Certificate · ${name}`, stage, true);
     });
     if (!reduce){
       /* Cycles through the names while it is on screen, until someone picks one */
