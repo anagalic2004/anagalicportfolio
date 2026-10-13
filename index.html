@@ -305,7 +305,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(24px,5vw,72px);align-items:start}
 @media (max-width:820px){.two-col{grid-template-columns:minmax(0,1fr)}}
 .prose{display:flex;flex-direction:column;gap:16px}
+.about-photo{margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden;border:1px solid var(--line)}
+.about-photo img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 18%}
+.contact-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
+@media (max-width:980px){.contact-row{grid-template-columns:minmax(0,1fr)}}
+.contact-row .biglink{padding:16px 18px}
+.about-pics{display:grid;grid-template-columns:minmax(0,1.95fr) minmax(0,.76fr);gap:clamp(12px,1.6vw,20px);align-items:start}
+@media (max-width:720px){.about-pics{grid-template-columns:minmax(0,1fr)}}
+.about-pics figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.about-pics img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .prose p{margin:0;max-width:62ch}
+.prose .lede{font-size:clamp(19px,1.9vw,24px);line-height:1.4}
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px) clamp(16px,2.4vw,32px)}
 @media (max-width:640px){.services{grid-template-columns:minmax(0,1fr)}}
 
@@ -344,7 +354,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .copy{border:0;background:var(--blue);color:var(--on-blue);font-weight:700;font-size:14px;padding:10px 16px;cursor:pointer;transition:transform .2s}
 .copy:hover{transform:translateY(-2px)}
 .copy:focus-visible{outline-color:var(--on-block)}
-.foot-nav{display:flex;gap:20px;font-weight:600;font-size:var(--fs-small)}
+.foot-nav{display:flex;flex-wrap:wrap;gap:12px 20px;font-weight:600;font-size:var(--fs-small)}
 .foot-nav a{text-decoration:none}
 .foot-nav a:hover{color:var(--blue)}
 .foot-nav a:focus-visible{outline-color:var(--on-block)}
@@ -636,15 +646,25 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <article class="view wrap" data-view="about" hidden>
     <header class="cs-head">
       <p class="label">About</p>
-      <h1 class="cs-title long">I design for how people think, play, and interact.</h1>
+      <h1 class="cs-title long">Hi, I'm Ana!</h1>
     </header>
     <div class="two-col">
-      <div class="slot portrait">Your photo<br>goes here</div>
+      <figure class="about-photo"><img src="img/about-portrait.jpg" alt="Ana Galic smiling, in a white and black striped sweater"></figure>
       <div class="prose">
-        <p class="lede">I'm Ana Galic, a multidisciplinary designer with a strong foundation in Computer Science and Digital Design.</p>
-        <p>I create visual identities, graphics for video games, and user-centered websites. Recently that has meant building the world, characters, and in-game notebook for Peaceland, leading the team behind Soulshine, a focus lamp with a companion app, and developing VALS, a multilingual AI voice assistant, from front end to back end.</p>
-        <p>My research for Peaceland ran in three languages and took me to playtests across the Balkans. It earned a Schwartz Discover Grant from the University of Rochester.</p>
+        <p class="lede">I'm a multidisciplinary designer double majoring in Computer Science and Digital Media Studies at the University of Rochester, with a focus in Psychology. I love complex problems, especially ones that call for creative thinking, and I feel most at home where logic, design, and human needs meet.</p>
+        <p>My work spans UX/UI, graphic design, and human-computer interaction. At Peaceland Research, I took an interactive game from concept to prototype and playtested it across 4 international regions. On the iZone's graphic design team, I create social media graphics and campaigns, including for a TEDx event. I've also designed Soulshine, a digital wellbeing platform, and VALS, an AI voice assistant that turns documents into audio summaries in 6 languages.</p>
+        <p>I believe technology should make life easier and more accessible, and I'm especially curious about how people think, play, and interact. Most of my inspiration comes from the people and the nature around me. People remind me who I'm designing for. Nature shows me that beauty and purpose can be the same thing, since every curve of a canyon wall and every vein in a leaf is there for a reason.</p>
+        <p>Feel free to look around my projects, and you can find my resume, LinkedIn, or a direct link to email me right below. I'd love to connect, so reach out!</p>
+        <div class="contact-row">
+          <a class="biglink" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener"><span><small>PDF</small><strong>Resume</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+          <a class="biglink" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener"><span><small>Profile</small><strong>LinkedIn</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+          <a class="biglink" href="mailto:anagalic.2004@gmail.com"><span><small>Gmail</small><strong>Email me</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
+    </div>
+    <div class="about-pics">
+      <figure><img src="img/about-moma.jpg" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"><figcaption class="label">At MoMA, New York</figcaption></figure>
+      <figure><img src="img/about-canyon.jpg" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"><figcaption class="label">On the trail</figcaption></figure>
     </div>
     <section class="block-section" aria-labelledby="do-h">
       <h2 class="sec-title" id="do-h">What I do</h2>
@@ -685,12 +705,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="email">
         <p class="label">Say hello</p>
         <div class="email-line">
-          <span class="email-addr" id="email-addr">hello@anagalic.com</span>
+          <span class="email-addr" id="email-addr">anagalic.2004@gmail.com</span>
           <button type="button" class="copy" id="copy-email">Copy email</button>
         </div>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#professional">Professional</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume &#8599;</a>
+        <a href="#professional">Professional</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </nav>
     </div>
     <div class="foot-small"><span>© 2026 Ana Galic</span><span>Designed and created by Ana Galic</span></div>
