@@ -15,7 +15,7 @@
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -32,9 +32,9 @@
   --ss-ink:#0A0A0A;
   --ss-chrome:#161616;
   --ss-chrome-text:#9AA0A6;
-  --ss-blue:#528CEC;
+  --ss-blue:#3B8EF3;
   --ss-glow:#3057AE;
-  --ss-type-bg:#080808;
+  --ss-text-2:#888888;
   --ss-light:#A9C4FF;
   --ss-deep:#1A375C;
   --on-blue:#0B0C0E;
@@ -255,23 +255,41 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .steps h3{margin:0 0 4px;font-family:var(--display);font-weight:640;font-size:20px;line-height:1.2}
 .steps p{margin:0;color:var(--muted);max-width:62ch}
 .steps li.key h3::after{content:"Stakeholder meeting";margin-left:10px;vertical-align:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--blue);color:var(--on-blue);padding:3px 7px}
-.brand-kit{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,36px) clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
-.logos-block{grid-column:1 / -1}
-@media (max-width:860px){.brand-kit{grid-template-columns:minmax(0,1fr)}}
-.brand-block{display:flex;flex-direction:column;gap:12px;min-width:0}
-.swatches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.swatch{display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center}
-.chip-color{grid-row:span 2;width:52px;height:52px;border:1px solid var(--line)}
-.sw-name{font-weight:700;line-height:1.2}
+.brand-kit{display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
+.brand-block{display:flex;flex-direction:column;gap:14px;min-width:0}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.swatches{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:420px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.swatch{display:flex;flex-direction:column;gap:6px;min-width:0}
+.chip-color{display:block;aspect-ratio:1;max-width:100%;border:1px solid var(--line)}
+.sw-name{font-weight:700;font-size:14px;line-height:1.25}
 .sw-meta{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.type-tile{margin:0;background:var(--ss-type-bg);border:1px solid var(--block-line);padding:clamp(14px,2.4vw,24px)}
-.type-tile img{display:block;width:100%;height:auto}
+.kit-note{margin:0;color:var(--muted);font-size:15px;max-width:62ch}
+.f-sg{font-family:"Space Grotesk",var(--body)}
+.f-in{font-family:"Inter",var(--body)}
+.type-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+@media (max-width:760px){.type-grid{grid-template-columns:minmax(0,1fr)}}
+.type-card{display:flex;flex-direction:column;gap:8px;background:var(--ss-ink);color:var(--art-paper);border:1px solid var(--block-line);padding:clamp(18px,2.6vw,28px);min-width:0}
+.type-aa{font-size:clamp(56px,7vw,88px);font-weight:700;line-height:1;letter-spacing:-.02em}
+.type-name{font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.15}
+.type-use{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ss-text-2)}
+.type-sample{font-size:clamp(17px,1.6vw,20px);line-height:1.4;color:var(--ss-text-2);margin-top:6px}
+.f-sg .type-sample{color:var(--art-paper);font-weight:600;font-size:clamp(20px,2vw,26px);line-height:1.2}
+.weights{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.weights span{font-size:14px;padding:3px 10px;border:1px solid color-mix(in srgb,var(--art-paper) 14%,transparent);border-radius:999px;font-variant-numeric:tabular-nums}
+.logo-origin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(16px,3vw,32px);align-items:center;margin-bottom:12px}
+@media (max-width:640px){.logo-origin{grid-template-columns:minmax(0,1fr)}}
+.logo-origin figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.origin-text{display:flex;flex-direction:column;gap:8px}
+.origin-text h3{margin:0;font-family:var(--display);font-weight:640;font-size:clamp(20px,2vw,24px);line-height:1.2}
+.origin-text p{margin:0;color:var(--muted);max-width:56ch}
 .logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
 .logos figure{margin:0;display:flex;flex-direction:column;gap:8px}
 .logo-tile{display:grid;place-items:center;aspect-ratio:17/10;max-width:100%;padding:8%;border:1px solid var(--block-line);overflow:hidden}
 .logo-tile img{display:block;width:100%;height:100%;object-fit:contain}
 .logo-tile.fill{padding:0}
 .logo-tile.fill img{object-fit:cover}
+.logo-tile.fit{padding:0}
 .mockup{margin:0;display:flex;flex-direction:column;gap:10px}
 .mockup img{display:block;width:100%;height:auto;border-radius:clamp(10px,1.6vw,18px)}
 .with-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -757,7 +775,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Team Lead &amp; Visual Designer</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Rosemary Trotter, Yufan Lin, Arthur Chow</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma Sites, Adobe Photoshop</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma Sites, Figma, Adobe Photoshop</dd></div>
         <div><dt class="label">Timeline</dt><dd>Jan 2026 – May 2026</dd></div>
       </dl>
     </div>
@@ -768,29 +786,56 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="highlights">
         <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>I designed and built the whole website myself in Figma Sites, as six pages that take visitors from the problem to the product, research, timeline, budget and team.</p></div>
         <div class="hl"><p class="label">A choice for the viewer</p><h3 class="with-icons">Light and dark mode <span class="mode-icons" aria-hidden="true"><img src="img/soulshine/icon-moon.png" alt=""><img src="img/soulshine/icon-sun.png" alt=""></span></h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
-        <div class="hl"><p class="label">Made in Adobe Photoshop</p><h3>Logo and brand</h3><p>I created the Soulshine logo and brand myself. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
+        <div class="hl"><p class="label">Photoshop, then Figma</p><h3>Logo and brand</h3><p>I designed the original Soulshine logo in Adobe Photoshop, then rebuilt it as a 3D lamp in Figma. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
       </div>
       <div class="brand-kit">
         <div class="brand-block">
-          <p class="label">Colors</p>
+          <p class="label">Color palette</p>
           <ul class="swatches">
-          <li class="swatch"><span class="chip-color" style="background:#080808"></span><span class="sw-name">Background</span><span class="sw-meta">#080808 · dark mode</span></li>
-          <li class="swatch"><span class="chip-color" style="background:#171717"></span><span class="sw-name">Cards</span><span class="sw-meta">#171717 · dark mode</span></li>
-          <li class="swatch"><span class="chip-color" style="background:#528CEC"></span><span class="sw-name">Soulshine blue</span><span class="sw-meta">#528CEC · buttons, links, highlights</span></li>
-          <li class="swatch"><span class="chip-color" style="background:#3057AE"></span><span class="sw-name">Glow</span><span class="sw-meta">#3057AE · hero light</span></li>
-          <li class="swatch"><span class="chip-color" style="background:#F4F4F4"></span><span class="sw-name">Background</span><span class="sw-meta">#F4F4F4 · light mode</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#080808"></span><span class="sw-name">Page background</span><span class="sw-meta">#080808</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#111111"></span><span class="sw-name">Cards</span><span class="sw-meta">#111111</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#161616"></span><span class="sw-name">Card hover</span><span class="sw-meta">#161616</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#0D0D0D"></span><span class="sw-name">Secondary surface</span><span class="sw-meta">#0D0D0D</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#3B8EF3"></span><span class="sw-name">Primary blue</span><span class="sw-meta">#3B8EF3</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#2B7EE3"></span><span class="sw-name">Blue hover</span><span class="sw-meta">#2B7EE3</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#FFFFFF"></span><span class="sw-name">Primary text</span><span class="sw-meta">#FFFFFF</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#888888"></span><span class="sw-name">Secondary text</span><span class="sw-meta">#888888</span></li>
           </ul>
+          <p class="kit-note">Borders are white at 6% opacity, rising to 10–12% on hover, so cards separate softly without hard lines.</p>
         </div>
         <div class="brand-block">
-          <p class="label">Typeface</p>
-          <figure class="type-tile"><img src="img/soulshine/brand-type.jpg" alt="The headline typeface on the Soulshine website, in the line Designed for Real People" loading="lazy"></figure>
+          <p class="label">Typography · Google Fonts</p>
+          <div class="type-grid">
+            <div class="type-card f-sg">
+              <span class="type-aa" aria-hidden="true">Aa</span>
+              <span class="type-name">Space Grotesk</span>
+              <span class="type-use">Headings, titles and the logo wordmark</span>
+              <span class="type-sample">Your attention is worth protecting.</span>
+              <span class="weights"><span style="font-weight:400">400</span><span style="font-weight:500">500</span><span style="font-weight:600">600</span><span style="font-weight:700">700</span></span>
+            </div>
+            <div class="type-card f-in">
+              <span class="type-aa" aria-hidden="true">Aa</span>
+              <span class="type-name">Inter</span>
+              <span class="type-use">Body text, descriptions and UI labels</span>
+              <span class="type-sample">Reclaim your attention with gentle, multi-sensory cues that guide you back to intentional focus.</span>
+              <span class="weights"><span style="font-weight:300">300</span><span style="font-weight:400">400</span><span style="font-weight:500">500</span><span style="font-weight:600">600</span></span>
+            </div>
+          </div>
         </div>
         <div class="brand-block logos-block">
-          <p class="label">Logo · three versions</p>
+          <p class="label">Logo</p>
+          <div class="logo-origin">
+            <figure><span class="logo-tile fit" style="background:#030202"><img src="img/soulshine/brand-logo-original.jpg" alt="The original flat Soulshine logo: a light blue lamp shade with the word Soulshine, casting warm light downward on black" loading="lazy"></span><figcaption class="label">Original · Adobe Photoshop</figcaption></figure>
+            <div class="origin-text">
+              <h3>From a flat sketch to a 3D lamp</h3>
+              <p>I first designed the logo as a flat shape in Adobe Photoshop: a lamp shade carrying the Soulshine wordmark, with warm light falling from underneath. I then rebuilt it as a 3D model in Figma and made three versions of it.</p>
+            </div>
+          </div>
+          <p class="label">3D logo · Figma · three versions</p>
           <div class="logos">
-            <figure><span class="logo-tile fill" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
-            <figure><span class="logo-tile" style="background:#E0E0E0"><img src="img/soulshine/brand-logo-blue.jpg" alt="Soulshine logo, blue version: a blue lamp shade with the word Soulshine in navy and a warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
-            <figure><span class="logo-tile fill" style="background:#7FA6E6"><img src="img/soulshine/brand-logo-dark.jpg" alt="Soulshine logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span><figcaption class="label">Version 3 · Dark</figcaption></figure>
+            <figure><span class="logo-tile fill" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine 3D logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
+            <figure><span class="logo-tile" style="background:#F5F5F5"><img src="img/soulshine/brand-logo-blue.jpg" alt="Soulshine 3D logo, blue version: a blue lamp shade with the word Soulshine in navy and a glowing warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
+            <figure><span class="logo-tile fill" style="background:#7FA6E6"><img src="img/soulshine/brand-logo-dark.jpg" alt="Soulshine 3D logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span><figcaption class="label">Version 3 · Dark</figcaption></figure>
           </div>
         </div>
       </div>
