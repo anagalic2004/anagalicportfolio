@@ -92,7 +92,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .nav .ext{font-size:.85em}
 .nav a{white-space:nowrap}
 @media (max-width:400px){.nav{gap:11px;font-size:13px}}
-@media (max-width:520px){.brand-name{display:none}}
 
 /* Views */
 .view{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px);padding-block:clamp(28px,5vw,56px) clamp(88px,11vw,150px)}
@@ -272,7 +271,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .type-tile img{display:block;width:100%;height:auto}
 .logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .logos figure{margin:0;display:flex;flex-direction:column;gap:8px}
-.logos img{display:block;width:100%;height:auto;border:1px solid var(--block-line)}
+.logo-tile{display:grid;place-items:center;aspect-ratio:16/10;max-width:100%;padding:8%;border:1px solid var(--block-line);overflow:hidden}
+.logo-tile img{display:block;width:100%;height:100%;object-fit:contain}
+.mockup{margin:0;display:flex;flex-direction:column;gap:10px}
+.mockup img{display:block;width:100%;height:auto;border-radius:clamp(10px,1.6vw,18px)}
+.with-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mode-icons{display:inline-flex;gap:4px}
+.mode-icons img{width:26px;height:26px;border-radius:6px;border:1px solid var(--line)}
 .team-grid .me h3::after{content:" (me)";font-weight:500;color:var(--muted)}
 
 /* Case studies */
@@ -446,7 +451,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="#professional"><span class="mono-mark" aria-hidden="true">AG</span><span class="brand-name">Ana Galic</span></a>
+    <a class="brand" href="#professional" aria-label="Ana Galic, home"><span class="mono-mark" aria-hidden="true">AG</span></a>
     <nav class="nav" aria-label="Main">
       <a href="#professional" data-nav="professional">Professional</a>
       <a href="#personal" data-nav="personal">Personal</a>
@@ -761,9 +766,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
     <section class="block-section" aria-labelledby="ss-site-h">
       <h2 class="sec-title" id="ss-site-h">Designing the website</h2>
+      <figure class="mockup"><img src="img/soulshine/mockup-modes.jpg" alt="Two laptops showing the Soulshine homepage in light mode and in dark mode, under the blue Soulshine lamp logo" loading="lazy"><figcaption class="label">The homepage in light and dark mode</figcaption></figure>
       <div class="highlights">
         <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>I designed and built the whole website myself in Figma Sites, as six pages that take visitors from the problem to the product, research, timeline, budget and team.</p></div>
-        <div class="hl"><p class="label">A choice for the viewer</p><h3>Light and dark mode</h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
+        <div class="hl"><p class="label">A choice for the viewer</p><h3 class="with-icons">Light and dark mode <span class="mode-icons" aria-hidden="true"><img src="img/soulshine/icon-moon.png" alt=""><img src="img/soulshine/icon-sun.png" alt=""></span></h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
         <div class="hl"><p class="label">Made in Adobe Photoshop</p><h3>Logo and brand</h3><p>I created the Soulshine logo and brand myself. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
       </div>
       <div class="brand">
@@ -784,8 +790,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="brand-block">
           <p class="label">Logo · two versions</p>
           <div class="logos">
-            <figure><img src="img/soulshine/brand-logo-warm.jpg" alt="Soulshine logo, warm version: a golden lamp shade with the word Soulshine on it" loading="lazy"><figcaption class="label">Warm</figcaption></figure>
-            <figure><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale lamp shade with the word Soulshine, lit in blue" loading="lazy"><figcaption class="label">Glow</figcaption></figure>
+            <figure><span class="logo-tile" style="background:#234A85"><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
+            <figure><span class="logo-tile" style="background:#E0E0E0"><img src="img/soulshine/brand-logo-blue.jpg" alt="Soulshine logo, blue version: a blue lamp shade with the word Soulshine in navy and a warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
           </div>
         </div>
       </div>
