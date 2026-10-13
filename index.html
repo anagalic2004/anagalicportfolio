@@ -264,6 +264,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:640px){.steps li{grid-template-columns:minmax(0,1fr)}}
 .steps h3{margin:0 0 4px;font-family:var(--display);font-weight:640;font-size:20px;line-height:1.2}
 .steps p{margin:0;color:var(--muted);max-width:62ch}
+.peek{display:flex;align-items:center;gap:14px;margin-top:14px;padding:8px 14px 8px 8px;max-width:100%;border:1px solid var(--line);background:var(--paper);text-align:left;cursor:zoom-in;transition:border-color .25s,background .25s}
+.peek:hover{border-color:var(--ink);background:var(--blue-soft)}
+.peek img{flex:none;width:112px;height:auto;aspect-ratio:480/267;border:1px solid var(--line)}
+.peek-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.peek-title{font-weight:700;font-size:15px;line-height:1.3}
+.peek-sub{font-size:13px;line-height:1.4;color:var(--muted)}
+.peek-go{flex:none;margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:520px){.peek img{width:84px}.peek-go{display:none}}
 .steps li.key h3::after{content:"Stakeholder meeting";margin-left:10px;vertical-align:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--blue);color:var(--on-blue);padding:3px 7px}
 .brand-kit{display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
 .brand-block{display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -395,9 +403,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .board-btn img{display:block;width:100%;height:auto}
 .lightbox{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:clamp(16px,4vw,48px);background:color-mix(in srgb,var(--block) 92%,transparent);cursor:zoom-out}
 .lightbox img{max-width:min(94vw,1400px);max-height:84vh;width:auto;height:auto;cursor:default}
-.lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;font-size:14px;font-weight:700;border:0;background:var(--blue);color:var(--on-blue);padding:10px 16px;cursor:pointer}
+.lightbox.zoomable img{cursor:zoom-in}
+.lightbox.zoomed{display:block;overflow:auto;padding:clamp(56px,7vw,72px) 16px}
+.lightbox.zoomed img{max-width:none;max-height:none;width:auto;cursor:zoom-out;margin-inline:auto}
+.lightbox.zoomed .lb-cap{display:none}
+.lb-close{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;font-size:14px;font-weight:700;border:0;background:var(--blue);color:var(--on-blue);padding:10px 16px;cursor:pointer}
 .lb-close:focus-visible{outline-color:var(--on-block)}
-.lb-cap{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);margin:0;text-align:center;color:var(--on-block);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.lb-cap{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);margin:0;text-align:center;color:var(--on-block);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .board{scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;margin:0}
 .slot{aspect-ratio:1/2;max-width:100%;border:1.5px dashed color-mix(in srgb,var(--ink) 35%,transparent);background:var(--blue-soft);display:grid;place-items:center;text-align:center;padding:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .slot.wide{aspect-ratio:3/1}
@@ -901,7 +913,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <section class="block-section" aria-labelledby="ss-process-h">
       <h2 class="sec-title" id="ss-process-h">From concept to launch</h2>
       <ol class="steps">
-        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature reviews and first ideas for both the hardware and the software.</p></div></li>
+        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature reviews and first ideas for both the hardware and the software.</p><button type="button" class="peek" data-zoom data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · Click the board to zoom in"><img src="img/soulshine/planning-board-thumb.jpg" alt="The Soulshine team's planning board: sticky notes comparing materials for the lamp base and buttons, LED options, wiring, scents and speakers, with pros and cons" loading="lazy"><span class="peek-text"><span class="peek-title">Our planning board</span><span class="peek-sub">How the team weighed materials, lighting, wiring, scent and sound</span></span><span class="peek-go" aria-hidden="true">View</span></button></div></li>
         <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Finalized the idea, gathered input from potential users using iZone resources, planned how the team would work, and wireframed the companion app's UI and core features.</p></div></li>
         <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Used StudioX at the University of Rochester to connect the lamp's light, sound and scent with the app's tracking and reminders.</p></div></li>
         <li class="key"><p class="label">April 2026</p><div><h3>Securing the investment</h3><p>Secured a $100,000 investment for the first 50 lamps, on four conditions: build fast and to a high standard, make it accessible for users with mobility issues, explain the research so anyone can understand it, and account for every dollar.</p></div></li>
@@ -936,7 +948,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <button type="button" class="chip ss-tab" role="tab" id="vl-tab-account" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="account" data-path="my-account" data-alt="VALS My Account page: the active account, the lifetime plan and the included features">My account</button>
         </div>
         <div class="ss-window">
-          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">vals / <b class="ss-path">home</b></span></div>
+          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">serene-july-87892059.figma.site / <b class="ss-path">home</b></span><a class="ss-open" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener">Visit live site &#8599;</a></div>
           <div class="ss-viewport" id="vl-viewport" role="tabpanel" aria-labelledby="vl-tab-home" tabindex="0"><img class="ss-page" src="img/vals/vals-home.jpg" alt="VALS homepage: the VALS logo above the headline “Understand Before You Accept” and a picker for six languages"></div>
         </div>
         <p class="label">Scroll inside the window, or switch pages above</p>
@@ -951,7 +963,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Full-Stack Developer &amp; Designer</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, React</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React</dd></div>
         <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
       </dl>
     </div>
@@ -1032,6 +1044,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
+
+    <div class="linkrow">
+      <a class="biglink" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span><small>Figma Sites</small><strong>Visit the VALS website</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="biglink" href="#professional"><span><small>Portfolio</small><strong>Back to all work</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
 
     <a class="next" href="#izone"><span class="label">Next project</span><span class="next-title"><span class="nc">iZone</span> &rarr;</span></a>
   </article>
@@ -1421,7 +1438,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const lbCap = document.getElementById('lb-cap');
   const lbClose = document.getElementById('lb-close');
   let lbReturn = null;
-  function openLb(src, alt, cap, from){
+  function openLb(src, alt, cap, from, zoomable){
+    lb.classList.toggle('zoomable', !!zoomable);
+    lb.classList.remove('zoomed');
     lbImg.src = src;
     lbImg.alt = alt;
     lbCap.textContent = cap;
@@ -1440,7 +1459,22 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     const img = b.querySelector('img');
     openLb(img.currentSrc || img.src, img.alt, b.closest('figure').querySelector('figcaption').textContent, b);
   }));
-  lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+  lb.addEventListener('click', e => {
+    if (e.target !== lbImg){ closeLb(); return; }
+    if (!lb.classList.contains('zoomable')) return;
+    const r = lbImg.getBoundingClientRect();
+    const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    lb.classList.toggle('zoomed');
+    if (lb.classList.contains('zoomed')){
+      const z = lbImg.getBoundingClientRect();
+      lb.scrollLeft = Math.max(0, fx * z.width - lb.clientWidth / 2);
+      lb.scrollTop = Math.max(0, fy * z.height - lb.clientHeight / 2);
+    }
+  });
+  document.querySelectorAll('.peek').forEach(b => b.addEventListener('click', () => {
+    const img = b.querySelector('img');
+    openLb(b.dataset.full, img.alt, b.dataset.cap, b, b.hasAttribute('data-zoom'));
+  }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   window.addEventListener('hashchange', closeLb);
 
