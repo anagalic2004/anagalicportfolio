@@ -412,6 +412,59 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .draw-tile.unused img{opacity:.85}
 .draw-tile img{position:absolute;left:10%;top:10%;width:80%;height:80%;max-width:none;object-fit:contain}
 
+/* iZone: TEDx */
+.tx-steps{display:flex;flex-direction:column;gap:clamp(40px,5.5vw,64px)}
+.tx-block{display:flex;flex-direction:column;gap:16px;min-width:0}
+.tx-head{display:flex;align-items:center;gap:12px}
+.tx-head h3{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.1}
+.tx-logo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,40px);align-items:center;max-width:980px}
+@media (max-width:720px){.tx-logo-row{grid-template-columns:minmax(0,1fr)}}
+.tx-logo-tile{padding:clamp(28px,4.5vw,52px) clamp(22px,3.5vw,40px);background:var(--art-paper);border:1px solid var(--line)}
+.tx-logo-tile img{display:block;width:100%;height:auto}
+.tx-flyers{display:flex;align-items:flex-start;gap:clamp(12px,2vw,24px);max-width:980px}
+.tx-flyer{margin:0;flex:calc(var(--ar)) 1 0;min-width:0;display:flex;flex-direction:column;gap:10px}
+.tx-zoom{display:block;width:100%;aspect-ratio:var(--ar);padding:0;border:1px solid var(--line);background:var(--art-paper);cursor:zoom-in;overflow:hidden}
+.tx-zoom img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.tx-zoom:hover img{transform:scale(1.02)}
+.tx-cert{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:clamp(20px,3.5vw,48px);align-items:center}
+@media (max-width:860px){.tx-cert{grid-template-columns:minmax(0,1fr)}}
+.tx-cert-stage{position:relative;display:block;width:100%;aspect-ratio:1600/1235;padding:0;border:1px solid var(--line);background:var(--art-paper);cursor:zoom-in;overflow:hidden;box-shadow:0 22px 44px -28px color-mix(in srgb,var(--art-ink) 55%,transparent);transition:transform .4s var(--ease)}
+.tx-cert-stage:hover{transform:translateY(-3px)}
+.tx-cert-base{display:block;width:100%;height:100%}
+.tx-cert-names{position:absolute;left:26.562%;top:42.237%;width:46.484%;height:11.341%}
+.tx-cert-names img{position:absolute;inset:0;width:100%;height:100%;max-width:none;opacity:0;transition:opacity .16s}
+.tx-cert-names img.on{opacity:1;transition:none;animation:tx-write 1.3s var(--ease) both}
+@keyframes tx-write{
+  from{-webkit-mask-image:linear-gradient(90deg,#000 40%,transparent 60%);mask-image:linear-gradient(90deg,#000 40%,transparent 60%);-webkit-mask-size:250% 100%;mask-size:250% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:100% 0;mask-position:100% 0}
+  to{-webkit-mask-image:linear-gradient(90deg,#000 40%,transparent 60%);mask-image:linear-gradient(90deg,#000 40%,transparent 60%);-webkit-mask-size:250% 100%;mask-size:250% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:0 0;mask-position:0 0}
+}
+.tx-cert-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.tx-names{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.tx-names button{position:relative;display:block;padding:13px 2px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--muted);font:inherit;font-size:17px;font-weight:600;text-align:left;cursor:pointer;transition:color .25s,padding .35s var(--ease)}
+.tx-names button:hover{color:var(--ink)}
+.tx-names button[aria-pressed="true"]{color:var(--ink);padding-left:12px}
+.tx-bar{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left}
+.tx-names button[aria-pressed="true"] .tx-bar{transform:scaleX(1)}
+.tx-cert.auto .tx-names button[aria-pressed="true"] .tx-bar{animation:tx-tick 3.6s linear both}
+.tx-cert.paused .tx-bar,.tx-cert.hold .tx-bar{animation-play-state:paused!important}
+@keyframes tx-tick{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.tx-gallery{display:flex;flex-direction:column;gap:clamp(6px,.8vw,10px)}
+.tx-row{display:flex;gap:clamp(6px,.8vw,10px)}
+.tx-ph{display:block;flex:calc(var(--ar)) 1 0;min-width:0;aspect-ratio:var(--ar);padding:0;border:0;background:var(--block);cursor:zoom-in;overflow:hidden}
+.tx-ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.tx-ph:hover img{transform:scale(1.035)}
+.tx-ph:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+@media (max-width:640px){
+  .tx-gallery{display:block;columns:2;column-gap:8px}
+  .tx-row{display:contents}
+  .tx-ph{width:100%;margin:0 0 8px;break-inside:avoid}
+}
+.lb-nav{position:fixed;top:50%;width:48px;height:48px;margin-top:-24px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--blue);color:var(--on-blue);font-size:20px;font-weight:700;cursor:pointer}
+.lb-nav[hidden]{display:none}
+.lb-nav:focus-visible{outline-color:var(--on-block)}
+.lb-prev{left:16px}.lb-next{right:16px}
+@media (max-width:640px){.lb-nav{top:auto;margin-top:0;bottom:calc(env(safe-area-inset-bottom,0px) + 44px)}}
+
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
 .back:hover{color:var(--ink)}
@@ -1242,11 +1295,57 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
     <section class="block-section" aria-labelledby="iz-tedx-h">
-      <div class="sec-head"><h2 class="sec-title" id="iz-tedx-h">TEDx</h2><p class="label">Marketing · Design · Photography</p></div>
-      <div class="highlights">
-        <div class="hl"><p class="label">Marketing</p><h3>Promoting the event</h3><p>Promotional flyers, social media posts and visual campaigns to bring an audience to the TEDx event.</p></div>
-        <div class="hl"><p class="label">Design</p><h3>Certificate template</h3><p>I designed the TEDx certificate template.</p></div>
-        <div class="hl"><p class="label">Photography</p><h3>Event photographer</h3><p>I photographed the event, and my photos were posted on both iZone's and TEDxRochester's Instagram.</p></div>
+      <div class="sec-head"><h2 class="sec-title" id="iz-tedx-h"><span class="nc">TEDxURochester</span></h2><p class="label">reHuman · Sept 30, 2026</p></div>
+      <div class="cs-copy"><p>TEDxURochester's 2026 event, <i>reHuman</i>, explored what it means to place the human experience at the center of design, innovation, creativity and problem-solving. I made the event's logo, designed its flyers and certificates, and photographed the talks.</p></div>
+      <div class="tx-steps">
+        <div class="tx-block">
+          <div class="tx-head"><span class="flow-n">1</span><h3>Logo</h3></div>
+          <div class="tx-logo-row">
+            <div class="tx-logo-tile"><img src="img/izone/tedx/logo.png" alt="The TEDxURochester logo: TEDx in red with a superscript x, URochester in black" loading="lazy" width="1639" height="193"></div>
+            <p class="kit-note">I made the TEDxURochester logo with TED's official logo tool for TEDx events, so it follows TED's brand rules. The flyers and certificates are built around it.</p>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="flow-n">2</span><h3>Flyers</h3></div>
+          <p class="kit-note">Two versions of the registration flyer: a dark one for Instagram that sends people to the link in bio, and a light one for print with a QR code to sign up. Both share the red &ldquo;Registration Open!&rdquo; block and the painted X.</p>
+          <div class="tx-flyers">
+            <figure class="tx-flyer" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/izone/tedx/flyer-instagram.jpg" data-cap="Flyer · Instagram post" aria-label="Enlarge the Instagram flyer"><img src="img/izone/tedx/flyer-instagram.jpg" alt="Dark TEDxURochester reHuman flyer: Registration Open, Wednesday, September 30, 3:30 to 6:00 p.m., May Room in Wilson Commons, register using the link in our bio" loading="lazy" width="1080" height="1350"></button><figcaption class="label">Instagram post</figcaption></figure>
+            <figure class="tx-flyer" style="--ar:1545/1999"><button type="button" class="tx-zoom" data-full="img/izone/tedx/flyer-print.jpg" data-cap="Flyer · Print" aria-label="Enlarge the printed flyer"><img src="img/izone/tedx/flyer-print.jpg" alt="Light TEDxURochester reHuman flyer for print with the same event details and a QR code to register" loading="lazy" width="1545" height="1999"></button><figcaption class="label">Printed flyer · QR code</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="flow-n">3</span><h3>Certificates</h3></div>
+          <p class="kit-note">One template for every participant, with their name written in a script face on the line. Pick a name to write it in.</p>
+          <div class="tx-cert" id="tx-cert">
+            <button type="button" class="tx-cert-stage" aria-label="Enlarge Jacob Factor's certificate">
+              <img class="tx-cert-base" src="img/izone/tedx/cert-template.jpg" alt="" loading="lazy" width="1600" height="1235">
+              <span class="tx-cert-names" aria-hidden="true"><img class="on" src="img/izone/tedx/name-factor.png" alt="" loading="lazy"><img src="img/izone/tedx/name-keating.png" alt="" loading="lazy"><img src="img/izone/tedx/name-hayden.png" alt="" loading="lazy"><img src="img/izone/tedx/name-dmytruck.png" alt="" loading="lazy"><img src="img/izone/tedx/name-lucas.png" alt="" loading="lazy"></span>
+            </button>
+            <div class="tx-cert-side">
+              <p class="label" id="tx-cert-l">Certificate for</p>
+              <div class="tx-names" role="group" aria-labelledby="tx-cert-l">
+                <button type="button" aria-pressed="true" data-n="factor"><span class="tx-nm">Jacob Factor</span><i class="tx-bar" aria-hidden="true"></i></button>
+                <button type="button" aria-pressed="false" data-n="keating"><span class="tx-nm">Dan Keating</span><i class="tx-bar" aria-hidden="true"></i></button>
+                <button type="button" aria-pressed="false" data-n="hayden"><span class="tx-nm">Chase Hayden</span><i class="tx-bar" aria-hidden="true"></i></button>
+                <button type="button" aria-pressed="false" data-n="dmytruck"><span class="tx-nm">Sophia Dmytruck</span><i class="tx-bar" aria-hidden="true"></i></button>
+                <button type="button" aria-pressed="false" data-n="lucas"><span class="tx-nm">Rynique Lucas</span><i class="tx-bar" aria-hidden="true"></i></button>
+              </div>
+              <p class="label tx-count"><span>1</span> of 5 · Select the certificate to see it full size</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="flow-n">4</span><h3>Photography</h3></div>
+          <p class="kit-note">I was the event's photographer. I shot the talks and the audience, edited the photos in Adobe Photoshop, and they were posted on iZone's and TEDxURochester's Instagram.</p>
+          <div class="tx-gallery" data-gallery="TEDxURochester · reHuman">
+            <div class="tx-row"><button type="button" class="tx-ph" style="--ar:1333/2000" data-full="img/izone/tedx/photo-1.jpg" aria-label="Enlarge photo 1 of 9"><img src="img/izone/tedx/photo-1-sm.jpg" alt="A speaker in a navy blazer holds a microphone in front of the TEDxURochester title slide" loading="lazy" width="667" height="1000"></button><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-2.jpg" aria-label="Enlarge photo 2 of 9"><img src="img/izone/tedx/photo-2-sm.jpg" alt="A speaker in a purple patterned dress shows a photo of a dragon-shaped pouch, with the audience in silhouette" loading="lazy" width="1000" height="667"></button><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-3.jpg" aria-label="Enlarge photo 3 of 9"><img src="img/izone/tedx/photo-3-sm.jpg" alt="A speaker in a green shirt talks beside the red TEDx letters on stage" loading="lazy" width="1000" height="667"></button></div>
+            <div class="tx-row"><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-4.jpg" aria-label="Enlarge photo 4 of 9"><img src="img/izone/tedx/photo-4-sm.jpg" alt="A speaker presents a chart of physical therapy results to a full audience" loading="lazy" width="1000" height="667"></button><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-5.jpg" aria-label="Enlarge photo 5 of 9"><img src="img/izone/tedx/photo-5-sm.jpg" alt="Close-up of an audience member’s hands during a talk, next to a TEDx tote bag" loading="lazy" width="1000" height="667"></button><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-6.jpg" aria-label="Enlarge photo 6 of 9"><img src="img/izone/tedx/photo-6-sm.jpg" alt="A speaker in a blue top talks with her hands, red stage light behind her" loading="lazy" width="1000" height="667"></button></div>
+            <div class="tx-row"><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-7.jpg" aria-label="Enlarge photo 7 of 9"><img src="img/izone/tedx/photo-7-sm.jpg" alt="A speaker in a navy blazer and patterned tie mid-talk, in front of the TEDx letters" loading="lazy" width="1000" height="667"></button><button type="button" class="tx-ph" style="--ar:2000/1333" data-full="img/izone/tedx/photo-8.jpg" aria-label="Enlarge photo 8 of 9"><img src="img/izone/tedx/photo-8-sm.jpg" alt="A speaker in a purple dress presents a photo of sewn fabric pieces on the big screen" loading="lazy" width="1000" height="667"></button><button type="button" class="tx-ph" style="--ar:1333/2000" data-full="img/izone/tedx/photo-9.jpg" aria-label="Enlarge photo 9 of 9"><img src="img/izone/tedx/photo-9-sm.jpg" alt="A speaker stands below a screen of CT scans marked with green arrows" loading="lazy" width="667" height="1000"></button></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1348,6 +1447,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <img id="lb-img" alt="">
   <p class="lb-cap" id="lb-cap"></p>
   <button type="button" class="lb-close" id="lb-close">Close</button>
+  <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photo" hidden>&larr;</button>
+  <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Next photo" hidden>&rarr;</button>
 </div>
 
 <script>
@@ -1645,8 +1746,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const lbImg = document.getElementById('lb-img');
   const lbCap = document.getElementById('lb-cap');
   const lbClose = document.getElementById('lb-close');
-  let lbReturn = null;
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
+  let lbReturn = null, lbSet = null, lbIdx = 0;
   function openLb(src, alt, cap, from, zoomable){
+    lbSet = null; lbPrev.hidden = lbNext.hidden = true;
     lb.classList.toggle('zoomable', !!zoomable);
     lb.classList.remove('zoomed');
     lbImg.src = src;
@@ -1687,7 +1791,77 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     const img = b.querySelector('img');
     openLb(b.dataset.full, img.alt, b.dataset.cap, b, b.hasAttribute('data-zoom'));
   }));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  /* Photo sets (TEDx gallery): browse with the arrows, the keyboard or a swipe */
+  function lbShow(i){
+    lbIdx = (i + lbSet.length) % lbSet.length;
+    const b = lbSet[lbIdx];
+    lbImg.src = b.dataset.full;
+    lbImg.alt = b.querySelector('img').alt;
+    lbCap.textContent = `${b.closest('[data-gallery]').dataset.gallery} · ${lbIdx + 1} / ${lbSet.length}`;
+    lbReturn = b;
+    [1, -1].forEach(d => { const n = lbSet[(lbIdx + d + lbSet.length) % lbSet.length]; new Image().src = n.dataset.full; });
+  }
+  document.querySelectorAll('[data-gallery]').forEach(g => {
+    const set = [...g.querySelectorAll('.tx-ph')];
+    set.forEach((b, i) => b.addEventListener('click', () => {
+      openLb(b.dataset.full, '', '', b, false);
+      lbSet = set; lbPrev.hidden = lbNext.hidden = false;
+      lbShow(i);
+    }));
+  });
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); if (lbSet) lbShow(lbIdx - 1); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); if (lbSet) lbShow(lbIdx + 1); });
+  let swipeX = null;
+  lb.addEventListener('touchstart', e => { swipeX = lbSet && e.touches.length === 1 ? e.touches[0].clientX : null; }, {passive: true});
+  lb.addEventListener('touchend', e => {
+    if (swipeX === null) return;
+    const dx = e.changedTouches[0].clientX - swipeX; swipeX = null;
+    if (Math.abs(dx) > 50) lbShow(lbIdx + (dx < 0 ? 1 : -1));
+  }, {passive: true});
+  document.querySelectorAll('.tx-zoom').forEach(b => b.addEventListener('click', () => {
+    openLb(b.dataset.full, b.querySelector('img').alt, b.dataset.cap, b, true);
+  }));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLb();
+    if (!lb.hidden && lbSet && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) lbShow(lbIdx + (e.key === 'ArrowRight' ? 1 : -1));
+  });
+
+  /* TEDx certificate: one template, and each name writes itself onto the line */
+  const cert = document.getElementById('tx-cert');
+  if (cert){
+    const stage = cert.querySelector('.tx-cert-stage');
+    const layers = [...cert.querySelectorAll('.tx-cert-names img')];
+    const btns = [...cert.querySelectorAll('.tx-names button')];
+    const count = cert.querySelector('.tx-count span');
+    const nameOf = b => b.querySelector('.tx-nm').textContent;
+    let cur = 0;
+    const show = i => {
+      cur = i;
+      layers.forEach((l, k) => l.classList.toggle('on', k === i));
+      btns.forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+      count.textContent = i + 1;
+      stage.setAttribute('aria-label', `Enlarge ${nameOf(btns[i])}'s certificate`);
+    };
+    btns.forEach((b, k) => {
+      b.addEventListener('click', () => { cert.classList.remove('auto'); show(k); });
+      b.querySelector('.tx-bar').addEventListener('animationend', () => {
+        if (cert.classList.contains('auto') && cur === k) show((k + 1) % btns.length);
+      });
+    });
+    stage.addEventListener('click', () => {
+      const b = btns[cur], name = nameOf(b);
+      openLb(`img/izone/tedx/cert-${b.dataset.n}.jpg`, `TEDxURochester certificate presented to ${name} for their participation in the 2026 event`, `Certificate · ${name}`, stage, true);
+    });
+    if (!reduce){
+      /* Cycles through the names while it is on screen, until someone picks one */
+      cert.classList.add('auto', 'paused');
+      if ('IntersectionObserver' in window){
+        new IntersectionObserver(es => es.forEach(en => cert.classList.toggle('paused', !en.isIntersecting)), {threshold: 0.5}).observe(stage);
+      } else cert.classList.remove('paused');
+      cert.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') cert.classList.add('hold'); });
+      cert.addEventListener('pointerleave', () => cert.classList.remove('hold'));
+    }
+  }
   window.addEventListener('hashchange', closeLb);
 
   /* iZone card: on phones the posts spread apart once the card is in view */
