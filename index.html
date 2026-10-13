@@ -465,6 +465,18 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .lb-prev{left:16px}.lb-next{right:16px}
 @media (max-width:640px){.lb-nav{top:auto;margin-top:0;bottom:calc(env(safe-area-inset-bottom,0px) + 44px)}}
 
+/* iZone: Make It Happen */
+.flow li.soon{color:var(--muted)}
+.flow li.soon .flow-n{background:none;border:1.5px dashed currentColor;color:var(--muted)}
+.mih-part{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mih-draws{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.6vw,18px);max-width:720px}
+.mih-draw{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mih-draw .draw-tile:hover{transform:translateY(-3px)}
+.mih-formats{display:grid;grid-template-columns:.8fr 1fr .7391fr;gap:clamp(12px,2vw,24px);align-items:start;max-width:1100px}
+.mih-format{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mih-format figcaption{display:flex;flex-direction:column;gap:3px}
+.mih-fmt{font-weight:700;font-size:16px;line-height:1.3}
+@media (max-width:640px){.mih-formats{grid-template-columns:.8fr 1fr}.mih-format.print{grid-column:1/-1;width:min(100%,320px)}}
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
 .back:hover{color:var(--ink)}
@@ -1354,18 +1366,42 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
     <section class="block-section" aria-labelledby="iz-mih-h">
-      <div class="sec-head"><h2 class="sec-title" id="iz-mih-h">Make It Happen Prize</h2><p class="label">Instagram series</p></div>
+      <div class="sec-head"><h2 class="sec-title" id="iz-mih-h">Make It Happen Prize</h2><p class="label">Instagram · LinkedIn · Print</p></div>
       <div class="cs-copy">
         <p>The Make It Happen Prize gives University of Rochester students, groups and alumni funding and workshop training, on skills like pitching and systems thinking, to start projects with positive social impact. It is built for people at the very earliest stage of an idea.</p>
-        <p>I designed the Instagram posts that explain the prize, turning a long program page into a set of clear, quick reads:</p>
+        <p>To announce this year's applications, I drew a lightbulb in Procreate, with little figures climbing a ladder up one and swinging from another, then built the campaign in Adobe Photoshop in three formats.</p>
       </div>
-      <ul class="did">
-        <li><strong>What the prize is</strong> and who can apply: University of Rochester undergraduate and graduate students, and alumni.</li>
-        <li><strong>What winners receive:</strong> funds for developing or launching their idea, plus three workshops with the prize cohort.</li>
-        <li><strong>How the money is used:</strong> user research materials for ideas that still need proof, or supplies to build a minimum viable product for ideas that already have it.</li>
-        <li><strong>When it happens:</strong> applications open in early September and close in mid-October, decisions come by the start of spring semester, and funds are given out during the spring.</li>
-        <li><strong>How to apply:</strong> through the form in the promotional posts and on the iZone website.</li>
-      </ul>
+      <ol class="flow" aria-label="How I made the campaign">
+        <li><span class="flow-n">1</span><span><b>Draw</b> the lightbulbs and figures by hand in Procreate</span></li>
+        <li><span class="flow-n">2</span><span><b>Build</b> an Instagram post, a LinkedIn post and a print flyer in Adobe Photoshop</span></li>
+        <li class="soon"><span class="flow-n">3</span><span><b>Post</b> on social media &middot; not posted yet</span></li>
+      </ol>
+      <div class="mih-part">
+        <p class="label">Drawn in Procreate</p>
+        <div class="mih-draws">
+          <figure class="mih-draw"><span class="draw-tile"><img src="img/izone/mih/draw-bulb.jpg" alt="Hand-drawn yellow lightbulb with a blue base and black rays around it" loading="lazy" width="786" height="900"></span><figcaption class="label">The lightbulb</figcaption></figure>
+          <figure class="mih-draw"><span class="draw-tile"><img src="img/izone/mih/draw-climb.jpg" alt="The same lightbulb with a small blue figure who has climbed a ladder to the top" loading="lazy" width="786" height="900"></span><figcaption class="label">Climbing up</figcaption></figure>
+          <figure class="mih-draw"><span class="draw-tile"><img src="img/izone/mih/draw-swing.jpg" alt="The same lightbulb with a small blue figure in a cap with a little light, swinging from it" loading="lazy" width="786" height="900"></span><figcaption class="label">On the swing</figcaption></figure>
+        </div>
+      </div>
+      <div class="mih-part">
+        <p class="label">One design, three formats</p>
+        <div class="mih-formats">
+          <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/izone/mih/post-instagram.jpg" data-cap="Make It Happen · Instagram post" aria-label="Enlarge the Instagram post"><img src="img/izone/mih/post-instagram.jpg" alt="Make It Happen Instagram post: the title in the center on a soft blue and yellow background, hand-drawn lightbulbs in two corners, the November 1, 2026 application deadline and a QR code to the interest form" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
+          <figure class="mih-format" style="--ar:1/1"><button type="button" class="tx-zoom" data-full="img/izone/mih/post-linkedin.jpg" data-cap="Make It Happen · LinkedIn post" aria-label="Enlarge the LinkedIn post"><img src="img/izone/mih/post-linkedin.jpg" alt="Square LinkedIn version of the same Make It Happen design" loading="lazy" width="1080" height="1080"></button><figcaption><span class="mih-fmt">LinkedIn post</span><span class="label">1080 × 1080</span></figcaption></figure>
+          <figure class="mih-format print" style="--ar:2550/3450"><button type="button" class="tx-zoom" data-full="img/izone/mih/flyer-print.jpg" data-cap="Make It Happen · Printed flyer" aria-label="Enlarge the printed flyer"><img src="img/izone/mih/flyer-print.jpg" alt="Printed flyer version of the same Make It Happen design" loading="lazy" width="1800" height="2435"></button><figcaption><span class="mih-fmt">Printed flyer</span><span class="label">2550 × 3450</span></figcaption></figure>
+        </div>
+        <p class="kit-note">The layout holds across all three: a bulb in two opposite corners, the title in the middle, the deadline and QR code at the top right, and the details at the bottom left. Only the spacing changes to fit each size.</p>
+      </div>
+      <div class="mih-part">
+        <p class="label">What every version has to say</p>
+        <ul class="did">
+          <li><strong>The deadline:</strong> applications close November 1, 2026.</li>
+          <li><strong>How to apply:</strong> a QR code that opens the interest form.</li>
+          <li><strong>The condition:</strong> the prize is paid out only after the required workshops and the Pitch Night in spring.</li>
+          <li><strong>Who to ask:</strong> an email address for questions.</li>
+        </ul>
+      </div>
       <div class="linkrow"><a class="biglink" href="https://www.library.rochester.edu/spaces/izone/programs-services/make-it-happen-prize" target="_blank" rel="noopener"><span><small>iZone website</small><strong>About the Make It Happen Prize</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
 
