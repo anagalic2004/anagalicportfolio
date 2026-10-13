@@ -32,8 +32,9 @@
   --ss-ink:#0A0A0A;
   --ss-chrome:#161616;
   --ss-chrome-text:#9AA0A6;
-  --ss-blue:#4C8BF5;
+  --ss-blue:#528CEC;
   --ss-glow:#3057AE;
+  --ss-type-bg:#080808;
   --ss-light:#A9C4FF;
   --ss-deep:#1A375C;
   --on-blue:#0B0C0E;
@@ -258,6 +259,20 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
 @media (max-width:960px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.team-grid{grid-template-columns:minmax(0,1fr)}}
+.brand{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,36px) clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border:1px solid var(--line)}
+.brand-block:first-child{grid-row:span 2}
+@media (max-width:860px){.brand{grid-template-columns:minmax(0,1fr)}.brand-block:first-child{grid-row:auto}}
+.brand-block{display:flex;flex-direction:column;gap:12px;min-width:0}
+.swatches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.swatch{display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center}
+.chip-color{grid-row:span 2;width:52px;height:52px;border:1px solid var(--line)}
+.sw-name{font-weight:700;line-height:1.2}
+.sw-meta{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.type-tile{margin:0;background:var(--ss-type-bg);border:1px solid var(--block-line);padding:clamp(14px,2.4vw,24px)}
+.type-tile img{display:block;width:100%;height:auto}
+.logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.logos figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.logos img{display:block;width:100%;height:auto;border:1px solid var(--block-line)}
 .team-grid .me h3::after{content:" (me)";font-weight:500;color:var(--muted)}
 
 /* Case studies */
@@ -527,7 +542,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="card-body">
             <div class="card-row"><h3>Soulshine</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
             <p class="card-type">Multi-sensory focus lamp, companion app &amp; website</p>
-            <p class="card-meta">Jan 2026 – Jun 2026</p>
+            <p class="card-meta">Jan 2026 – May 2026</p>
             <ul class="tags"><li>Team leadership</li><li>Product design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
@@ -734,15 +749,47 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Soulshine is a desk lamp and companion app that gently pulls people out of mindless scrolling. Instead of adding another screen, it uses calm light, sound, scent and vibration to bring your attention back.</p>
-        <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow, budget and timeline, developed the user personas, and shaped the design vision. I also designed the Soulshine website you can explore above, which presents our research, the product, the timeline and the budget.</p>
+        <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow, budget and timeline, developed the user personas, and shaped the design vision. I also designed and built the Soulshine website you can explore above, and created its logo and brand.</p>
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Team Lead &amp; Visual Designer</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Rosemary Trotter, Yufan Lin, Arthur Chow</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites</dd></div>
-        <div><dt class="label">Timeline</dt><dd>Jan 2026 – Jun 2026</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma Sites, Adobe Photoshop</dd></div>
+        <div><dt class="label">Timeline</dt><dd>Jan 2026 – May 2026</dd></div>
       </dl>
     </div>
+
+    <section class="block-section" aria-labelledby="ss-site-h">
+      <h2 class="sec-title" id="ss-site-h">Designing the website</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>I designed and built the whole website myself in Figma Sites, as six pages that take visitors from the problem to the product, research, timeline, budget and team.</p></div>
+        <div class="hl"><p class="label">A choice for the viewer</p><h3>Light and dark mode</h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
+        <div class="hl"><p class="label">Made in Adobe Photoshop</p><h3>Logo and brand</h3><p>I created the Soulshine logo and brand myself. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
+      </div>
+      <div class="brand">
+        <div class="brand-block">
+          <p class="label">Colors</p>
+          <ul class="swatches">
+          <li class="swatch"><span class="chip-color" style="background:#080808"></span><span class="sw-name">Background</span><span class="sw-meta">#080808 · dark mode</span></li>
+          <li class="swatch"><span class="chip-color" style="background:#171717"></span><span class="sw-name">Cards</span><span class="sw-meta">#171717 · dark mode</span></li>
+          <li class="swatch"><span class="chip-color" style="background:#528CEC"></span><span class="sw-name">Soulshine blue</span><span class="sw-meta">#528CEC · buttons, links, highlights</span></li>
+          <li class="swatch"><span class="chip-color" style="background:#3057AE"></span><span class="sw-name">Glow</span><span class="sw-meta">#3057AE · hero light</span></li>
+          <li class="swatch"><span class="chip-color" style="background:#F4F4F4"></span><span class="sw-name">Background</span><span class="sw-meta">#F4F4F4 · light mode</span></li>
+          </ul>
+        </div>
+        <div class="brand-block">
+          <p class="label">Typeface</p>
+          <figure class="type-tile"><img src="img/soulshine/brand-type.jpg" alt="The headline typeface on the Soulshine website, in the line Designed for Real People" loading="lazy"></figure>
+        </div>
+        <div class="brand-block">
+          <p class="label">Logo · two versions</p>
+          <div class="logos">
+            <figure><img src="img/soulshine/brand-logo-warm.jpg" alt="Soulshine logo, warm version: a golden lamp shade with the word Soulshine on it" loading="lazy"><figcaption class="label">Warm</figcaption></figure>
+            <figure><img src="img/soulshine/brand-logo-glow.jpg" alt="Soulshine logo, glow version: a pale lamp shade with the word Soulshine, lit in blue" loading="lazy"><figcaption class="label">Glow</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="block-section" aria-labelledby="ss-problem-h">
       <h2 class="sec-title" id="ss-problem-h">The problem</h2>
@@ -785,8 +832,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Finalized the idea, gathered input from potential users using iZone resources, planned how the team would work, and wireframed the companion app's UI and core features.</p></div></li>
         <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Used StudioX at the University of Rochester to connect the lamp's light, sound and scent with the app's tracking and reminders.</p></div></li>
         <li class="key"><p class="label">April 2026</p><div><h3>Securing the investment</h3><p>Secured a $100,000 investment for the first 50 lamps, on four conditions: build fast and to a high standard, make it accessible for users with mobility issues, explain the research so anyone can understand it, and account for every dollar.</p></div></li>
-        <li><p class="label">May 2026</p><div><h3>Prototype and website</h3><p>Finished and tested a working lamp and app, and created the website to promote the device.</p></div></li>
-        <li><p class="label">June 2026</p><div><h3>Launch</h3><p>Launched the website and delivered the final presentation, with a transparent breakdown of how the $100,000 was spent.</p></div></li>
+        <li><p class="label">May 2026</p><div><h3>Prototype, website and final presentation</h3><p>Finished and tested a working lamp and app, built and launched the website, and delivered the final presentation with a transparent breakdown of how the $100,000 was spent.</p></div></li>
       </ol>
     </section>
 
@@ -794,7 +840,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <h2 class="sec-title" id="ss-team-h">The team</h2>
       <div class="team-grid">
         <div class="hl me"><p class="label">Team Lead &amp; Visual Designer</p><h3>Ana Galić</h3><p>Led the team's workflow, managed the budget and timelines, developed the personas and shaped the design vision.</p></div>
-        <div class="hl"><p class="label">Visual Designer</p><h3>Rosemary Trotter</h3><p>Built wireframes, app layouts and the brand identity, including colors, fonts and logos.</p></div>
+        <div class="hl"><p class="label">Visual Designer</p><h3>Rosemary Trotter</h3><p>Built wireframes and app layouts.</p></div>
         <div class="hl"><p class="label">Generator / Synthesizer</p><h3>Yufan Lin</h3><p>Conducted research, sourced materials, generated ideas and synthesized the physical product's properties.</p></div>
         <div class="hl"><p class="label">Industrial Designer</p><h3>Arthur Chow</h3><p>Created the 3D product designs, contributed to research and developed user personas.</p></div>
       </div>
