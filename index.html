@@ -277,7 +277,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .brand-block{display:flex;flex-direction:column;gap:14px;min-width:0}
 .swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px}
 @media (max-width:900px){.swatches{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:420px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.swatches{gap:8px}.sw-name{font-size:12px}.sw-meta{font-size:10.5px}}
 .swatch{display:flex;flex-direction:column;gap:6px;min-width:0}
 .chip-color{display:block;aspect-ratio:1;max-width:100%;border:1px solid var(--line)}
 .sw-name{font-weight:700;font-size:14px;line-height:1.25}
@@ -325,13 +325,20 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .vl-explorer{--win-bg:var(--vl-black);--win-bar:var(--vl-card);--win-accent:var(--vl-burgundy)}
 .swatches.seven{grid-template-columns:repeat(7,minmax(0,1fr))}
 @media (max-width:900px){.swatches.seven{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:420px){.swatches.seven{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.kit-row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
-@media (max-width:760px){.kit-row{grid-template-columns:minmax(0,1fr)}}
 .vl-kit .type-card{background:var(--vl-type-bg);color:var(--vl-white)}
 .type-img{display:block;width:100%;height:auto;margin-top:10px}
-.vl-logo-tile{margin:0;display:grid;place-items:center;aspect-ratio:1;width:100%;max-width:300px;padding:12%;border:1px solid var(--block-line);background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--vl-burgundy) 55%,transparent),transparent 70%),var(--vl-black)}
-.vl-logo-tile img{display:block;width:100%;height:auto}
+.vl-kit .type-card.light{background:var(--vl-white);color:var(--vl-black)}
+.vl-kit .type-card.light .type-use{color:color-mix(in srgb,var(--vl-black) 60%,transparent)}
+.vl-kit .type-card.light .type-img{margin-top:auto;padding-top:18px}
+.vl-tile{position:relative;display:block;aspect-ratio:4/3;max-width:100%;background:var(--vl-white);border:1px solid var(--line);overflow:hidden}
+.vl-tile img{position:absolute;left:10%;top:10%;width:80%;height:80%;max-width:none;object-fit:contain}
+.vl-tile.wide{aspect-ratio:16/9}
+.vl-tile.wide img{left:8%;top:8%;width:84%;height:84%}
+.vl-origin{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+@media (max-width:640px){.vl-origin{grid-template-columns:minmax(0,1fr)}}
+.vl-explore{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.vl-explore figure{margin:0}
+.vl-explore .label{grid-column:1 / -1}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -958,12 +965,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
-        <p>I was the Full-Stack Developer and Designer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens.</p>
+        <p>I was the Full-Stack Developer and Designer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Full-Stack Developer &amp; Designer</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React, Adobe Photoshop</dd></div>
         <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
       </dl>
     </div>
@@ -1028,18 +1035,38 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <li class="swatch"><span class="chip-color" style="background:#C8E3F5"></span><span class="sw-name">Light sky blue</span><span class="sw-meta">#C8E3F5</span></li>
           </ul>
         </div>
-        <div class="kit-row">
-          <div class="brand-block">
-            <p class="label">Typography · Adobe Fonts</p>
+        <div class="brand-block">
+          <p class="label">Typography · Adobe Fonts</p>
+          <div class="type-grid">
             <div class="type-card">
-              <span class="type-name">Proxima Nova</span>
-              <span class="type-use">Everything: headings, body text, buttons, UI and badges</span>
+              <span class="type-name">Proxima Nova Medium</span>
+              <span class="type-use">The website: headings, body text, buttons and UI</span>
               <img class="type-img" src="img/vals/vals-type.jpg" alt="The VALS headline Understand Before You Accept, set in Proxima Nova" loading="lazy">
             </div>
+            <div class="type-card light">
+              <span class="type-name">Halyard Display Bold</span>
+              <span class="type-use">Brand display face</span>
+              <img class="type-img" src="img/vals/type-halyard.png" alt="The words Halyard Display Bold, set in Halyard Display Bold" loading="lazy">
+            </div>
           </div>
-          <div class="brand-block">
-            <p class="label">Logo</p>
-            <figure class="vl-logo-tile"><img src="img/vals/vals-logo.png" alt="The VALS logo: a round black character with two small ears and a light blue band across its face that spells VALS in burgundy, with two eyes peeking out" loading="lazy"></figure>
+        </div>
+        <div class="brand-block">
+          <p class="label">Logo · Adobe Photoshop, then Figma</p>
+          <div class="logo-origin vl-origin">
+            <div class="vl-explore">
+              <figure><span class="vl-tile wide"><img src="img/vals/logo-wordmark-1.png" alt="Early VALS wordmark idea: light blue letters running along a black wedge, with a large S" loading="lazy"></span></figure>
+              <figure><span class="vl-tile wide"><img src="img/vals/logo-wordmark-2.png" alt="The same VALS wordmark idea rendered in 3D, with the letters standing out from the black wedge" loading="lazy"></span></figure>
+              <p class="label">Early explorations · wordmark</p>
+            </div>
+            <div class="origin-text">
+              <h3>From a wordmark to a character</h3>
+              <p>I designed the VALS logo myself in Adobe Photoshop. I started with wordmark ideas, the letters running along a black wedge, then turned it into a round character whose eyes peek out through the letters. I then rebuilt it as a 3D model in Figma and gave it a soft blue glow.</p>
+            </div>
+          </div>
+          <div class="logos">
+            <figure><span class="vl-tile"><img src="img/vals/logo-flat.png" alt="The flat VALS character: a round black shape with two ears and a light blue band spelling VALS in burgundy, with two eyes" loading="lazy"></span><figcaption class="label">1 · Flat · Adobe Photoshop</figcaption></figure>
+            <figure><span class="vl-tile"><img src="img/vals/logo-3d.png" alt="The VALS character as a glossy 3D model with a blue rim" loading="lazy"></span><figcaption class="label">2 · 3D model · Figma</figcaption></figure>
+            <figure><span class="vl-tile"><img src="img/vals/logo-glow.png" alt="The final VALS logo: the 3D character surrounded by a soft blue glow" loading="lazy"></span><figcaption class="label">3 · Final with glow · Figma</figcaption></figure>
           </div>
         </div>
       </div>
