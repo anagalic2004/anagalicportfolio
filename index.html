@@ -28,6 +28,12 @@
   /* The painting is always light, so anything sitting on it keeps these in both themes */
   --art-ink:#0B0C0E;
   --art-paper:#FFFFFF;
+  /* Soulshine's website is dark in both themes, so its frame keeps these */
+  --ss-ink:#0A0A0A;
+  --ss-chrome:#161616;
+  --ss-chrome-text:#9AA0A6;
+  --ss-blue:#4C8BF5;
+  --ss-deep:#0D1B3D;
   --on-blue:#0B0C0E;
   --block:#0B0C0E;
   --on-block:#F4F7FA;
@@ -196,6 +202,52 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .phone i:nth-child(3n+2){background:var(--blue)}
 .phone i:nth-child(5n){background:var(--on-block)}
 .card:hover .phone i:nth-child(odd){transform:scale(.84)}
+
+/* Soulshine: a little browser that shows the real website */
+.ss-cover{background:radial-gradient(ellipse 75% 65% at 50% 58%,var(--ss-deep) 0%,var(--ss-ink) 78%)}
+.ss-mini{position:absolute;left:50%;top:55%;width:84%;transform:translate(-50%,-50%);border-radius:10px;overflow:hidden;background:var(--ss-ink);border:1px solid color-mix(in srgb,var(--art-paper) 14%,transparent);box-shadow:0 24px 60px color-mix(in srgb,var(--art-ink) 60%,transparent);transition:transform .6s var(--ease)}
+.card:hover .ss-mini,.card:focus-visible .ss-mini{transform:translate(-50%,-52%) scale(1.025)}
+.ss-bar{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--ss-chrome);border-bottom:1px solid color-mix(in srgb,var(--art-paper) 8%,transparent);font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--ss-chrome-text);min-width:0}
+.ss-dots{display:flex;gap:4px;flex:none}
+.ss-dots i{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--art-paper) 22%,transparent)}
+.ss-url{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ss-url b{font-weight:500;color:var(--art-paper)}
+.ss-screen{position:relative;aspect-ratio:1100/606;max-width:100%}
+.ss-screen img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:top;opacity:0;transition:opacity .45s var(--ease)}
+.ss-screen img.on{opacity:1}
+.ss-pips{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);display:flex;gap:5px;z-index:2}
+.ss-pips i{width:16px;height:3px;border-radius:2px;background:color-mix(in srgb,var(--art-paper) 25%,transparent);transition:background .3s}
+.ss-pips i.on{background:var(--ss-blue)}
+.ss-explorer{display:flex;flex-direction:column;gap:12px}
+.ss-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.chip[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.chip[role="tab"]:hover:not([aria-selected="true"]){background:var(--blue-soft)}
+.ss-window{border-radius:12px;overflow:hidden;border:1px solid var(--block-line);background:var(--ss-ink)}
+.ss-window .ss-bar{padding:10px 14px;font-size:12px;gap:14px}
+.ss-window .ss-url{background:var(--ss-ink);padding:5px 10px;border-radius:6px}
+.ss-open{flex:none;color:var(--art-paper);font-family:var(--body);font-weight:700;font-size:13px;text-decoration:none;background:var(--ss-blue);padding:6px 12px;border-radius:6px}
+.ss-open:hover{background:color-mix(in srgb,var(--ss-blue) 85%,var(--art-paper))}
+.ss-open:focus-visible{outline-color:var(--art-paper)}
+.ss-viewport{height:clamp(340px,64vh,660px);overflow-y:auto;overscroll-behavior:contain;background:var(--ss-ink);scrollbar-color:color-mix(in srgb,var(--art-paper) 25%,transparent) transparent}
+.ss-viewport img{display:block;width:100%;height:auto;max-width:none}
+.ss-viewport:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+@media (max-width:520px){.ss-window .ss-url{display:none}.ss-window .ss-bar{justify-content:space-between}}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+@media (max-width:720px){.stats{grid-template-columns:minmax(0,1fr)}}
+.stat{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:2px solid var(--ink)}
+.stat strong{font-family:var(--display);font-weight:760;font-size:clamp(48px,6vw,80px);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px;line-height:1.45}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.steps li{display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr);gap:4px clamp(16px,3vw,40px);padding-block:18px;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+@media (max-width:640px){.steps li{grid-template-columns:minmax(0,1fr)}}
+.steps h3{margin:0 0 4px;font-family:var(--display);font-weight:640;font-size:20px;line-height:1.2}
+.steps p{margin:0;color:var(--muted);max-width:62ch}
+.steps li.key h3::after{content:"Stakeholder meeting";margin-left:10px;vertical-align:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--blue);color:var(--on-blue);padding:3px 7px}
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+@media (max-width:960px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.team-grid{grid-template-columns:minmax(0,1fr)}}
+.team-grid .me h3::after{content:" (me)";font-weight:500;color:var(--muted)}
 
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
@@ -456,14 +508,25 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#soulshine" data-tags="product research">
-          <div class="cover" aria-hidden="true">
-            <div class="art art-sun"></div>
+          <div class="cover ss-cover" aria-hidden="true">
+            <div class="ss-mini" data-cycle>
+              <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">soulshine / <b>about</b></span></div>
+              <div class="ss-screen">
+                <img class="on" src="img/soulshine/ss-about-top.jpg" alt="" data-path="about">
+                <img src="img/soulshine/ss-product-top.jpg" alt="" data-path="product" loading="lazy">
+                <img src="img/soulshine/ss-research-top.jpg" alt="" data-path="research" loading="lazy">
+                <img src="img/soulshine/ss-timeline-top.jpg" alt="" data-path="timeline" loading="lazy">
+                <img src="img/soulshine/ss-budget-top.jpg" alt="" data-path="budget" loading="lazy">
+                <img src="img/soulshine/ss-team-top.jpg" alt="" data-path="team" loading="lazy">
+              </div>
+            </div>
+            <div class="ss-pips"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
             <span class="cover-tag">Product · 2026</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Soulshine</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
-            <p class="card-type">Multi-sensory focus lamp &amp; companion app</p>
-            <p class="card-meta">Jan 2026 – May 2026</p>
+            <p class="card-type">Multi-sensory focus lamp, companion app &amp; website</p>
+            <p class="card-meta">Jan 2026 – Jun 2026</p>
             <ul class="tags"><li>Team leadership</li><li>Product design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
@@ -642,6 +705,108 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
   </article>
 
+  <!-- SOULSHINE -->
+  <article class="view wrap" data-view="soulshine" hidden>
+    <div class="cs-top">
+      <a class="back" href="#professional">&larr; All work</a>
+      <header class="cs-head">
+        <p class="label">Multi-sensory focus lamp, companion app &amp; website</p>
+        <h1 class="cs-title">Soulshine</h1>
+      </header>
+      <div class="ss-explorer">
+        <div class="ss-tabs" role="tablist" aria-label="Soulshine website pages">
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-about" aria-controls="ss-viewport" aria-selected="true" tabindex="0" data-page="about" data-alt="Soulshine About page: the hero line "Your attention is worth protecting. We help you do it.", our approach, research-backed insights, the gap Soulshine fills, and two user personas">About</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-product" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="product" data-alt="Soulshine Product page: the physical lamp with its dimensions, features and materials, next to the companion app controls">Product</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-research" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="research" data-alt="Soulshine Research page: key findings from 11 academic sources and the survey results of 71, 74 and 61 percent">Research</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-timeline" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="timeline" data-alt="Soulshine Timeline page: six monthly milestones from January to June 2026">Timeline</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-budget" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="budget" data-alt="Soulshine Budget page: how the $100,000 investment for the first 50 lamps is allocated">Budget</button>
+          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-team" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="team" data-alt="Soulshine Team page: Ana Galić, Rosemary Trotter, Yufan Lin and Arthur Chow, and a contact form">Team</button>
+        </div>
+        <div class="ss-window">
+          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">linter-berry-84402425.figma.site / <b id="ss-path">about</b></span><a class="ss-open" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">Visit live site &#8599;</a></div>
+          <div class="ss-viewport" id="ss-viewport" role="tabpanel" aria-labelledby="ss-tab-about" tabindex="0"><img id="ss-page" src="img/soulshine/ss-about.jpg" alt="Soulshine About page: the hero line "Your attention is worth protecting. We help you do it.", our approach, research-backed insights, the gap Soulshine fills, and two user personas"></div>
+        </div>
+        <p class="label">Scroll inside the window, or switch pages above</p>
+      </div>
+    </div>
+
+    <div class="cs-intro">
+      <div class="cs-copy">
+        <p class="lede">Soulshine is a desk lamp and companion app that gently pulls people out of mindless scrolling. Instead of adding another screen, it uses calm light, sound, scent and vibration to bring your attention back.</p>
+        <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow, budget and timeline, developed the user personas, and shaped the design vision. I also designed the Soulshine website you can explore above, which presents our research, the product, the timeline and the budget.</p>
+      </div>
+      <dl class="meta">
+        <div><dt class="label">Role</dt><dd>Team Lead &amp; Visual Designer</dd></div>
+        <div><dt class="label">Team</dt><dd>Ana Galić, Rosemary Trotter, Yufan Lin, Arthur Chow</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites</dd></div>
+        <div><dt class="label">Timeline</dt><dd>Jan 2026 – Jun 2026</dd></div>
+      </dl>
+    </div>
+
+    <section class="block-section" aria-labelledby="ss-problem-h">
+      <h2 class="sec-title" id="ss-problem-h">The problem</h2>
+      <div class="cs-copy"><p>Scrolling damages focus, disrupts sleep, and harms mental health. We grounded the project in 11 academic sources on short-form content, attention span, memory and wellbeing, then ran our own survey of students and young professionals.</p></div>
+      <div class="stats">
+        <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span></div>
+        <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span></div>
+        <div class="stat"><p class="label">Survey</p><strong>61%</strong><span>want a physical device to remind them to stop</span></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="ss-gap-h">
+      <h2 class="sec-title" id="ss-gap-h">The gap we found</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">What already exists</p><h3>Apps and lockboxes</h3><p>Forest, One Sec, Opal and physical phone lockboxes each tackle part of the problem, either on the screen or by locking the phone away.</p></div>
+        <div class="hl"><p class="label">What was missing</p><h3>Physical and digital, together</h3><p>None of them combine physical and digital signals into one calm experience, even though research shows paired interventions work best. That gap is what Soulshine fills.</p></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="ss-how-h">
+      <h2 class="sec-title" id="ss-how-h">How it works</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">The lamp</p><h3>A calm cue on your desk</h3><p>A multi-colored LED light that slowly dims as a session goes on, a scent diffuser, a 360° speaker, a phone stand that keeps your phone charging but out of direct sight, and simple touch buttons for brightness and the timer.</p></div>
+        <div class="hl"><p class="label">The companion app</p><h3>Tracking without stress</h3><p>An iOS and Android app that tracks time on TikTok and Instagram, runs focus sessions with music and blocked apps, and shows a virtual lamp that dims slowly, with no guilt.</p></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="ss-people-h">
+      <h2 class="sec-title" id="ss-people-h">Designed for real people</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">Persona · Financial Analyst, 24</p><h3>Sarah Jenkins</h3><p>Picks up her phone to decompress after long days of spreadsheets, and short-form content keeps her up late. She needs a cue that feels gentle, not punishing.</p></div>
+        <div class="hl"><p class="label">Persona · IT PM &amp; Technical Lead, 38</p><h3>Marcus Smith</h3><p>Evaluates hardware and security risks before anything reaches campus. He needs exact specs, a transparent budget and no overpromising.</p></div>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="ss-process-h">
+      <h2 class="sec-title" id="ss-process-h">From concept to launch</h2>
+      <ol class="steps">
+        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature reviews and first ideas for both the hardware and the software.</p></div></li>
+        <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Finalized the idea, gathered input from potential users using iZone resources, planned how the team would work, and wireframed the companion app's UI and core features.</p></div></li>
+        <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Used StudioX at the University of Rochester to connect the lamp's light, sound and scent with the app's tracking and reminders.</p></div></li>
+        <li class="key"><p class="label">April 2026</p><div><h3>Securing the investment</h3><p>Secured a $100,000 investment for the first 50 lamps, on four conditions: build fast and to a high standard, make it accessible for users with mobility issues, explain the research so anyone can understand it, and account for every dollar.</p></div></li>
+        <li><p class="label">May 2026</p><div><h3>Prototype and website</h3><p>Finished and tested a working lamp and app, and created the website to promote the device.</p></div></li>
+        <li><p class="label">June 2026</p><div><h3>Launch</h3><p>Launched the website and delivered the final presentation, with a transparent breakdown of how the $100,000 was spent.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block-section" aria-labelledby="ss-team-h">
+      <h2 class="sec-title" id="ss-team-h">The team</h2>
+      <div class="team-grid">
+        <div class="hl me"><p class="label">Team Lead &amp; Visual Designer</p><h3>Ana Galić</h3><p>Led the team's workflow, managed the budget and timelines, developed the personas and shaped the design vision.</p></div>
+        <div class="hl"><p class="label">Visual Designer</p><h3>Rosemary Trotter</h3><p>Built wireframes, app layouts and the brand identity, including colors, fonts and logos.</p></div>
+        <div class="hl"><p class="label">Generator / Synthesizer</p><h3>Yufan Lin</h3><p>Conducted research, sourced materials, generated ideas and synthesized the physical product's properties.</p></div>
+        <div class="hl"><p class="label">Industrial Designer</p><h3>Arthur Chow</h3><p>Created the 3D product designs, contributed to research and developed user personas.</p></div>
+      </div>
+    </section>
+
+    <div class="linkrow">
+      <a class="biglink" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span><small>Figma Sites</small><strong>Visit the Soulshine website</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="biglink" href="#professional"><span><small>Portfolio</small><strong>Back to all work</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <a class="next" href="#vals"><span class="label">Next project</span><span class="next-title">VALS &rarr;</span></a>
+  </article>
+
   <!-- ABOUT -->
   <article class="view wrap" data-view="about" hidden>
     <header class="cs-head">
@@ -752,9 +917,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const title = id => keepCase.has(id) ? `<span class="nc">${names[id]}</span>` : names[id];
   const emptyNote = "This case study is empty on your current site (it shows Peaceland's text). Send me what the project was, your role, the problem, your process, the outcome, and 4 to 8 images.";
   const stubs = {
-    soulshine: {type:'Multi-sensory focus lamp & companion app', art:'sun', note:emptyNote,
-      lede:'Soulshine is a multi-sensory focus lamp with a companion app.',
-      meta:[['Role','Team lead<br>Product design, UX/UI'], ['Timeline','Jan 2026 – May 2026'], ['Focus','Team leadership, Product design, UX/UI, User research, Web design']]},
     vals: {type:'Multilingual AI voice assistant', art:'wave', note:emptyNote,
       lede:'VALS is a multilingual AI voice assistant, designed to be accessible.',
       meta:[['Role','Full-stack development<br>UX/UI'], ['Timeline','Aug 2025 – Dec 2025'], ['Focus','Full-stack development, Accessible design, UX/UI, User research, Web design']]},
@@ -941,6 +1103,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     window.scrollTo(0, 0);
     if (r === 'professional'){ fit(); layoutArt(); }
     if (r === 'personal') sizePad();
+    if (r === 'soulshine') ssPreload();
   }
   window.addEventListener('hashchange', route);
 
@@ -1055,6 +1218,65 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   window.addEventListener('hashchange', closeLb);
+
+  /* Soulshine card: hovering flips through the real website's pages */
+  document.querySelectorAll('[data-cycle]').forEach(mini => {
+    const imgs = [...mini.querySelectorAll('.ss-screen img')];
+    const pips = [...mini.parentElement.querySelectorAll('.ss-pips i')];
+    const path = mini.querySelector('.ss-url b');
+    const card = mini.closest('.card');
+    let i = 0, timer = 0;
+    const show = n => {
+      imgs[i].classList.remove('on'); if (pips[i]) pips[i].classList.remove('on');
+      i = n;
+      imgs[i].classList.add('on'); if (pips[i]) pips[i].classList.add('on');
+      path.textContent = imgs[i].dataset.path;
+    };
+    const start = () => {
+      if (reduce || timer) return;
+      show((i + 1) % imgs.length);
+      timer = setInterval(() => show((i + 1) % imgs.length), 1400);
+    };
+    const stop = () => { clearInterval(timer); timer = 0; if (i) show(0); };
+    card.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') start(); });
+    card.addEventListener('pointerleave', stop);
+    card.addEventListener('focus', start);
+    card.addEventListener('blur', stop);
+    if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
+      new IntersectionObserver(es => es.forEach(en => en.isIntersecting ? start() : stop()), {threshold: 0.6}).observe(card);
+    }
+  });
+
+  /* Soulshine page: click through the website inside the window */
+  const ssTabs = [...document.querySelectorAll('.ss-tab')];
+  const ssImg = document.getElementById('ss-page');
+  const ssPath = document.getElementById('ss-path');
+  const ssView = document.getElementById('ss-viewport');
+  let ssPreloaded = false;
+  function ssPreload(){
+    if (ssPreloaded) return;
+    ssPreloaded = true;
+    ssTabs.forEach(t => { const im = new Image(); im.src = `img/soulshine/ss-${t.dataset.page}.jpg`; });
+  }
+  function ssShow(i, focus){
+    ssTabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+    const t = ssTabs[i];
+    ssImg.src = `img/soulshine/ss-${t.dataset.page}.jpg`;
+    ssImg.alt = t.dataset.alt;
+    ssPath.textContent = t.dataset.page;
+    ssView.setAttribute('aria-labelledby', t.id);
+    ssView.scrollTop = 0;
+    if (focus) t.focus();
+  }
+  ssTabs.forEach((t, i) => {
+    t.addEventListener('click', () => ssShow(i));
+    t.addEventListener('keydown', e => {
+      const keys = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1};
+      if (keys[e.key]){ e.preventDefault(); ssShow((i + keys[e.key] + ssTabs.length) % ssTabs.length, true); }
+      if (e.key === 'Home'){ e.preventDefault(); ssShow(0, true); }
+      if (e.key === 'End'){ e.preventDefault(); ssShow(ssTabs.length - 1, true); }
+    });
+  });
 
   /* Copy email */
   const copyBtn = document.getElementById('copy-email');
