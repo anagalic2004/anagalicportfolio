@@ -46,7 +46,7 @@
   --vl-type-bg:#191313;
   /* iZone introduction posts */
   --gwc-blue:#5DA5E4; --gwc-teal:#1C9C8D;
-  --rdh-blue:#0E6FBA; --rdh-violet:#5B4BA8; --rdh-magenta:#BB3698;
+  --rdh-blue:#0F6DB9; --rdh-violet:#594D99; --rdh-magenta:#B72B93;
   --iz-pink:#E0AFD9;
   --iz-yellow:#F6D934;
   --ss-light:#A9C4FF;
@@ -513,6 +513,16 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .uo-logo{padding:clamp(22px,3.5vw,40px);box-sizing:border-box}
 .uo-logo img{object-fit:contain}
 .email-fig{max-width:900px}
+@font-face{font-family:"Aileron";src:url("fonts/aileron-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Aileron";src:url("fonts/aileron-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+.rdh-grad{height:clamp(40px,5vw,60px);background:linear-gradient(90deg,#0F6DB9,#7499D0 50%,#B72B93);border:1px solid var(--line)}
+.rdh-kit .type-card{background:var(--art-paper);color:#3A3266;border-color:var(--line)}
+.rdh-kit .type-name{font-family:"Aileron",var(--body);font-weight:800}
+.rdh-kit .type-name.w7{font-weight:700}
+.rdh-kit .type-card .type-use{color:#6E6893;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.rdh-spec{font-family:"Aileron",var(--body);font-size:clamp(28px,3.4vw,44px);line-height:1.02;margin-top:14px;color:#594D99;text-wrap:balance}
+.rdh-abc{font-family:"Aileron",var(--body);font-size:clamp(15px,1.4vw,18px);letter-spacing:.02em;color:#3A3266;overflow-wrap:anywhere}
+.w8{font-weight:800}.w7{font-weight:700}
 .gwc-cover{background:radial-gradient(circle at 28% 64%,color-mix(in srgb,var(--gwc-teal) 42%,transparent),transparent 55%),radial-gradient(circle at 74% 36%,color-mix(in srgb,var(--gwc-blue) 40%,transparent),transparent 55%),var(--block)}
 .biglink.with-av{justify-content:flex-start}
 .biglink.with-av .arrow{margin-left:auto}
@@ -1474,10 +1484,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Rochester Design Hub is a student design club at the University of Rochester. As its Marketing Manager, I design the club's visual identity and run its Instagram.</p>
-        <p>I made the club's logo and design the posts, flyers and banners for its events. They share one visual language: liquid chrome and iridescent glass shapes on white, bold black type, and the logo's blue-to-magenta gradient as the accent.</p>
+        <p>I redesigned the club's logo and design the posts, flyers and banners for its events, all in Adobe Photoshop. They share one visual language: a purple-and-blue palette, liquid chrome and iridescent glass shapes on white, and bold black type.</p>
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Marketing Manager</dd></div>
+        <div><dt class="label">Tools</dt><dd>Adobe Photoshop, Adobe Fonts</dd></div>
         <div><dt class="label">Focus</dt><dd>Brand identity, Social media, Event marketing, Print</dd></div>
         <div><dt class="label">Timeline</dt><dd>Sep 2025 – present</dd></div>
       </dl>
@@ -1492,6 +1503,35 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="stat"><p class="label">Reach</p><strong>3&times;</strong><span>the audience that follows the account</span></div>
       </div>
       <div class="linkrow"><a class="biglink" href="https://www.instagram.com/rdh_urochester/" target="_blank" rel="noopener"><span><small>Instagram · @rdh_urochester</small><strong>Rochester Design Hub on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
+    </section>
+
+    <section class="block-section" aria-labelledby="rdh-brand-h">
+      <div class="sec-head"><h2 class="sec-title" id="rdh-brand-h">Color &amp; type</h2><p class="label">Purple-blue palette · Aileron</p></div>
+      <div class="cs-copy"><p>The club follows a purple-and-blue aesthetic. These are its colors, pulled from the logo and the posts, and its typeface.</p></div>
+      <div class="brand-kit rdh-kit">
+        <div class="brand-block">
+          <p class="label">Color palette</p>
+          <ul class="swatches">
+            <li class="swatch"><span class="chip-color" style="background:#0F6DB9"></span><span class="sw-name">Deep blue</span><span class="sw-meta">#0F6DB9</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#A2CCFE"></span><span class="sw-name">Sky blue</span><span class="sw-meta">#A2CCFE</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#7499D0"></span><span class="sw-name">Periwinkle</span><span class="sw-meta">#7499D0</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#9C94D4"></span><span class="sw-name">Lavender</span><span class="sw-meta">#9C94D4</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#594D99"></span><span class="sw-name">Logo purple</span><span class="sw-meta">#594D99</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#3A3266"></span><span class="sw-name">Deep purple</span><span class="sw-meta">#3A3266</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#B72B93"></span><span class="sw-name">Magenta</span><span class="sw-meta">#B72B93</span></li>
+            <li class="swatch"><span class="chip-color" style="background:#F4F4F6"></span><span class="sw-name">Mist</span><span class="sw-meta">#F4F4F6</span></li>
+          </ul>
+          <div class="rdh-grad" role="img" aria-label="The HUB gradient, from deep blue through periwinkle to magenta"></div>
+          <p class="kit-note">The HUB gradient runs from deep blue through periwinkle to magenta, the accent at the heart of the logo.</p>
+        </div>
+        <div class="brand-block">
+          <p class="label">Typography · Adobe Fonts</p>
+          <div class="type-grid">
+            <div class="type-card rdh-type"><span class="type-name">Aileron Heavy</span><span class="type-use">Weight 800</span><span class="rdh-spec w8">Rochester Design Hub</span><span class="rdh-abc w8">Aa Bb Cc Dd Ee 0123456789</span></div>
+            <div class="type-card rdh-type"><span class="type-name w7">Aileron Bold</span><span class="type-use">Weight 700</span><span class="rdh-spec w7">Rochester Design Hub</span><span class="rdh-abc w7">Aa Bb Cc Dd Ee 0123456789</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="block-section" aria-labelledby="rdh-work-h">
@@ -1532,8 +1572,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Fall Activities Fair</h3></div>
-          <p class="kit-note">The club's table at the Fall Activities Fair: Friday, September 4, 3–5pm, Table 118 on Wilson Quad, in front of Rettner Hall. Iridescent stars and orbits in the logo's blues and purples frame the details, with QR codes for the club's Discord, website and CCC page.</p>
-          <div class="fmts two" style="--cols:.8fr .5625fr;--cols-sm:.8fr .5625fr">
+          <p class="kit-note">The club's table at the Fall Activities Fair: Friday, September 4, 3–5pm, Table 118 on Wilson Quad, in front of Rettner Hall. Iridescent stars and orbits in the logo's blues and purples frame the details, with QR codes for the club's Discord, website and CCC page. I made the metallic stars to try out a more modern look, cooler in tone and harsher.</p>
+                    <div class="fmts two" style="--cols:.8fr .5625fr;--cols-sm:.8fr .5625fr">
             <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/faf-instagram.jpg" data-cap="Fall Activities Fair · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/faf-instagram.jpg" alt="Fall Activities Fair Instagram post: Rochester Design Hub at the Fall Activities Fair, Friday, September 4, Wilson Quad, 3 to 5pm, Table 118 in front of Rettner Hall, framed by iridescent blue and purple stars, with QR codes for Discord, the website and CCC" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
             <figure class="mih-format" style="--ar:1080/1920"><button type="button" class="tx-zoom" data-full="img/uo/faf-story.jpg" data-cap="Fall Activities Fair · Instagram story" aria-label="Enlarge the instagram story"><img src="img/uo/faf-story.jpg" alt="Instagram story version of the Fall Activities Fair post" loading="lazy" width="1080" height="1920"></button><figcaption><span class="mih-fmt">Instagram story</span><span class="label">1080 × 1920</span></figcaption></figure>
           </div>
@@ -1541,8 +1581,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Fall Interest Form post</h3></div>
-          <p class="kit-note">A two-slide post. The first welcomes new members: what the club's events cover, why any background counts, and an offer to pair them with a mentor. The second holds the QR code to the Fall 2026 project group interest form and points to the Project Kickoff event. Both sit on an embossed white background of flowing lines, set in the club's purple.</p>
-          <div class="eb-grid two" data-gallery="Rochester Design Hub · Fall Interest Form">
+          <p class="kit-note">A two-slide post. The first welcomes new members: what the club's events cover, why any background counts, and an offer to pair them with a mentor. The second holds the QR code to the Fall 2026 project group interest form and points to the Project Kickoff event. Both sit on an embossed white background of flowing lines, set in the club's purple. The waves came from me experimenting with texture while still following the club's color palette.</p>
+                    <div class="eb-grid two" data-gallery="Rochester Design Hub · Fall Interest Form">
             <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/fif-1.jpg" aria-label="Enlarge slide 1"><img src="img/uo/fif-1-sm.jpg" alt="Slide 1: Welcome to Rochester Design Hub! The club’s events cover product, UX and graphic design; any background helps you understand people and solve problems; members can be paired with a mentor; the interest form is linked on the next slide" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Slide 1</span><span class="label">Welcome</span></figcaption></figure>
             <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/fif-2.jpg" aria-label="Enlarge slide 2"><img src="img/uo/fif-2-sm.jpg" alt="Slide 2: Project Group Interest Form, Fall 2026, with a large QR code and a note to meet your team at the Project Kickoff event" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Slide 2</span><span class="label">QR code to the form</span></figcaption></figure>
           </div>
@@ -1552,14 +1592,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Logo</h3></div>
           <div class="tx-logo-row">
             <button type="button" class="tx-zoom uo-logo" style="--ar:1106/1062" data-full="img/uo/logo.jpg" data-cap="Rochester Design Hub · Logo" aria-label="Enlarge the logo"><img src="img/uo/logo.jpg" alt="Rochester Design Hub logo: Rochester in a light purple face, DESIGN in bold purple, and HUB in a blue-to-magenta gradient, with a fountain-pen nib set inside the U" loading="lazy" width="1106" height="1062"></button>
-            <p class="kit-note">Three lines that step up in weight: &ldquo;Rochester&rdquo; light and widely spaced, &ldquo;DESIGN&rdquo; in bold purple, and &ldquo;HUB&rdquo; in a gradient from blue to magenta, with a fountain-pen nib set inside the U. The gradient became the accent color across all of the club's posts.</p>
+            <p class="kit-note">A redesign of the club's older logo, updated to follow the club's color palette. Three lines step up in weight: &ldquo;Rochester&rdquo; light and widely spaced, &ldquo;DESIGN&rdquo; in bold purple, and &ldquo;HUB&rdquo; in a gradient from deep blue to magenta, with a fountain-pen nib set inside the U.</p>
           </div>
         </div>
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Project Kick Off</h3></div>
           <p class="kit-note">The announcement for the Project Kick Off, Friday, September 18, 5–6pm in Rettner 307, where members meet their design project group. A halftone megaphone cut-out calls from the corner over iridescent glass, with QR codes for Discord and CCC.</p>
-          <div class="fmts two" style="--cols:.8fr .5625fr;--cols-sm:.8fr .5625fr">
+                    <div class="fmts two" style="--cols:.8fr .5625fr;--cols-sm:.8fr .5625fr">
             <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/pko-instagram.jpg" data-cap="Project Kick Off · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/pko-instagram.jpg" alt="Project Kick Off Instagram post: Friday, September 18, 5 to 6pm, Rettner 307, with a halftone megaphone cut-out, a note to fill out the interest form so members can be matched with a team, and QR codes for Discord and CCC" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
             <figure class="mih-format" style="--ar:1080/1920"><button type="button" class="tx-zoom" data-full="img/uo/pko-story.jpg" data-cap="Project Kick Off · Instagram story" aria-label="Enlarge the instagram story"><img src="img/uo/pko-story.jpg" alt="Instagram story version of the Project Kick Off post" loading="lazy" width="1080" height="1920"></button><figcaption><span class="mih-fmt">Instagram story</span><span class="label">1080 × 1920</span></figcaption></figure>
           </div>
@@ -1567,15 +1607,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Email banner</h3></div>
-          <p class="kit-note">A wide banner for the top of the club's emails: the logo at the center of a soft glow that fades from white through blue to violet.</p>
-          <figure class="mih-format email-fig" style="--ar:1200/400"><button type="button" class="tx-zoom" data-full="img/uo/banner.jpg" data-cap="Rochester Design Hub · Email banner" aria-label="Enlarge the email banner"><img src="img/uo/banner.jpg" alt="Email banner: the Rochester Design Hub logo in the center of a glow fading from white to blue and violet" loading="lazy" width="1200" height="400"></button><figcaption><span class="mih-fmt">Email banner</span><span class="label">1200 × 400</span></figcaption></figure>
+          <p class="kit-note">A wide banner for the top of the club's emails: the logo at the center of a soft glow that fades from white through blue to violet. It heads the club's official emails, its weekly newsletter and its event registrations. The Greene Center, which guides students toward jobs, advises them and connects the club with resources, uses it for the club too.</p>
+                    <figure class="mih-format email-fig" style="--ar:1200/400"><button type="button" class="tx-zoom" data-full="img/uo/banner.jpg" data-cap="Rochester Design Hub · Email banner" aria-label="Enlarge the email banner"><img src="img/uo/banner.jpg" alt="Email banner: the Rochester Design Hub logo in the center of a glow fading from white to blue and violet" loading="lazy" width="1200" height="400"></button><figcaption><span class="mih-fmt">Email banner</span><span class="label">1200 × 400</span></figcaption></figure>
         </div>
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Design panel</h3></div>
           <div class="tx-logo-row">
             <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/panel.jpg" data-cap="Industry &amp; Alumni Design Panel · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/panel.jpg" alt="Industry and Alumni Design Panel, coming soon: the title between strips of design from the past, a 1975 Galaksija magazine cover, the NYC subway map, a 1982 Vanity Fair by Bea Feitler and 1940s Penguin Books, with the lines career paths, industry insights, advice from design professionals, and what will your future in the design field look like?" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
-            <p class="kit-note">A &ldquo;coming soon&rdquo; teaser for the Industry &amp; Alumni Design Panel, where design professionals share career paths, industry insights and advice. Strips of design from the past frame the title: a 1975 cover of Galaksija magazine, the NYC subway map, a 1982 Vanity Fair by Bea Feitler, and 1940s Penguin Books.</p>
+            <p class="kit-note">A &ldquo;coming soon&rdquo; teaser for the Industry &amp; Alumni Design Panel, where design professionals share career paths, industry insights and advice. Strips of earlier designs for well-known names frame the title: a 1975 cover of Galaksija magazine, the NYC subway map, a 1982 Vanity Fair by Bea Feitler, and 1940s Penguin Books. I found them in <i>The History of Graphic Design</i> (TASCHEN, 45th edition), in which <a href="https://www.taschen.com/en/collection/jens-mueller/" target="_blank" rel="noopener">Jens Müller</a> traces 130 years of graphic design, from the late 19th century to today.</p>
           </div>
         </div>
       </div>
