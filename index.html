@@ -126,54 +126,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .tag-hint{display:inline-flex;align-items:center;gap:8px;transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .hero.is-touched .tag-hint{opacity:0;transform:translateY(8px)}
 .hint-dot{flex:none;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--art-ink);background:var(--blue)}
-.wordmark{position:relative;z-index:2;place-self:center;margin:0;color:var(--art-paper);font-family:"Bangers",var(--display);font-size:120px;font-weight:400;line-height:.92;letter-spacing:.03em;text-transform:uppercase;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:.2em;text-align:center;pointer-events:none;transform:rotate(-4deg)}
-@font-face{font-family:"Bangers";src:url("fonts/bangers-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Bangers";src:url("fonts/bangers-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-/* Comic lettering: white letters, black outline, a stepped black 3D extrusion and a soft cast shadow */
-.wm-line{position:relative;display:block;white-space:nowrap;padding:0 .06em .16em .2em;
-  text-shadow:
-    0.040em 0.000em 0 var(--art-ink),
-    0.037em 0.015em 0 var(--art-ink),
-    0.028em 0.028em 0 var(--art-ink),
-    0.015em 0.037em 0 var(--art-ink),
-    0.000em 0.040em 0 var(--art-ink),
-    -0.015em 0.037em 0 var(--art-ink),
-    -0.028em 0.028em 0 var(--art-ink),
-    -0.037em 0.015em 0 var(--art-ink),
-    -0.040em 0.000em 0 var(--art-ink),
-    -0.037em -0.015em 0 var(--art-ink),
-    -0.028em -0.028em 0 var(--art-ink),
-    -0.015em -0.037em 0 var(--art-ink),
-    -0.000em -0.040em 0 var(--art-ink),
-    0.015em -0.037em 0 var(--art-ink),
-    0.028em -0.028em 0 var(--art-ink),
-    0.037em -0.015em 0 var(--art-ink),
-    -0.036em 0.036em 0 var(--art-ink),
-    -0.042em 0.042em 0 var(--art-ink),
-    -0.048em 0.048em 0 var(--art-ink),
-    -0.054em 0.054em 0 var(--art-ink),
-    -0.060em 0.060em 0 var(--art-ink),
-    -0.066em 0.066em 0 var(--art-ink),
-    -0.072em 0.072em 0 var(--art-ink),
-    -0.078em 0.078em 0 var(--art-ink),
-    -0.084em 0.084em 0 var(--art-ink),
-    -0.090em 0.090em 0 var(--art-ink),
-    -0.096em 0.096em 0 var(--art-ink),
-    -0.102em 0.102em 0 var(--art-ink),
-    -0.108em 0.108em 0 var(--art-ink),
-    -0.114em 0.114em 0 var(--art-ink),
-    -0.120em 0.120em 0 var(--art-ink),
-    -0.126em 0.126em 0 var(--art-ink),
-    -0.132em 0.132em 0 var(--art-ink),
-    -0.138em 0.138em 0 var(--art-ink),
-    -0.144em 0.144em 0 var(--art-ink),
-    -0.150em 0.150em 0 var(--art-ink),
-    -0.156em 0.156em 0 var(--art-ink),
-    -.2em .22em .05em color-mix(in srgb,var(--art-ink) 30%,transparent)}
-/* Light halftone dots printed on the white face */
-.wm-line::after{content:attr(data-text);position:absolute;left:0;top:0;padding:inherit;color:transparent;text-shadow:none;
-  background:radial-gradient(circle,color-mix(in srgb,var(--art-ink) 13%,transparent) 0 .008em,transparent .012em) 0 0/.045em .045em;
-  -webkit-background-clip:text;background-clip:text}
+.wordmark{position:relative;z-index:2;place-self:center;margin:0;color:var(--art-paper);font-family:var(--display);font-size:120px;font-weight:800;line-height:.86;letter-spacing:-.01em;text-transform:uppercase;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:.22em;text-align:center;pointer-events:none;-webkit-text-stroke:.05em var(--art-ink);paint-order:stroke fill}
+.wm-line{display:block;white-space:nowrap}
 @media (max-width:640px){.wordmark{flex-direction:column}}
 .brush{position:absolute;left:0;top:0;z-index:3;width:var(--d,80px);height:var(--d,80px);margin:calc(var(--d,80px) / -2) 0 0 calc(var(--d,80px) / -2);border:1.5px solid var(--art-ink);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .2s}
 .brush::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:var(--art-ink)}
@@ -777,7 +731,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <p class="tag">Graphic &amp; UX/UI Designer</p>
           <p class="tag tag-r">Computer Science + Digital Design</p>
         </div>
-        <h1 class="wordmark" id="hero-name"><span class="wm-line" data-text="Ana">Ana</span> <span class="wm-line" data-text="Galic">Galic</span></h1>
+        <h1 class="wordmark" id="hero-name"><span class="wm-line">Ana</span> <span class="wm-line">Galic</span></h1>
         <div class="hero-row hero-row-b">
           <p class="tag tag-hint" aria-hidden="true"><span class="hint-dot"></span><span id="hero-hint-text">Move across the painting to smudge it</span></p>
         </div>
