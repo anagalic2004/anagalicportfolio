@@ -685,6 +685,16 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pad-color:hover{transform:scale(1.1)}
 .pad-color[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink);transform:scale(1.12)}
 .pad-color:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.pad-send{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:4px}
+.pad-name{flex:0 1 260px;min-width:0;font:inherit;font-size:15px;padding:11px 14px;border:1.5px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink)}
+.pad-name::placeholder{color:var(--muted)}
+.pad-send-btn{border:0;background:var(--ink);color:var(--paper);font:inherit;font-size:15px;font-weight:700;padding:12px 22px;cursor:pointer;transition:transform .2s var(--ease),opacity .2s}
+.pad-send-btn:hover:not(:disabled){transform:translateY(-2px)}
+.pad-send-btn:disabled{opacity:.35;cursor:not-allowed}
+.pad-send-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.pad-status{margin:0;font-size:14px;color:var(--muted)}
+.pad-status.ok{color:var(--ink);font-weight:600}
+.pad-honey,.pad-sink{position:absolute;width:1px;height:1px;border:0;padding:0;opacity:0;pointer-events:none;left:-9999px}
 .pad-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .pad-stage{position:relative}
 #pad{display:block;width:100%;height:clamp(260px,38vw,420px);background-color:var(--blue-soft);background-image:radial-gradient(circle,color-mix(in srgb,var(--ink) 18%,transparent) 1px,transparent 1.4px);background-size:22px 22px;border:1.5px solid var(--ink);touch-action:none;cursor:crosshair}
@@ -1802,6 +1812,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <canvas id="pad" aria-label="Drawing area. Draw with your mouse or finger."></canvas>
         <div class="pad-hint" id="pad-hint">Draw here</div>
       </div>
+      <form class="pad-send" id="pad-send" action="https://formsubmit.co/anagalic.2004@gmail.com" method="POST" enctype="multipart/form-data" target="doodle-sink">
+        <input type="hidden" name="_subject" value="New doodle from your portfolio">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="pad-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="file" name="attachment" hidden>
+        <input type="text" name="name" class="pad-name" maxlength="80" placeholder="Your name (optional)" aria-label="Your name (optional)">
+        <button type="submit" class="pad-send-btn" id="pad-send-btn" disabled>Send it &rarr;</button>
+        <p class="pad-status" id="pad-status" role="status" aria-live="polite">Draw something, then send it my way.</p>
+      </form>
+      <iframe name="doodle-sink" id="doodle-sink" class="pad-sink" title="Doodle sending" tabindex="-1" aria-hidden="true"></iframe>
     </div>
   </article>
 
@@ -2450,12 +2471,54 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     ctx.lineWidth = 3.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke();
     last = p;
+    if (!inked) setInked(true);
   });
   const stop = () => { drawing = false; };
   pad.addEventListener('pointerup', stop);
   pad.addEventListener('pointercancel', stop);
   document.getElementById('pad-clear').addEventListener('click', () => {
-    ctx.clearRect(0, 0, pad.width, pad.height); hint.hidden = false;
+    ctx.clearRect(0, 0, pad.width, pad.height); hint.hidden = false; setInked(false);
+  });
+
+  /* Send it: the doodle is emailed to Ana as a PNG through FormSubmit, posted in the background */
+  const sendForm = document.getElementById('pad-send');
+  const sendBtn = document.getElementById('pad-send-btn');
+  const sendStatus = document.getElementById('pad-status');
+  const sink = document.getElementById('doodle-sink');
+  let inked = false, sending = false;
+  function setInked(v){ inked = v; sendBtn.disabled = !inked || sending; }
+  function say(msg, ok){ sendStatus.textContent = msg; sendStatus.classList.toggle('ok', !!ok); }
+  sendForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!inked || sending) return;
+    if (!/(^|\.)anagalicportfolio\.com$|\.github\.io$/.test(location.hostname)){
+      say('Sending works on anagalicportfolio.com, not in this preview.'); return;
+    }
+    const out = document.createElement('canvas');
+    out.width = pad.width; out.height = pad.height;
+    const o = out.getContext('2d');
+    o.fillStyle = getComputedStyle(pad).backgroundColor || '#FFFFFF';
+    o.fillRect(0, 0, out.width, out.height);
+    o.drawImage(pad, 0, 0);
+    out.toBlob(blob => {
+      if (!blob || typeof DataTransfer === 'undefined'){ say("Sorry, this browser can't send doodles."); return; }
+      const dt = new DataTransfer();
+      dt.items.add(new File([blob], 'doodle.png', {type: 'image/png'}));
+      sendForm.querySelector('input[type=file]').files = dt.files;
+      sending = true; setInked(inked); say('Sending…');
+      let done = false;
+      const finish = (ok) => {
+        if (done) return; done = true; sending = false;
+        if (ok){
+          ctx.clearRect(0, 0, pad.width, pad.height); hint.hidden = false; setInked(false);
+          sendForm.querySelector('.pad-name').value = '';
+          say('Sent! Thank you for the doodle.', true);
+        } else { setInked(inked); say("That didn't go through. Please try again."); }
+      };
+      sink.onload = () => finish(true);
+      setTimeout(() => finish(false), 25000);
+      sendForm.submit();
+    }, 'image/png');
   });
 
   route();
