@@ -678,6 +678,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Play */
 .pad-wrap{display:flex;flex-direction:column;gap:12px}
+.pad-intro{margin:0 0 6px;max-width:62ch;font-size:clamp(16px,1.4vw,18px);line-height:1.5}
+.pad-tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pad-colors{display:flex;flex-wrap:wrap;gap:8px}
+.pad-color{width:28px;height:28px;padding:0;border-radius:50%;border:3px solid var(--paper);background:var(--c);box-shadow:0 0 0 1.5px var(--line);cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s}
+.pad-color:hover{transform:scale(1.1)}
+.pad-color[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink);transform:scale(1.12)}
+.pad-color:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .pad-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .pad-stage{position:relative}
 #pad{display:block;width:100%;height:clamp(260px,38vw,420px);background-color:var(--blue-soft);background-image:radial-gradient(circle,color-mix(in srgb,var(--ink) 18%,transparent) 1px,transparent 1.4px);background-size:22px 22px;border:1.5px solid var(--ink);touch-action:none;cursor:crosshair}
@@ -1772,9 +1779,24 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
     <div class="pad-wrap">
+      <p class="pad-intro">I enjoy engaging with people through art and digital creation, so this space is for you too. Pick a color and leave a doodle.</p>
       <div class="pad-bar">
         <p class="label">Sketchpad · leave a doodle</p>
-        <button type="button" class="chip" id="pad-clear">Clear</button>
+        <div class="pad-tools">
+          <div class="pad-colors" role="group" aria-label="Pen color">
+            <button type="button" class="pad-color" aria-pressed="true" data-color="ink" style="--c:var(--ink)" aria-label="Ink pen" title="Ink"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#2F6FE4" style="--c:#2F6FE4" aria-label="Blue pen" title="Blue"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#A8C9F8" style="--c:#A8C9F8" aria-label="Sky blue pen" title="Sky blue"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#3FA0A0" style="--c:#3FA0A0" aria-label="Teal pen" title="Teal"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#5E9E4F" style="--c:#5E9E4F" aria-label="Green pen" title="Green"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#F5C842" style="--c:#F5C842" aria-label="Yellow pen" title="Yellow"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#F29A6B" style="--c:#F29A6B" aria-label="Peach pen" title="Peach"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#E4483B" style="--c:#E4483B" aria-label="Red pen" title="Red"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#E77FC4" style="--c:#E77FC4" aria-label="Pink pen" title="Pink"></button>
+            <button type="button" class="pad-color" aria-pressed="false" data-color="#8B5CF6" style="--c:#8B5CF6" aria-label="Purple pen" title="Purple"></button>
+          </div>
+          <button type="button" class="chip" id="pad-clear">Clear</button>
+        </div>
       </div>
       <div class="pad-stage">
         <canvas id="pad" aria-label="Drawing area. Draw with your mouse or finger."></canvas>
@@ -2400,7 +2422,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const pad = document.getElementById('pad');
   const hint = document.getElementById('pad-hint');
   const ctx = pad.getContext('2d');
-  let drawing = false, last = null;
+  let drawing = false, last = null, penColor = 'ink';
+  document.querySelectorAll('.pad-color').forEach(b => b.addEventListener('click', () => {
+    penColor = b.dataset.color;
+    document.querySelectorAll('.pad-color').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+  }));
   function sizePad(){
     const r = pad.getBoundingClientRect();
     if (!r.width) return;
@@ -2420,7 +2446,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   pad.addEventListener('pointermove', e => {
     if (!drawing) return;
     const p = pos(e);
-    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#0B0C0E';
+    ctx.strokeStyle = penColor === 'ink' ? (getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#0B0C0E') : penColor;
     ctx.lineWidth = 3.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke();
     last = p;
