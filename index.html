@@ -126,7 +126,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .tag-hint{display:inline-flex;align-items:center;gap:8px;transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .hero.is-touched .tag-hint{opacity:0;transform:translateY(8px)}
 .hint-dot{flex:none;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--art-ink);background:var(--blue)}
-.wordmark{position:relative;z-index:2;place-self:center;margin:0;color:var(--art-paper);font-family:var(--display);font-size:120px;font-weight:800;line-height:.86;letter-spacing:-.01em;text-transform:uppercase;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:.22em;text-align:center;pointer-events:none;-webkit-text-stroke:.05em var(--art-ink);paint-order:stroke fill}
+.wordmark{position:relative;z-index:2;place-self:center;margin:0;color:var(--art-ink);font-family:var(--display);font-size:120px;font-weight:800;line-height:.86;letter-spacing:-.01em;text-transform:uppercase;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:.22em;text-align:center;pointer-events:none}
 .wm-line{display:block;white-space:nowrap}
 @media (max-width:640px){.wordmark{flex-direction:column}}
 .brush{position:absolute;left:0;top:0;z-index:3;width:var(--d,80px);height:var(--d,80px);margin:calc(var(--d,80px) / -2) 0 0 calc(var(--d,80px) / -2);border:1.5px solid var(--art-ink);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .2s}
@@ -518,6 +518,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .src-fig .tx-ph{flex:none;width:100%;aspect-ratio:var(--ar);border:1px solid var(--line)}
 .src-fig figcaption{display:flex;flex-direction:column;gap:3px}
 @media (max-width:640px){.src-row{flex-wrap:wrap}.src-fig{flex:1 1 calc(50% - 8px)}}
+.art-row{max-width:none}
+@media (max-width:640px){.art-row .src-fig{flex:1 1 100%}}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 .rdh-grad{height:clamp(40px,5vw,60px);background:linear-gradient(90deg,#0F6DB9,#7499D0 50%,#B72B93);border:1px solid var(--line)}
@@ -1760,6 +1762,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <h1 class="cs-title long">Small experiments, studies, and things made for the joy of it.</h1>
       <p class="statement-sub">A place for sketchbook thinking: unexpected directions, unfinished ideas, and visual tests.</p>
     </header>
+    <section class="block-section" aria-labelledby="pp-paint-h">
+      <div class="sec-head"><h2 class="sec-title" id="pp-paint-h">Digital paintings</h2><p class="label">Procreate</p></div>
+      <div class="src-row art-row">
+        <figure class="src-fig" style="--ar:2360/1640"><button type="button" class="tx-zoom" data-full="img/personal/starry-night.jpg" data-cap="After Van Gogh&rsquo;s The Starry Night · Procreate" aria-label="Enlarge the Starry Night painting"><img src="img/personal/starry-night-sm.jpg" alt="Digital painting after Van Gogh&rsquo;s The Starry Night: a swirling blue night sky with glowing yellow stars and moon, a dark green cypress on the left, blue hills, and a small village with lit windows and a church spire" loading="lazy" width="1400" height="973"></button><figcaption><span class="mih-fmt">After Van Gogh&rsquo;s <i>The Starry Night</i></span><span class="label">Procreate</span></figcaption></figure>
+        <figure class="src-fig" style="--ar:1640/1600"><button type="button" class="tx-zoom" data-full="img/personal/circus.jpg" data-cap="Circus · Procreate" aria-label="Enlarge the circus painting"><img src="img/personal/circus-sm.jpg" alt="Detailed digital painting of a circus: a smiling blue-faced clown with orange curls and a cake-like hat holds up a ticket with a striped tent, surrounded by an elephant on a ball, a giraffe, penguins, a monkey, a hot-air balloon, a carousel with horses, a hippo balancing on a ball and a lion" loading="lazy" width="1000" height="976"></button><figcaption><span class="mih-fmt">Circus</span><span class="label">Procreate</span></figcaption></figure>
+      </div>
+      <p class="kit-note">Select a painting to see it full size and zoom into the details.</p>
+    </section>
+
     <div class="pad-wrap">
       <div class="pad-bar">
         <p class="label">Sketchpad · leave a doodle</p>
