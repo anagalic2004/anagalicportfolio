@@ -513,6 +513,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .uo-logo{padding:clamp(22px,3.5vw,40px);box-sizing:border-box}
 .uo-logo img{object-fit:contain}
 .email-fig{max-width:900px}
+.src-row{display:flex;align-items:flex-start;gap:clamp(10px,1.6vw,18px);max-width:1100px}
+.src-fig{flex:calc(var(--ar)) 1 0;min-width:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-fig .tx-ph{flex:none;width:100%;aspect-ratio:var(--ar);border:1px solid var(--line)}
+.src-fig figcaption{display:flex;flex-direction:column;gap:3px}
+@media (max-width:640px){.src-row{flex-wrap:wrap}.src-fig{flex:1 1 calc(50% - 8px)}}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 .rdh-grad{height:clamp(40px,5vw,60px);background:linear-gradient(90deg,#0F6DB9,#7499D0 50%,#B72B93);border:1px solid var(--line)}
@@ -1615,7 +1620,16 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Design panel</h3></div>
           <div class="tx-logo-row">
             <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/panel.jpg" data-cap="Industry &amp; Alumni Design Panel · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/panel.jpg" alt="Industry and Alumni Design Panel, coming soon: the title between strips of design from the past, a 1975 Galaksija magazine cover, the NYC subway map, a 1982 Vanity Fair by Bea Feitler and 1940s Penguin Books, with the lines career paths, industry insights, advice from design professionals, and what will your future in the design field look like?" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
-            <p class="kit-note">A &ldquo;coming soon&rdquo; teaser for the Industry &amp; Alumni Design Panel, where design professionals share career paths, industry insights and advice. Strips of earlier designs for well-known names frame the title: a 1975 cover of Galaksija magazine, the NYC subway map, a 1982 Vanity Fair by Bea Feitler, and 1940s Penguin Books. I found them in <i>The History of Graphic Design</i> (TASCHEN, 45th edition), in which <a href="https://www.taschen.com/en/collection/jens-mueller/" target="_blank" rel="noopener">Jens Müller</a> traces 130 years of graphic design, from the late 19th century to today.</p>
+            <p class="kit-note">A &ldquo;coming soon&rdquo; teaser for the Industry &amp; Alumni Design Panel, where design professionals share career paths, industry insights and advice. Strips of earlier designs for well-known names frame the title: a 1975 cover of Galaksija magazine, the New York City subway map, a 1982 Vanity Fair cover by Bea Feitler, and an early Penguin Books cover. I found them in <i>The History of Graphic Design</i> (TASCHEN, 45th edition), in which <a href="https://www.taschen.com/en/collection/jens-mueller/" target="_blank" rel="noopener">Jens Müller</a> traces 130 years of graphic design, from the late 19th century to today.</p>
+          </div>
+          <div class="mih-part">
+            <p class="label">The originals</p>
+            <div class="src-row" data-gallery="Design panel · The originals">
+              <figure class="src-fig" style="--ar:762/1126"><button type="button" class="tx-ph" data-full="img/uo/src-galaksija.jpg" aria-label="Enlarge the original: Galaksija magazine"><img src="img/uo/src-galaksija.jpg" alt="Cover of Galaksija magazine, No. 38, June 1975: a pink silhouette in profile with a target-like eye and a beam of light, a red planet and a floating eye, under the green Galaksija title" loading="lazy" width="762" height="1126"></button><figcaption><span class="mih-fmt">Galaksija magazine</span><span class="label">No. 38 · June 1975</span></figcaption></figure>
+              <figure class="src-fig" style="--ar:774/544"><button type="button" class="tx-ph" data-full="img/uo/src-subway.jpg" aria-label="Enlarge the original: New York City subway map"><img src="img/uo/src-subway.jpg" alt="Section of the New York City subway map around Midtown Manhattan, with the colored lines, stations and the Hudson River" loading="lazy" width="774" height="544"></button><figcaption><span class="mih-fmt">New York City subway map</span><span class="label">2025</span></figcaption></figure>
+              <figure class="src-fig" style="--ar:738/924"><button type="button" class="tx-ph" data-full="img/uo/src-vanityfair.jpg" aria-label="Enlarge the original: Vanity Fair"><img src="img/uo/src-vanityfair.jpg" alt="1982 Vanity Fair cover: a torn-paper black and white photo of a laughing face, surrounded by flat torn shapes of blue, red, pink, yellow and green, under the slanted Vanity Fair title" loading="lazy" width="738" height="924"></button><figcaption><span class="mih-fmt">Vanity Fair</span><span class="label">1982 · Bea Feitler</span></figcaption></figure>
+              <figure class="src-fig" style="--ar:542/852"><button type="button" class="tx-ph" data-full="img/uo/src-penguin.jpg" aria-label="Enlarge the original: Penguin Books"><img src="img/uo/src-penguin.jpg" alt="Early Penguin Books cover for Ariel by André Maurois: blue and cream horizontal bands, the Penguin Books cartouche at the top and the penguin at the bottom, with The Bodley Head down both sides" loading="lazy" width="542" height="852"></button><figcaption><span class="mih-fmt">Penguin Books</span><span class="label">Ariel · 1935</span></figcaption></figure>
+            </div>
           </div>
         </div>
       </div>
