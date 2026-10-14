@@ -45,6 +45,7 @@
   --vl-sky-light:#C8E3F5;
   --vl-type-bg:#191313;
   /* iZone introduction posts */
+  --rdh-blue:#0E6FBA; --rdh-violet:#5B4BA8; --rdh-magenta:#BB3698;
   --iz-pink:#E0AFD9;
   --iz-yellow:#F6D934;
   --ss-light:#A9C4FF;
@@ -482,6 +483,30 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .mih-format figcaption{display:flex;flex-direction:column;gap:3px}
 .mih-fmt{font-weight:700;font-size:16px;line-height:1.3}
 @media (max-width:640px){.mih-formats{grid-template-columns:.8fr 1fr}.mih-format.print{grid-column:1/-1;width:min(100%,320px)}}
+/* University organizations: Rochester Design Hub */
+.uo-cover{background:radial-gradient(circle at 28% 66%,color-mix(in srgb,var(--rdh-violet) 44%,transparent),transparent 55%),radial-gradient(circle at 74% 34%,color-mix(in srgb,var(--rdh-blue) 36%,transparent),transparent 55%),radial-gradient(circle at 72% 82%,color-mix(in srgb,var(--rdh-magenta) 26%,transparent),transparent 50%),var(--block)}
+.uo-fan{position:absolute;inset:0}
+.uo-fan img{--x:0%;--y:0%;--r:0deg;--s:1;position:absolute;left:50%;top:52%;width:28%;max-width:none;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:5px;box-shadow:0 16px 34px color-mix(in srgb,var(--art-ink) 50%,transparent);transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(var(--s));transition:transform .7s var(--ease)}
+.uo-fan img:nth-child(1){--x:-58%;--y:6%;--r:-6deg;z-index:1}
+.uo-fan img:nth-child(2){z-index:3}
+.uo-fan img:nth-child(3){--x:58%;--y:6%;--r:6deg;z-index:2}
+:is(.card:hover,.card:focus-visible,.card.lit,.uo-banner) .uo-fan img:nth-child(1){--x:-104%;--y:2%;--r:-3deg}
+:is(.card:hover,.card:focus-visible,.card.lit,.uo-banner) .uo-fan img:nth-child(2){--y:-3%;--s:1.04}
+:is(.card:hover,.card:focus-visible,.card.lit,.uo-banner) .uo-fan img:nth-child(3){--x:104%;--y:2%;--r:3deg}
+.uo-banner .uo-fan img{width:19%}
+@media (max-width:640px){.uo-banner .uo-fan img{width:28%}}
+.org-steps{display:flex;flex-direction:column;gap:clamp(40px,5.5vw,64px);counter-reset:org}
+.org-steps>.tx-block{counter-increment:org}
+.org-n{flex:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);padding:4px 8px;border:1px solid var(--line)}
+.org-n::before{content:counter(org,decimal-leading-zero)}
+.tx-block.pending h3,section.pending .sec-title{color:var(--muted)}
+.fmts{display:grid;grid-template-columns:var(--cols);gap:clamp(12px,2vw,24px);align-items:start;max-width:1100px}
+@media (max-width:640px){.fmts{grid-template-columns:var(--cols-sm)}.fmts .fmt-wide{grid-column:1/-1;width:min(100%,320px)}}
+.eb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);max-width:980px}
+@media (max-width:640px){.eb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.eb-post{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.eb-post figcaption{display:flex;flex-direction:column;gap:3px}
+.eb-post .tx-ph{flex:none;width:100%;border:1px solid var(--line);background:var(--art-paper)}
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
 .back:hover{color:var(--ink)}
@@ -784,15 +809,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#university-organizations" data-tags="graphic">
-          <div class="cover" aria-hidden="true">
-            <div class="art art-posters"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="cover uo-cover" aria-hidden="true">
+            <div class="uo-fan"><img src="img/uo/gim-instagram-cv.jpg" alt="" loading="lazy"><img src="img/uo/eb-cover-cv.jpg" alt="" loading="lazy"><img src="img/uo/dl-instagram-cv.jpg" alt="" loading="lazy"></div>
             <span class="cover-tag">Graphic · 2025–26</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>University Organizations Material</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
             <p class="card-type">Promotional design for student organizations</p>
             <p class="card-meta">Sep 2025 – present</p>
-            <ul class="tags"><li>Visual graphics</li><li>Brand identity</li><li>Social media</li><li>Web design</li></ul>
+            <ul class="tags"><li>Brand identity</li><li>Social media</li><li>Event marketing</li><li>Print design</li></ul>
           </div>
         </a>
       </div>
@@ -1413,6 +1438,71 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <a class="next" href="#university-organizations"><span class="label">Next project</span><span class="next-title">University Organizations Material &rarr;</span></a>
   </article>
 
+  <!-- UNIVERSITY ORGANIZATIONS -->
+  <article class="view wrap" data-view="university-organizations" hidden>
+    <div class="cs-top">
+      <a class="back" href="#professional">&larr; All work</a>
+      <header class="cs-head">
+        <p class="label">Promotional design for student organizations</p>
+        <h1 class="cs-title long">University Organizations Material</h1>
+      </header>
+      <div class="cover cs-banner uo-cover uo-banner" aria-hidden="true"><div class="uo-fan"><img src="img/uo/gim-instagram-cv.jpg" alt="" loading="lazy"><img src="img/uo/eb-cover-cv.jpg" alt="" loading="lazy"><img src="img/uo/dl-instagram-cv.jpg" alt="" loading="lazy"></div></div>
+    </div>
+
+    <div class="cs-intro">
+      <div class="cs-copy">
+        <p class="lede">Posts, flyers and brand work for student organizations at the University of Rochester.</p>
+        <p>As Marketing Manager of Rochester Design Hub, I design the club's visual identity, from its logo to the posts, flyers and banners for its events.</p>
+      </div>
+      <dl class="meta">
+        <div><dt class="label">Role</dt><dd>Marketing Manager, Rochester Design Hub<br>Executive Board, Girls Who Code</dd></div>
+        <div><dt class="label">Focus</dt><dd>Brand identity, Social media, Event marketing, Print</dd></div>
+        <div><dt class="label">Timeline</dt><dd>Sep 2025 – present</dd></div>
+      </dl>
+    </div>
+
+    <section class="block-section" aria-labelledby="uo-rdh-h">
+      <div class="sec-head"><h2 class="sec-title" id="uo-rdh-h">Rochester Design Hub</h2><p class="label">Marketing Manager</p></div>
+      <div class="cs-copy"><p>Rochester Design Hub is a student design club at the University of Rochester. Its posts share one visual language: liquid chrome and iridescent glass shapes on white, bold black type, and the logo's blue-to-magenta gradient as the accent.</p></div>
+      <div class="org-steps">
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Design Lab</h3></div>
+          <p class="kit-note">An evening to hang out, meet people and take on a design challenge at your own pace, with the challenge kept secret until the day. One design in three formats: an Instagram post, an Instagram story that adds QR codes for the club's Discord and CCC page, and a printed flyer.</p>
+          <div class="fmts" style="--cols:.8fr .5625fr .7727fr;--cols-sm:.8fr .5625fr">
+            <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/dl-instagram.jpg" data-cap="Design Lab · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/dl-instagram.jpg" alt="Design Lab Instagram post: bold black “Design Lab!” on white beside a liquid chrome shape with a rainbow sheen, with the date, Friday, October 2 at 5:30pm in Rettner 307, and the event details" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
+            <figure class="mih-format" style="--ar:1080/1920"><button type="button" class="tx-zoom" data-full="img/uo/dl-story.jpg" data-cap="Design Lab · Instagram story" aria-label="Enlarge the instagram story"><img src="img/uo/dl-story.jpg" alt="Instagram story version of Design Lab, adding QR codes for Discord and CCC" loading="lazy" width="1080" height="1920"></button><figcaption><span class="mih-fmt">Instagram story</span><span class="label">1080 × 1920</span></figcaption></figure>
+            <figure class="mih-format fmt-wide" style="--ar:1700/2200"><button type="button" class="tx-zoom" data-full="img/uo/dl-print.jpg" data-cap="Design Lab · Printed flyer" aria-label="Enlarge the printed flyer"><img src="img/uo/dl-print.jpg" alt="Printed flyer version of Design Lab" loading="lazy" width="1700" height="2200"></button><figcaption><span class="mih-fmt">Printed flyer</span><span class="label">8.5 × 11 in</span></figcaption></figure>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>E-Board introduction posts</h3></div>
+          <p class="kit-note">A series introducing the club's executive board: a cover post, then one post per member with their role, class year, major, favorites and a few pieces of their own work, over the same iridescent glass background. Select a post to flip through them.</p>
+          <div class="eb-grid" data-gallery="Rochester Design Hub · E-Board">
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-cover.jpg" aria-label="Enlarge the Meet our E-Board post"><img src="img/uo/eb-cover-sm.jpg" alt="Meet our E-Board cover post: the title in white over a black liquid chrome shape inside an old TV held by a hand" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Meet our E-Board</span><span class="label">Cover post</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-sheila.jpg" aria-label="Enlarge the Sheila post"><img src="img/uo/eb-sheila-sm.jpg" alt="E-Board post for Sheila, President, with her class year, major and minor, favorite shows, hobbies, a cut-out photo and some of her work" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Sheila</span><span class="label">President</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-jinni.jpg" aria-label="Enlarge the Jinni post"><img src="img/uo/eb-jinni-sm.jpg" alt="E-Board post for Jinni, Vice President, with her class year, major, favorite song, hobbies, photos and some of her work" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Jinni</span><span class="label">Vice President</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-yuting.jpg" aria-label="Enlarge the Yuting post"><img src="img/uo/eb-yuting-sm.jpg" alt="E-Board post for Yuting, Business Manager, with her class year, majors, favorite song and movie, photos and some of her work" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Yuting</span><span class="label">Business Manager</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-ana.jpg" aria-label="Enlarge the Ana post"><img src="img/uo/eb-ana-sm.jpg" alt="E-Board post for Ana, Marketing Manager, with her class year, majors, favorite song and movie, photos and some of her work" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Ana</span><span class="label">Marketing Manager · that’s me</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:4/5" data-full="img/uo/eb-jada.jpg" aria-label="Enlarge the Jada post"><img src="img/uo/eb-jada-sm.jpg" alt="E-Board post for Jada, Events Manager, with her class year, major, favorite song, hobbies, a cut-out photo and some of her work" loading="lazy" width="640" height="800"></button><figcaption><span class="mih-fmt">Jada</span><span class="label">Events Manager</span></figcaption></figure>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>General Interest Meeting</h3></div>
+          <p class="kit-note">The club's General Interest Meeting, on Friday, September 11 in Rettner Room 201. Liquid chrome shapes frame the details from the corners, and four QR codes lead to the club's Discord, website, CCC page and Instagram: in one row on the post and flyer, and in a 2 × 2 grid on the story.</p>
+          <div class="fmts" style="--cols:.8fr .5625fr .7727fr;--cols-sm:.8fr .5625fr">
+            <figure class="mih-format" style="--ar:1080/1350"><button type="button" class="tx-zoom" data-full="img/uo/gim-instagram.jpg" data-cap="General Interest Meeting · Instagram post" aria-label="Enlarge the instagram post"><img src="img/uo/gim-instagram.jpg" alt="General Interest Meeting Instagram post: Rochester Design Hub General Interest Meeting, Friday, September 11 at Rettner Room 201, 5pm, framed by liquid chrome shapes, with QR codes for Discord, the website, CCC and Instagram" loading="lazy" width="1080" height="1350"></button><figcaption><span class="mih-fmt">Instagram post</span><span class="label">1080 × 1350</span></figcaption></figure>
+            <figure class="mih-format" style="--ar:1080/1920"><button type="button" class="tx-zoom" data-full="img/uo/gim-story.jpg" data-cap="General Interest Meeting · Instagram story" aria-label="Enlarge the instagram story"><img src="img/uo/gim-story.jpg" alt="Instagram story version of the General Interest Meeting post, with the QR codes in a 2 by 2 grid" loading="lazy" width="1080" height="1920"></button><figcaption><span class="mih-fmt">Instagram story</span><span class="label">1080 × 1920</span></figcaption></figure>
+            <figure class="mih-format fmt-wide" style="--ar:1700/2200"><button type="button" class="tx-zoom" data-full="img/uo/gim-print.jpg" data-cap="General Interest Meeting · Printed flyer" aria-label="Enlarge the printed flyer"><img src="img/uo/gim-print.jpg" alt="Printed flyer version of the General Interest Meeting post" loading="lazy" width="1700" height="2200"></button><figcaption><span class="mih-fmt">Printed flyer</span><span class="label">8.5 × 11 in</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a class="next" href="#peaceland"><span class="label">Next project</span><span class="next-title">Peaceland &rarr;</span></a>
+  </article>
+
   <!-- ABOUT -->
   <article class="view wrap" data-view="about" hidden>
     <header class="cs-head">
@@ -1524,13 +1614,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const keepCase = new Set(['izone']);
   const title = id => keepCase.has(id) ? `<span class="nc">${names[id]}</span>` : names[id];
   const stubs = {
-    'university-organizations': {type:'Promotional design for student organizations', art:'posters',
-      note:'I wrote this from your résumé. Send me 4 to 8 images (posters, social posts, web pages) and tell me if other organizations belong here too.',
-      lede:'Promotional graphics, social content, and brand work for student organizations at the University of Rochester.',
-      did:['Rochester Design Hub: direct the website (UX/UI) and lead graphic design projects from concept to finished piece.',
-           'Rochester Design Hub: shape the brand identity and the content on its social platforms.',
-           'Girls Who Code: run the social media strategy and create content across platforms.'],
-      meta:[['Role','Executive Board, Rochester Design Hub<br>Executive Board, Girls Who Code'], ['Timeline','Sep 2025 – present'], ['Focus','Visual graphics, Brand identity, Social media, Web design']]}
   };
   const esc = s => s.replace(/&/g,'&amp;');
   for (const [id, p] of Object.entries(stubs)){
@@ -1911,7 +1994,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   /* iZone card: on phones the posts spread apart once the card is in view */
   if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
-    document.querySelectorAll('.iz-cover').forEach(c => {
+    document.querySelectorAll('.iz-cover, .uo-cover').forEach(c => {
       const card = c.closest('.card');
       if (card) new IntersectionObserver(es => es.forEach(en => card.classList.toggle('lit', en.isIntersecting)), {threshold: 0.6}).observe(card);
     });
