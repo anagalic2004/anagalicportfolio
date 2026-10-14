@@ -45,6 +45,7 @@
   --vl-sky-light:#C8E3F5;
   --vl-type-bg:#191313;
   /* iZone introduction posts */
+  --gwc-blue:#5DA5E4; --gwc-teal:#1C9C8D;
   --rdh-blue:#0E6FBA; --rdh-violet:#5B4BA8; --rdh-magenta:#BB3698;
   --iz-pink:#E0AFD9;
   --iz-yellow:#F6D934;
@@ -512,6 +513,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .uo-logo{padding:clamp(22px,3.5vw,40px);box-sizing:border-box}
 .uo-logo img{object-fit:contain}
 .email-fig{max-width:900px}
+.gwc-cover{background:radial-gradient(circle at 28% 64%,color-mix(in srgb,var(--gwc-teal) 42%,transparent),transparent 55%),radial-gradient(circle at 74% 36%,color-mix(in srgb,var(--gwc-blue) 40%,transparent),transparent 55%),var(--block)}
+.biglink.with-av{justify-content:flex-start}
+.biglink.with-av .arrow{margin-left:auto}
+.ig-av{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line)}
 /* Case studies */
 .back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);align-self:flex-start}
 .back:hover{color:var(--ink)}
@@ -826,15 +831,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#girls-who-code" data-tags="graphic">
-          <div class="cover" aria-hidden="true">
-            <div class="art art-feed"><div class="phone"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="cover gwc-cover" aria-hidden="true">
+            <div class="uo-fan"><img src="img/gwc/gim-print-cv.jpg" alt="" loading="lazy"><img src="img/gwc/feb-gim-cv.jpg" alt="" loading="lazy"><img src="img/gwc/faf-print-cv.jpg" alt="" loading="lazy"></div>
             <span class="cover-tag">Social media · 2025–26</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Girls Who Code</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
-            <p class="card-type">Social media for a student organization</p>
+            <p class="card-type">Social media &amp; event design</p>
             <p class="card-meta">Sep 2025 – present</p>
-            <ul class="tags"><li>Social media strategy</li><li>Content creation</li><li>Graphic design</li></ul>
+            <ul class="tags"><li>Social media strategy</li><li>Content creation</li><li>Event marketing</li><li>Print design</li></ul>
           </div>
         </a>
       </div>
@@ -1580,6 +1585,85 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <a class="next" href="#girls-who-code"><span class="label">Next project</span><span class="next-title">Girls Who Code &rarr;</span></a>
   </article>
 
+  <!-- GIRLS WHO CODE -->
+  <article class="view wrap" data-view="girls-who-code" hidden>
+    <div class="cs-top">
+      <a class="back" href="#professional">&larr; All work</a>
+      <header class="cs-head">
+        <p class="label">Social media &amp; event design</p>
+        <h1 class="cs-title long">Girls Who Code</h1>
+      </header>
+      <div class="cover cs-banner gwc-cover uo-banner" aria-hidden="true"><div class="uo-fan"><img src="img/gwc/gim-print-cv.jpg" alt="" loading="lazy"><img src="img/gwc/feb-gim-cv.jpg" alt="" loading="lazy"><img src="img/gwc/faf-print-cv.jpg" alt="" loading="lazy"></div></div>
+    </div>
+
+    <div class="cs-intro">
+      <div class="cs-copy">
+        <p class="lede">Girls Who Code is a club at the University of Rochester. As its Social Media Manager, I run the club's Instagram and design the posts and flyers for its events.</p>
+        <p>Each event gets its own look, from halftone cut-outs to pixel lettering on a sketched retro computer, tied together by the Girls Who Code logo and its blues.</p>
+      </div>
+      <dl class="meta">
+        <div><dt class="label">Role</dt><dd>Social Media Manager</dd></div>
+        <div><dt class="label">Focus</dt><dd>Social media strategy, Content creation, Event marketing, Print</dd></div>
+        <div><dt class="label">Timeline</dt><dd>Sep 2025 – present</dd></div>
+      </dl>
+    </div>
+
+    <section class="block-section" aria-labelledby="gwc-ig-h">
+      <div class="sec-head"><h2 class="sec-title" id="gwc-ig-h">Growing the Instagram</h2><p class="label">@girlswhocodeuofr</p></div>
+      <div class="cs-copy"><p>I run the club's Instagram. I grew its following by 30 and drew new members into the community, and our posts average around 1,000 views each, about double the account's following.</p></div>
+      <div class="stats">
+        <div class="stat"><p class="label">Growth</p><strong>+30</strong><span>new followers, and new members in the community</span></div>
+        <div class="stat"><p class="label">Average post</p><strong>~1,000</strong><span>views on each post</span></div>
+        <div class="stat"><p class="label">Reach</p><strong>2&times;</strong><span>the account's following</span></div>
+      </div>
+      <div class="linkrow"><a class="biglink with-av" href="https://www.instagram.com/girlswhocodeuofr/" target="_blank" rel="noopener"><img class="ig-av" src="img/gwc/avatar.jpg" alt="" loading="lazy" width="240" height="240"><span><small>Instagram · @girlswhocodeuofr</small><strong>Girls Who Code on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
+    </section>
+
+    <section class="block-section" aria-labelledby="gwc-work-h">
+      <div class="sec-head"><h2 class="sec-title" id="gwc-work-h">The designs</h2><p class="label">Posts · Stories · Flyers</p></div>
+      <div class="org-steps">
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Fall Activities Fair</h3></div>
+          <div class="tx-logo-row">
+            <figure class="mih-format" style="--ar:1700/2200"><button type="button" class="tx-zoom" data-full="img/gwc/faf-print.jpg" data-cap="Fall Activities Fair · Printed flyer" aria-label="Enlarge the printed flyer"><img src="img/gwc/faf-print.jpg" alt="Girls Who Code Fall Activities Fair flyer: Friday, September 4, 3 to 5pm, Wilson Quad, with a QR code to the club’s CCC page, ringed by halftone megaphones, speech bubbles, a lightning bolt and a comic burst" loading="lazy" width="1700" height="2200"></button><figcaption><span class="mih-fmt">Printed flyer</span><span class="label">8.5 × 11 in</span></figcaption></figure>
+            <p class="kit-note">The club's table at the Fall Activities Fair: Friday, September 4, 3–5pm on Wilson Quad. Halftone megaphones, speech bubbles, a lightning bolt and a comic burst ring the details like a collage, around the Girls Who Code logo and a QR code to the club's CCC page.</p>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>General Interest Meeting</h3></div>
+          <p class="kit-note">Monday, September 21, 6–7pm in the Gowen Room, Wilson Commons. A badge promises Insomnia Cookies, illustrated characters from the Girls Who Code books line the bottom, and QR codes lead to the club's CCC page and Instagram. Made as an Instagram story and a printed flyer.</p>
+          <div class="fmts two" style="--cols:.5625fr .7727fr;--cols-sm:.5625fr .7727fr">
+            <figure class="mih-format" style="--ar:1080/1920"><button type="button" class="tx-zoom" data-full="img/gwc/gim-story.jpg" data-cap="General Interest Meeting · Instagram story" aria-label="Enlarge the instagram story"><img src="img/gwc/gim-story.jpg" alt="Girls Who Code General Interest Meeting story: Monday, September 21, 6 to 7pm, Gowen Room, Wilson Commons, QR codes for CCC and Instagram, an Insomnia Cookies included badge, and illustrated girls along the bottom" loading="lazy" width="1080" height="1920"></button><figcaption><span class="mih-fmt">Instagram story</span><span class="label">1080 × 1920</span></figcaption></figure>
+            <figure class="mih-format" style="--ar:1700/2200"><button type="button" class="tx-zoom" data-full="img/gwc/gim-print.jpg" data-cap="General Interest Meeting · Printed flyer" aria-label="Enlarge the printed flyer"><img src="img/gwc/gim-print.jpg" alt="Printed flyer version of the General Interest Meeting post" loading="lazy" width="1700" height="2200"></button><figcaption><span class="mih-fmt">Printed flyer</span><span class="label">8.5 × 11 in</span></figcaption></figure>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>February General Interest Meeting</h3></div>
+          <div class="tx-logo-row">
+            <figure class="mih-format" style="--ar:1144/1520"><button type="button" class="tx-zoom" data-full="img/gwc/feb-gim.jpg" data-cap="February General Interest Meeting · Flyer" aria-label="Enlarge the flyer"><img src="img/gwc/feb-gim.jpg" alt="Girls Who Code General Interest Meeting flyer, February 15 at 3pm in Room 121, Wilson Commons: Girls Who Code in teal pixel lettering on the screen of a sketched retro computer, a box of Insomnia Cookies, and teal QR codes to join and to follow on Instagram" loading="lazy" width="1144" height="1520"></button><figcaption><span class="mih-fmt">Flyer</span><span class="label">Post &amp; print</span></figcaption></figure>
+            <p class="kit-note">An earlier General Interest Meeting, on February 15 at 3pm in Room 121, Wilson Commons. &ldquo;Girls Who Code&rdquo; appears in teal pixel lettering on the screen of a sketched retro computer, next to a box of Insomnia Cookies and teal QR codes to join the club and follow it on Instagram.</p>
+          </div>
+        </div>
+
+        <div class="tx-block">
+          <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Meet our E-Board</h3></div>
+          <p class="kit-note">A five-slide carousel introducing the club's executive board. The cover stacks the board's names on pastel file-folder tabs beside stamps of Girls Who Code book covers. Each member then gets a notebook page with their role, major, favorite course, a few facts and a map pinned on their hometown. Select a slide to flip through them.</p>
+          <div class="eb-grid" data-gallery="Girls Who Code · E-Board">
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:1/1" data-full="img/gwc/eb-cover.jpg" aria-label="Enlarge the Meet our E-Board slide"><img src="img/gwc/eb-cover-sm.jpg" alt="Meet our E-Board cover: the board members’ names on pastel file-folder tabs, with stamps of Girls Who Code book covers, the Girls Who Code logo and University of Rochester" loading="lazy" width="640" height="638"></button><figcaption><span class="mih-fmt">Meet our E-Board</span><span class="label">Cover</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:1/1" data-full="img/gwc/eb-tori.jpg" aria-label="Enlarge the Tori Belzile slide"><img src="img/gwc/eb-tori-sm.jpg" alt="E-Board slide for Tori Belzile, Co-President, styled as a notebook page with her photo, major, favorite course, a few facts and a map pinned on Buffalo, NY" loading="lazy" width="640" height="638"></button><figcaption><span class="mih-fmt">Tori Belzile</span><span class="label">Co-President</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:1/1" data-full="img/gwc/eb-william.jpg" aria-label="Enlarge the William Iemma slide"><img src="img/gwc/eb-william-sm.jpg" alt="E-Board slide for William Iemma, Co-President, with his photo, majors, favorite course, a few facts and a map pinned on Queens, NY" loading="lazy" width="640" height="638"></button><figcaption><span class="mih-fmt">William Iemma</span><span class="label">Co-President</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:1/1" data-full="img/gwc/eb-ana.jpg" aria-label="Enlarge the Ana Galić slide"><img src="img/gwc/eb-ana-sm.jpg" alt="E-Board slide for Ana Galić, Social Media Manager, with her photo, majors, favorite course, a few facts and a map pinned on Novi Sad, Serbia" loading="lazy" width="640" height="638"></button><figcaption><span class="mih-fmt">Ana Galić</span><span class="label">Social Media Manager · that’s me</span></figcaption></figure>
+            <figure class="eb-post"><button type="button" class="tx-ph" style="--ar:1/1" data-full="img/gwc/eb-mayuri.jpg" aria-label="Enlarge the Mayuri Patil slide"><img src="img/gwc/eb-mayuri-sm.jpg" alt="E-Board slide for Mayuri Patil, Social Media Manager, with her photo, majors, favorite course, a few facts and a map pinned on Pune, India" loading="lazy" width="640" height="638"></button><figcaption><span class="mih-fmt">Mayuri Patil</span><span class="label">Social Media Manager</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a class="next" href="#peaceland"><span class="label">Next project</span><span class="next-title">Peaceland &rarr;</span></a>
+  </article>
+
   <!-- ABOUT -->
   <article class="view wrap" data-view="about" hidden>
     <header class="cs-head">
@@ -1691,11 +1775,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   const keepCase = new Set(['izone']);
   const title = id => keepCase.has(id) ? `<span class="nc">${names[id]}</span>` : names[id];
   const stubs = {
-    'girls-who-code': {type:'Social media for a student organization', art:'feed',
-      note:'I wrote this from your résumé. Send me the Girls Who Code materials (posts, stories, flyers like your Fall Activities Fair one), your role title, the dates, and any results (followers, views, turnout).',
-      lede:'Social media strategy and content for Girls Who Code at the University of Rochester.',
-      did:['Run the social media strategy for the club.', 'Create the content across its platforms.'],
-      meta:[['Role','Executive Board'], ['Timeline','Sep 2025 – present'], ['Focus','Social media strategy, Content creation, Graphic design']]}
   };
   const esc = s => s.replace(/&/g,'&amp;');
   for (const [id, p] of Object.entries(stubs)){
@@ -2076,7 +2155,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   /* iZone card: on phones the posts spread apart once the card is in view */
   if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
-    document.querySelectorAll('.iz-cover, .uo-cover').forEach(c => {
+    document.querySelectorAll('.iz-cover, .uo-cover, .gwc-cover').forEach(c => {
       const card = c.closest('.card');
       if (card) new IntersectionObserver(es => es.forEach(en => card.classList.toggle('lit', en.isIntersecting)), {threshold: 0.6}).observe(card);
     });
