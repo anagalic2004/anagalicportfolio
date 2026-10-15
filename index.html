@@ -519,7 +519,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .src-fig figcaption{display:flex;flex-direction:column;gap:3px}
 @media (max-width:640px){.src-row{flex-wrap:wrap}.src-fig{flex:1 1 calc(50% - 8px)}}
 .art-row{max-width:none}
-.mural-fig{max-width:none}
+.mural-info{flex:var(--rest) 1 0;min-width:0;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.55}
+.mural-info p{margin:0}
+.mural-info .meta{gap:10px;margin-top:4px}
+.mural-info .meta div{padding-top:8px}
+@media (max-width:900px){.mural-row{flex-wrap:wrap}.mural-row .src-fig{flex:1 1 100%}.mural-info{flex:1 1 100%;max-width:62ch}}
 @media (max-width:640px){.art-row .src-fig{flex:1 1 100%}}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:"Aileron";src:url("fonts/aileron-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
@@ -1791,17 +1795,16 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </header>
     <section class="block-section" aria-labelledby="pp-mural-h">
       <div class="sec-head"><h2 class="sec-title" id="pp-mural-h">Duality</h2><p class="label">Mural · Cultural Showcase</p></div>
-      <figure class="mih-format mural-fig" style="--ar:1182/692"><button type="button" class="tx-zoom" data-full="img/personal/mural.jpg" data-cap="Duality · Mural for the Cultural Showcase, Armand Hammer United World College" aria-label="Enlarge the Duality mural"><img src="img/personal/mural.jpg" alt="Detail of the Duality mural: two faces painted in bold, flat blocks of orange, red, pink, turquoise and yellow merge into one, each eye holding a yin and yang, beside a circle quartered in red, black, yellow and white, a koi fish, a white spiral and a tiled arch with red flowers" loading="lazy" width="1182" height="692"></button></figure>
-      <div class="cs-intro">
-        <div class="cs-copy">
+      <div class="src-row art-row mural-row">
+        <figure class="src-fig" style="--ar:1182/692"><button type="button" class="tx-zoom" data-full="img/personal/mural.jpg" data-cap="Duality · Mural for the Cultural Showcase, Armand Hammer United World College" aria-label="Enlarge the Duality mural"><img src="img/personal/mural.jpg" alt="Detail of the Duality mural: two faces painted in bold, flat blocks of orange, red, pink, turquoise and yellow merge into one, each eye holding a yin and yang, beside a circle quartered in red, black, yellow and white, a koi fish, a white spiral and a tiled arch with red flowers" loading="lazy" width="1182" height="692"></button><figcaption><span class="mih-fmt"><i>Duality</i></span><span class="label">Wall-sized mural</span></figcaption></figure>
+        <div class="mural-info" style="--rest:0.7559">
           <p>For the Cultural Showcase at Armand Hammer United World College, themed <i>Duality</i>, I designed and painted a wall-sized mural. I gathered symbols of duality from different continents and cultures and brought them together into one piece, from the yin and yang in the eyes to the patterns around the two faces.</p>
           <p>The mural took me a month to paint. I also worked with the technical stage team so that the colors, and what the stage lights picked out, worked with each of the different performances.</p>
+          <dl class="meta">
+            <div><dt class="label">Event</dt><dd>Cultural Showcase, Armand Hammer United World College</dd></div>
+            <div><dt class="label">Time</dt><dd>About a month to paint</dd></div>
+          </dl>
         </div>
-        <dl class="meta">
-          <div><dt class="label">Event</dt><dd>Cultural Showcase<br>Armand Hammer United World College</dd></div>
-          <div><dt class="label">Theme</dt><dd>Duality</dd></div>
-          <div><dt class="label">Time</dt><dd>About a month to paint</dd></div>
-        </dl>
       </div>
     </section>
 
