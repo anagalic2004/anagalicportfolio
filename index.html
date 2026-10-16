@@ -168,7 +168,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Intro */
 .intro{display:flex;flex-direction:column;gap:28px}
-.intro-head{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:12px}
+.intro-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.seg-hint{margin:0;font-size:15px;line-height:1.45;color:var(--muted);max-width:46ch}
 .seg{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px}
 .seg-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-inline:10px 4px}
 .seg button{font-size:var(--fs-small);font-weight:600;border:0;background:transparent;padding:7px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
@@ -825,8 +826,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
     <section class="intro" aria-label="About Ana">
       <div class="intro-head">
-        <div class="seg" role="group" aria-label="Read this as">
-          <span class="seg-label">Read as</span>
+        <p class="seg-hint" id="seg-hint" aria-live="polite">The same intro, two ways. Right now it's in plain words; switch to Developer to read it as code.</p>
+        <div class="seg" role="group" aria-label="Read my intro as" aria-describedby="seg-hint">
+          <span class="seg-label">Read my intro as</span>
           <button type="button" aria-pressed="true" data-mode="design">Designer</button>
           <button type="button" aria-pressed="false" data-mode="code">Developer</button>
         </div>
@@ -877,6 +879,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <div class="card-row"><h3>Soulshine</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
             <p class="card-meta">Jan 2026 – May 2026</p>
+            <p class="card-nums"><b>Team lead</b> · <b>4</b>-person team</p>
             <ul class="tags"><li>Team leadership</li><li>UX/UI</li><li>Visual design</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
@@ -907,7 +910,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
           <div class="card-body">
             <div class="card-row"><h3><span class="nc">iZone</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Marketing &amp; graphic design</p>
+            <p class="card-type">Marketing Assistant · Graphic Design Team</p>
             <p class="card-meta">Aug 2026 – present</p>
             <p class="card-nums"><b>20</b> graphics · <b>100+</b> TEDx attendees · <b>4</b> team templates</p>
             <ul class="tags"><li>Social media design</li><li>Event marketing</li><li>Certificate design</li><li>Event photography</li></ul>
@@ -920,7 +923,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Rochester Design Hub</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Brand &amp; social media design</p>
+            <p class="card-type">Executive Board · Marketing Manager</p>
             <p class="card-meta">May 2026 – present</p>
             <p class="card-nums"><b>+50</b> followers in month one · <b>4</b>-person design group</p>
             <ul class="tags"><li>Brand identity</li><li>Social media</li><li>Event marketing</li><li>Print design</li></ul>
@@ -933,7 +936,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Girls Who Code</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Social media &amp; event design</p>
+            <p class="card-type">Executive Board · Social Media Manager</p>
             <p class="card-meta">Sep 2025 – present</p>
             <p class="card-nums"><b>1,000+</b> viewers per post · <b>2&times;</b> following · <b>2</b> mentees</p>
             <ul class="tags"><li>Social media strategy</li><li>Content creation</li><li>Event marketing</li><li>Print design</li></ul>
@@ -2168,9 +2171,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     segBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
     document.getElementById('intro-design').hidden = b.dataset.mode !== 'design';
     document.getElementById('intro-code').hidden = b.dataset.mode !== 'code';
+    document.getElementById('seg-hint').textContent = b.dataset.mode === 'code'
+      ? "The same intro, two ways. Right now it's written as code; switch to Designer to read it in plain words."
+      : "The same intro, two ways. Right now it's in plain words; switch to Developer to read it as code.";
   }));
 
-  /* Project filters */
 
   /* How Peaceland works: three ideas, each with its own images */
   const pillars = [
