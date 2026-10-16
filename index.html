@@ -222,7 +222,18 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .card-type{margin:0;font-weight:600}
 .card-meta{margin:0;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;font-variant-numeric:tabular-nums}
 .tags{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.tags li{font-size:12.5px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.tags li{position:relative;font-size:12.5px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);transition:background .25s,color .25s,border-color .25s,transform .3s var(--ease),box-shadow .25s}
+.card:hover .tags li{border-color:color-mix(in srgb,var(--ink) 28%,transparent);color:var(--ink)}
+/* Hovering a skill lights it up, and the same skill on every other project */
+.tags li.tag-hot{background:var(--blue);border-color:var(--blue);color:var(--on-blue);transform:translateY(-3px)}
+.tags li.tag-match{border-color:var(--blue);color:var(--ink);box-shadow:inset 0 0 0 1px var(--blue);transform:translateY(-2px)}
+.tags li.tag-hot[data-also]::after{content:attr(data-also);position:absolute;z-index:5;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:600;line-height:1.3;padding:5px 9px;background:var(--ink);color:var(--paper);pointer-events:none}
+/* Tags slide in one by one as each card scrolls into view */
+.js-tags .tags li{opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease),transform .5s var(--ease)}
+.js-tags .tags.in li{opacity:1;transform:none;transition-delay:calc(var(--i,0) * 55ms)}
+.js-tags .tags.in.done li{transition:background .25s,color .25s,border-color .25s,transform .3s var(--ease),box-shadow .25s;transition-delay:0s}
+.js-tags .tags.in.done li.tag-hot{transform:translateY(-3px)}
+.js-tags .tags.in.done li.tag-match{transform:translateY(-2px)}
 
 /* Covers (stand-ins until the real project images arrive) */
 .cover{position:relative;aspect-ratio:4/3;max-width:100%;background:var(--block);overflow:hidden;border:1px solid var(--block-line)}
@@ -794,7 +805,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="hero-row hero-row-b">
           <div class="hero-cta" id="hero-cta">
             <a class="hero-btn primary" href="#work">See my work</a>
-            <a class="hero-btn" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span></a>
           </div>
           <p class="tag tag-hint" aria-hidden="true"><span class="hint-dot"></span><span id="hero-hint-text">Move across the painting to smudge it</span></p>
         </div>
@@ -2629,6 +2639,47 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       sendForm.submit();
     }, 'image/png');
   });
+
+  /* Project skills: hover one to see every project that shares it */
+  {
+    const lists = [...document.querySelectorAll('.card .tags')];
+    const byName = new Map();
+    lists.forEach(ul => {
+      const project = ul.closest('.card').querySelector('h3').textContent.trim();
+      [...ul.children].forEach((li, i) => {
+        li.style.setProperty('--i', i);
+        const k = li.textContent.trim().toLowerCase();
+        if (!byName.has(k)) byName.set(k, []);
+        byName.get(k).push({li, project});
+      });
+    });
+    byName.forEach(list => {
+      if (list.length < 2) return;
+      list.forEach(({li, project}) => {
+        const others = list.filter(o => o.project !== project).map(o => o.project);
+        li.dataset.also = 'Also in ' + (others.length > 1 ? others.slice(0, -1).join(', ') + ' & ' + others.at(-1) : others[0]);
+      });
+    });
+    const clear = () => document.querySelectorAll('.tag-hot, .tag-match').forEach(el => el.classList.remove('tag-hot', 'tag-match'));
+    if (window.matchMedia('(hover: hover)').matches){
+      byName.forEach(list => list.forEach(({li}) => {
+        li.addEventListener('pointerenter', () => {
+          clear();
+          list.forEach(o => o.li.classList.add(o.li === li ? 'tag-hot' : 'tag-match'));
+        });
+        li.addEventListener('pointerleave', clear);
+      }));
+    }
+    if (!reduce && 'IntersectionObserver' in window){
+      document.documentElement.classList.add('js-tags');
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        if (!en.isIntersecting) return;
+        const ul = en.target; ul.classList.add('in'); io.unobserve(ul);
+        setTimeout(() => ul.classList.add('done'), 600 + ul.children.length * 55);
+      }), {threshold: 0.4});
+      lists.forEach(ul => io.observe(ul));
+    }
+  }
 
   route();
 })();
