@@ -107,6 +107,36 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .nav a{white-space:nowrap}
 @media (max-width:400px){.nav{gap:11px;font-size:13px}}
 
+/* Nav: on phones the six links fold into a menu */
+.nav-toggle{display:none;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:700;color:var(--ink);background:none;border:1.5px solid var(--ink);padding:7px 12px;cursor:pointer}
+.nav-toggle-ico{position:relative;width:14px;height:10px;border-block:2px solid currentColor;box-sizing:border-box}
+.nav-toggle-ico::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:currentColor}
+.top.menu-open .nav-toggle-ico{border-color:transparent}
+.top.menu-open .nav-toggle-ico::before,.top.menu-open .nav-toggle-ico::after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:2px;margin-top:-1px;background:currentColor;transform:rotate(45deg)}
+.top.menu-open .nav-toggle-ico::after{transform:rotate(-45deg)}
+@media (max-width:600px){
+  .top-in{flex-wrap:wrap}
+  .nav-toggle{display:inline-flex}
+  .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;font-size:17px;padding-block:6px 4px}
+  .top.menu-open .nav{display:flex}
+  .nav a{padding:12px 0;border-top:1px solid var(--line);background:none}
+  .nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 4px 0 0 var(--blue);padding-left:12px}
+}
+#work,#experience{scroll-margin-top:88px}
+/* Hero buttons */
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;pointer-events:auto}
+.hero-cta,.hero-cta *{cursor:pointer}
+.hero-btn{display:inline-flex;align-items:center;font-size:15px;font-weight:700;text-decoration:none;padding:12px 20px;border:1.5px solid var(--art-ink);background:var(--art-paper);color:var(--art-ink);transition:transform .2s var(--ease),background .2s,color .2s}
+.hero-btn.primary{background:var(--art-ink);color:var(--art-paper)}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn:not(.primary):hover{background:var(--blue)}
+.hero-btn:focus-visible{outline:3px solid var(--art-ink);outline-offset:3px}
+/* Card link label */
+.card-link{flex:none;display:inline-flex;align-items:baseline;gap:6px;font-size:15px;font-weight:700;white-space:nowrap}
+.card-link i{font-style:normal;transition:transform .35s var(--ease)}
+.card:hover .card-link i,.card:focus-visible .card-link i{transform:translateX(4px)}
+.card-pending{cursor:default}
+
 /* Views */
 .view{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px);padding-block:clamp(28px,5vw,56px) clamp(88px,11vw,150px)}
 
@@ -120,7 +150,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (pointer:fine){.hero.is-live{cursor:none}}
 .hero-veil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 54% 36% at 50% 50%,color-mix(in srgb,var(--art-paper) 40%,transparent),transparent 80%)}
 .hero-row{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
-.hero-row-b{justify-content:center;align-items:flex-end}
+.hero-row-b{flex-direction:column;justify-content:flex-end;align-items:center;gap:12px}
 .tag{margin:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;color:var(--art-ink);background:var(--art-paper);border:1px solid var(--art-ink);padding:6px 9px}
 @media (max-width:560px){.tag-r{display:none}}
 .tag-hint{display:inline-flex;align-items:center;gap:8px;transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -733,11 +763,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <header class="top">
   <div class="top-in">
     <a class="brand" href="#professional" aria-label="Ana Galic, home"><span class="mono-mark" aria-hidden="true">AG</span></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#professional" data-nav="professional">Professional</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav"><span class="nav-toggle-txt">Menu</span><span class="nav-toggle-ico" aria-hidden="true"></span></button>
+    <nav class="nav" id="main-nav" aria-label="Main">
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#experience" data-nav="experience">Experience</a>
       <a href="#personal" data-nav="personal">Personal</a>
       <a href="#about" data-nav="about">About</a>
       <a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -757,6 +790,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
         <h1 class="wordmark" id="hero-name"><span class="wm-line">Ana</span> <span class="wm-line">Galic</span></h1>
         <div class="hero-row hero-row-b">
+          <div class="hero-cta" id="hero-cta">
+            <a class="hero-btn primary" href="#work">See my work</a>
+            <a class="hero-btn" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span></a>
+          </div>
           <p class="tag tag-hint" aria-hidden="true"><span class="hint-dot"></span><span id="hero-hint-text">Move across the painting to smudge it</span></p>
         </div>
         <div class="brush" id="brush" aria-hidden="true"></div>
@@ -794,9 +831,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <span class="c">// same person, both ways</span> <span class="caret" aria-hidden="true"></span></code></pre>
     </section>
 
-    <section class="block-section" id="selected-work" aria-labelledby="work-h">
+    <section class="block-section" id="work" aria-labelledby="work-h">
       <div class="sec-head">
-        <h2 class="sec-title" id="work-h">Selected work</h2>
+        <h2 class="sec-title" id="work-h">Work</h2>
         <div class="chips" role="group" aria-label="Filter projects">
           <button type="button" class="chip" aria-pressed="true" data-filter="all">All</button>
           <button type="button" class="chip" aria-pressed="false" data-filter="games">Games</button>
@@ -813,7 +850,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <span class="cover-tag">Game · 2026</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>Peaceland</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3>Peaceland</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Narrative-driven video game</p>
             <p class="card-meta">Jan 2026 – Jul 2026</p>
             <ul class="tags"><li>Visual graphics</li><li>Video game design</li><li>UX/UI</li><li>Storytelling</li><li>Digital &amp; graphic design</li></ul>
@@ -826,7 +863,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <span class="cover-tag">Product · 2026</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>Soulshine</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3>Soulshine</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Multi-sensory focus lamp, companion app &amp; website</p>
             <p class="card-meta">Jan 2026 – May 2026</p>
             <ul class="tags"><li>Team leadership</li><li>Product design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
@@ -839,19 +876,25 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <span class="cover-tag">AI · 2025</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>VALS</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3>VALS</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Multilingual AI voice assistant &amp; website</p>
             <p class="card-meta">Aug 2025 – Dec 2025</p>
             <ul class="tags"><li>Full-stack development</li><li>Accessible design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
+      </div>
+    </section>
+
+    <section class="block-section" id="experience" aria-labelledby="exp-h">
+      <div class="sec-head"><h2 class="sec-title" id="exp-h">Experience</h2></div>
+      <div class="grid">
         <a class="card" href="#izone" data-tags="graphic">
           <div class="cover iz-cover" aria-hidden="true">
             <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/tedx/logo-card.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
             <span class="cover-tag">Marketing · 2026</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3><span class="nc">iZone</span></h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3><span class="nc">iZone</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Marketing &amp; graphic design</p>
             <p class="card-meta">Aug 2026 – present</p>
             <ul class="tags"><li>Social media design</li><li>Event marketing</li><li>Certificate design</li><li>Event photography</li></ul>
@@ -863,7 +906,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <span class="cover-tag">Graphic · 2025–26</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>Rochester Design Hub</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3>Rochester Design Hub</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Brand &amp; social media design</p>
             <p class="card-meta">Sep 2025 – present</p>
             <ul class="tags"><li>Brand identity</li><li>Social media</li><li>Event marketing</li><li>Print design</li></ul>
@@ -875,7 +918,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <span class="cover-tag">Social media · 2025–26</span>
           </div>
           <div class="card-body">
-            <div class="card-row"><h3>Girls Who Code</h3><span class="arrow" aria-hidden="true">&#8599;</span></div>
+            <div class="card-row"><h3>Girls Who Code</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Social media &amp; event design</p>
             <p class="card-meta">Sep 2025 – present</p>
             <ul class="tags"><li>Social media strategy</li><li>Content creation</li><li>Event marketing</li><li>Print design</li></ul>
@@ -897,7 +940,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- PEACELAND -->
   <article class="view wrap" data-view="peaceland" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Narrative-driven video game</p>
         <h1 class="cs-title">Peaceland</h1>
@@ -1023,7 +1066,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- SOULSHINE -->
   <article class="view wrap" data-view="soulshine" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Multi-sensory focus lamp, companion app &amp; website</p>
         <h1 class="cs-title">Soulshine</h1>
@@ -1198,7 +1241,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the Soulshine website</span><span class="visit-url">linter-berry-84402425.figma.site</span></span>
       <span class="visit-circle" aria-hidden="true">&#8599;</span>
     </a>
-    <a class="back back-row" href="#professional">&larr; Back to all work</a>
+    <a class="back back-row" href="#work">&larr; Back to all work</a>
 
     <a class="next" href="#vals"><span class="label">Next project</span><span class="next-title">VALS &rarr;</span></a>
   </article>
@@ -1206,7 +1249,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- VALS -->
   <article class="view wrap" data-view="vals" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Multilingual AI voice assistant &amp; website</p>
         <h1 class="cs-title">VALS</h1>
@@ -1343,7 +1386,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the VALS website</span><span class="visit-url">serene-july-87892059.figma.site</span></span>
       <span class="visit-circle" aria-hidden="true">&#8599;</span>
     </a>
-    <a class="back back-row" href="#professional">&larr; Back to all work</a>
+    <a class="back back-row" href="#work">&larr; Back to all work</a>
 
     <a class="next" href="#izone"><span class="label">Next project</span><span class="next-title"><span class="nc">iZone</span> &rarr;</span></a>
   </article>
@@ -1351,7 +1394,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- IZONE -->
   <article class="view wrap" data-view="izone" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Marketing &amp; graphic design</p>
         <h1 class="cs-title"><span class="nc">iZone</span></h1>
@@ -1508,7 +1551,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- ROCHESTER DESIGN HUB -->
   <article class="view wrap" data-view="rochester-design-hub" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Brand &amp; social media design</p>
         <h1 class="cs-title long">Rochester Design Hub</h1>
@@ -1674,7 +1717,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <!-- GIRLS WHO CODE -->
   <article class="view wrap" data-view="girls-who-code" hidden>
     <div class="cs-top">
-      <a class="back" href="#professional">&larr; All work</a>
+      <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Social media &amp; event design</p>
         <h1 class="cs-title long">Girls Who Code</h1>
@@ -1858,7 +1901,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 </main>
 
-<footer class="foot">
+<footer class="foot" id="contact">
   <div class="foot-in">
     <p class="foot-cta">Let's bring outstanding <em>ideas</em> to life!</p>
     <div class="foot-row">
@@ -1870,7 +1913,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#professional">Professional</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="#work">Work</a><a href="#experience">Experience</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </nav>
     </div>
     <div class="foot-small"><span>© 2026 Ana Galic</span><span>Designed and created by Ana Galic</span></div>
@@ -1925,7 +1968,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     const meta = p.meta.map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${v}</dd></div>`).join('');
     el.innerHTML = `
       <div class="cs-top">
-        <a class="back" href="#professional">&larr; All work</a>
+        <a class="back" href="#work">&larr; All work</a>
         <header class="cs-head"><p class="label">${esc(p.type)}</p><h1 class="cs-title${names[id].length > 12 ? ' long' : ''}">${title(id)}</h1></header>
         <div class="cover cs-banner" aria-hidden="true">${artHTML[p.art]}</div>
       </div>
@@ -2058,6 +2101,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   hero.addEventListener('pointerleave', lift);
   hero.addEventListener('pointercancel', lift);
   hero.addEventListener('pointerup', e => { if (e.pointerType === 'touch') lift(); });
+  const heroCta = document.getElementById('hero-cta');
+  ['pointerdown', 'pointermove'].forEach(t => heroCta.addEventListener(t, e => e.stopPropagation()));
+  heroCta.addEventListener('pointerenter', lift);
 
   if (heroImg.complete && heroImg.naturalWidth) layoutArt(); else heroImg.addEventListener('load', layoutArt);
   if ('ResizeObserver' in window) new ResizeObserver(() => { fit(); layoutArt(); }).observe(hero);
@@ -2068,21 +2114,55 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   /* Router: one view per bare #anchor */
   const routes = ['professional','personal','about','peaceland','soulshine','vals','izone','rochester-design-hub','girls-who-code','peaceland-research'];
-  const aliases = {'selected-work':'professional', work:'professional', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
+  const homeAnchors = ['work','experience'];
+  const navOf = {peaceland:'work', soulshine:'work', vals:'work', 'peaceland-research':'work', professional:'work', izone:'experience', 'rochester-design-hub':'experience', 'girls-who-code':'experience'};
+  const aliases = {'selected-work':'work', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
+  function setNav(key){
+    document.querySelectorAll('.nav a').forEach(a => {
+      if (a.dataset.nav === key) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+  }
   function route(){
     let r = location.hash.replace(/^#/, '') || 'professional';
     r = aliases[r] || r;
+    const shown = document.querySelector('[data-view]:not([hidden])');
+    /* Contact is the footer: stay on the current page and bring it into view */
+    if (r === 'contact'){
+      if (!shown) document.querySelectorAll('[data-view]').forEach(v => { v.hidden = v.dataset.view !== 'professional'; });
+      setNav('contact');
+      document.getElementById('contact').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      return;
+    }
+    let anchor = null;
+    if (homeAnchors.includes(r)){ anchor = r; r = 'professional'; }
     if (!routes.includes(r)) r = 'professional';
+    const samePage = shown && shown.dataset.view === r;
     document.querySelectorAll('[data-view]').forEach(v => { v.hidden = v.dataset.view !== r; });
-    const section = order.includes(r) || r === 'peaceland-research' ? 'professional' : r;
-    document.querySelectorAll('.nav a').forEach(a => {
-      if (a.dataset.nav === section) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
-    });
-    window.scrollTo(0, 0);
+    setNav(anchor || navOf[r] || r);
     if (r === 'professional'){ fit(); layoutArt(); }
     if (r === 'personal') sizePad();
     preloadExplorer(r);
+    if (anchor){
+      const el = document.getElementById(anchor);
+      if (samePage) el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      else { window.scrollTo(0, 0); requestAnimationFrame(() => el.scrollIntoView()); }
+    } else window.scrollTo(0, 0);
   }
+  /* Clicking a link to the section you're already on still takes you there */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a && a.getAttribute('href') === location.hash){ e.preventDefault(); route(); }
+  });
+  /* Phone menu */
+  const topBar = document.querySelector('.top'), navToggle = document.getElementById('nav-toggle');
+  const setMenu = open => {
+    topBar.classList.toggle('menu-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.querySelector('.nav-toggle-txt').textContent = open ? 'Close' : 'Menu';
+  };
+  navToggle.addEventListener('click', () => setMenu(!topBar.classList.contains('menu-open')));
+  document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && topBar.classList.contains('menu-open')){ setMenu(false); navToggle.focus(); } });
   window.addEventListener('hashchange', route);
 
   /* Read as: Designer / Developer */
