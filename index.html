@@ -969,6 +969,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
+    <figure class="question">
+      <figcaption class="label">Research question · Schwartz Discover Scholar</figcaption>
+      <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
+    </figure>
+
     <a class="trailer" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
       <span class="play" aria-hidden="true"></span>
       <span class="trailer-text">
@@ -1040,43 +1045,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
     <div class="linkrow">
-      <a class="biglink" href="#peaceland-research"><span><small>Research</small><strong>Read my research journal</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="biglink" href="https://docs.google.com/document/d/1SC378zWuMB42MeR5irhs17Wpv361CEoai3CuiOIdDi0/preview" target="_blank" rel="noopener"><span><small>Research · Google Doc</small><strong>Read my research log</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
       <a class="biglink" href="https://www.canva.com/design/DAHTzHZxx1I/zd1EjBybpXDIA4-yon45hg/view" target="_blank" rel="noopener"><span><small>Pitch deck · Canva</small><strong>See the full pitch</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
     </div>
 
     <a class="next" href="#soulshine"><span class="label">Next project</span><span class="next-title">Soulshine &rarr;</span></a>
-  </article>
-
-  <!-- PEACELAND RESEARCH -->
-  <article class="view wrap" data-view="peaceland-research" hidden>
-    <div class="cs-top">
-      <a class="back" href="#peaceland">&larr; Peaceland</a>
-      <header class="cs-head">
-        <p class="label">Peaceland · Research journal</p>
-        <h1 class="cs-title long">Opportunity to be an innovative designer</h1>
-      </header>
-    </div>
-    <div class="cs-intro">
-      <div class="cs-copy">
-        <p class="lede">I joined Peaceland to help build a story-first game about the generation growing up after a war, and to research whether it can reduce inherited bias.</p>
-        <p>A message this important only reaches people if they want to play, so we put just as much care into the game's art, UX/UI and graphic design. That is where my research question came from, and it went on to make me a 2026 Schwartz Discover Scholar.</p>
-      </div>
-      <div class="slot portrait">Research image<br>coming</div>
-    </div>
-    <figure class="question">
-      <figcaption class="label">Research question</figcaption>
-      <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
-    </figure>
-    <section class="block-section" aria-labelledby="langs-h">
-      <h2 class="sec-title" id="langs-h">Turning research in 3 languages into design choices</h2>
-      <div class="cs-copy">
-        <p>Throughout this project, I collected research in three different languages and kept track of my progress over the summer in a running research log.</p>
-      </div>
-      <div class="linkrow">
-        <a class="biglink" href="https://docs.google.com/document/d/1SC378zWuMB42MeR5irhs17Wpv361CEoai3CuiOIdDi0/preview" target="_blank" rel="noopener"><span><small>Google Doc</small><strong>Open the research log</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
-        <a class="biglink" href="#peaceland"><span><small>Case study</small><strong>Back to Peaceland</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
   </article>
 
   <!-- SOULSHINE -->
@@ -2137,10 +2110,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); layoutArt(); sizePad(); }, 120); });
 
   /* Router: one view per bare #anchor */
-  const routes = ['professional','personal','about','peaceland','soulshine','vals','izone','rochester-design-hub','girls-who-code','peaceland-research'];
+  const routes = ['professional','personal','about','peaceland','soulshine','vals','izone','rochester-design-hub','girls-who-code'];
   const homeAnchors = ['work','experience'];
   const navOf = {peaceland:'work', soulshine:'work', vals:'work', 'peaceland-research':'work', professional:'work', izone:'experience', 'rochester-design-hub':'experience', 'girls-who-code':'experience'};
-  const aliases = {'selected-work':'work', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
+  const aliases = {'selected-work':'work', 'peaceland-research':'peaceland', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
   function setNav(key){
     document.querySelectorAll('.nav a').forEach(a => {
       if (a.dataset.nav === key) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
