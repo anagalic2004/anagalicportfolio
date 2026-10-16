@@ -136,6 +136,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .card-link i{font-style:normal;transition:transform .35s var(--ease)}
 .card:hover .card-link i,.card:focus-visible .card-link i{transform:translateX(4px)}
 .card-pending{cursor:default}
+.card-nums{margin:0;font-size:14px;line-height:1.45;color:var(--ink)}
+.card-nums b{font-weight:700}
 
 /* Views */
 .view{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px);padding-block:clamp(28px,5vw,56px) clamp(88px,11vw,150px)}
@@ -834,25 +836,18 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <section class="block-section" id="work" aria-labelledby="work-h">
       <div class="sec-head">
         <h2 class="sec-title" id="work-h">Work</h2>
-        <div class="chips" role="group" aria-label="Filter projects">
-          <button type="button" class="chip" aria-pressed="true" data-filter="all">All</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="games">Games</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="product">Product</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="graphic">Graphic</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="research">Research</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="code">Code</button>
-        </div>
       </div>
       <div class="grid">
         <a class="card" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
             <img class="cover-img" src="img/peaceland-cover.jpg" alt="" loading="lazy">
-            <span class="cover-tag">Game · 2026</span>
+            <span class="cover-tag">Game</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Peaceland</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Narrative-driven video game</p>
             <p class="card-meta">Jan 2026 – Jul 2026</p>
+            <p class="card-nums"><b>40+</b> players · <b>4</b> regions · <b>3</b> languages</p>
             <ul class="tags"><li>Visual graphics</li><li>Video game design</li><li>UX/UI</li><li>Storytelling</li><li>Digital &amp; graphic design</li></ul>
           </div>
         </a>
@@ -860,26 +855,27 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="cover ss-cover" aria-hidden="true">
             <div class="aura" data-aura><span class="aura-glow"></span><span class="aura-ring"></span><span class="aura-ring r2"></span><span class="aura-ring r3"></span><span class="aura-core"></span></div>
             <span class="ss-word"><b>Soulshine</b><small>Your attention is worth protecting.</small></span>
-            <span class="cover-tag">Product · 2026</span>
+            <span class="cover-tag">Product</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Soulshine</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Multi-sensory focus lamp, companion app &amp; website</p>
+            <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
             <p class="card-meta">Jan 2026 – May 2026</p>
-            <ul class="tags"><li>Team leadership</li><li>Product design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
+            <ul class="tags"><li>Team leadership</li><li>UX/UI</li><li>Visual design</li><li>User research</li><li>Web design</li></ul>
           </div>
         </a>
         <a class="card" href="#vals" data-tags="research code">
           <div class="cover vl-cover" aria-hidden="true">
             <canvas class="vl-wave" data-voice></canvas>
             <span class="vl-word"><b>VALS</b><span class="vl-say" lang="en">Understand before you accept.</span><small class="vl-lang">English</small></span>
-            <span class="cover-tag">AI · 2025</span>
+            <span class="cover-tag">AI that helps you understand the fine print</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>VALS</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Multilingual AI voice assistant &amp; website</p>
+            <p class="card-type">AI voice assistant</p>
             <p class="card-meta">Aug 2025 – Dec 2025</p>
-            <ul class="tags"><li>Full-stack development</li><li>Accessible design</li><li>UX/UI</li><li>User research</li><li>Web design</li></ul>
+            <p class="card-nums"><b>6</b> languages</p>
+            <ul class="tags"><li>Product design</li><li>Front-end development</li><li>Accessible design</li><li>UX/UI</li><li>User research</li></ul>
           </div>
         </a>
       </div>
@@ -891,50 +887,45 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <a class="card" href="#izone" data-tags="graphic">
           <div class="cover iz-cover" aria-hidden="true">
             <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/tedx/logo-card.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
-            <span class="cover-tag">Marketing · 2026</span>
+            <span class="cover-tag">Marketing</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3><span class="nc">iZone</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Marketing &amp; graphic design</p>
             <p class="card-meta">Aug 2026 – present</p>
+            <p class="card-nums"><b>20</b> graphics · <b>100+</b> TEDx attendees · <b>4</b> team templates</p>
             <ul class="tags"><li>Social media design</li><li>Event marketing</li><li>Certificate design</li><li>Event photography</li></ul>
           </div>
         </a>
         <a class="card" href="#rochester-design-hub" data-tags="graphic">
           <div class="cover uo-cover" aria-hidden="true">
             <div class="uo-fan"><img src="img/uo/gim-instagram-cv.jpg" alt="" loading="lazy"><img src="img/uo/eb-cover-cv.jpg" alt="" loading="lazy"><img src="img/uo/dl-instagram-cv.jpg" alt="" loading="lazy"></div>
-            <span class="cover-tag">Graphic · 2026</span>
+            <span class="cover-tag">Graphic</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Rochester Design Hub</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Brand &amp; social media design</p>
             <p class="card-meta">May 2026 – present</p>
+            <p class="card-nums"><b>+50</b> followers in month one · <b>4</b>-person design group</p>
             <ul class="tags"><li>Brand identity</li><li>Social media</li><li>Event marketing</li><li>Print design</li></ul>
           </div>
         </a>
         <a class="card" href="#girls-who-code" data-tags="graphic">
           <div class="cover gwc-cover" aria-hidden="true">
             <div class="uo-fan"><img src="img/gwc/gim-print-cv.jpg" alt="" loading="lazy"><img src="img/gwc/feb-gim-cv.jpg" alt="" loading="lazy"><img src="img/gwc/faf-print-cv.jpg" alt="" loading="lazy"></div>
-            <span class="cover-tag">Social media · 2025–26</span>
+            <span class="cover-tag">Social media</span>
           </div>
           <div class="card-body">
             <div class="card-row"><h3>Girls Who Code</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Social media &amp; event design</p>
             <p class="card-meta">Sep 2025 – present</p>
+            <p class="card-nums"><b>1,000+</b> viewers per post · <b>2&times;</b> following · <b>2</b> mentees</p>
             <ul class="tags"><li>Social media strategy</li><li>Content creation</li><li>Event marketing</li><li>Print design</li></ul>
           </div>
         </a>
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="hl-h">
-      <h2 class="label" id="hl-h">Highlights</h2>
-      <div class="highlights">
-        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Grant</h3><p>University of Rochester. Full-time summer research on Peaceland.</p></div>
-        <div class="hl"><p class="label">Exhibition · Apr 25, 2026</p><h3>IMAGINE RIT Festival</h3><p>Presented Peaceland at the Creativity + Innovation Festival.</p></div>
-        <div class="hl"><p class="label">Research · 3 languages</p><h3>Playtests across the Balkans</h3><p>Led playtesting where players said the game felt made "for them."</p></div>
-      </div>
-    </section>
   </div>
 
   <!-- PEACELAND -->
@@ -953,7 +944,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Peaceland is a narrative video game about the generation growing up after a war. Players uncover their country's past through memories kept in a museum, and their choices shape its future.</p>
-        <p>On the Narrative and UX/UI design teams, I built the world and characters, designed branching decisions, and helped design the in-game notebook. I also led playtesting across the Balkans, where players said the game felt made "for them."</p>
+        <p>On the Narrative and UX/UI design teams, I built the world and characters, designed branching decisions, and helped design the in-game notebook. I also ran playtests with 40+ players in 4 international regions and 3 languages, where players said the game felt made "for them."</p>
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
@@ -971,16 +962,23 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </span>
     </a>
 
-    <div class="block-section">
-      <div class="highlights two">
-        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Grant</h3><p>Awarded by the University of Rochester for full-time summer 2026 research on Peaceland.</p></div>
-        <div class="hl"><p class="label">April 25, 2026</p><h3>IMAGINE RIT Creativity + Innovation Festival</h3><p>Presenting Peaceland to a wide audience of visitors.</p></div>
+    <section class="block-section" aria-labelledby="pl-hl-h">
+      <div class="sec-head"><h2 class="sec-title" id="pl-hl-h">Highlights</h2></div>
+      <div class="stats">
+        <div class="stat"><p class="label">Playtests</p><strong>40+</strong><span>players tested the prototype as we iterated on their feedback</span></div>
+        <div class="stat"><p class="label">Research</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
+        <div class="stat"><p class="label">Research</p><strong>3</strong><span>languages for the research and playtests</span></div>
+      </div>
+      <div class="highlights">
+        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Scholar</h3><p>Named by the University of Rochester for full-time summer 2026 research on Peaceland, which I presented at the Schwartz Discover Scholar Showcase.</p></div>
+        <div class="hl"><p class="label">Exhibition · April 25, 2026</p><h3>Imagine RIT</h3><p>Presented Peaceland and its prototype to visitors.</p></div>
+        <div class="hl"><p class="label">Research · 4 regions · 3 languages</p><h3>Playtests across the Balkans</h3><p>Led playtesting where players said the game felt made &ldquo;for them.&rdquo;</p></div>
       </div>
       <figure class="photo-wide">
-        <img src="img/imagine-rit.jpg" alt="The Peaceland team at IMAGINE RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
-        <figcaption class="label">Peaceland at IMAGINE RIT · April 25, 2026</figcaption>
+        <img src="img/imagine-rit.jpg" alt="The Peaceland team at Imagine RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
+        <figcaption class="label">Peaceland at Imagine RIT · April 25, 2026</figcaption>
       </figure>
-    </div>
+    </section>
 
     <section class="block-section" aria-labelledby="pitch-h">
       <div class="sec-head">
@@ -1043,7 +1041,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">I joined Peaceland to help build a story-first game about the generation growing up after a war, and to research whether it can reduce inherited bias.</p>
-        <p>A message this important only reaches people if they want to play, so we put just as much care into the game's art, UX/UI and graphic design. That is where my research question came from, and it went on to win a 2026 Schwartz Discover Grant.</p>
+        <p>A message this important only reaches people if they want to play, so we put just as much care into the game's art, UX/UI and graphic design. That is where my research question came from, and it went on to make me a 2026 Schwartz Discover Scholar.</p>
       </div>
       <div class="slot portrait">Research image<br>coming</div>
     </div>
@@ -1068,7 +1066,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-top">
       <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
-        <p class="label">Multi-sensory focus lamp, companion app &amp; website</p>
+        <p class="label">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
         <h1 class="cs-title">Soulshine</h1>
         <a class="visit-top v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live Soulshine website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
@@ -1095,7 +1093,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow, budget and timeline, developed the user personas, and shaped the design vision. I also designed and built the Soulshine website you can explore above, and created its logo and brand.</p>
       </div>
       <dl class="meta">
-        <div><dt class="label">Role</dt><dd>Team Lead &amp; Visual Designer</dd></div>
+        <div><dt class="label">Role</dt><dd>Team Lead<br>UX/UI &amp; Visual Design</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Rosemary Trotter, Yufan Lin, Arthur Chow</dd></div>
         <div><dt class="label">Tools</dt><dd>Figma Sites, Figma, Adobe Photoshop</dd></div>
         <div><dt class="label">Timeline</dt><dd>Jan 2026 – May 2026</dd></div>
@@ -1251,7 +1249,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-top">
       <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
-        <p class="label">Multilingual AI voice assistant &amp; website</p>
+        <p class="label">AI voice assistant</p>
         <h1 class="cs-title">VALS</h1>
         <a class="visit-top v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live VALS website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
@@ -1275,10 +1273,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
-        <p>I was the Full-Stack Developer and Designer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
+        <p>I was the Product Designer and Front-End Developer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
       </div>
       <dl class="meta">
-        <div><dt class="label">Role</dt><dd>Full-Stack Developer &amp; Designer</dd></div>
+        <div><dt class="label">Role</dt><dd>Product Design &amp; Front-End Development</dd></div>
         <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
         <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React, Adobe Photoshop</dd></div>
         <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
@@ -1414,6 +1412,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
+    <div class="stats">
+      <div class="stat"><p class="label">Social media</p><strong>20</strong><span>graphics designed to date, following iZone's brand guidelines</span></div>
+      <div class="stat"><p class="label">TEDxURochester</p><strong>100+</strong><span>attendees drawn by the event's programming and campaign</span></div>
+      <div class="stat"><p class="label">Templates</p><strong>4</strong><span>templates used by the entire 5-person marketing team, plus an organized asset library</span></div>
+    </div>
+
     <section class="block-section" aria-labelledby="iz-intro-h">
       <div class="sec-head"><h2 class="sec-title" id="iz-intro-h">Introduction posts</h2><p class="label">Instagram · 2 posts</p></div>
       <div class="cs-copy"><p>A series that introduces the people behind iZone on Instagram. Each post pairs a cut-out portrait with a painted band of color, hand-drawn graphics that say something about the person, and a name tag with their last name in hand lettering.</p></div>
@@ -1442,7 +1446,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
     <section class="block-section" aria-labelledby="iz-tedx-h">
       <div class="sec-head"><h2 class="sec-title" id="iz-tedx-h"><span class="nc">TEDxURochester</span></h2><p class="label">reHuman · Sept 30, 2026</p></div>
-      <div class="cs-copy"><p>TEDxURochester's 2026 event, <i>reHuman</i>, explored what it means to place the human experience at the center of design, innovation, creativity and problem-solving. I made the event's logo, designed its flyers and certificates, and photographed the talks.</p></div>
+      <div class="cs-copy"><p>TEDxURochester's 2026 event, <i>reHuman</i>, explored what it means to place the human experience at the center of design, innovation, creativity and problem-solving. I made the event's logo, designed its flyers and certificates, and photographed the talks. The event drew 100+ attendees.</p></div>
       <div class="tx-steps">
         <div class="tx-block">
           <div class="tx-head"><span class="flow-n">1</span><h3>Logo</h3></div>
@@ -1563,9 +1567,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cs-copy">
         <p class="lede">Rochester Design Hub is a student design club at the University of Rochester. As its Marketing Manager, I design the club's visual identity and run its Instagram.</p>
         <p>I redesigned the club's logo and design the posts, flyers and banners for its events, all in Adobe Photoshop. They share one visual language: a purple-and-blue palette, liquid chrome and iridescent glass shapes on white, and bold black type.</p>
+        <p>I also head a 4-person graphic design project group and help run the club's website as part of a 3-person UX/UI design group.</p>
       </div>
       <dl class="meta">
-        <div><dt class="label">Role</dt><dd>Marketing Manager</dd></div>
+        <div><dt class="label">Role</dt><dd>Executive Board<br>Marketing Manager</dd></div>
         <div><dt class="label">Tools</dt><dd>Adobe Photoshop, Adobe Fonts</dd></div>
         <div><dt class="label">Focus</dt><dd>Brand identity, Social media, Event marketing, Print</dd></div>
         <div><dt class="label">Timeline</dt><dd>May 2026 – present</dd></div>
@@ -1729,9 +1734,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cs-copy">
         <p class="lede">Girls Who Code is a club at the University of Rochester. As its Social Media Manager, I run the club's Instagram and design the posts and flyers for its events.</p>
         <p>Each event gets its own look, from halftone cut-outs to pixel lettering on a sketched retro computer, tied together by the Girls Who Code logo and its blues.</p>
+        <p>I also organize the club's events, run hands-on Java and Python workshops, and mentor 2 members as they build their résumés.</p>
       </div>
       <dl class="meta">
-        <div><dt class="label">Role</dt><dd>Social Media Manager</dd></div>
+        <div><dt class="label">Role</dt><dd>Executive Board<br>Social Media Manager</dd></div>
         <div><dt class="label">Focus</dt><dd>Social media strategy, Content creation, Event marketing, Print</dd></div>
         <div><dt class="label">Timeline</dt><dd>Sep 2025 – present</dd></div>
       </dl>
@@ -1739,10 +1745,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
     <section class="block-section" aria-labelledby="gwc-ig-h">
       <div class="sec-head"><h2 class="sec-title" id="gwc-ig-h">Growing the Instagram</h2><p class="label">@girlswhocodeuofr</p></div>
-      <div class="cs-copy"><p>I run the club's Instagram. I grew its following by 30 and drew new members into the community, and our posts average around 1,000 views each, about double the account's following.</p></div>
+      <div class="cs-copy"><p>I run the club's Instagram. I grew its following by 30 and drew new members into the community, and our posts reach 1,000+ viewers, double the account's following.</p></div>
       <div class="stats">
         <div class="stat"><p class="label">Growth</p><strong>+30</strong><span>new followers, and new members in the community</span></div>
-        <div class="stat"><p class="label">Average post</p><strong>~1,000</strong><span>views on each post</span></div>
+        <div class="stat"><p class="label">Every post</p><strong>1,000+</strong><span>viewers on each post</span></div>
         <div class="stat"><p class="label">Reach</p><strong>2&times;</strong><span>the account's following</span></div>
       </div>
       <div class="linkrow"><a class="biglink with-av" href="https://www.instagram.com/girlswhocodeuofr/" target="_blank" rel="noopener"><img class="ig-av" src="img/gwc/avatar.jpg" alt="" loading="lazy" width="240" height="240"><span><small>Instagram · @girlswhocodeuofr</small><strong>Girls Who Code on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
@@ -1804,7 +1810,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <figure class="about-photo"><img src="img/about-portrait.jpg" alt="Ana Galic smiling, in a white and black striped sweater"></figure>
       <div class="prose">
         <p class="lede">I'm a multidisciplinary designer double majoring in Computer Science and Digital Media Studies at the University of Rochester, with a focus in Psychology. I love complex problems, especially ones that call for creative thinking, and I feel most at home where logic, design, and human needs meet.</p>
-        <p>My work spans UX/UI, graphic design, and human-computer interaction. At Peaceland Research, I took an interactive game from concept to prototype and playtested it across 4 international regions. On the iZone's graphic design team, I create social media graphics and campaigns, including for a TEDx event. I've also designed Soulshine, a digital wellbeing platform, and VALS, an AI voice assistant that turns documents into audio summaries in 6 languages.</p>
+        <p>My work spans UX/UI, graphic design, and human-computer interaction. At Peaceland Research, I took an interactive game from concept to prototype and playtested it across 4 international regions. On the iZone's graphic design team, I create social media graphics and campaigns, including for a TEDx event. I've also designed Soulshine, a digital wellbeing website, and VALS, an AI voice assistant that turns documents into audio summaries in 6 languages.</p>
         <p>I believe technology should make life easier and more accessible, and I'm especially curious about how people think, play, and interact. Most of my inspiration comes from the people and the nature around me. People remind me who I'm designing for. Nature shows me that beauty and purpose can be the same thing, since every curve of a canyon wall and every vein in a leaf is there for a reason.</p>
         <p>As a designer, my goal is to create work that is both beautiful and genuinely useful: products that are easy and accessible for everyone, and stories and games that bring people closer together. I look for every chance to learn from professionals in the field as I shape my direction.</p>
         <p>Feel free to look around my projects, and you can find my resume, LinkedIn, or a direct link to email me right below. I'd love to connect, so reach out!</p>
@@ -2174,13 +2180,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   }));
 
   /* Project filters */
-  const chips = document.querySelectorAll('.chips .chip');
-  const cards = document.querySelectorAll('.grid .card');
-  chips.forEach(ch => ch.addEventListener('click', () => {
-    const f = ch.dataset.filter;
-    chips.forEach(x => x.setAttribute('aria-pressed', String(x === ch)));
-    cards.forEach(c => c.classList.toggle('is-dim', !(f === 'all' || c.dataset.tags.split(' ').includes(f))));
-  }));
 
   /* How Peaceland works: three ideas, each with its own images */
   const pillars = [
