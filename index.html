@@ -673,8 +673,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .rf-row .label{padding-top:7px}
 .rf-row div p{margin:0;font-family:var(--display);font-weight:460;font-size:clamp(19px,2vw,24px);line-height:1.38;max-width:58ch;text-wrap:pretty}
 @media (max-width:640px){.rf-row{grid-template-columns:minmax(0,1fr)}.rf-row .label{padding-top:0}}
-.survey-fig{margin:0;display:flex;flex-direction:column;gap:10px;max-width:980px}
-.survey-fig .tx-zoom img{object-fit:contain}
+.stat-chart{margin-top:12px;background:#FFFFFF}
+.stat-chart img{object-fit:contain}
+.biglink.with-thumb{grid-column:1/-1;justify-content:flex-start;gap:clamp(16px,2.4vw,28px);padding:16px 24px 16px 16px}
+.biglink.with-thumb .arrow{margin-left:auto}
+.poster-thumb{flex:none;display:block;width:clamp(112px,14vw,176px);height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line)}
 .ba-old{margin:0 0 8px;display:flex;flex-direction:column;gap:10px;max-width:620px}
 .ba-old img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .ba-new{display:flex;flex-direction:column;gap:10px}
@@ -1069,6 +1072,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     </section>
 
 <div class="linkrow">
+      <a class="biglink with-thumb" href="AnaGalic_Peaceland_Poster.pdf" target="_blank" rel="noopener"><img class="poster-thumb" src="img/peaceland-poster-thumb.jpg" alt="Preview of my final research poster for Peaceland" width="360" height="270" loading="lazy"><span><small>Final research poster · PDF</small><strong>See my final research poster</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
       <a class="biglink" href="https://docs.google.com/document/d/1SC378zWuMB42MeR5irhs17Wpv361CEoai3CuiOIdDi0/preview" target="_blank" rel="noopener"><span><small>Research · Google Doc</small><strong>Read my research log</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
       <a class="biglink" href="https://www.canva.com/design/DAHTzHZxx1I/zd1EjBybpXDIA4-yon45hg/view" target="_blank" rel="noopener"><span><small>Pitch deck · Canva</small><strong>See the full pitch</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
     </div>
@@ -1132,11 +1136,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <h2 class="sec-title" id="ss-problem-h">The problem</h2>
       <div class="cs-copy"><p>Scrolling damages focus, disrupts sleep, and harms mental health. We grounded the project in 11 academic sources on short-form content, attention span, memory and wellbeing, then surveyed 31 students and young professionals.</p></div>
       <div class="stats">
-        <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span></div>
-        <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span></div>
-        <div class="stat"><p class="label">Survey</p><strong>61%</strong><span>want a physical device to remind them to stop</span></div>
+        <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span><button type="button" class="tx-zoom stat-chart" style="--ar:512/435" data-full="img/soulshine/survey-focus.jpg" data-cap="Survey · Do you feel like scrolling in the past affects your ability to focus on longer tasks now? · 31 responses" aria-label="Enlarge the survey chart about scrolling and focus"><img src="img/soulshine/survey-focus.jpg" alt="Pie chart for the question: Do you feel like scrolling in the past affects your ability to focus on longer tasks now? 38.7% yes, significantly; 32.3% yes, somewhat; 25.8% not sure; the rest no" loading="lazy" width="512" height="435"></button></div>
+        <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span><button type="button" class="tx-zoom stat-chart" style="--ar:512/435" data-full="img/soulshine/survey-time.jpg" data-cap="Survey · Have you ever lost track of time while scrolling? · 31 responses" aria-label="Enlarge the survey chart about losing track of time"><img src="img/soulshine/survey-time.jpg" alt="Pie chart for the question: Have you ever lost track of time while scrolling? 54.8% yes, sometimes; 19.4% yes, frequently; 22.6% rarely; the rest never" loading="lazy" width="512" height="435"></button></div>
+        <div class="stat"><p class="label">Survey</p><strong>61%</strong><span>want a physical device to remind them to stop</span><button type="button" class="tx-zoom stat-chart" style="--ar:512/435" data-full="img/soulshine/survey-device.jpg" data-cap="Survey · How interested would you be in a physical device that reminds you to take a break from scrolling? · 31 responses" aria-label="Enlarge the survey chart about a physical device"><img src="img/soulshine/survey-device.jpg" alt="Pie chart for the question: How interested would you be in a physical device that reminds you to take a break from scrolling? 38.7% somewhat interested; 22.6% very interested; 16.1% neutral; 19.4% not very interested; the rest not at all interested" loading="lazy" width="512" height="435"></button></div>
       </div>
-      <figure class="survey-fig"><button type="button" class="tx-zoom" style="--ar:1593/884" data-full="img/soulshine/survey-results.jpg" data-cap="Soulshine · Survey results, 31 responses" aria-label="Enlarge the survey results"><img src="img/soulshine/survey-results.jpg" alt="Survey results slide with three pie charts: 71% feel scrolling has affected their ability to focus on longer tasks, 61% are interested in a physical device that reminds them to take a break, and 74% have lost track of time while scrolling" loading="lazy" width="1593" height="884"></button><figcaption class="label">Our survey results · 31 responses</figcaption></figure>
     </section>
 
 <section class="block-section" aria-labelledby="ss-gap-h">
