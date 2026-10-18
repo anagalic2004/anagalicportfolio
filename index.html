@@ -661,6 +661,24 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .board figcaption{font-size:14px;font-weight:600;line-height:1.35}
 
 /* Notes for Ana (preview only) */
+.cs-step{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
+.cs-step-body{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px)}
+.step-tag{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--mono);font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.step-tag .st-n{display:grid;place-items:center;height:24px;padding:0 8px;background:var(--blue);color:var(--on-blue);font-weight:500;letter-spacing:.04em}
+.step-tag::after{content:"";flex:1;height:1px;background:var(--line)}
+.reflect{display:flex;flex-direction:column}
+.rf-row{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);padding-block:22px;border-top:1px solid var(--line)}
+.rf-row:first-child{border-top:2px solid var(--ink)}
+.rf-row:last-child{border-bottom:1px solid var(--line)}
+.rf-row .label{padding-top:7px}
+.rf-row div p{margin:0;font-family:var(--display);font-weight:460;font-size:clamp(19px,2vw,24px);line-height:1.38;max-width:58ch;text-wrap:pretty}
+@media (max-width:640px){.rf-row{grid-template-columns:minmax(0,1fr)}.rf-row .label{padding-top:0}}
+.survey-fig{margin:0;display:flex;flex-direction:column;gap:10px;max-width:980px}
+.survey-fig .tx-zoom img{object-fit:contain}
+.ba-old{margin:0 0 8px;display:flex;flex-direction:column;gap:10px;max-width:620px}
+.ba-old img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.ba-new{display:flex;flex-direction:column;gap:10px}
+.art-why{margin-top:4px;color:var(--muted);font-size:15px;line-height:1.5;max-width:52ch}
 .todo{display:flex;gap:14px;align-items:flex-start;border:1.5px dashed var(--ink);padding:16px 18px;background:var(--blue-soft);font-size:15px;line-height:1.5}
 .todo::before{content:"To fill";flex:none;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 7px;margin-top:1px}
 .todo p{margin:0}
@@ -916,6 +934,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   <!-- PEACELAND -->
   <article class="view wrap" data-view="peaceland" hidden>
+
     <div class="cs-top">
       <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
@@ -927,7 +946,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Peaceland is a narrative video game about the generation growing up after a war. Players uncover their country's past through memories kept in a museum, and their choices shape its future.</p>
         <p>On the Narrative and UX/UI design teams, I built the world and characters, designed branching decisions, and helped design the in-game notebook. I also ran playtests with 40+ players in 4 international regions and 3 languages, where players said the game felt made "for them."</p>
@@ -939,12 +961,53 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
-    <figure class="question">
+<div class="stats">
+        <div class="stat"><p class="label">Playtests</p><strong>40+</strong><span>players tested the prototype as we iterated on their feedback</span></div>
+        <div class="stat"><p class="label">Research</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
+        <div class="stat"><p class="label">Research</p><strong>3</strong><span>languages for the research and playtests</span></div>
+      </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<figure class="question">
       <figcaption class="label">Research question · Schwartz Discover Scholar</figcaption>
       <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
     </figure>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="boards-h">
+      <div class="sec-head">
+        <h2 class="sec-title" id="boards-h">Brainstorming in Figma</h2>
+        <p class="label">Click a board to enlarge &rarr;</p>
+      </div>
+      <div class="boards">
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
+      </div>
+    </section>
 
-    <a class="trailer" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
+<section class="block-section" aria-labelledby="pl-test-h">
+      <div class="sec-head"><h2 class="sec-title" id="pl-test-h">Playtesting</h2><p class="label">40+ players · 4 regions · 3 languages</p></div>
+      <div class="highlights">
+        <div class="hl"><p class="label">Early playtests · University of Rochester</p><h3>DMST 101 &amp; DMST 104</h3><p>Early on, we playtested Peaceland in two Digital Media Studies courses, with 20+ students in each. We took their feedback on the game's interactions and its UI and UX design into account in the next versions.</p></div>
+        <div class="hl"><p class="label">Research · 4 regions · 3 languages</p><h3>Playtests across the Balkans</h3><p>Led playtesting where players said the game felt made &ldquo;for them.&rdquo;</p></div>
+        <div class="hl"><p class="label">What we changed · After playtests</p><h3>Adding sound sooner</h3><p>Sound was always in the plan, but playtesting showed how crucial it is to testing itself: it keeps players wanting to actually play, and so to keep testing the game for us. So we added it sooner.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<a class="trailer" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
       <span class="play" aria-hidden="true"></span>
       <span class="trailer-text">
         <span class="label">Trailer</span>
@@ -953,26 +1016,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </span>
     </a>
 
-    <section class="block-section" aria-labelledby="pl-hl-h">
-      <div class="sec-head"><h2 class="sec-title" id="pl-hl-h">Highlights</h2></div>
-      <div class="stats">
-        <div class="stat"><p class="label">Playtests</p><strong>40+</strong><span>players tested the prototype as we iterated on their feedback</span></div>
-        <div class="stat"><p class="label">Research</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
-        <div class="stat"><p class="label">Research</p><strong>3</strong><span>languages for the research and playtests</span></div>
-      </div>
-      <div class="highlights four">
-        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Scholar</h3><p>Named by the University of Rochester for full-time summer 2026 research on Peaceland, which I presented at the Schwartz Discover Scholar Showcase.</p></div>
-        <div class="hl"><p class="label">Exhibition · April 25, 2026</p><h3>Imagine RIT</h3><p>Presented Peaceland and its prototype to visitors.</p></div>
-        <div class="hl"><p class="label">Early playtests · University of Rochester</p><h3>DMST 101 &amp; DMST 104</h3><p>Early on, we playtested Peaceland in two Digital Media Studies courses, with 20+ students in each. We took their feedback on the game's interactions and its UI and UX design into account in the next versions.</p></div>
-        <div class="hl"><p class="label">Research · 4 regions · 3 languages</p><h3>Playtests across the Balkans</h3><p>Led playtesting where players said the game felt made &ldquo;for them.&rdquo;</p></div>
-      </div>
-      <figure class="photo-wide">
-        <img src="img/imagine-rit.jpg" alt="The Peaceland team at Imagine RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
-        <figcaption class="label">Peaceland at Imagine RIT · April 25, 2026</figcaption>
-      </figure>
-    </section>
-
-    <section class="block-section" aria-labelledby="pitch-h">
+<section class="block-section" aria-labelledby="pitch-h">
       <div class="sec-head">
         <h2 class="sec-title" id="pitch-h">How Peaceland works</h2>
         <p class="label">Click each idea, or use the arrows</p>
@@ -999,31 +1043,43 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
-
-    <section class="block-section" aria-labelledby="boards-h">
-      <div class="sec-head">
-        <h2 class="sec-title" id="boards-h">Brainstorming in Figma</h2>
-        <p class="label">Click a board to enlarge &rarr;</p>
       </div>
-      <div class="boards">
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="pl-rec-h">
+      <div class="sec-head"><h2 class="sec-title" id="pl-rec-h">Recognition</h2></div>
+      <div class="highlights two">
+        <div class="hl"><p class="label">Award · 2026</p><h3>Schwartz Discover Scholar</h3><p>Named by the University of Rochester for full-time summer 2026 research on Peaceland, which I presented at the Schwartz Discover Scholar Showcase.</p></div>
+        <div class="hl"><p class="label">Exhibition · April 25, 2026</p><h3>Imagine RIT</h3><p>Presented Peaceland and its prototype to visitors.</p></div>
+      </div>
+      <figure class="photo-wide">
+        <img src="img/imagine-rit.jpg" alt="The Peaceland team at Imagine RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
+        <figcaption class="label">Peaceland at Imagine RIT · April 25, 2026</figcaption>
+      </figure>
+    </section>
+
+<section class="block-section" aria-labelledby="pl-ref-h">
+      <h2 class="sec-title" id="pl-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">What I learned</p><div><p>I learned that bias is taught, and that design taste can be developed and adjusted to each project. Until Peaceland, I had been far too comfortable in my own art and design style. This project expanded the limits of what I can create collaboratively, and of what I&rsquo;m able to achieve.</p></div></div>
+        <div class="rf-row"><p class="label">What I&rsquo;d change next</p><div><p>After the playtests, I&rsquo;d change how the game is presented to players, and add more language options. These are still early changes, and they will develop with time.</p></div></div>
       </div>
     </section>
 
-    <div class="linkrow">
+<div class="linkrow">
       <a class="biglink" href="https://docs.google.com/document/d/1SC378zWuMB42MeR5irhs17Wpv361CEoai3CuiOIdDi0/preview" target="_blank" rel="noopener"><span><small>Research · Google Doc</small><strong>Read my research log</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
       <a class="biglink" href="https://www.canva.com/design/DAHTzHZxx1I/zd1EjBybpXDIA4-yon45hg/view" target="_blank" rel="noopener"><span><small>Pitch deck · Canva</small><strong>See the full pitch</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
     </div>
-
+      </div>
+    </div>
     <a class="next" href="#soulshine"><span class="label">Next project</span><span class="next-title">Soulshine &rarr;</span></a>
   </article>
 
   <!-- SOULSHINE -->
   <article class="view wrap" data-view="soulshine" hidden>
+
     <div class="cs-top">
       <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
@@ -1036,8 +1092,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-about" aria-controls="ss-viewport" aria-selected="true" tabindex="0" data-page="about" data-alt="Soulshine About page: the hero line “Your attention is worth protecting. We help you do it.”, our approach, research-backed insights, the gap Soulshine fills, and two user personas">About</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-product" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="product" data-alt="Soulshine Product page: the physical lamp with its dimensions, features and materials, next to the companion app controls">Product</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-research" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="research" data-alt="Soulshine Research page: key findings from 11 academic sources and the survey results of 71, 74 and 61 percent">Research</button>
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-timeline" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="timeline" data-alt="Soulshine Timeline page: six monthly milestones from January to June 2026">Timeline</button>
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-budget" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="budget" data-alt="Soulshine Budget page: how the $100,000 investment for the first 50 lamps is allocated">Budget</button>
           <button type="button" class="chip ss-tab" role="tab" id="ss-tab-team" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="team" data-alt="Soulshine Team page: Ana Galić, Rosemary Trotter, Yufan Lin and Arthur Chow, and a contact form">Team</button>
         </div>
         <div class="ss-window">
@@ -1048,10 +1102,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Soulshine is a desk lamp and companion app that gently pulls people out of mindless scrolling. Instead of adding another screen, it uses calm light, sound, scent and vibration to bring your attention back.</p>
-        <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow, budget and timeline, developed the user personas, and shaped the design vision. I also designed and built the Soulshine website you can explore above, and created its logo and brand.</p>
+        <p>I led our team of four as Team Lead and Visual Designer. I ran our workflow and timeline, developed the user personas, and shaped the design vision. I also designed and built the Soulshine website you can explore above, and created its logo and brand.</p>
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Team Lead<br>UX/UI &amp; Visual Design</dd></div>
@@ -1061,11 +1118,67 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
-    <section class="block-section" aria-labelledby="ss-site-h">
+<div class="stats">
+      <div class="stat"><p class="label">Research</p><strong>11</strong><span>academic sources on attention, memory and wellbeing</span></div>
+      <div class="stat"><p class="label">Survey</p><strong>31</strong><span>students and young professionals answered our survey</span></div>
+      <div class="stat"><p class="label">User testing</p><strong>15</strong><span>potential users gave feedback at every stage</span></div>
+    </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="ss-problem-h">
+      <h2 class="sec-title" id="ss-problem-h">The problem</h2>
+      <div class="cs-copy"><p>Scrolling damages focus, disrupts sleep, and harms mental health. We grounded the project in 11 academic sources on short-form content, attention span, memory and wellbeing, then surveyed 31 students and young professionals.</p></div>
+      <div class="stats">
+        <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span></div>
+        <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span></div>
+        <div class="stat"><p class="label">Survey</p><strong>61%</strong><span>want a physical device to remind them to stop</span></div>
+      </div>
+      <figure class="survey-fig"><button type="button" class="tx-zoom" style="--ar:1593/884" data-full="img/soulshine/survey-results.jpg" data-cap="Soulshine · Survey results, 31 responses" aria-label="Enlarge the survey results"><img src="img/soulshine/survey-results.jpg" alt="Survey results slide with three pie charts: 71% feel scrolling has affected their ability to focus on longer tasks, 61% are interested in a physical device that reminds them to take a break, and 74% have lost track of time while scrolling" loading="lazy" width="1593" height="884"></button><figcaption class="label">Our survey results · 31 responses</figcaption></figure>
+    </section>
+
+<section class="block-section" aria-labelledby="ss-gap-h">
+      <h2 class="sec-title" id="ss-gap-h">The gap we found</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">What already exists</p><h3>Apps and lockboxes</h3><p>Forest, One Sec, Opal and physical phone lockboxes each tackle part of the problem, either on the screen or by locking the phone away.</p></div>
+        <div class="hl"><p class="label">What was missing</p><h3>Physical and digital, together</h3><p>None of them combine physical and digital signals into one calm experience, even though research shows paired interventions work best. That gap is what Soulshine fills.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="ss-process-h">
+      <h2 class="sec-title" id="ss-process-h">From concept to launch</h2>
+      <div class="cs-copy"><p>A group of 15 potential users tested the idea with us and shared their thoughts at every stage, from the first concept to the working prototype.</p></div>
+      <ol class="steps">
+        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature reviews and first ideas for both the hardware and the software.</p><button type="button" class="peek" data-zoom data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · Click the board to zoom in"><img src="img/soulshine/planning-board-thumb.jpg" alt="The Soulshine team's planning board: sticky notes comparing materials for the lamp base and buttons, LED options, wiring, scents and speakers, with pros and cons" loading="lazy"><span class="peek-text"><span class="peek-title">Our planning board</span><span class="peek-sub">How the team weighed materials, lighting, wiring, scent and sound</span></span><span class="peek-go" aria-hidden="true">View</span></button></div></li>
+        <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Finalized the idea, gathered input from potential users using iZone resources, planned how the team would work, and wireframed the companion app's UI and core features.</p></div></li>
+        <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Used StudioX at the University of Rochester to connect the lamp's light, sound and scent with the app's tracking and reminders.</p></div></li>
+        <li><p class="label">May 2026</p><div><h3>Prototype, website and final presentation</h3><p>Finished and tested a working lamp and app, built and launched the website, and delivered our final presentation.</p></div></li>
+      </ol>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="ss-how-h">
+      <h2 class="sec-title" id="ss-how-h">How it works</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">The lamp</p><h3>A calm cue on your desk</h3><p>A multi-colored LED light that slowly dims as a session goes on, a scent diffuser, a 360° speaker, a phone stand that keeps your phone charging but out of direct sight, and simple touch buttons for brightness and the timer.</p></div>
+        <div class="hl"><p class="label">The companion app</p><h3>Tracking without stress</h3><p>An iOS and Android app that tracks time on TikTok and Instagram, runs focus sessions with music and blocked apps, and shows a virtual lamp that dims slowly, with no guilt.</p></div>
+      </div>
+    </section>
+
+<section class="block-section" aria-labelledby="ss-site-h">
       <h2 class="sec-title" id="ss-site-h">Designing the website</h2>
       <figure class="mockup"><img src="img/soulshine/mockup-modes.jpg" alt="Two laptops showing the Soulshine homepage in light mode and in dark mode, under the blue Soulshine lamp logo" loading="lazy"><figcaption class="label">The homepage in light and dark mode</figcaption></figure>
       <div class="highlights">
-        <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>I designed and built the whole website myself in Figma Sites, as six pages that take visitors from the problem to the product, research, timeline, budget and team.</p></div>
+        <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>I designed and built the whole website myself in Figma Sites, with pages that take visitors from the problem to the product, its research and the team.</p></div>
         <div class="hl"><p class="label">A choice for the viewer</p><h3 class="with-icons">Light and dark mode <span class="mode-icons" aria-hidden="true"><img src="img/soulshine/icon-moon.png" alt=""><img src="img/soulshine/icon-sun.png" alt=""></span></h3><p>Many people prefer having the option, so every page works in both a light and a dark mode, switched with the sun icon in the menu.</p></div>
         <div class="hl"><p class="label">Photoshop, then Figma</p><h3>Logo and brand</h3><p>I designed the original Soulshine logo in Adobe Photoshop, then rebuilt it as a 3D lamp in Figma. I chose blue because it is calming and pleasant to the eyes, which suits a product about protecting your attention.</p></div>
       </div>
@@ -1156,57 +1269,32 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
-
-    <section class="block-section" aria-labelledby="ss-problem-h">
-      <h2 class="sec-title" id="ss-problem-h">The problem</h2>
-      <div class="cs-copy"><p>Scrolling damages focus, disrupts sleep, and harms mental health. We grounded the project in 11 academic sources on short-form content, attention span, memory and wellbeing, then ran our own survey of students and young professionals.</p></div>
-      <div class="stats">
-        <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span></div>
-        <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span></div>
-        <div class="stat"><p class="label">Survey</p><strong>61%</strong><span>want a physical device to remind them to stop</span></div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="ss-ref-h">
+      <h2 class="sec-title" id="ss-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">Outcome</p><div><p>We finished and tested a working lamp and companion app, launched the website, and delivered our final presentation.</p></div></div>
+        <div class="rf-row"><p class="label">What I learned</p><div><p>Soulshine taught me how to build a project around user input at every single stage. Until then, users mostly saw my work at the very end, when most changes were already made unless I started the whole process over. Here, 15 potential users shared their thoughts and opinions throughout development. I also learned how to work within strict directions and develop the product along the way.</p></div></div>
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="ss-gap-h">
-      <h2 class="sec-title" id="ss-gap-h">The gap we found</h2>
-      <div class="highlights two">
-        <div class="hl"><p class="label">What already exists</p><h3>Apps and lockboxes</h3><p>Forest, One Sec, Opal and physical phone lockboxes each tackle part of the problem, either on the screen or by locking the phone away.</p></div>
-        <div class="hl"><p class="label">What was missing</p><h3>Physical and digital, together</h3><p>None of them combine physical and digital signals into one calm experience, even though research shows paired interventions work best. That gap is what Soulshine fills.</p></div>
-      </div>
-    </section>
-
-    <section class="block-section" aria-labelledby="ss-how-h">
-      <h2 class="sec-title" id="ss-how-h">How it works</h2>
-      <div class="highlights two">
-        <div class="hl"><p class="label">The lamp</p><h3>A calm cue on your desk</h3><p>A multi-colored LED light that slowly dims as a session goes on, a scent diffuser, a 360° speaker, a phone stand that keeps your phone charging but out of direct sight, and simple touch buttons for brightness and the timer.</p></div>
-        <div class="hl"><p class="label">The companion app</p><h3>Tracking without stress</h3><p>An iOS and Android app that tracks time on TikTok and Instagram, runs focus sessions with music and blocked apps, and shows a virtual lamp that dims slowly, with no guilt.</p></div>
-      </div>
-    </section>
-
-
-    <section class="block-section" aria-labelledby="ss-process-h">
-      <h2 class="sec-title" id="ss-process-h">From concept to launch</h2>
-      <ol class="steps">
-        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature reviews and first ideas for both the hardware and the software.</p><button type="button" class="peek" data-zoom data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · Click the board to zoom in"><img src="img/soulshine/planning-board-thumb.jpg" alt="The Soulshine team's planning board: sticky notes comparing materials for the lamp base and buttons, LED options, wiring, scents and speakers, with pros and cons" loading="lazy"><span class="peek-text"><span class="peek-title">Our planning board</span><span class="peek-sub">How the team weighed materials, lighting, wiring, scent and sound</span></span><span class="peek-go" aria-hidden="true">View</span></button></div></li>
-        <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Finalized the idea, gathered input from potential users using iZone resources, planned how the team would work, and wireframed the companion app's UI and core features.</p></div></li>
-        <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Used StudioX at the University of Rochester to connect the lamp's light, sound and scent with the app's tracking and reminders.</p></div></li>
-        <li class="key"><p class="label">April 2026</p><div><h3>Securing the investment</h3><p>Secured a $100,000 investment for the first 50 lamps, on four conditions: build fast and to a high standard, make it accessible for users with mobility issues, explain the research so anyone can understand it, and account for every dollar.</p></div></li>
-        <li><p class="label">May 2026</p><div><h3>Prototype, website and final presentation</h3><p>Finished and tested a working lamp and app, built and launched the website, and delivered the final presentation with a transparent breakdown of how the $100,000 was spent.</p></div></li>
-      </ol>
-    </section>
-
-
-    <a class="visit-banner v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">
+<a class="visit-banner v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener">
       <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the Soulshine website</span><span class="visit-url">linter-berry-84402425.figma.site</span></span>
       <span class="visit-circle" aria-hidden="true">&#8599;</span>
     </a>
+      </div>
+    </div>
     <a class="back back-row" href="#work">&larr; Back to all work</a>
-
     <a class="next" href="#vals"><span class="label">Next project</span><span class="next-title">VALS &rarr;</span></a>
   </article>
 
   <!-- VALS -->
   <article class="view wrap" data-view="vals" hidden>
+
     <div class="cs-top">
       <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
@@ -1231,7 +1319,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
         <p>I was the Product Designer and Front-End Developer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
@@ -1244,7 +1335,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
-    <section class="block-section" aria-labelledby="vl-problem-h">
+<div class="stats">
+      <div class="stat"><p class="label">Languages</p><strong>6</strong><span>English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
+      <div class="stat"><p class="label">Website</p><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
+      <div class="stat"><p class="label">Designed for</p><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
+    </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="vl-problem-h">
       <h2 class="sec-title" id="vl-problem-h">The problem</h2>
       <div class="cs-copy"><p>Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p></div>
       <div class="stats">
@@ -1259,7 +1360,34 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="vl-how-h">
+<section class="block-section" aria-labelledby="vl-who-h">
+      <h2 class="sec-title" id="vl-who-h">Who it's for</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">2.2 billion people</p><h3>Visually impaired</h3><p>Screen readers can't simplify dense legal text. A voice-first design removes that barrier.</p></div>
+        <div class="hl"><p class="label">15–20% have dyslexia</p><h3>Reading difficulties</h3><p>Audio and plain-language summaries replace impenetrable paragraphs, for the 130 million US adults who struggle with literacy too.</p></div>
+        <div class="hl"><p class="label">761 million aged 65+</p><h3>Elderly users</h3><p>Small print gets harder to read with age. Voice guidance feels like a familiar phone call.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="vl-origin-h">
+      <h2 class="sec-title" id="vl-origin-h">How VALS came to be</h2>
+      <div class="cs-copy"><p>VALS started in one of our team&rsquo;s brainstorming sessions. One of my teammates has a visually impaired family member, and we wanted to make something that would help them.</p></div>
+      <ol class="steps">
+        <li><p class="label">Brainstorm</p><div><h3>One person we wanted to help</h3><p>A teammate&rsquo;s visually impaired family member gave us our starting point.</p></div></li>
+        <li><p class="label">Widen</p><div><h3>Three groups who struggle with the fine print</h3><p>We widened the goal to visually impaired people, elderly users and people with reading difficulties.</p></div></li>
+        <li><p class="label">Design</p><div><h3>A product that reads it for you</h3><p>We designed a product for anyone who struggles to use products and read the &ldquo;fine print&rdquo; in today&rsquo;s very technological world.</p></div></li>
+      </ol>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="vl-how-h">
       <h2 class="sec-title" id="vl-how-h">How it works</h2>
       <ol class="steps">
         <li><p class="label">Step 1</p><div><h3>Install</h3><p>Add VALS to Chrome, Edge or Firefox in one click. It sits quietly in the toolbar.</p></div></li>
@@ -1269,16 +1397,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </ol>
     </section>
 
-    <section class="block-section" aria-labelledby="vl-who-h">
-      <h2 class="sec-title" id="vl-who-h">Who it's for</h2>
-      <div class="highlights">
-        <div class="hl"><p class="label">2.2 billion people</p><h3>Visually impaired</h3><p>Screen readers can't simplify dense legal text. A voice-first design removes that barrier.</p></div>
-        <div class="hl"><p class="label">15–20% have dyslexia</p><h3>Reading difficulties</h3><p>Audio and plain-language summaries replace impenetrable paragraphs, for the 130 million US adults who struggle with literacy too.</p></div>
-        <div class="hl"><p class="label">761 million aged 65+</p><h3>Elderly users</h3><p>Small print gets harder to read with age. Voice guidance feels like a familiar phone call.</p></div>
-      </div>
-    </section>
-
-    <section class="block-section" aria-labelledby="vl-site-h">
+<section class="block-section" aria-labelledby="vl-site-h">
       <h2 class="sec-title" id="vl-site-h">Designing the website</h2>
       <div class="highlights">
         <div class="hl"><p class="label">Built by me</p><h3>Six pages, start to finish</h3><p>A landing page with a language picker, the about page, the team, an interactive demo, sign-up and an account page, with the animations and navigation that connect them.</p></div>
@@ -1340,18 +1459,32 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="vl-ref-h">
+      <h2 class="sec-title" id="vl-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">Outcome</p><div><p>The live website is the final product, and it was also our final presentation.</p></div></div>
+        <div class="rf-row"><p class="label">What I learned</p><div><p>VALS taught me how to focus on the specific group I&rsquo;m designing for, and to put their needs above everything else. Usability and the overall UX and UI design were crucial: everything had to be clear and practical.</p></div></div>
+      </div>
+    </section>
 
-    <a class="visit-banner v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener">
+<a class="visit-banner v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener">
       <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the VALS website</span><span class="visit-url">serene-july-87892059.figma.site</span></span>
       <span class="visit-circle" aria-hidden="true">&#8599;</span>
     </a>
+      </div>
+    </div>
     <a class="back back-row" href="#work">&larr; Back to all work</a>
-
     <a class="next" href="#izone"><span class="label">Next project</span><span class="next-title"><span class="nc">iZone</span> &rarr;</span></a>
   </article>
 
   <!-- IZONE -->
   <article class="view wrap" data-view="izone" hidden>
+
     <div class="cs-top">
       <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
@@ -1361,7 +1494,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cover cs-banner iz-cover iz-banner" aria-hidden="true"><div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/tedx/logo-card.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div></div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">At the Barbara J. Burger iZone, the University of Rochester's innovation hub, I design the graphics behind its Instagram, events and programs.</p>
         <p>As a Marketing Assistant on the graphic design team, I create social media posts that follow iZone's brand guidelines, design and photograph events, and turn program details into posts people can understand at a glance.</p>
@@ -1373,20 +1509,42 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
-    <div class="stats">
+<div class="stats">
       <div class="stat"><p class="label">Social media</p><strong>20</strong><span>graphics designed to date, following iZone's brand guidelines</span></div>
       <div class="stat"><p class="label">TEDxURochester</p><strong>100+</strong><span>attendees drawn by the event's programming and campaign</span></div>
       <div class="stat"><p class="label">Templates</p><strong>4</strong><span>templates used by the entire 5-person marketing team, plus an organized asset library</span></div>
     </div>
-
-    <section class="block-section" aria-labelledby="iz-intro-h">
-      <div class="sec-head"><h2 class="sec-title" id="iz-intro-h">Introduction posts</h2><p class="label">Instagram · 2 posts</p></div>
-      <div class="cs-copy"><p>A series that introduces the people behind iZone on Instagram. Each post pairs a cut-out portrait with a painted band of color, hand-drawn graphics that say something about the person, and a name tag with their last name in hand lettering.</p></div>
-      <ol class="flow" aria-label="How I made each post">
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<figure class="question">
+      <figcaption class="label">What iZone needed</figcaption>
+      <p>A graphic designer with fresh ideas and a clear vision for a consistent look, who follows every requirement while bringing a personal style to the work.</p>
+    </figure>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="iz-how-h">
+      <h2 class="sec-title" id="iz-how-h">How I work</h2>
+      <div class="cs-copy"><p>Many of my designs start by hand: I draw the graphics and lettering in Procreate, then build each piece in Adobe Photoshop, following iZone&rsquo;s brand guidelines. I also made 4 templates that the whole 5-person marketing team uses, plus an organized asset library.</p></div>
+      <ol class="flow" aria-label="How I make a post">
         <li><span class="flow-n">1</span><span><b>Draw</b> the graphics and lettering by hand in Procreate</span></li>
         <li><span class="flow-n">2</span><span><b>Build</b> the post in Adobe Photoshop</span></li>
         <li><span class="flow-n">3</span><span><b>Publish</b> on iZone's Instagram</span></li>
       </ol>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="iz-intro-h">
+      <div class="sec-head"><h2 class="sec-title" id="iz-intro-h">Introduction posts</h2><p class="label">Instagram · 2 posts</p></div>
+      <div class="cs-copy"><p>A series that introduces the people behind iZone on Instagram. Each post pairs a cut-out portrait with a painted band of color, hand-drawn graphics that say something about the person, and a name tag with their last name in hand lettering.</p></div>
       <div class="iposts">
         <figure class="ipost">
           <button type="button" class="ipost-btn" data-full="img/izone/post-ana.jpg" aria-label="Enlarge Ana's introduction post"><img src="img/izone/post-ana.jpg" alt="Instagram introduction post for Ana Galić: Ana in a striped sweater over a painted pink band, with a hand-drawn paint palette, sparkles, and a name tag reading Ana Galić" loading="lazy"></button>
@@ -1405,7 +1563,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="linkrow"><a class="biglink" href="https://www.instagram.com/p/DeR3EieEZH-/" target="_blank" rel="noopener"><span><small>Instagram · iZone</small><strong>View the post on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
 
-    <section class="block-section" aria-labelledby="iz-tedx-h">
+<section class="block-section" aria-labelledby="iz-tedx-h">
       <div class="sec-head"><h2 class="sec-title" id="iz-tedx-h"><span class="nc">TEDxURochester</span></h2><p class="label">reHuman · Sept 30, 2026</p></div>
       <div class="cs-copy"><p>TEDxURochester's 2026 event, <i>reHuman</i>, explored what it means to place the human experience at the center of design, innovation, creativity and problem-solving. I made the event's logo, designed its flyers and certificates, and photographed the talks. The event drew 100+ attendees.</p></div>
       <div class="tx-steps">
@@ -1450,7 +1608,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="flow-n">4</span><h3>Sponsor slide</h3></div>
-          <p class="kit-note">A widescreen slide in TED's standard style for thanking an event's supporters: the TEDxURochester logo with &ldquo;x = independently organized TED event,&rdquo; then &ldquo;Shared with you by&rdquo; the Barbara J. Burger iZone and Barbara J. Burger.</p>
+          <p class="kit-note">A widescreen slide in TED's standard style for thanking an event's supporters: the TEDxURochester logo with &ldquo;x = independently organized TED event,&rdquo; then &ldquo;Shared with you by&rdquo; the Barbara J. Burger iZone and Barbara J. Burger. It ran on the big screen behind the speakers and on TV screens around the University of Rochester campus, as a thank-you to the TEDx staff, our sponsors and our community.</p>
           <figure class="mih-format email-fig" style="--ar:1920/1080"><button type="button" class="tx-zoom" data-full="img/izone/tedx/sponsor-slide.jpg" data-cap="TEDxURochester · Sponsor slide" aria-label="Enlarge the sponsor slide"><img src="img/izone/tedx/sponsor-slide.jpg" alt="TEDxURochester sponsor slide on a soft gray gradient: the TEDx logo with x equals independently organized TED event, then Shared with you by, Barbara J. Burger iZone, Barbara J. Burger" loading="lazy" width="1920" height="1080"></button><figcaption><span class="mih-fmt">Sponsor slide</span><span class="label">1920 × 1080</span></figcaption></figure>
         </div>
 
@@ -1470,7 +1628,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="iz-mih-h">
+<section class="block-section" aria-labelledby="iz-mih-h">
       <div class="sec-head"><h2 class="sec-title" id="iz-mih-h">Make It Happen Prize</h2><p class="label">Instagram · LinkedIn · Print</p></div>
       <div class="cs-copy">
         <p>The Make It Happen Prize gives University of Rochester students, groups and alumni funding and workshop training, on skills like pitching and systems thinking, to start projects with positive social impact. It is built for people at the very earliest stage of an idea.</p>
@@ -1509,12 +1667,26 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
       <div class="linkrow"><a class="biglink" href="https://www.instagram.com/p/DehtR_TMmTF/" target="_blank" rel="noopener"><span><small>Instagram · iZone</small><strong>View the post on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a><a class="biglink" href="https://www.library.rochester.edu/spaces/izone/programs-services/make-it-happen-prize" target="_blank" rel="noopener"><span><small>iZone website</small><strong>About the Make It Happen Prize</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
-
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="iz-ref-h">
+      <h2 class="sec-title" id="iz-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">Outcome</p><div><p>TEDxURochester drew 100+ attendees, my sponsor slide ran on the big screen and on TV screens around campus, and the five speakers received their certificates at the end of the event.</p></div></div>
+        <div class="rf-row"><p class="label">What I learned</p><div><p>iZone has taught me to gather the information I need early, because needs and ideas can change a lot, so it&rsquo;s always best to have an editable draft ready. I now manage my research and design time much better: I always plan ahead, so I&rsquo;m always able to edit and adjust a design.</p></div></div>
+      </div>
+    </section>
+      </div>
+    </div>
     <a class="next" href="#rochester-design-hub"><span class="label">Next project</span><span class="next-title">Rochester Design Hub &rarr;</span></a>
   </article>
 
   <!-- ROCHESTER DESIGN HUB -->
   <article class="view wrap" data-view="rochester-design-hub" hidden>
+
     <div class="cs-top">
       <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
@@ -1524,7 +1696,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cover cs-banner uo-cover uo-banner" aria-hidden="true"><div class="uo-fan"><img src="img/uo/gim-instagram-cv.jpg" alt="" loading="lazy"><img src="img/uo/eb-cover-cv.jpg" alt="" loading="lazy"><img src="img/uo/dl-instagram-cv.jpg" alt="" loading="lazy"></div></div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Rochester Design Hub is a student design club at the University of Rochester. As its Marketing Manager, I design the club's visual identity and run its Instagram.</p>
         <p>I redesigned the club's logo and design the posts, flyers and banners for its events, all in Adobe Photoshop. They share one visual language: a purple-and-blue palette, liquid chrome and iridescent glass shapes on white, and bold black type.</p>
@@ -1538,7 +1713,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </dl>
     </div>
 
-    <section class="block-section" aria-labelledby="rdh-ig-h">
+<section class="block-section" aria-labelledby="rdh-ig-h">
       <div class="sec-head"><h2 class="sec-title" id="rdh-ig-h">Growing the Instagram</h2><p class="label">@rdh_urochester</p></div>
       <div class="cs-copy"><p>I run the club's Instagram. In my first month running it, the account gained 50 followers across the University of Rochester campus, and each post got over 1,500 views, reaching about three times as many people as follow the account.</p></div>
       <div class="stats">
@@ -1548,8 +1723,24 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
       <div class="linkrow"><a class="biglink with-av" href="https://www.instagram.com/rdh_urochester/" target="_blank" rel="noopener"><img class="ig-av" src="img/uo/avatar.jpg" alt="" loading="lazy" width="240" height="240"><span><small>Instagram · @rdh_urochester</small><strong>Rochester Design Hub on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
-
-    <section class="block-section" aria-labelledby="rdh-brand-h">
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-label="Challenge">
+    <figure class="question">
+      <figcaption class="label">What the club needed</figcaption>
+      <p>Branding that is clean and consistent, yet still on theme.</p>
+    </figure>
+    <div class="cs-copy"><p>I adapt my style to follow the expectations set for a project, and to go beyond them.</p></div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="rdh-brand-h">
       <div class="sec-head"><h2 class="sec-title" id="rdh-brand-h">Color &amp; type</h2><p class="label">Purple-blue palette · Aileron</p></div>
       <div class="cs-copy"><p>The club follows a purple-and-blue aesthetic. These are its colors, pulled from the logo and the posts, and its typeface.</p></div>
       <div class="brand-kit rdh-kit">
@@ -1577,8 +1768,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
-
-    <section class="block-section" aria-labelledby="rdh-work-h">
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="rdh-work-h">
       <div class="sec-head"><h2 class="sec-title" id="rdh-work-h">The designs</h2><p class="label">Posts · Flyers · Brand</p></div>
       <div class="org-steps">
         <div class="tx-block">
@@ -1634,9 +1829,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>Logo</h3></div>
+          <figure class="ba-old"><figcaption class="label">Before · the older logo, no longer used</figcaption><img src="img/uo/logo-old.jpg" alt="The older Rochester Design Hub logo: a white fountain-pen nib in a rounded square beside the name in thin white letters, on a dark maroon-to-pink gradient" width="1177" height="180" loading="lazy"></figure>
           <div class="tx-logo-row">
             <button type="button" class="tx-zoom uo-logo" style="--ar:1106/1062" data-full="img/uo/logo.jpg" data-cap="Rochester Design Hub · Logo" aria-label="Enlarge the logo"><img src="img/uo/logo.jpg" alt="Rochester Design Hub logo: Rochester in a light purple face, DESIGN in bold purple, and HUB in a blue-to-magenta gradient, with a fountain-pen nib set inside the U" loading="lazy" width="1106" height="1062"></button>
-            <p class="kit-note">A redesign of the club's older logo, updated to follow the club's color palette. Three lines step up in weight: &ldquo;Rochester&rdquo; light and widely spaced, &ldquo;DESIGN&rdquo; in bold purple, and &ldquo;HUB&rdquo; in a gradient from deep blue to magenta, with a fountain-pen nib set inside the U.</p>
+            <div class="ba-new"><p class="label">After · my redesign</p><p class="kit-note">A redesign of the club's older logo, updated to follow the club's color palette. Three lines step up in weight: &ldquo;Rochester&rdquo; light and widely spaced, &ldquo;DESIGN&rdquo; in bold purple, and &ldquo;HUB&rdquo; in a gradient from deep blue to magenta, with a fountain-pen nib set inside the U.</p></div>
           </div>
         </div>
 
@@ -1675,13 +1871,26 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
-
-
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="rdh-ref-h">
+      <h2 class="sec-title" id="rdh-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">Outcome</p><div><p>In my first month, the account gained 50 followers and every post reached 1,500+ views. My email banner now heads the club&rsquo;s official emails, weekly newsletter and event registrations, and the Greene Center&rsquo;s messages.</p></div></div>
+        <div class="rf-row"><p class="label">What I learned</p><div><p>Rochester Design Hub has taught me how to lead a successful team, and how to plan my time when I have several obligations and design meetings on the same day. I&rsquo;ve learned to spread my focus and always look at the bigger picture, while still narrowing in on the tiniest details.</p></div></div>
+      </div>
+    </section>
+      </div>
+    </div>
     <a class="next" href="#girls-who-code"><span class="label">Next project</span><span class="next-title">Girls Who Code &rarr;</span></a>
   </article>
 
   <!-- GIRLS WHO CODE -->
   <article class="view wrap" data-view="girls-who-code" hidden>
+
     <div class="cs-top">
       <a class="back" href="#experience">&larr; All work</a>
       <header class="cs-head">
@@ -1691,7 +1900,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cover cs-banner gwc-cover uo-banner" aria-hidden="true"><div class="uo-fan"><img src="img/gwc/gim-print-cv.jpg" alt="" loading="lazy"><img src="img/gwc/feb-gim-cv.jpg" alt="" loading="lazy"><img src="img/gwc/faf-print-cv.jpg" alt="" loading="lazy"></div></div>
     </div>
 
-    <div class="cs-intro">
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
       <div class="cs-copy">
         <p class="lede">Girls Who Code is a club at the University of Rochester. As its Social Media Manager, I run the club's Instagram and design the posts and flyers for its events.</p>
         <p>Each event gets its own look, from halftone cut-outs to pixel lettering on a sketched retro computer, tied together by the Girls Who Code logo and its blues.</p>
@@ -1699,12 +1911,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
       <dl class="meta">
         <div><dt class="label">Role</dt><dd>Executive Board<br>Social Media Manager</dd></div>
+        <div><dt class="label">Tools</dt><dd>Adobe Photoshop, Illustrator, Canva</dd></div>
         <div><dt class="label">Focus</dt><dd>Social media strategy, Content creation, Event marketing, Print</dd></div>
         <div><dt class="label">Timeline</dt><dd>Sep 2025 – present</dd></div>
       </dl>
     </div>
 
-    <section class="block-section" aria-labelledby="gwc-ig-h">
+<section class="block-section" aria-labelledby="gwc-ig-h">
       <div class="sec-head"><h2 class="sec-title" id="gwc-ig-h">Growing the Instagram</h2><p class="label">@girlswhocodeuofr</p></div>
       <div class="cs-copy"><p>I run the club's Instagram. I grew its following by 30 and drew new members into the community, and our posts reach 1,000+ viewers, double the account's following.</p></div>
       <div class="stats">
@@ -1714,8 +1927,36 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
       <div class="linkrow"><a class="biglink with-av" href="https://www.instagram.com/girlswhocodeuofr/" target="_blank" rel="noopener"><img class="ig-av" src="img/gwc/avatar.jpg" alt="" loading="lazy" width="240" height="240"><span><small>Instagram · @girlswhocodeuofr</small><strong>Girls Who Code on Instagram</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a></div>
     </section>
-
-    <section class="block-section" aria-labelledby="gwc-work-h">
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-label="Challenge">
+    <figure class="question">
+      <figcaption class="label">What the club needed</figcaption>
+      <p>Promotion: more members and bigger turnout at our events.</p>
+    </figure>
+    <div class="cs-copy"><p>My job was the first stage: the General Interest Meeting and recruiting members at the start of the year.</p></div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="gwc-how-h">
+      <h2 class="sec-title" id="gwc-how-h">How I approached it</h2>
+      <div class="highlights two">
+        <div class="hl"><p class="label">Two audiences</p><h3>Students and young coders</h3><p>Our designs had to catch the attention of university students, and of the young people who join our outreach workshops.</p></div>
+        <div class="hl"><p class="label">Two versions</p><h3>More of campus</h3><p>For the February General Interest Meeting, the president wanted two flyers to attract as much attention as possible. I designed both, and each went up in a different part of campus.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Final design</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="gwc-work-h">
       <div class="sec-head"><h2 class="sec-title" id="gwc-work-h">The designs</h2><p class="label">Posts · Stories · Flyers</p></div>
       <div class="org-steps">
         <div class="tx-block">
@@ -1737,7 +1978,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
         <div class="tx-block">
           <div class="tx-head"><span class="org-n" aria-hidden="true"></span><h3>February General Interest Meeting</h3></div>
-          <p class="kit-note">Two versions of the flyer for the General Interest Meeting on February 15 at 3pm in Room 121, Wilson Commons. One sets &ldquo;Girls Who Code&rdquo; in teal pixel lettering on the screen of a sketched retro computer, next to a box of Insomnia Cookies. The other spells it out in collaged magazine cut-out letters in pinks and blues, with a halftone vintage computer, gold stars and pink QR codes. Both lead to the join form and the club's Instagram.</p>
+          <p class="kit-note">Two versions of the flyer for the General Interest Meeting on February 15 at 3pm in Room 121, Wilson Commons. One sets &ldquo;Girls Who Code&rdquo; in teal pixel lettering on the screen of a sketched retro computer, next to a box of Insomnia Cookies. The other spells it out in collaged magazine cut-out letters in pinks and blues, with a halftone vintage computer, gold stars and pink QR codes. Both lead to the join form and the club's Instagram, and both were used, each in a different part of campus.</p>
           <div class="fmts two" style="--cols:.7526fr .6633fr;--cols-sm:.7526fr .6633fr">
             <figure class="mih-format" style="--ar:1144/1520"><button type="button" class="tx-zoom" data-full="img/gwc/feb-gim.jpg" data-cap="February General Interest Meeting · Retro computer flyer" aria-label="Enlarge the flyer"><img src="img/gwc/feb-gim.jpg" alt="Girls Who Code General Interest Meeting flyer, February 15 at 3pm in Room 121, Wilson Commons: Girls Who Code in teal pixel lettering on the screen of a sketched retro computer, a box of Insomnia Cookies, and teal QR codes to join and to follow on Instagram" loading="lazy" width="1144" height="1520"></button><figcaption><span class="mih-fmt">Retro computer</span><span class="label">Post &amp; print</span></figcaption></figure>
             <figure class="mih-format" style="--ar:528/796"><button type="button" class="tx-zoom" data-full="img/gwc/feb-gim-2.jpg" data-cap="February General Interest Meeting · Cut-out letters flyer" aria-label="Enlarge the cut-out letters flyer"><img src="img/gwc/feb-gim-2.jpg" alt="Girls Who Code General Interest Meeting flyer, February 15 at 3pm in Room 121, Wilson Commons: Girls Who Code spelled in collaged magazine cut-out letters in pinks, blues and creams, a halftone vintage computer in the corner, gold stars, and pink QR codes to join and to follow on Instagram" loading="lazy" width="528" height="796"></button><figcaption><span class="mih-fmt">Cut-out letters</span><span class="label">Post &amp; print</span></figcaption></figure>
@@ -1757,7 +1998,20 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
     </section>
-
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="gwc-ref-h">
+      <h2 class="sec-title" id="gwc-ref-h">Reflection</h2>
+      <div class="reflect">
+        <div class="rf-row"><p class="label">Outcome</p><div><p>The account gained 30 followers and new community members, and our posts reach 1,000+ viewers, double the account&rsquo;s following.</p></div></div>
+        <div class="rf-row"><p class="label">What I learned</p><div><p>This role taught me how to design for a wide age range, since our designs had to reach university students as well as the young people in our outreach workshops. I learned to direct a design as a message to a specific group, instead of always keeping it general.</p></div></div>
+      </div>
+    </section>
+      </div>
+    </div>
     <a class="next" href="#peaceland"><span class="label">Next project</span><span class="next-title">Peaceland &rarr;</span></a>
   </article>
 
@@ -1809,10 +2063,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="src-row art-row mural-row">
         <figure class="src-fig" style="--ar:1182/692"><button type="button" class="tx-zoom" data-full="img/personal/mural.jpg" data-cap="Duality · Mural for the Cultural Showcase, Armand Hammer United World College" aria-label="Enlarge the Duality mural"><img src="img/personal/mural.jpg" alt="Detail of the Duality mural: two faces painted in bold, flat blocks of orange, red, pink, turquoise and yellow merge into one, each eye holding a yin and yang, beside a circle quartered in red, black, yellow and white, a koi fish, a white spiral and a tiled arch with red flowers" loading="lazy" width="1182" height="692"></button><figcaption><span class="mih-fmt"><i>Duality</i></span><span class="label">Wall-sized mural</span></figcaption></figure>
         <div class="mural-info" style="--rest:0.7559">
-          <p>For the Cultural Showcase at Armand Hammer United World College, themed <i>Duality</i>, I designed and painted a wall-sized mural. I gathered symbols of duality from different continents and cultures and brought them together into one piece, from the yin and yang in the eyes to the patterns around the two faces.</p>
+          <p>For the Cultural Showcase at Armand Hammer United World College, themed <i>Duality</i>, I designed and painted a wall-sized mural. To find its symbols, I interviewed 15 people from different regions and countries, including the United States, Peru, Italy, Egypt, Turkey, Syria, Japan, Namibia, Oman, Senegal, Ukraine, Bangladesh and Thailand, about what duality means to them and which symbols their cultures use for it. Then I brought those symbols together into one piece, from the yin and yang in the eyes to the patterns around the two faces.</p>
           <p>The mural took me a month to paint. I also worked with the technical stage team so that the colors, and what the stage lights picked out, worked with each of the different performances.</p>
+          <p><strong>What I learned:</strong> how to conduct design interviews. It was crucial to get reliable information from real people, the real viewers of my work.</p>
           <dl class="meta">
             <div><dt class="label">Event</dt><dd>Cultural Showcase, Armand Hammer United World College</dd></div>
+            <div><dt class="label">Research</dt><dd>Interviews with 15 people</dd></div>
             <div><dt class="label">Time</dt><dd>About a month to paint</dd></div>
           </dl>
         </div>
@@ -1822,8 +2078,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <section class="block-section" aria-labelledby="pp-paint-h">
       <div class="sec-head"><h2 class="sec-title" id="pp-paint-h">Digital paintings</h2><p class="label">Procreate</p></div>
       <div class="src-row art-row">
-        <figure class="src-fig" style="--ar:2360/1640"><button type="button" class="tx-zoom" data-full="img/personal/starry-night.jpg" data-cap="After Van Gogh&rsquo;s The Starry Night · Procreate" aria-label="Enlarge the Starry Night painting"><img src="img/personal/starry-night-sm.jpg" alt="Digital painting after Van Gogh&rsquo;s The Starry Night: a swirling blue night sky with glowing yellow stars and moon, a dark green cypress on the left, blue hills, and a small village with lit windows and a church spire" loading="lazy" width="1400" height="973"></button><figcaption><span class="mih-fmt">After Van Gogh&rsquo;s <i>The Starry Night</i></span><span class="label">Procreate</span></figcaption></figure>
-        <figure class="src-fig" style="--ar:1640/1600"><button type="button" class="tx-zoom" data-full="img/personal/circus.jpg" data-cap="Circus · Procreate" aria-label="Enlarge the circus painting"><img src="img/personal/circus-sm.jpg" alt="Detailed digital painting of a circus: a smiling blue-faced clown with orange curls and a cake-like hat holds up a ticket with a striped tent, surrounded by an elephant on a ball, a giraffe, penguins, a monkey, a hot-air balloon, a carousel with horses, a hippo balancing on a ball and a lion" loading="lazy" width="1000" height="976"></button><figcaption><span class="mih-fmt">Circus</span><span class="label">Procreate</span></figcaption></figure>
+        <figure class="src-fig" style="--ar:2360/1640"><button type="button" class="tx-zoom" data-full="img/personal/starry-night.jpg" data-cap="After Van Gogh&rsquo;s The Starry Night · Procreate" aria-label="Enlarge the Starry Night painting"><img src="img/personal/starry-night-sm.jpg" alt="Digital painting after Van Gogh&rsquo;s The Starry Night: a swirling blue night sky with glowing yellow stars and moon, a dark green cypress on the left, blue hills, and a small village with lit windows and a church spire" loading="lazy" width="1400" height="973"></button><figcaption><span class="mih-fmt">After Van Gogh&rsquo;s <i>The Starry Night</i></span><span class="label">Procreate</span><span class="art-why">I enjoy classical art, and I wondered what this painting would look like remade digitally, and how long it would take. It became an experiment in color theory.</span></figcaption></figure>
+        <figure class="src-fig" style="--ar:1640/1600"><button type="button" class="tx-zoom" data-full="img/personal/circus.jpg" data-cap="Circus · Procreate" aria-label="Enlarge the circus painting"><img src="img/personal/circus-sm.jpg" alt="Detailed digital painting of a circus: a smiling blue-faced clown with orange curls and a cake-like hat holds up a ticket with a striped tent, surrounded by an elephant on a ball, a giraffe, penguins, a monkey, a hot-air balloon, a carousel with horses, a hippo balancing on a ball and a lion" loading="lazy" width="1000" height="976"></button><figcaption><span class="mih-fmt">Circus</span><span class="label">Procreate</span><span class="art-why">Made purely to practice character drawing and expressions, and once again to experiment with contrasting colors.</span></figcaption></figure>
       </div>
       <p class="kit-note">Select a painting to see it full size and zoom into the details.</p>
     </section>
