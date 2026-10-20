@@ -13,6 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
@@ -69,20 +70,7 @@
   --fs-title:clamp(36px,9vw,120px);
   --fs-h2:clamp(28px,3.6vw,44px);
   --ease:cubic-bezier(.2,.7,.2,1);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#08090A; --ink:#F2F5F8; --muted:#98A1AC; --line:#23272C;
-    --blue:#AFCDFA; --blue-soft:#101A28; --on-blue:#08090A;
-    --block:#15181C; --on-block:#F2F5F8; --block-muted:#8C96A1; --block-line:#2B3037;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#08090A; --ink:#F2F5F8; --muted:#98A1AC; --line:#23272C;
-  --blue:#AFCDFA; --blue-soft:#101A28; --on-blue:#08090A;
-  --block:#15181C; --on-block:#F2F5F8; --block-muted:#8C96A1; --block-line:#2B3037;
-  color-scheme:dark;
+  color-scheme:light only;
 }
 
 *,*::before,*::after{box-sizing:border-box}
