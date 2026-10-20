@@ -93,6 +93,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .nav a:hover,.nav a[aria-current="page"]{background-size:100% 3px}
 .nav .ext{font-size:.85em}
 .nav a{white-space:nowrap}
+.nav{margin-left:auto}
+.top-li{flex:none;display:block;margin-left:clamp(4px,1.2vw,14px);line-height:0;border-radius:6px}
+.top-li img{display:block;width:34px;height:34px;max-width:none;transition:transform .35s var(--ease)}
+.top-li:hover img,.top-li:focus-visible img{transform:rotate(-5deg) scale(1.06)}
 @media (max-width:400px){.nav{gap:11px;font-size:13px}}
 
 /* Nav: on phones the six links fold into a menu */
@@ -104,7 +108,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .top.menu-open .nav-toggle-ico::after{transform:rotate(-45deg)}
 @media (max-width:600px){
   .top-in{flex-wrap:wrap}
-  .nav-toggle{display:inline-flex}
+  .nav-toggle{display:inline-flex;order:2}
+  .brand{order:0}
+  .top-li{order:1;margin-left:auto}
+  .nav{order:3;margin-left:0}
   .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;font-size:17px;padding-block:6px 4px}
   .top.menu-open .nav{display:flex}
   .nav a{padding:12px 0;border-top:1px solid var(--line);background:none}
@@ -789,6 +796,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
       <a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
     </nav>
+    <a class="top-li" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin.png" srcset="img/linkedin.png 1x, img/linkedin-2x.png 2x" alt="" width="34" height="34"></a>
   </div>
 </header>
 
