@@ -138,8 +138,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .view{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px);padding-block:clamp(28px,5vw,56px) clamp(88px,11vw,150px)}
 
 /* Hero: the painting is a live canvas; the name sits centered on it */
-.hero-wrap{display:flex;flex-direction:column;gap:14px}
-.hero{position:relative;overflow:hidden;width:100%;aspect-ratio:12/5;max-height:52vh;min-height:280px;background:var(--art-paper);border:1px solid var(--ink);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:clamp(12px,1.8vw,20px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.hero-wrap{display:flex;flex-direction:column;gap:22px}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(255,255,255,.25),inset 0 -22px 36px -28px rgba(11,12,14,.38)}
+.hero{position:relative;overflow:hidden;width:100%;aspect-ratio:12/5;max-height:52vh;min-height:280px;background:var(--art-paper);border:1px solid rgba(11,12,14,.14);border-radius:clamp(14px,1.8vw,24px);box-shadow:0 1px 2px rgba(11,12,14,.06),0 10px 22px -8px rgba(11,12,14,.16),0 30px 60px -18px rgba(11,12,14,.26);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:clamp(12px,1.8vw,20px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
 @media (max-width:640px){.hero{aspect-ratio:4/5;max-height:none}}
 .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-img{object-fit:cover}
@@ -2238,9 +2239,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     wm.style.width = 'max-content';
     const r = wm.getBoundingClientRect();
     wm.style.width = '';
-    let size = 100 * (availW * 0.48) / r.width;
-    size = Math.min(size, 100 * (availH * 0.36) / r.height);
-    wm.style.fontSize = Math.max(34, Math.min(112, size)).toFixed(1) + 'px';
+    let size = 100 * (availW * 0.42) / r.width;
+    size = Math.min(size, 100 * (availH * 0.32) / r.height);
+    wm.style.fontSize = Math.max(32, Math.min(96, size)).toFixed(1) + 'px';
   }
 
   function layoutArt(){
@@ -2336,6 +2337,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   if (heroImg.complete && heroImg.naturalWidth) layoutArt(); else heroImg.addEventListener('load', layoutArt);
   if ('ResizeObserver' in window) new ResizeObserver(() => { fit(); layoutArt(); }).observe(hero);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  if (document.fonts && document.fonts.load) document.fonts.load('800 100px "Bricolage Grotesque"').then(fit, () => {});
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fit);
   fit();
   let rt;
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); layoutArt(); sizePad(); }, 120); });
