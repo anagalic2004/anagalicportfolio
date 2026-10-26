@@ -139,7 +139,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Hero: the painting is a live canvas; the name sits centered on it */
 .hero-wrap{display:flex;flex-direction:column;gap:14px}
-.hero{position:relative;overflow:hidden;width:100%;aspect-ratio:16/9;max-height:78vh;min-height:400px;background:var(--art-paper);border:1px solid var(--ink);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:clamp(12px,1.8vw,20px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.hero{position:relative;overflow:hidden;width:100%;aspect-ratio:12/5;max-height:52vh;min-height:280px;background:var(--art-paper);border:1px solid var(--ink);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:clamp(12px,1.8vw,20px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
 @media (max-width:640px){.hero{aspect-ratio:4/5;max-height:none}}
 .hero-art{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-img{object-fit:cover}
@@ -2238,9 +2238,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     wm.style.width = 'max-content';
     const r = wm.getBoundingClientRect();
     wm.style.width = '';
-    let size = 100 * (availW * 0.84) / r.width;
-    size = Math.min(size, 100 * (availH * 0.56) / r.height);
-    wm.style.fontSize = Math.max(36, Math.min(230, size)).toFixed(1) + 'px';
+    let size = 100 * (availW * 0.48) / r.width;
+    size = Math.min(size, 100 * (availH * 0.36) / r.height);
+    wm.style.fontSize = Math.max(34, Math.min(112, size)).toFixed(1) + 'px';
   }
 
   function layoutArt(){
