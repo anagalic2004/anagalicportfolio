@@ -688,13 +688,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
-.pl-sum{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,3.4vw,48px);align-items:center}
+.pl-sum{display:grid;grid-template-columns:minmax(0,560px) auto;justify-content:start;gap:clamp(24px,3.4vw,48px);align-items:start}
+.pl-sum .trailer{width:min(560px,52vw)}
 .pl-sum .lede{font-size:clamp(16px,1.5vw,19px);line-height:1.4}
 .pl-sum .trailer.has-thumb{flex-direction:column;align-items:stretch;gap:14px;padding:12px 12px 16px}
 .pl-sum .tr-thumb{width:100%}
 .pl-sum .trailer-title{font-size:clamp(18px,1.7vw,22px)}
 .pl-sum .trailer-text{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding-inline:4px}
-@media (max-width:760px){.pl-sum{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){.pl-sum{grid-template-columns:minmax(0,1fr)}.pl-sum .trailer{width:auto!important;max-width:560px}}
 .pl-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3.4vw,48px);align-items:center}
 .pl-pic{aspect-ratio:3/2}
 .pl-fig{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -714,7 +715,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:640px){.trailer.has-thumb{flex-direction:column;align-items:stretch}.tr-thumb{width:100%}}
 .pl-summary .lede{max-width:none}
 .pl-summary{gap:10px}
-.pl-sum .pl-summary .lede,.pl-sum .pl-summary .pl-q,.pl-sum .pl-summary .pl-goals{font-family:var(--body);font-size:var(--fs-body);line-height:1.5;color:var(--ink);margin:0;max-width:60ch;font-weight:400}
+.pl-sum .pl-summary .lede,.pl-sum .pl-summary .pl-q,.pl-sum .pl-summary .pl-goals{font-family:var(--body);font-size:var(--fs-body);line-height:1.5;color:var(--ink);margin:0;max-width:none;font-weight:400}
 .pl-sum .pl-summary .pl-q{font-weight:600}
 .pl-summary .pl-answer{color:var(--muted)}
 .quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
@@ -2934,6 +2935,28 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       });
     });
   });
+
+  /* Peaceland summary: size the trailer so it is exactly as tall as the text beside it */
+  const plSum = document.querySelector('.pl-sum');
+  if (plSum){
+    const txt = plSum.querySelector('.pl-summary'), tr = plSum.querySelector('.trailer'), th = plSum.querySelector('.tr-thumb');
+    const fitTrailer = () => {
+      if (plSum.closest('[hidden]') || matchMedia('(max-width:1100px)').matches){ tr.style.width = ''; return; }
+      for (let k = 0; k < 4; k++){
+        const tw = th.getBoundingClientRect().width, cw = tr.getBoundingClientRect().width;
+        const extraH = tr.getBoundingClientRect().height - th.getBoundingClientRect().height;
+        const want = Math.max(260, (txt.getBoundingClientRect().height - extraH) * 16 / 9 + (cw - tw));
+        const max = plSum.getBoundingClientRect().width * 0.6;
+        const w = Math.round(Math.min(want, max));
+        if (Math.abs(w - cw) < 1) break;
+        tr.style.width = w + 'px';
+      }
+    };
+    addEventListener('resize', fitTrailer);
+    addEventListener('hashchange', () => requestAnimationFrame(fitTrailer));
+    if (document.fonts) document.fonts.ready.then(fitTrailer);
+    requestAnimationFrame(fitTrailer);
+  }
 })();
 </script>
 </body>
