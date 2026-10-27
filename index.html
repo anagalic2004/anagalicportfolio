@@ -697,6 +697,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .track p:not(.label){font-weight:600;max-width:62ch}
 .track .label{padding-top:3px}
 @media (max-width:640px){.track{grid-template-columns:minmax(0,1fr)}}
+.wf-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.wf-tab{font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.wf-tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.wf-tab:not([aria-selected="true"]):hover{background:var(--blue-soft)}
+.wf-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.wf-zoom{background:#FFFFFF}
+.wf-zoom img{object-fit:contain}
+.wf-key{display:block;width:100%;max-width:820px;height:auto}
 .cs-step{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
 .cs-step-body{display:flex;flex-direction:column;gap:clamp(48px,6.4vw,88px)}
 .step-tag{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--mono);font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:600}
@@ -1033,42 +1041,36 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-step">
       <p class="step-tag"><span class="st-n">01</span>Process</p>
       <div class="cs-step-body">
-<section class="block-section" aria-labelledby="boards-h">
-      <div class="sec-head">
-        <h2 class="sec-title" id="boards-h">Go broad: brainstorming in Figma</h2>
-        <p class="label">Click a board to enlarge &rarr;</p>
+<section class="block-section wf" aria-label="Workflow">
+      <div class="sec-head"><p class="label">Workflow</p><p class="label">Click a diagram to zoom in</p></div>
+      <div class="wf-tabs" role="tablist" aria-label="Workflow diagrams">
+        <button type="button" class="wf-tab" role="tab" id="wf-tab-0" aria-controls="wf-fig-0" aria-selected="true" tabindex="0">Overview</button>
+        <button type="button" class="wf-tab" role="tab" id="wf-tab-1" aria-controls="wf-fig-1" aria-selected="false" tabindex="-1">Stage 1 · Research</button>
+        <button type="button" class="wf-tab" role="tab" id="wf-tab-2" aria-controls="wf-fig-2" aria-selected="false" tabindex="-1">Stage 2 · Story</button>
+        <button type="button" class="wf-tab" role="tab" id="wf-tab-3" aria-controls="wf-fig-3" aria-selected="false" tabindex="-1">Stage 3 · Playtests</button>
       </div>
-      <p class="kit-note">We started broad, with a board of options for each part of the game. Click a board to read every idea we weighed.</p>
-      <div class="boards">
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
-      </div>
-      <ol class="steps">
-        <li><p class="label">Endings</p><div><h3>A frozen conflict instead of &ldquo;neutral&rdquo;</h3><p>We planned four endings, from peace to war. The neutral ones felt flat, so they became a frozen conflict, and the war ending stays implied rather than shown. Election day decides which one you reach.</p></div></li>
-        <li><p class="label">Five memories</p><div><h3>One memory, one theme</h3><p>Each memory carries one theme and one big question: healing, trust, empathy, agency and redemption. Together they became the Memory Tree, five memories with five goals.</p></div></li>
-        <li><p class="label">Museum artifacts</p><div><h3>Every memory starts with an object</h3><p>The museum is where every memory begins: you click an artifact to open it. Every object needed a real reference image before the art team drew it.</p></div></li>
-        <li><p class="label">Three groups</p><div><h3>Three voices, no real names</h3><p>The Thebreans speak formally, the Eskani bluntly and the Cleoni softly, so each group sounds like itself without being named after a real one.</p></div></li>
-      </ol>
+      <figure class="wf-fig" id="wf-fig-0" role="tabpanel" aria-labelledby="wf-tab-0"><button type="button" class="tx-zoom wf-zoom" style="--ar:2400/584" data-full="img/peaceland/wf-overview.png" data-cap="Peaceland workflow · Overview" aria-label="Enlarge: Peaceland workflow · Overview"><img src="img/peaceland/wf-overview.png" alt="Overview of the workflow in three stages. Stage 1, research and worldbuilding, Jun 3 to 18: research the history, build the world. Stage 2, story and game design, Jun 16 to Jul 2: write memories and outline, design decisions and endings, then team approval, or revise. Stage 3, playtest and results, Jul 3 to 31: playtest with players; if it feels authentic, hand off to the next team on Jul 31 with the final game design document, if not, back to the research." loading="lazy" width="2400" height="584"></button><figcaption class="label">Peaceland workflow · Overview</figcaption></figure>
+      <figure class="wf-fig" id="wf-fig-1" role="tabpanel" aria-labelledby="wf-tab-1" hidden><button type="button" class="tx-zoom wf-zoom" style="--ar:2400/763" data-full="img/peaceland/wf-stage1.png" data-cap="Stage 1 · Research & worldbuilding · Jun 3–18" aria-label="Enlarge: Stage 1 · Research & worldbuilding · Jun 3–18"><img src="img/peaceland/wf-stage1.png" alt="Stage 1 workflow: join the Narrative Team on Jan 20, family playtest in the South Balkans, write the research question, research history, news and language into a research journal of 38 sources, define the three groups and their voices, check the history is specific enough (no on Jun 10 feedback, back to research), write character bios and family history, build the museum artifact list with reference images for the art team." loading="lazy" width="2400" height="763"></button><figcaption class="label">Stage 1 · Research & worldbuilding · Jun 3–18</figcaption></figure>
+      <figure class="wf-fig" id="wf-fig-2" role="tabpanel" aria-labelledby="wf-tab-2" hidden><button type="button" class="tx-zoom wf-zoom" style="--ar:2400/678" data-full="img/peaceland/wf-stage2.png" data-cap="Stage 2 · Story & game design · Jun 16 – Jul 2" aria-label="Enlarge: Stage 2 · Story & game design · Jun 16 – Jul 2"><img src="img/peaceland/wf-stage2.png" alt="Stage 2 workflow: write the five memories, outline days one to six, design decision points and the notebook, use the Everyday Peace Indicators, design the four endings, present at the all-team meeting; if the team does not approve, revise the outline." loading="lazy" width="2400" height="678"></button><figcaption class="label">Stage 2 · Story & game design · Jun 16 – Jul 2</figcaption></figure>
+      <figure class="wf-fig" id="wf-fig-3" role="tabpanel" aria-labelledby="wf-tab-3" hidden><button type="button" class="tx-zoom wf-zoom" style="--ar:2400/718" data-full="img/peaceland/wf-stage3.png" data-cap="Stage 3 · Playtest & results · Jul 3–31" aria-label="Enlarge: Stage 3 · Playtest & results · Jul 3–31"><img src="img/peaceland/wf-stage3.png" alt="Stage 3 workflow: the developers build the Romeo and Juliet demo, playtest 1 at MAGIC Spell Studios in the USA, playtest 2 with family across the Balkans, check whether it feels authentic, group the feedback into themes from the playtest notes, write conclusions, slides and the poster, finish the final game design document, and hand off to the next team on Jul 31." loading="lazy" width="2400" height="718"></button><figcaption class="label">Stage 3 · Playtest & results · Jul 3–31</figcaption></figure>
+      <img class="wf-key" src="img/peaceland/wf-key.png" alt="Key: rounded shape is start or end, diamond is a decision, rectangle is a process, cylinder is data, slanted box is an input, grey card is a note. A solid arrow is the next step, a dashed line uses or produces data, green and red tags are yes and no answers." loading="lazy" width="2170" height="172">
     </section>
 
-<section class="block-section" aria-labelledby="pl-test-h">
-      <div class="sec-head"><h2 class="sec-title" id="pl-test-h">Then narrow: playtesting</h2><p class="label">What each round taught us</p></div>
+<section class="block-section" aria-label="Playtesting">
+      <p class="label">Playtesting</p>
       <div class="highlights">
-        <div class="hl"><p class="label">Early playtests · University of Rochester</p><h3>DMST 101 &amp; DMST 104</h3><p>Early on, we playtested Peaceland in two Digital Media Studies courses, with 20+ students in each. We took their feedback on the game's interactions and its UI and UX design into account in the next versions.</p></div>
-        <div class="hl"><p class="label">South Serbia · Montenegro · Bosnia &amp; Herzegovina · Kosovo border</p><h3>Playtests across the Balkans</h3><p>I playtested with family members across three generations, aged 13 to 77, and translated live. After each session I interviewed every player and grouped their answers into themes: which character they connected with first and last, whether the story felt fair to every group, and whether it felt authentic.</p></div>
-        <div class="hl"><p class="label">What we changed · After playtests</p><h3>Adding sound sooner</h3><p>Sound was always in the plan, but playtesting showed how crucial it is to testing itself: it keeps players wanting to actually play, and so to keep testing the game for us. So we added it sooner.</p></div>
+        <div class="hl"><p class="label">Early playtests · DMST 101 &amp; 104</p><p>20+ students per course tested the interactions and UI/UX early on.</p></div>
+        <div class="hl"><p class="label">Across the Balkans</p><p>Three generations, ages 13 to 77. I translated live and interviewed every player.</p></div>
+        <div class="hl"><p class="label">What we changed</p><p>We added sound sooner, because it kept players wanting to play.</p></div>
       </div>
     </section>
 
 <section class="block-section" aria-labelledby="pitch-h">
       <div class="sec-head">
-        <h2 class="sec-title" id="pitch-h">What we built</h2>
+        <p class="label" id="pitch-h">What we built</p>
         <p class="label">Click each idea, or use the arrows</p>
       </div>
-      <p class="kit-note">Three ideas carry the game. These images are drawings for now. Each one is still to be remodeled as a 3D piece for the game itself.</p>
+      <p class="kit-note">Drawings for now, to be remodeled in 3D for the game.</p>
       <div class="choose">
         <div class="choose-list" role="tablist" aria-label="Peaceland's three core ideas">
           <button type="button" class="choice" role="tab" id="pt-0" aria-selected="true" aria-controls="pitch-panel" tabindex="0" data-i="0">Memories Through Artifacts <span class="choice-n">1/3</span></button>
@@ -2979,6 +2981,23 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   }
 
   route();
+
+  /* Peaceland workflow: one diagram at a time */
+  document.querySelectorAll('.wf').forEach(wf => {
+    const tabs = [...wf.querySelectorAll('.wf-tab')], figs = [...wf.querySelectorAll('.wf-fig')];
+    const show = n => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === n)); t.tabIndex = k === n ? 0 : -1; });
+      figs.forEach((f, k) => { f.hidden = k !== n; });
+    };
+    tabs.forEach((t, n) => {
+      t.addEventListener('click', () => show(n));
+      t.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const m = (n + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        tabs[m].focus(); show(m);
+      });
+    });
+  });
 })();
 </script>
 </body>
