@@ -661,6 +661,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
+.pl-sum{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
 .pl-facts{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px clamp(16px,2.4vw,32px)}
 .pl-rq{display:flex;flex-direction:column;gap:6px;max-width:72ch}
 .trailer.has-thumb{padding:clamp(12px,1.6vw,18px);gap:clamp(18px,3vw,40px)}
@@ -669,7 +670,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .trailer:hover .tr-img{transform:scale(1.04)}
 .tr-thumb .play{position:relative;z-index:1;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 @media (max-width:640px){.trailer.has-thumb{flex-direction:column;align-items:stretch}.tr-thumb{width:100%}}
-.pl-summary .lede{max-width:34ch}
+.pl-summary .lede{max-width:none}
+.pl-summary{gap:6px}
 .pl-summary .pl-answer{color:var(--muted)}
 .quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
 .qp{margin:0;display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
@@ -973,6 +975,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-step">
       <p class="step-tag"><span class="st-n">01</span>Summary</p>
       <div class="cs-step-body">
+<div class="pl-sum">
 <div class="cs-copy pl-summary">
         <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
         <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
@@ -986,6 +989,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <span class="label">Opens on YouTube</span>
       </span>
     </a>
+    </div>
       </div>
     </div>
     <div class="cs-step">
