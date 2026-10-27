@@ -596,6 +596,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .meta{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin:0}
 .meta div{display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid var(--line)}
 .meta dd{margin:0;font-weight:600;line-height:1.45}
+.meta .meta-mentors{flex-direction:row;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.meta .mm-names{display:flex;flex-direction:column;gap:4px;padding:0;border:0}
+.team-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;background:#FF7A1A;color:#0B0C0E;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,transform .2s}
+.team-btn:hover{background:#FF8F3D;transform:translateY(-1px)}
+.team-btn:focus-visible{outline:2px solid #0B0C0E;outline-offset:2px}
 
 /* Trailer */
 .trailer{display:flex;align-items:center;gap:clamp(18px,3vw,36px);background:var(--block);color:var(--on-block);padding:clamp(24px,4vw,48px);text-decoration:none;border:1px solid var(--block-line)}
@@ -1059,7 +1064,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div><dt class="label">What I did</dt><dd>World and characters, branching decisions and endings, in-game notebook, playtests</dd></div>
       <div><dt class="label">Duration</dt><dd>Jan 2026 – Jul 2026</dd></div>
       <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
-      <div><dt class="label">Mentors</dt><dd>Dr. Marcia Hartwell, Prof. Kristana Textor</dd></div>
+      <div class="meta-mentors"><div class="mm-names"><dt class="label">Mentors</dt><dd>Dr. Marcia Hartwell<br>Prof. Kristana Textor</dd></div><a class="team-btn" href="https://www.rit.edu/verticallyintegratedprojects/peaceland-choose-your-memory" target="_blank" rel="noopener">74 team members in 3 years <span aria-hidden="true">&nearr;</span></a></div>
     </dl>
       </div>
     </div>
