@@ -661,7 +661,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
-.pl-sum{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
+.pl-sum{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,3.4vw,48px);align-items:center}
+.pl-sum .lede{font-size:clamp(18px,1.75vw,22px);line-height:1.4}
+.pl-sum .trailer.has-thumb{flex-direction:column;align-items:stretch;gap:14px;padding:12px 12px 16px}
+.pl-sum .tr-thumb{width:100%}
+.pl-sum .trailer-title{font-size:clamp(20px,2vw,26px)}
+.pl-sum .trailer-text{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding-inline:4px}
+@media (max-width:760px){.pl-sum{grid-template-columns:minmax(0,1fr)}}
 .pl-facts{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px clamp(16px,2.4vw,32px)}
 .pl-rq{display:flex;flex-direction:column;gap:6px;max-width:72ch}
 .trailer.has-thumb{padding:clamp(12px,1.6vw,18px);gap:clamp(18px,3vw,40px)}
@@ -671,7 +677,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .tr-thumb .play{position:relative;z-index:1;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 @media (max-width:640px){.trailer.has-thumb{flex-direction:column;align-items:stretch}.tr-thumb{width:100%}}
 .pl-summary .lede{max-width:none}
-.pl-summary{gap:6px}
+.pl-summary{gap:10px}
 .pl-summary .pl-answer{color:var(--muted)}
 .quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
 .qp{margin:0;display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
