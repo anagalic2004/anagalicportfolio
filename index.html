@@ -661,6 +661,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
+.pl-facts{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px clamp(16px,2.4vw,32px)}
+.pl-rq{display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.trailer.has-thumb{padding:clamp(12px,1.6vw,18px);gap:clamp(18px,3vw,40px)}
+.tr-thumb{position:relative;flex:none;width:min(52%,560px);aspect-ratio:16/9;overflow:hidden;background:#000;display:grid;place-items:center}
+.tr-img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s var(--ease)}
+.trailer:hover .tr-img{transform:scale(1.04)}
+.tr-thumb .play{position:relative;z-index:1;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+@media (max-width:640px){.trailer.has-thumb{flex-direction:column;align-items:stretch}.tr-thumb{width:100%}}
 .pl-summary .lede{max-width:34ch}
 .pl-summary .pl-answer{color:var(--muted)}
 .quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
@@ -966,12 +974,12 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <p class="step-tag"><span class="st-n">01</span>Summary</p>
       <div class="cs-step-body">
 <div class="cs-copy pl-summary">
-        <p class="lede">Most young people in the Balkans never lived through the wars of the 1990s, yet they still inherit its divisions through family stories, silence and one-sided news.</p>
-        <p class="lede pl-answer">Peaceland answers with a narrative video game set in Streynia, a fictional country 30 years after a civil war. You play Marc, a museum volunteer who relives memories donated by survivors, and your choices shape the country&rsquo;s future.</p>
+        <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
+        <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
       </div>
 
-<a class="trailer" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
-      <span class="play" aria-hidden="true"></span>
+<a class="trailer has-thumb" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
+      <span class="tr-thumb"><img class="tr-img" src="https://i.ytimg.com/vi/tj5iqVu7Z1s/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth&lt;=120&amp;&amp;!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}else{this.remove()}"><span class="play" aria-hidden="true"></span></span>
       <span class="trailer-text">
         <span class="label">Trailer</span>
         <span class="trailer-title">Watch Peaceland</span>
@@ -983,27 +991,25 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-step">
       <p class="step-tag"><span class="st-n">02</span>Role &amp; duration</p>
       <div class="cs-step-body">
-<div class="cs-intro">
-      <div class="cs-copy">
-        <p>On the Narrative and UX/UI design teams, I built the world and characters, designed the branching decisions and the endings, and helped design the in-game notebook.</p>
-        <p>I also ran the playtests: 40+ players in 4 international regions and 3 languages. In the Balkans I translated live, interviewed every player after each session, and grouped what they said into themes.</p>
-      </div>
-      <dl class="meta">
-        <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
-        <div><dt class="label">Duration</dt><dd>Jan 2026 – Jul 2026 · 7 months, full time in summer 2026 as a Schwartz Discover Scholar</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
-        <div><dt class="label">With thanks to</dt><dd>Dr. Marcia Hartwell, Professor Kristana Textor, RIT MAGIC Spell Studios</dd></div>
-      </dl>
-    </div>
+<dl class="meta pl-facts">
+      <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
+      <div><dt class="label">Duration</dt><dd>Jan 2026 – Jul 2026<br>7 months, full time in the summer</dd></div>
+      <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
+      <div><dt class="label">Mentors &amp; supervisors</dt><dd>Dr. Marcia Hartwell<br>Professor Kristana Textor</dd></div>
+      <div><dt class="label">With thanks to</dt><dd>RIT MAGIC Spell Studios</dd></div>
+    </dl>
       </div>
     </div>
     <div class="cs-step">
       <p class="step-tag"><span class="st-n">03</span>Problem</p>
       <div class="cs-step-body">
-<figure class="question">
-      <figcaption class="label">Research question · Schwartz Discover Scholar</figcaption>
-      <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
-    </figure>
+<section class="block-section" aria-label="The problem">
+      <figure class="question">
+        <figcaption class="label">The problem</figcaption>
+        <p>How can a game help young people move past divisions from a war they never lived through?</p>
+      </figure>
+      <p class="kit-note pl-rq"><span class="label">Research question · Schwartz Discover Scholar</span>&ldquo;How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?&rdquo;</p>
+    </section>
 
 <section class="block-section" aria-labelledby="pl-hard-h">
       <h2 class="sec-title" id="pl-hard-h">What made it hard</h2>
