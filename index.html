@@ -767,6 +767,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .qp{margin:0;display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
 .qp blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(19px,2vw,25px);line-height:1.18;text-wrap:balance}
 @media (max-width:640px){.quote-pair{grid-template-columns:minmax(0,1fr)}}
+.quote-pair.quote-one{grid-template-columns:minmax(0,1fr);max-width:640px}
 .track{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);padding:18px 22px;background:var(--blue-soft);border:1px solid var(--blue)}
 .track p{margin:0}
 .track p:not(.label){font-weight:600;max-width:62ch}
@@ -1182,8 +1183,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 <section class="block-section" aria-labelledby="pl-res-h">
       <h2 class="sec-title" id="pl-res-h">What players said</h2>
-      <div class="quote-pair">
-        <figure class="qp"><figcaption class="label">Before playing</figcaption><blockquote>&ldquo;Why are Americans explaining the war to us again?&rdquo;</blockquote></figure>
+      <div class="quote-pair quote-one">
         <figure class="qp"><figcaption class="label">After playing</figcaption><blockquote>&ldquo;Very authentic.&rdquo;</blockquote></figure>
       </div>
       <p class="kit-note">Two playtesters, aged 32 and 57, said the game felt not only about them, but for them.</p>
