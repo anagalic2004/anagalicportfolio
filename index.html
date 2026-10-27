@@ -609,14 +609,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 /* Choose your memory */
 .built-group{display:flex;flex-direction:column;gap:12px;min-width:0}
 .label-strong{color:var(--ink);font-weight:700}
-.built-row2{display:flex;flex-wrap:wrap;gap:20px clamp(20px,2.6vw,36px);align-items:flex-start}
-.built-row2 > .built-group{flex:none;width:236px}
-.built-row2 > .built-group > .label{white-space:nowrap}
-.built-row2 .built-arts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.built-row2 .built-arts .built-fig figcaption{font-size:11.5px;line-height:1.3;white-space:nowrap}
-.built-row2 .built-arts .built-fig figcaption span{display:block}
-.built-row2 > .built-fig{flex:none;margin-top:calc(var(--fs-label) * 1.3 + 12px)}
-.built-row2 > .built-fig .tx-zoom{height:170px;width:auto;aspect-ratio:var(--ar)}
+.built-row2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,2.947fr) minmax(0,1.969fr);gap:clamp(12px,1.6vw,20px);align-items:start}
+.art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;aspect-ratio:3/2}
+.art-tile{margin:0;min-width:0;min-height:0}
+.art-tile .tx-zoom{width:100%;height:100%;aspect-ratio:auto;background:#FFFFFF;border-radius:6px}
+.art-tile .tx-zoom img{object-fit:contain}
 .built{display:grid;gap:clamp(10px,1.4vw,16px);align-items:start}
 .built-scenes{grid-template-columns:repeat(5,minmax(0,1fr))}
 .built-arts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
@@ -629,7 +626,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:600px){.built-scenes{grid-template-columns:repeat(2,minmax(0,1fr))}.built-arts{grid-template-columns:repeat(3,minmax(0,1fr));max-width:300px}.built-chars{grid-template-columns:repeat(5,minmax(0,1fr))}.built-chars .built-fig figcaption{font-size:11.5px}}
 .built-fig{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
 @media (max-width:980px){.built-scenes{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:600px){.built-scenes{grid-template-columns:repeat(2,minmax(0,1fr))}.built-row2 > .built-fig{margin-top:0}.built-row2 > .built-fig .tx-zoom{height:auto;width:100%;max-width:340px}.built-row2 > .built-fig{flex:1 1 100%}}
+@media (max-width:600px){.built-scenes{grid-template-columns:repeat(2,minmax(0,1fr))}.built-row2{grid-template-columns:minmax(0,1fr)}.art-block{max-width:340px}}
 .built-fig .tx-zoom{--ar:3/2;border-radius:8px}
 .built-group + .built-row2,.built-row2 + .built-group{margin-top:clamp(8px,1.4vw,16px)}
 .built-fig figcaption{font-size:14px;line-height:1.35;font-weight:600}
@@ -695,6 +692,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-sum .tr-thumb{width:100%}
 .pl-sum .trailer-title{font-size:clamp(18px,1.7vw,22px)}
 .pl-sum .trailer-text{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding-inline:4px}
+.pl-sum .trailer.has-thumb{position:relative;padding:0;gap:0;overflow:hidden}
+.pl-sum .trailer.has-thumb .trailer-text{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:36px 16px 12px;background:linear-gradient(to top,rgba(11,12,14,.85),rgba(11,12,14,0));pointer-events:none}
+.pl-sum .trailer.has-thumb .play{transform:translateY(-14px)}
+.pl-sum .trailer.has-thumb:hover .play{transform:translateY(-14px) scale(1.08)}
+.pl-sum .trailer.has-thumb .trailer-text .label{color:rgba(255,255,255,.82)}
 @media (max-width:1100px){.pl-sum{grid-template-columns:minmax(0,1fr)}.pl-sum .trailer{width:auto!important;max-width:560px}}
 .pl-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3.4vw,48px);align-items:center}
 .pl-pic{aspect-ratio:3/2}
@@ -717,6 +719,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-summary{gap:10px}
 .pl-sum .pl-summary .lede,.pl-sum .pl-summary .pl-q,.pl-sum .pl-summary .pl-goals{font-family:var(--body);font-size:var(--fs-body);line-height:1.5;color:var(--ink);margin:0;max-width:none;font-weight:400}
 .pl-sum .pl-summary .pl-q{font-weight:600}
+.pl-sum .pl-goals{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px}
+.pl-sum .pl-goals li{position:relative;padding-left:16px}
+.pl-sum .pl-goals li::before{content:"";position:absolute;left:2px;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.pl-sum .pl-goals strong{font-weight:600}
 .pl-summary .pl-answer{color:var(--muted)}
 .quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
 .qp{margin:0;display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
@@ -1043,7 +1049,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
         <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
         <p class="pl-q">How can a game help young people move past divisions from a war they never lived through?</p>
-        <p class="pl-goals">We developed it in three directions: the player experience, an authentic look built from real references, and research on inherited bias. By the end, players had switched from the character most like them to another, they called the world &ldquo;very authentic,&rdquo; and the research became a Schwartz Discover Scholar project with a team to carry it on.</p>
+        <ul class="pl-goals"><li><strong>Player experience:</strong> let players step into the other side&rsquo;s story.</li><li><strong>Authentic look:</strong> build every prop and place from a real reference.</li><li><strong>Research:</strong> test whether a game can reduce inherited bias.</li></ul>
       </div>
 
 <a class="trailer has-thumb" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
@@ -1089,14 +1095,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:1600/844" data-full="img/peaceland/art/place-kitchen.jpg" data-cap="Family kitchen (Art Team)" aria-label="Enlarge: Family kitchen"><img src="img/peaceland/art/place-kitchen.jpg" alt="A family kitchen with wooden cabinets, green tiles, a white fridge and stove, plates on a shelf and green curtains at the window" loading="lazy" width="1600" height="844"></button><figcaption>Family kitchen <span>(Art Team)</span></figcaption></figure>
         </div></div>
       <div class="built-row2">
-        <div class="built-group"><p class="label">Artifact sketches</p><div class="built built-arts">
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rug.jpg" data-cap="Embroidered rug (Art Team)" aria-label="Enlarge: Embroidered rug"><img src="img/peaceland/art/artifact-rug.jpg" alt="Sketch of an embroidered rug in green, yellow and red with a cross pattern and a small pine tree" loading="lazy" width="900" height="900"></button><figcaption>Rug <span>(Art Team)</span></figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-doll.jpg" data-cap="Doll (Art Team)" aria-label="Enlarge: Doll"><img src="img/peaceland/art/artifact-doll.jpg" alt="Sketch of a doll with curly brown hair, a blue bow and a blue dress" loading="lazy" width="900" height="900"></button><figcaption>Doll <span>(Art Team)</span></figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-sword.jpg" data-cap="Wooden sword (Art Team)" aria-label="Enlarge: Wooden sword"><img src="img/peaceland/art/artifact-sword.jpg" alt="Sketch of a child&rsquo;s wooden toy sword with a cloth-wrapped handle" loading="lazy" width="900" height="900"></button><figcaption>Sword <span>(Art Team)</span></figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-bear.jpg" data-cap="Teddy bear (Art Team)" aria-label="Enlarge: Teddy bear"><img src="img/peaceland/art/artifact-bear.jpg" alt="Sketch of a worn brown teddy bear with a stitched heart on its foot" loading="lazy" width="900" height="900"></button><figcaption>Teddy bear <span>(Art Team)</span></figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rope.jpg" data-cap="Jump rope (Art Team)" aria-label="Enlarge: Jump rope"><img src="img/peaceland/art/artifact-rope.jpg" alt="Sketch of a jump rope with purple handles" loading="lazy" width="900" height="900"></button><figcaption>Jump rope <span>(Art Team)</span></figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-horse.jpg" data-cap="Toy horse (Art Team)" aria-label="Enlarge: Toy horse"><img src="img/peaceland/art/artifact-horse.jpg" alt="Sketch of a pale toy horse with a yellow mane and a brown saddle" loading="lazy" width="900" height="900"></button><figcaption>Toy horse <span>(Art Team)</span></figcaption></figure>
-        </div></div>
+        <figure class="built-fig art-block"><div class="art-grid">
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rug.jpg" data-cap="Embroidered rug (Art Team)" aria-label="Enlarge: Embroidered rug"><img src="img/peaceland/art/artifact-rug.jpg" alt="Sketch of an embroidered rug in green, yellow and red with a cross pattern and a small pine tree" loading="lazy" width="900" height="900"></button></figure>
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-doll.jpg" data-cap="Doll (Art Team)" aria-label="Enlarge: Doll"><img src="img/peaceland/art/artifact-doll.jpg" alt="Sketch of a doll with curly brown hair, a blue bow and a blue dress" loading="lazy" width="900" height="900"></button></figure>
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-sword.jpg" data-cap="Wooden sword (Art Team)" aria-label="Enlarge: Wooden sword"><img src="img/peaceland/art/artifact-sword.jpg" alt="Sketch of a child&rsquo;s wooden toy sword with a cloth-wrapped handle" loading="lazy" width="900" height="900"></button></figure>
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-bear.jpg" data-cap="Teddy bear (Art Team)" aria-label="Enlarge: Teddy bear"><img src="img/peaceland/art/artifact-bear.jpg" alt="Sketch of a worn brown teddy bear with a stitched heart on its foot" loading="lazy" width="900" height="900"></button></figure>
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rope.jpg" data-cap="Jump rope (Art Team)" aria-label="Enlarge: Jump rope"><img src="img/peaceland/art/artifact-rope.jpg" alt="Sketch of a jump rope with purple handles" loading="lazy" width="900" height="900"></button></figure>
+          <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-horse.jpg" data-cap="Toy horse (Art Team)" aria-label="Enlarge: Toy horse"><img src="img/peaceland/art/artifact-horse.jpg" alt="Sketch of a pale toy horse with a yellow mane and a brown saddle" loading="lazy" width="900" height="900"></button></figure>
+          </div><figcaption>Artifact sketches <span>(Art Team)</span></figcaption></figure>
         <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:1600/543" data-full="img/pw-town.jpg" data-cap="Town square (Art Team)" aria-label="Enlarge: Town square"><img src="img/pw-town.jpg" alt="Painted town square with a white domed gazebo, benches and flowers, surrounded by Dalila's Bakery, a fabric shop and the Peace &amp; Pies café" loading="lazy" width="1600" height="543"></button><figcaption>Town square <span>(Art Team)</span></figcaption></figure>
         <figure class="built-fig"><button type="button" class="tx-zoom bare" style="--ar:1445/734" data-full="img/peaceland/art/notebook-cut.webp" data-cap="In-game notebook (Art Team)" aria-label="Enlarge: In-game notebook"><img src="img/peaceland/art/notebook-cut.webp" alt="Peaceland's in-game notebook: a directory of memories and present-day places on the left, and collected entries such as the Memory Tree Article on the right" loading="lazy" width="1445" height="734"></button><figcaption>In-game notebook <span>(Art Team)</span></figcaption></figure>
       </div>
