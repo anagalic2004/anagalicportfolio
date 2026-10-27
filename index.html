@@ -685,8 +685,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
-.pl-sum{display:grid;grid-template-columns:minmax(0,560px) auto;justify-content:start;gap:clamp(24px,3.4vw,48px);align-items:start}
-.pl-sum .trailer{width:min(560px,52vw)}
+.pl-sum{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,32px)}
+.pl-sum .pl-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3.4vw,48px);align-items:start}
+.pl-sum-a,.pl-sum-b{display:flex;flex-direction:column;gap:10px}
+.pl-sum .pl-sum-b .pl-q{margin:0;padding:0;border:0}
+.pl-media{display:grid;grid-template-columns:minmax(0,1.778fr) minmax(0,1.16fr);gap:clamp(12px,1.6vw,20px);align-items:start}
+.pl-news{margin:0;min-width:0}
+.pl-news .tx-zoom{border:0;background:transparent}
+.pl-news .tx-zoom img{object-fit:contain}
 .pl-sum .lede{font-size:clamp(16px,1.5vw,19px);line-height:1.4}
 .pl-sum .trailer.has-thumb{flex-direction:column;align-items:stretch;gap:14px;padding:12px 12px 16px}
 .pl-sum .tr-thumb{width:100%}
@@ -697,7 +703,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-sum .trailer.has-thumb .play{transform:translateY(-14px)}
 .pl-sum .trailer.has-thumb:hover .play{transform:translateY(-14px) scale(1.08)}
 .pl-sum .trailer.has-thumb .trailer-text .label{color:rgba(255,255,255,.82)}
-@media (max-width:1100px){.pl-sum{grid-template-columns:minmax(0,1fr)}.pl-sum .trailer{width:auto!important;max-width:560px}}
+@media (max-width:760px){.pl-sum .pl-summary,.pl-media{grid-template-columns:minmax(0,1fr)}.pl-news{max-width:420px}}
 .pl-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3.4vw,48px);align-items:center}
 .pl-pic{aspect-ratio:3/2}
 .pl-fig{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -1046,12 +1052,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="cs-step-body">
 <div class="pl-sum">
 <div class="cs-copy pl-summary">
+        <div class="pl-sum-a">
         <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
         <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
+        </div>
+        <div class="pl-sum-b">
         <p class="pl-q">How can a game help young people move past divisions from a war they never lived through?</p>
         <ul class="pl-goals"><li><strong>Player experience:</strong> let players step into the other side&rsquo;s story.</li><li><strong>Authentic look:</strong> build every prop and place from a real reference.</li><li><strong>Research:</strong> test whether a game can reduce inherited bias.</li></ul>
+        </div>
       </div>
 
+<div class="pl-media">
 <a class="trailer has-thumb" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
       <span class="tr-thumb"><img class="tr-img" src="https://i.ytimg.com/vi/tj5iqVu7Z1s/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth&lt;=120&amp;&amp;!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}else{this.remove()}"><span class="play" aria-hidden="true"></span></span>
       <span class="trailer-text">
@@ -1060,6 +1071,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <span class="label">Opens on YouTube</span>
       </span>
     </a>
+<figure class="pl-news"><button type="button" class="tx-zoom bare" style="--ar:1604/1383" data-full="img/peaceland/art/newspaper.webp" data-cap="Streynia Times · the in-game newspaper" aria-label="Enlarge: Streynia Times, the in-game newspaper"><img src="img/peaceland/art/newspaper.webp" alt="The in-game newspaper, the Streynia Times of May 14, 2025: Debut of the Memory Tree at the Mirnovo Museum, and 30 Years Since Ceasefire: Has anything changed?" width="1604" height="1383"></button></figure>
+</div>
     </div>
       </div>
     </div>
@@ -2942,27 +2955,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     });
   });
 
-  /* Peaceland summary: size the trailer so it is exactly as tall as the text beside it */
-  const plSum = document.querySelector('.pl-sum');
-  if (plSum){
-    const txt = plSum.querySelector('.pl-summary'), tr = plSum.querySelector('.trailer'), th = plSum.querySelector('.tr-thumb');
-    const fitTrailer = () => {
-      if (plSum.closest('[hidden]') || matchMedia('(max-width:1100px)').matches){ tr.style.width = ''; return; }
-      for (let k = 0; k < 4; k++){
-        const tw = th.getBoundingClientRect().width, cw = tr.getBoundingClientRect().width;
-        const extraH = tr.getBoundingClientRect().height - th.getBoundingClientRect().height;
-        const want = Math.max(260, (txt.getBoundingClientRect().height - extraH) * 16 / 9 + (cw - tw));
-        const max = plSum.getBoundingClientRect().width * 0.6;
-        const w = Math.round(Math.min(want, max));
-        if (Math.abs(w - cw) < 1) break;
-        tr.style.width = w + 'px';
-      }
-    };
-    addEventListener('resize', fitTrailer);
-    addEventListener('hashchange', () => requestAnimationFrame(fitTrailer));
-    if (document.fonts) document.fonts.ready.then(fitTrailer);
-    requestAnimationFrame(fitTrailer);
-  }
 })();
 </script>
 </body>
