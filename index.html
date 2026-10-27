@@ -625,6 +625,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .art-tile .tx-zoom img{object-fit:contain}
 .built{display:grid;gap:clamp(10px,1.4vw,16px);align-items:start}
 .built-scenes{grid-template-columns:repeat(5,minmax(0,1fr))}
+.built-gifs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.built-gifs + *,.built-group:has(.built-gifs) + .built-group{margin-top:clamp(8px,1.4vw,16px)}
+@media (max-width:600px){.built-gifs{grid-template-columns:minmax(0,1fr)}}
 .built-arts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
 .built-arts .built-fig figcaption{font-size:12.5px}
 .built-chars{grid-template-columns:repeat(5,minmax(0,1fr));max-width:560px}
@@ -1124,6 +1127,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Click an image to zoom in</p>
       </div>
       <p class="kit-note">I led characterization and art research, so every character, place and artifact was researched and chosen before the Art Team drew it. These drawings will be remodeled in 3D for the game.</p>
+      <div class="built-group"><p class="label">Gameplay</p><div class="built built-gifs">
+          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-kitchen.gif" data-cap="Kitchen memory" aria-label="Enlarge: Kitchen memory"><img src="img/peaceland/art/gif-kitchen.gif" alt="A memory scene in a family kitchen: one young man sits at the table while another stands in the foreground, looking worried" loading="lazy" width="800" height="450"></button><figcaption>Kitchen memory</figcaption></figure>
+          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-letter.gif" data-cap="Torn letter puzzle" aria-label="Enlarge: Torn letter puzzle"><img src="img/peaceland/art/gif-letter.gif" alt="Mini-game: the player pieces together a torn love letter signed by Ruzica" loading="lazy" width="800" height="450"></button><figcaption>Torn letter puzzle</figcaption></figure>
+          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-memory-tree.gif" data-cap="At the memory tree" aria-label="Enlarge: At the memory tree"><img src="img/peaceland/art/gif-memory-tree.gif" alt="Two characters stand in front of the memory tree in the museum, next to its War Memorial sign" loading="lazy" width="800" height="450"></button><figcaption>At the memory tree</figcaption></figure>
+        </div></div>
       <div class="built-group"><p class="label">Scenes</p><div class="built built-scenes">
           <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:1600/853" data-full="img/pw-museum-1.jpg" data-cap="Museum: clothes and shoes (Art Team)" aria-label="Enlarge: Museum: clothes and shoes"><img src="img/pw-museum-1.jpg" alt="Museum case with an embroidered green and yellow rug, two floral headscarves, worn shoes, children's sneakers and green boots" loading="lazy" width="1600" height="853"></button><figcaption>Museum: clothes and shoes <span>(Art Team)</span></figcaption></figure>
           <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:1600/853" data-full="img/pw-museum-2.jpg" data-cap="Museum: toys and keepsakes (Art Team)" aria-label="Enlarge: Museum: toys and keepsakes"><img src="img/pw-museum-2.jpg" alt="Three faction flags above museum cases holding painted plates, books, a doll, toy soldiers, a toy horse, a teddy bear, a ball and a wooden sword" loading="lazy" width="1600" height="853"></button><figcaption>Museum: toys and keepsakes <span>(Art Team)</span></figcaption></figure>
