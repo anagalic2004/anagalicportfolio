@@ -614,6 +614,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 /* Choose your memory */
 .built-group{display:flex;flex-direction:column;gap:12px;min-width:0}
 .label-strong{color:var(--ink);font-weight:700}
+.sub-btn-row{margin:-4px 0 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sub-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:1.5px solid var(--ink);border-radius:999px;font-size:12px;font-weight:600;color:var(--ink);text-decoration:none;transition:background .2s,color .2s}
+.sub-btn:hover{background:var(--ink);color:var(--paper)}
+.todo-inline{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--blue-soft);padding:2px 6px}
 .built-row2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,2.947fr) minmax(0,1.969fr);gap:clamp(12px,1.6vw,20px);align-items:start}
 .art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;aspect-ratio:3/2}
 .art-tile{margin:0;min-width:0;min-height:0}
@@ -1099,7 +1103,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <div class="cs-step">
       <div class="cs-step-body">
 <section class="block-section wf" aria-label="Workflow">
-      <div class="sec-head"><p class="label label-strong">Process</p><p class="label">Click a diagram to zoom in</p></div>
+      <div class="sec-head"><p class="label label-strong">Process &ndash; Narrative Team</p><p class="label">Click a diagram to zoom in</p></div>
       <div class="wf-tabs" role="tablist" aria-label="Workflow diagrams">
         <button type="button" class="wf-tab" role="tab" id="wf-tab-0" aria-controls="wf-fig-0" aria-selected="true" tabindex="0">Overview</button>
         <button type="button" class="wf-tab" role="tab" id="wf-tab-1" aria-controls="wf-fig-1" aria-selected="false" tabindex="-1">Stage 1 · Research</button>
@@ -1116,7 +1120,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 <section class="block-section" aria-labelledby="pitch-h">
       <div class="sec-head">
-        <p class="label label-strong" id="pitch-h">What we built</p>
+        <p class="label label-strong" id="pitch-h">Process &ndash; Design Team 2026</p>
         <p class="label">Click an image to zoom in</p>
       </div>
       <p class="kit-note">I made all of the art choices. I led characterization and art research, so every character, place and artifact was researched and chosen before the Art Team drew it. These drawings will be remodeled in 3D for the game.</p>
