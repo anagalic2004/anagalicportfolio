@@ -660,6 +660,18 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .board figcaption{font-size:14px;font-weight:600;line-height:1.35}
 
 /* Notes for Ana (preview only) */
+.pl-summary{gap:18px;max-width:none}
+.pl-summary .lede{max-width:34ch}
+.pl-summary .pl-answer{color:var(--muted)}
+.quote-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.qp{margin:0;display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:2px solid var(--ink)}
+.qp blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,32px);line-height:1.18;text-wrap:balance}
+@media (max-width:640px){.quote-pair{grid-template-columns:minmax(0,1fr)}}
+.track{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);padding:18px 22px;background:var(--blue-soft);border:1px solid var(--blue)}
+.track p{margin:0}
+.track p:not(.label){font-weight:600;max-width:62ch}
+.track .label{padding-top:3px}
+@media (max-width:640px){.track{grid-template-columns:minmax(0,1fr)}}
 .cs-step{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
 .cs-step-body{display:flex;flex-direction:column;gap:clamp(72px,10vw,136px)}
 .step-tag{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--mono);font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:600}
@@ -827,9 +839,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="brush" id="brush" aria-hidden="true"></div>
       </div>
       <div class="hero-foot">
-        <p class="label">UX/UI Design</p>
-        <p class="label">Product Design</p>
-        <p class="label">Graphic Design</p>
+        <p class="label">Visual identities</p>
+        <p class="label">Graphics for video games</p>
+        <p class="label">User-centered websites</p>
       </div>
     </section>
 
@@ -945,72 +957,19 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="label">Narrative-driven video game</p>
         <h1 class="cs-title">Peaceland</h1>
       </header>
-      <div class="cover cs-banner tall">
+<div class="cover cs-banner tall">
         <img class="cover-img" src="img/peaceland-town.jpg" alt="3D model of Peaceland's town square: half-timbered houses and street lamps around a domed pavilion on columns">
       </div>
     </div>
 
     <div class="cs-step">
-      <p class="step-tag"><span class="st-n">01</span>Overview</p>
+      <p class="step-tag"><span class="st-n">01</span>Summary</p>
       <div class="cs-step-body">
-<div class="cs-intro">
-      <div class="cs-copy">
-        <p class="lede">Peaceland is a narrative video game about the generation growing up after a war. Players uncover their country's past through memories kept in a museum, and their choices shape its future.</p>
-        <p>On the Narrative and UX/UI design teams, I built the world and characters, designed branching decisions, and helped design the in-game notebook. I also ran playtests with 40+ players in 4 international regions and 3 languages, where players said the game felt made "for them."</p>
+<div class="cs-copy pl-summary">
+        <p class="lede">Most young people in the Balkans never lived through the wars of the 1990s, yet they still inherit its divisions through family stories, silence and one-sided news.</p>
+        <p class="lede pl-answer">Peaceland answers with a narrative video game set in Streynia, a fictional country 30 years after a civil war. You play Marc, a museum volunteer who relives memories donated by survivors, and your choices shape the country&rsquo;s future.</p>
       </div>
-      <dl class="meta">
-        <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
-        <div><dt class="label">Timeline</dt><dd>Jan 2026 – Jul 2026</dd></div>
-      </dl>
-    </div>
 
-<div class="stats">
-        <div class="stat"><p class="label">Playtests</p><strong>40+</strong><span>players tested the prototype as we iterated on their feedback</span></div>
-        <div class="stat"><p class="label">Research</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
-        <div class="stat"><p class="label">Research</p><strong>3</strong><span>languages for the research and playtests</span></div>
-      </div>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
-      <div class="cs-step-body">
-<figure class="question">
-      <figcaption class="label">Research question · Schwartz Discover Scholar</figcaption>
-      <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
-    </figure>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">03</span>Process</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="boards-h">
-      <div class="sec-head">
-        <h2 class="sec-title" id="boards-h">Brainstorming in Figma</h2>
-        <p class="label">Click a board to enlarge &rarr;</p>
-      </div>
-      <div class="boards">
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
-        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
-      </div>
-    </section>
-
-<section class="block-section" aria-labelledby="pl-test-h">
-      <div class="sec-head"><h2 class="sec-title" id="pl-test-h">Playtesting</h2><p class="label">40+ players · 4 regions · 3 languages</p></div>
-      <div class="highlights">
-        <div class="hl"><p class="label">Early playtests · University of Rochester</p><h3>DMST 101 &amp; DMST 104</h3><p>Early on, we playtested Peaceland in two Digital Media Studies courses, with 20+ students in each. We took their feedback on the game's interactions and its UI and UX design into account in the next versions.</p></div>
-        <div class="hl"><p class="label">Research · 4 regions · 3 languages</p><h3>Playtests across the Balkans</h3><p>Led playtesting where players said the game felt made &ldquo;for them.&rdquo;</p></div>
-        <div class="hl"><p class="label">What we changed · After playtests</p><h3>Adding sound sooner</h3><p>Sound was always in the plan, but playtesting showed how crucial it is to testing itself: it keeps players wanting to actually play, and so to keep testing the game for us. So we added it sooner.</p></div>
-      </div>
-    </section>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">04</span>Final design</p>
-      <div class="cs-step-body">
 <a class="trailer" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
       <span class="play" aria-hidden="true"></span>
       <span class="trailer-text">
@@ -1019,13 +978,95 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <span class="label">Opens on YouTube</span>
       </span>
     </a>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">02</span>Role &amp; duration</p>
+      <div class="cs-step-body">
+<div class="cs-intro">
+      <div class="cs-copy">
+        <p>On the Narrative and UX/UI design teams, I built the world and characters, designed the branching decisions and the endings, and helped design the in-game notebook.</p>
+        <p>I also ran the playtests: 40+ players in 4 international regions and 3 languages. In the Balkans I translated live, interviewed every player after each session, and grouped what they said into themes.</p>
+      </div>
+      <dl class="meta">
+        <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
+        <div><dt class="label">Duration</dt><dd>Jan 2026 – Jul 2026 · 7 months, full time in summer 2026 as a Schwartz Discover Scholar</dd></div>
+        <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
+        <div><dt class="label">With thanks to</dt><dd>Dr. Marcia Hartwell, Professor Kristana Textor, RIT MAGIC Spell Studios</dd></div>
+      </dl>
+    </div>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">03</span>Problem</p>
+      <div class="cs-step-body">
+<figure class="question">
+      <figcaption class="label">Research question · Schwartz Discover Scholar</figcaption>
+      <p>"How might a video game about a fictional post-war country reduce inherited bias among people living in countries which have experienced brutal conflicts?"</p>
+    </figure>
+
+<section class="block-section" aria-labelledby="pl-hard-h">
+      <h2 class="sec-title" id="pl-hard-h">What made it hard</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">Trust</p><h3>Outsiders telling the story</h3><p>Players from the region can be wary of outsiders telling the story of their war. Before playing, one asked, &ldquo;Why are Americans explaining the war to us again?&rdquo;</p></div>
+        <div class="hl"><p class="label">Fairness</p><h3>Fair to every group</h3><p>The story had to feel fair to every side without pointing at anyone, so the three groups are based on real ones but never named after them.</p></div>
+        <div class="hl"><p class="label">Range</p><h3>Ages 13 to 77</h3><p>Players spanned three generations and three languages, and Peaceland is a visual novel, so every line had to be clear enough, and engaging enough, to be read.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">04</span>Goals</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="pl-goals-h">
+      <h2 class="sec-title" id="pl-goals-h">Goals</h2>
+      <div class="highlights">
+        <div class="hl"><p class="label">User experience</p><h3>Step into the other side</h3><p>Players start with the character most like them, live through another group&rsquo;s memories, and feel the game was made for them, not only about them.</p></div>
+        <div class="hl"><p class="label">Aesthetic</p><h3>Real enough to trust</h3><p>Every room, prop and character comes from a real reference, so the world feels authentic to the people who lived it.</p></div>
+        <div class="hl"><p class="label">Research &amp; project</p><h3>Reduce inherited bias</h3><p>Answer the research question with a working prototype, and leave a clear design goal and a team structure that can keep Peaceland going.</p></div>
+      </div>
+    </section>
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">05</span>Process</p>
+      <div class="cs-step-body">
+<section class="block-section" aria-labelledby="boards-h">
+      <div class="sec-head">
+        <h2 class="sec-title" id="boards-h">Go broad: brainstorming in Figma</h2>
+        <p class="label">Click a board to enlarge &rarr;</p>
+      </div>
+      <p class="kit-note">We started broad, with a board of options for each part of the game. Click a board to read every idea we weighed.</p>
+      <div class="boards">
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Endings"><img src="img/board-endings.jpg" alt="Brainstorm notes on Peaceland's four endings and what changes in each" loading="lazy"></button><figcaption>Endings</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Five memories"><img src="img/board-memories.jpg" alt="Brainstorm notes on the five memories and the theme of each" loading="lazy"></button><figcaption>Five memories</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Museum artifacts"><img src="img/board-artifacts.jpg" alt="Brainstorm notes on the museum artifacts that open each memory" loading="lazy"></button><figcaption>Museum artifacts</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Three groups"><img src="img/board-groups.jpg" alt="Brainstorm notes on the three groups and how each one speaks" loading="lazy"></button><figcaption>Three groups</figcaption></figure>
+        <figure class="board"><button type="button" class="board-btn" aria-label="Enlarge: Art for artifacts"><img src="img/board-artifact-art.jpg" alt="Early sketches of artifacts: an embroidered rug, a doll, a wooden sword, a teddy bear, a jump rope and a toy horse" loading="lazy"></button><figcaption>Art for artifacts</figcaption></figure>
+      </div>
+      <ol class="steps">
+        <li><p class="label">Endings</p><div><h3>A frozen conflict instead of &ldquo;neutral&rdquo;</h3><p>We planned four endings, from peace to war. The neutral ones felt flat, so they became a frozen conflict, and the war ending stays implied rather than shown. Election day decides which one you reach.</p></div></li>
+        <li><p class="label">Five memories</p><div><h3>One memory, one theme</h3><p>Each memory carries one theme and one big question: healing, trust, empathy, agency and redemption. Together they became the Memory Tree, five memories with five goals.</p></div></li>
+        <li><p class="label">Museum artifacts</p><div><h3>Every memory starts with an object</h3><p>The museum is where every memory begins: you click an artifact to open it. Every object needed a real reference image before the art team drew it.</p></div></li>
+        <li><p class="label">Three groups</p><div><h3>Three voices, no real names</h3><p>The Thebreans speak formally, the Eskani bluntly and the Cleoni softly, so each group sounds like itself without being named after a real one.</p></div></li>
+      </ol>
+    </section>
+
+<section class="block-section" aria-labelledby="pl-test-h">
+      <div class="sec-head"><h2 class="sec-title" id="pl-test-h">Then narrow: playtesting</h2><p class="label">What each round taught us</p></div>
+      <div class="highlights">
+        <div class="hl"><p class="label">Early playtests · University of Rochester</p><h3>DMST 101 &amp; DMST 104</h3><p>Early on, we playtested Peaceland in two Digital Media Studies courses, with 20+ students in each. We took their feedback on the game's interactions and its UI and UX design into account in the next versions.</p></div>
+        <div class="hl"><p class="label">South Serbia · Montenegro · Bosnia &amp; Herzegovina · Kosovo border</p><h3>Playtests across the Balkans</h3><p>I playtested with family members across three generations, aged 13 to 77, and translated live. After each session I interviewed every player and grouped their answers into themes: which character they connected with first and last, whether the story felt fair to every group, and whether it felt authentic.</p></div>
+        <div class="hl"><p class="label">What we changed · After playtests</p><h3>Adding sound sooner</h3><p>Sound was always in the plan, but playtesting showed how crucial it is to testing itself: it keeps players wanting to actually play, and so to keep testing the game for us. So we added it sooner.</p></div>
+      </div>
+    </section>
 
 <section class="block-section" aria-labelledby="pitch-h">
       <div class="sec-head">
-        <h2 class="sec-title" id="pitch-h">How Peaceland works</h2>
+        <h2 class="sec-title" id="pitch-h">What we built</h2>
         <p class="label">Click each idea, or use the arrows</p>
       </div>
-      <p class="kit-note">These images are drawings for now. Each one is still to be remodeled as a 3D piece for the game itself.</p>
+      <p class="kit-note">Three ideas carry the game. These images are drawings for now. Each one is still to be remodeled as a 3D piece for the game itself.</p>
       <div class="choose">
         <div class="choose-list" role="tablist" aria-label="Peaceland's three core ideas">
           <button type="button" class="choice" role="tab" id="pt-0" aria-selected="true" aria-controls="pitch-panel" tabindex="0" data-i="0">Memories Through Artifacts <span class="choice-n">1/3</span></button>
@@ -1050,8 +1091,33 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
     </div>
     <div class="cs-step">
-      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
+      <p class="step-tag"><span class="st-n">06</span>Results</p>
       <div class="cs-step-body">
+<figure class="question">
+      <figcaption class="label">What happened to players</figcaption>
+      <p>Many players first bonded with the character most &ldquo;like them.&rdquo; By the end, they had switched.</p>
+    </figure>
+
+<section class="block-section" aria-labelledby="pl-res-h">
+      <h2 class="sec-title" id="pl-res-h">What players said</h2>
+      <div class="quote-pair">
+        <figure class="qp"><figcaption class="label">Before playing</figcaption><blockquote>&ldquo;Why are Americans explaining the war to us again?&rdquo;</blockquote></figure>
+        <figure class="qp"><figcaption class="label">After playing</figcaption><blockquote>&ldquo;Very authentic.&rdquo;</blockquote></figure>
+      </div>
+      <p class="kit-note">Two playtesters, aged 32 and 57, said the game felt not only about them, but for them.</p>
+      <div class="stats">
+        <div class="stat"><p class="label">Playtests</p><strong>40+</strong><span>players tested the prototype as we iterated on their feedback</span></div>
+        <div class="stat"><p class="label">Regions</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
+        <div class="stat"><p class="label">Languages</p><strong>3</strong><span>languages for the research and playtests</span></div>
+      </div>
+      <div class="highlights">
+        <div class="hl"><p class="label">What players noticed</p><h3>The art</h3><p>The museum tree, the town square updating, and the living-room details: crochet, wallpaper and plants.</p></div>
+        <div class="hl"><p class="label">What players noticed</p><h3>Authentic props</h3><p>The memorial chocolate cake, packing the suitcase, the bakery and the ID badge art.</p></div>
+        <div class="hl"><p class="label">What players did</p><h3>Read every line</h3><p>Every player read every line of the story, including the disclaimer.</p></div>
+      </div>
+      <div class="track"><p class="label">The metric I&rsquo;d track next</p><p>A short survey before and after playing, to measure the change in bias directly instead of through interviews alone.</p></div>
+    </section>
+
 <section class="block-section" aria-labelledby="pl-rec-h">
       <div class="sec-head"><h2 class="sec-title" id="pl-rec-h">Recognition</h2></div>
       <div class="highlights two">
@@ -1063,12 +1129,17 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <figcaption class="label">Peaceland at Imagine RIT · April 25, 2026</figcaption>
       </figure>
     </section>
-
+      </div>
+    </div>
+    <div class="cs-step">
+      <p class="step-tag"><span class="st-n">07</span>Reflection</p>
+      <div class="cs-step-body">
 <section class="block-section" aria-labelledby="pl-ref-h">
       <h2 class="sec-title" id="pl-ref-h">Reflection</h2>
       <div class="reflect">
         <div class="rf-row"><p class="label">What I learned</p><div><p>I learned that bias is taught, and that design taste can be developed and adjusted to each project. Until Peaceland, I had been far too comfortable in my own art and design style. This project expanded the limits of what I can create collaboratively, and of what I&rsquo;m able to achieve.</p></div></div>
-        <div class="rf-row"><p class="label">What I&rsquo;d change next</p><div><p>After the playtests, I&rsquo;d change how the game is presented to players, and add more language options. These are still early changes, and they will develop with time.</p></div></div>
+        <div class="rf-row"><p class="label">What I&rsquo;d change next</p><div><p>After the playtests, I&rsquo;d change how the game is presented to players and add more language options. I&rsquo;d also make the consequences of each choice more visible, add more memories and real-life scenarios, and playtest with a bigger group, including other parts of the world.</p></div></div>
+        <div class="rf-row"><p class="label">Where Peaceland stands</p><div><p>After two years of research, three summers of onboarding and a fully playtested Romeo &amp; Juliet memory, Peaceland has a clear design goal and a team structure built to sustain it, and it is open to more undergraduate researchers. The biggest wins were art, story and authenticity; the biggest open work is pacing, decision-making and minigame depth.</p></div></div>
       </div>
     </section>
 
