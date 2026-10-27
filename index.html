@@ -685,16 +685,22 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Notes for Ana (preview only) */
 .pl-summary{gap:18px;max-width:none}
-.pl-sum{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.778fr) minmax(0,1.16fr);gap:clamp(16px,2.4vw,32px);align-items:start}
-.pl-sum .pl-summary{display:flex;flex-direction:column;justify-content:space-between;gap:16px;align-self:stretch}
-.pl-sum-a{display:flex;flex-direction:column;gap:10px}
+.pl-sum{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr) var(--pl-news-w,340px);gap:clamp(16px,2.4vw,32px);align-items:stretch}
+.pl-sum .pl-summary{display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.pl-sum-a,.pl-sum-b{display:flex;flex-direction:column;gap:10px}
+.pl-sum > .trailer.has-thumb{height:0;min-height:100%;display:block}
+.pl-sum > .trailer.has-thumb .tr-thumb{width:100%;height:100%;aspect-ratio:auto}
+.pl-sum > .pl-news{height:0;min-height:100%}
+.pl-sum > .pl-news .tx-zoom{height:100%;aspect-ratio:auto}
+.pl-sum .pl-goals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.pl-sum .pl-goals li{position:relative;padding-left:16px}
+.pl-sum .pl-goals li::before{content:"";position:absolute;left:2px;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.pl-sum .pl-goals strong{font-weight:600}
 .pl-sum .pl-summary .pl-q{margin:0;padding:14px 0 0;border:0;border-top:1px solid var(--line)}
 .pl-news{margin:0;min-width:0}
 .pl-news .tx-zoom{border:0;background:transparent}
 .pl-news .tx-zoom img{object-fit:contain}
-.pl-goals-row{list-style:none;margin:clamp(-48px,-3.6vw,-20px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);font-size:var(--fs-body);line-height:1.5}
-.pl-goals-row li{border-top:2px solid var(--blue);padding-top:10px}
-.pl-goals-row strong{display:block;font-weight:600}
+
 .pl-sum .lede{font-size:clamp(16px,1.5vw,19px);line-height:1.4}
 .pl-sum .trailer.has-thumb{flex-direction:column;align-items:stretch;gap:14px;padding:12px 12px 16px}
 .pl-sum .tr-thumb{width:100%}
@@ -705,8 +711,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-sum .trailer.has-thumb .play{transform:translateY(-14px)}
 .pl-sum .trailer.has-thumb:hover .play{transform:translateY(-14px) scale(1.08)}
 .pl-sum .trailer.has-thumb .trailer-text .label{color:rgba(255,255,255,.82)}
-@media (max-width:1100px){.pl-sum{grid-template-columns:minmax(0,1.778fr) minmax(0,1.16fr)}.pl-sum .pl-summary{grid-column:1/-1}}
-@media (max-width:600px){.pl-sum{grid-template-columns:minmax(0,1fr)}.pl-news{max-width:420px}.pl-goals-row{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1240px){.pl-sum{grid-template-columns:minmax(0,1.778fr) minmax(0,1.16fr);align-items:start}.pl-sum .pl-summary{grid-column:1/-1}.pl-sum > .trailer.has-thumb,.pl-sum > .pl-news{height:auto;min-height:0}.pl-sum > .trailer.has-thumb .tr-thumb{height:auto;aspect-ratio:16/9}.pl-sum > .pl-news .tx-zoom{height:auto;aspect-ratio:var(--ar)}}
+@media (max-width:600px){.pl-sum{grid-template-columns:minmax(0,1fr)}.pl-news{max-width:420px}}
 .pl-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3.4vw,48px);align-items:center}
 .pl-pic{aspect-ratio:3/2}
 .pl-fig{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -1059,7 +1065,10 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
         <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
         </div>
+        <div class="pl-sum-b">
         <p class="pl-q">How can a game help young people move past divisions from a war they never lived through?</p>
+        <ul class="pl-goals"><li><strong>Player experience:</strong> step into the other side&rsquo;s story</li><li><strong>Authentic look:</strong> everything from real references</li><li><strong>Research:</strong> test if a game can reduce bias</li></ul>
+        </div>
       </div>
       <a class="trailer has-thumb" href="https://www.youtube.com/watch?v=tj5iqVu7Z1s&amp;t=80s" target="_blank" rel="noopener">
       <span class="tr-thumb"><img class="tr-img" src="https://i.ytimg.com/vi/tj5iqVu7Z1s/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth&lt;=120&amp;&amp;!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/tj5iqVu7Z1s/hqdefault.jpg'}else{this.remove()}"><span class="play" aria-hidden="true"></span></span>
@@ -2953,6 +2962,22 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     });
   });
 
+
+  /* Peaceland summary: the newspaper column is exactly as wide as the text-height newspaper needs */
+  const plSum = document.querySelector('.pl-sum');
+  if (plSum){
+    const txt = plSum.querySelector('.pl-summary');
+    const fitNews = () => {
+      if (plSum.closest('[hidden]')) return;
+      if (matchMedia('(max-width:1240px)').matches){ plSum.style.removeProperty('--pl-news-w'); return; }
+      const h = txt.getBoundingClientRect().height;
+      plSum.style.setProperty('--pl-news-w', Math.round(h * 1604 / 1383) + 'px');
+    };
+    addEventListener('resize', fitNews);
+    addEventListener('hashchange', () => requestAnimationFrame(fitNews));
+    if (document.fonts) document.fonts.ready.then(fitNews);
+    requestAnimationFrame(fitNews);
+  }
 })();
 </script>
 </body>
