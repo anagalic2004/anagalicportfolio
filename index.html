@@ -769,6 +769,16 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:640px){.quote-pair{grid-template-columns:minmax(0,1fr)}}
 .quote-pair.quote-one{grid-template-columns:minmax(0,1fr);max-width:640px}
 [aria-labelledby="pl-res-h"] .stat{border-top:0;padding-top:0}
+.noticed{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:start}
+.noticed-main{display:flex;flex-direction:column;gap:12px}
+.noticed > .hl{border-top:0;padding-top:0}
+.noticed > .hl .label{font-size:var(--fs-label)}
+[aria-labelledby="pl-res-h"] .stats + .noticed{margin-top:clamp(8px,1.4vw,16px)}
+.noticed-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:var(--fs-body);line-height:1.5}
+.noticed-list li{position:relative;padding-left:18px}
+.noticed-list li::before{content:"";position:absolute;left:2px;top:.66em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.noticed-list strong{font-weight:650}
+@media (max-width:760px){.noticed{grid-template-columns:minmax(0,1fr)}}
 .track{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);padding:18px 22px;background:var(--blue-soft);border:1px solid var(--blue)}
 .track p{margin:0}
 .track p:not(.label){font-weight:600;max-width:62ch}
@@ -1189,13 +1199,14 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="stat"><p class="label">Regions</p><strong>4</strong><span>international regions for playtests and stakeholder interviews</span></div>
         <div class="stat"><p class="label">Languages</p><strong>3</strong><span>languages for the research and playtests</span></div>
       </div>
-      <div class="quote-pair quote-one">
-        <figure class="qp"><blockquote>&ldquo;Very authentic.&rdquo;</blockquote></figure>
-      </div>
-      <p class="kit-note">Two playtesters, aged 32 and 57, said the game felt not only about them, but for them.</p>
-      <div class="highlights">
-        <div class="hl"><p class="label">What players noticed</p><h3>The art</h3><p>The museum tree, the town square updating, and the living-room details: crochet, wallpaper and plants.</p></div>
-        <div class="hl"><p class="label">What players noticed</p><h3>Authentic props</h3><p>The memorial chocolate cake, packing the suitcase, the bakery and the ID badge art.</p></div>
+      <div class="noticed">
+        <div class="noticed-main"><p class="label">What players noticed</p>
+          <ul class="noticed-list">
+            <li><strong>&ldquo;Very authentic.&rdquo;</strong></li>
+            <li>Two playtesters, aged 32 and 57, said the game felt not only about them, but for them.</li>
+            <li><strong>The art:</strong> the museum tree, the town square updating, and the living-room details: crochet, wallpaper and plants.</li>
+            <li><strong>Authentic props:</strong> the memorial chocolate cake, packing the suitcase, the bakery and the ID badge art.</li>
+          </ul></div>
         <div class="hl"><p class="label">What players did</p><h3>Read every line</h3><p>Every player read every line of the story, including the disclaimer.</p></div>
       </div>
       <div class="track"><p class="label">The metric I&rsquo;d track next</p><p>A short survey before and after playing, to measure the change in bias directly instead of through interviews alone.</p></div>
