@@ -85,7 +85,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 /* Header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);box-shadow:0 0 0 100vmax var(--paper),0 1px 0 100vmax var(--line);clip-path:inset(0 -100vmax -1px)}
 .top-in{max-width:var(--max);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:15px}
+ .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.brand{display:flex;align-items:center;text-decoration:none;font-family:var(--display);font-weight:800;font-size:clamp(17px,1.5vw,20px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .brand-logo{display:block;width:53px;height:60px;max-width:none;transition:transform .35s var(--ease)}
 .brand:hover .brand-logo,.brand:focus-visible .brand-logo{transform:rotate(-5deg) scale(1.06)}
 .nav{display:flex;gap:clamp(14px,2.6vw,30px);font-size:var(--fs-small);font-weight:600}
@@ -923,7 +924,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="#professional" aria-label="Ana Galic, home"><img class="brand-logo" src="img/logo-face.png" srcset="img/logo-face.png 1x, img/logo-face-2x.png 2x, img/logo-face-3x.png 3x" alt="" width="53" height="60"></a>
+    <a class="brand" href="#professional" aria-label="Ana Galic, home">Ana Galic</a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav"><span class="nav-toggle-txt">Menu</span><span class="nav-toggle-ico" aria-hidden="true"></span></button>
     <nav class="nav" id="main-nav" aria-label="Main">
       <a href="#work" data-nav="work">Work</a>
@@ -941,30 +942,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <section class="hero-wrap" aria-labelledby="hero-name">
-      <div class="hero" id="hero">
-        <img class="hero-art hero-img" id="hero-img" alt="" aria-hidden="true" src="img/painting.jpg">
-        <canvas class="hero-art" id="hero-canvas" role="img" aria-label="Painting by Ana Galic: brushed shapes in blues, peach, pink and yellow"></canvas>
-        <div class="hero-veil" aria-hidden="true"></div>
-        <div class="hero-row">
-          <p class="tag">Graphic &amp; UX/UI Designer</p>
-          <p class="tag tag-r">Computer Science + Digital Design</p>
-        </div>
-        <h1 class="wordmark" id="hero-name"><span class="wm-line">Ana</span> <span class="wm-line">Galic</span></h1>
-        <div class="hero-row hero-row-b">
-          <div class="hero-cta" id="hero-cta">
-            <a class="hero-btn primary" href="#work">See my work</a>
-          </div>
-          <p class="tag tag-hint" aria-hidden="true"><span class="hint-dot"></span><span id="hero-hint-text">Move across the painting to smudge it</span></p>
-        </div>
-        <div class="brush" id="brush" aria-hidden="true"></div>
-      </div>
-      <div class="hero-foot">
-        <p class="label">Visual identities</p>
-        <p class="label">Graphics for video games</p>
-        <p class="label">User-centered websites</p>
-      </div>
-    </section>
+    <h1 class="visually-hidden">Ana Galic, graphic and UX/UI designer</h1>
 
     <section class="intro" aria-label="About Ana">
       <div class="intro-design" id="intro-design">
@@ -2384,136 +2362,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   }
   document.querySelectorAll('.art-wave').forEach(waveBars);
 
-  /* Hero: the name is fitted to the painting, and the painting is a live canvas.
-     Moving across it drags the paint along like a smudge brush; the paint settles back a few seconds later. */
-  const hero = document.getElementById('hero');
-  const wm = hero.querySelector('.wordmark');
-  const heroImg = document.getElementById('hero-img');
-  const heroCanvas = document.getElementById('hero-canvas');
-  const brush = document.getElementById('brush');
-  const hctx = heroCanvas.getContext('2d');
-  const base = document.createElement('canvas'), bctx = base.getContext('2d');
-  const dabC = document.createElement('canvas'), dctx = dabC.getContext('2d');
-  const maskC = document.createElement('canvas'), mctx = maskC.getContext('2d');
-  const HEAL_FRAMES = 420;
-  let dpr = 1, R = 50, live = false, lastPt = null, sinceInput = 0, healRaf = 0, travelled = 0;
-
-  if (window.matchMedia('(pointer: coarse)').matches){
-    document.getElementById('hero-hint-text').textContent = 'Drag across the painting to smudge it';
-  }
-
-  function fit(){
-    const cs = getComputedStyle(hero);
-    const availW = hero.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const availH = hero.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-    if (availW <= 0 || availH <= 0) return;
-    wm.style.fontSize = '100px';
-    wm.style.width = 'max-content';
-    const r = wm.getBoundingClientRect();
-    wm.style.width = '';
-    let size = 100 * (availW * 0.42) / r.width;
-    size = Math.min(size, 100 * (availH * 0.32) / r.height);
-    wm.style.fontSize = Math.max(32, Math.min(96, size)).toFixed(1) + 'px';
-  }
-
-  function layoutArt(){
-    const w = heroCanvas.clientWidth, h = heroCanvas.clientHeight;
-    if (!w || !h || !heroImg.naturalWidth) return;
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    const cw = Math.round(w * dpr), ch = Math.round(h * dpr);
-    if (!live || heroCanvas.width !== cw || heroCanvas.height !== ch){
-      heroCanvas.width = base.width = cw;
-      heroCanvas.height = base.height = ch;
-      const s = Math.max(cw / heroImg.naturalWidth, ch / heroImg.naturalHeight);
-      const dw = heroImg.naturalWidth * s, dh = heroImg.naturalHeight * s;
-      bctx.imageSmoothingQuality = 'high';
-      bctx.drawImage(heroImg, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
-      hctx.globalAlpha = 1;
-      hctx.drawImage(base, 0, 0);
-    }
-    R = Math.max(30, Math.min(72, w * 0.05));
-    const size = Math.ceil(R * 2 * dpr);
-    if (dabC.width !== size){
-      dabC.width = dabC.height = maskC.width = maskC.height = size;
-      const half = size / 2;
-      const g = mctx.createRadialGradient(half, half, 0, half, half, half);
-      g.addColorStop(0, 'rgba(0,0,0,.88)');
-      g.addColorStop(.5, 'rgba(0,0,0,.6)');
-      g.addColorStop(1, 'rgba(0,0,0,0)');
-      mctx.clearRect(0, 0, size, size);
-      mctx.fillStyle = g;
-      mctx.fillRect(0, 0, size, size);
-    }
-    brush.style.setProperty('--d', (R * 2).toFixed(1) + 'px');
-    live = true;
-    hero.classList.add('is-live');
-  }
-
-  // One brush dab: lift the paint under the previous point and lay it down at the next one
-  function dab(x0, y0, x1, y1){
-    const size = dabC.width, half = size / 2;
-    try {
-      dctx.globalCompositeOperation = 'source-over';
-      dctx.clearRect(0, 0, size, size);
-      dctx.drawImage(heroCanvas, x0 * dpr - half, y0 * dpr - half, size, size, 0, 0, size, size);
-      dctx.globalCompositeOperation = 'destination-in';
-      dctx.drawImage(maskC, 0, 0);
-      hctx.drawImage(dabC, x1 * dpr - half, y1 * dpr - half);
-    } catch (err) {}
-  }
-
-  function heal(){
-    healRaf = 0;
-    sinceInput++;
-    const t = sinceInput / HEAL_FRAMES;
-    if (t >= 1){ hctx.globalAlpha = 1; hctx.drawImage(base, 0, 0); return; }
-    hctx.globalAlpha = 0.006 + 0.3 * t * t;
-    hctx.drawImage(base, 0, 0);
-    hctx.globalAlpha = 1;
-    healRaf = requestAnimationFrame(heal);
-  }
-
-  function smudge(e){
-    const r = heroCanvas.getBoundingClientRect();
-    const x = e.clientX - r.left, y = e.clientY - r.top;
-    if (e.pointerType !== 'touch'){
-      brush.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
-      brush.classList.add('on');
-    }
-    if (live && lastPt){
-      const dx = x - lastPt.x, dy = y - lastPt.y, dist = Math.hypot(dx, dy);
-      if (dist > 0.5){
-        const steps = Math.min(60, Math.ceil(dist / (R * 0.18)));
-        for (let i = 1; i <= steps; i++){
-          const a = (i - 1) / steps, b = i / steps;
-          dab(lastPt.x + dx * a, lastPt.y + dy * a, lastPt.x + dx * b, lastPt.y + dy * b);
-        }
-        travelled += dist;
-        if (travelled > 160) hero.classList.add('is-touched');
-        sinceInput = 0;
-        if (!healRaf) healRaf = requestAnimationFrame(heal);
-      }
-    }
-    lastPt = {x, y};
-  }
-  hero.addEventListener('pointermove', smudge);
-  hero.addEventListener('pointerdown', e => { lastPt = null; smudge(e); });
-  const lift = () => { lastPt = null; brush.classList.remove('on'); };
-  hero.addEventListener('pointerleave', lift);
-  hero.addEventListener('pointercancel', lift);
-  hero.addEventListener('pointerup', e => { if (e.pointerType === 'touch') lift(); });
-  const heroCta = document.getElementById('hero-cta');
-  ['pointerdown', 'pointermove'].forEach(t => heroCta.addEventListener(t, e => e.stopPropagation()));
-  heroCta.addEventListener('pointerenter', lift);
-
-  if (heroImg.complete && heroImg.naturalWidth) layoutArt(); else heroImg.addEventListener('load', layoutArt);
-  if ('ResizeObserver' in window) new ResizeObserver(() => { fit(); layoutArt(); }).observe(hero);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  if (document.fonts && document.fonts.load) document.fonts.load('800 100px "Bricolage Grotesque"').then(fit, () => {});
-  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fit);
-  fit();
   let rt;
-  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { fit(); layoutArt(); sizePad(); }, 120); });
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(sizePad, 120); });
 
   /* Router: one view per bare #anchor */
   const routes = ['professional','personal','about','peaceland','soulshine','vals','izone','rochester-design-hub','girls-who-code'];
@@ -2542,7 +2392,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     const samePage = shown && shown.dataset.view === r;
     document.querySelectorAll('[data-view]').forEach(v => { v.hidden = v.dataset.view !== r; });
     setNav(anchor || navOf[r] || r);
-    if (r === 'professional'){ fit(); layoutArt(); }
     if (r === 'personal') sizePad();
     preloadExplorer(r);
     if (anchor){
