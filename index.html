@@ -227,6 +227,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Covers (stand-ins until the real project images arrive) */
 .cover{position:relative;aspect-ratio:4/3;max-width:100%;background:var(--block);overflow:hidden;border:1px solid var(--block-line)}
+.cover.cover-bare{background:transparent;border:0}
 .cover .art{position:absolute;inset:0;transition:transform .7s var(--ease)}
 .card:hover .cover .art{transform:scale(1.045)}
 .cover-tag{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-block);border:1px solid var(--block-line);background:var(--block);padding:4px 8px}
@@ -970,7 +971,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           </div>
         </a>
         <a class="card" href="#soulshine" data-tags="product research">
-          <div class="cover"><img class="cover-img" src="img/soulshine/cover-tablet.jpg" alt="" loading="lazy"><span class="cover-tag">Product</span></div>
+          <div class="cover cover-bare"><img class="cover-img" src="img/soulshine/cover-device.webp" alt="" loading="lazy"><span class="cover-tag">Product</span></div>
           <div class="card-body">
             <div class="card-row"><h3>Soulshine</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
