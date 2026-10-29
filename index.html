@@ -747,6 +747,11 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-sum-a,.pl-sum-b{display:flex;flex-direction:column;gap:10px}
 .pl-sum > .trailer.has-thumb{height:0;min-height:100%;display:block}
 .pl-sum > .trailer.has-thumb .tr-thumb{width:100%;height:100%;aspect-ratio:auto}
+.pl-sum > .trailer.has-thumb .tr-thumb{background:#0B0C0E}
+.pl-sum > .trailer.has-thumb .tr-img{object-fit:contain}
+.pl-sum > .trailer.has-thumb .play{transform:translateY(-22px)}
+.pl-sum > .pl-news{display:flex;align-items:center}
+.pl-sum > .pl-news .tx-zoom{width:100%;height:auto;aspect-ratio:var(--ar)}
 .pl-sum > .pl-news{height:0;min-height:100%}
 .pl-sum > .pl-news .tx-zoom{height:100%;aspect-ratio:auto}
 .pl-sum .pl-goals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
@@ -1075,7 +1080,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div></div><figcaption class="label">Peaceland: Choose Your Memory · Title art</figcaption></figure>
       <div class="pl-side">
         <dl class="meta">
-      <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
+      <div><dt class="label">Role</dt><dd>Art Team<br>Narrative Team</dd></div>
       <div><dt class="label">What I did</dt><dd>World and characters, branching decisions and endings, in-game notebook, playtests</dd></div>
       <div><dt class="label">Duration</dt><dd>Jan 2026 – Jul 2026</dd></div>
       <div><dt class="label">Tools</dt><dd>Figma, Adobe Photoshop, Cinema4D</dd></div>
@@ -1092,6 +1097,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <div class="pl-sum-a">
         <p class="lede">A narrative video game about a country 30 years after a civil war.</p>
         <p class="lede pl-answer">Players relive survivors&rsquo; memories in a museum, and their choices shape its future.</p>
+        <p class="lede pl-answer">Set in the fictional country of Streynia and built from real stories from the Balkans, it shows the war through the eyes of people on every side.</p>
         </div>
         <div class="pl-sum-b">
         <p class="pl-q">How can a game help young people move past divisions from a war they never lived through?</p>
@@ -2928,7 +2934,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       if (plSum.closest('[hidden]')) return;
       if (matchMedia('(max-width:1240px)').matches){ plSum.style.removeProperty('--pl-news-w'); return; }
       const h = txt.getBoundingClientRect().height;
-      plSum.style.setProperty('--pl-news-w', Math.round(h * 1604 / 1383) + 'px');
+      const cap = plSum.getBoundingClientRect().width * 0.27;
+      plSum.style.setProperty('--pl-news-w', Math.round(Math.min(h * 1604 / 1383, cap)) + 'px');
     };
     addEventListener('resize', fitNews);
     addEventListener('hashchange', () => requestAnimationFrame(fitNews));
