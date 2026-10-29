@@ -194,7 +194,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 /* Work grid */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(32px,3.4vw,44px) clamp(16px,2vw,28px)}
 @media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.grid .cover{aspect-ratio:16/10}}
+.grid.grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.grid.grid-two{grid-template-columns:minmax(0,1fr)}.grid .cover{aspect-ratio:16/10}}
 .grid .card{gap:14px}
 .grid .card-type{font-size:15.5px;line-height:1.4}
 .card{display:flex;flex-direction:column;gap:18px;text-decoration:none;transition:opacity .4s var(--ease)}
@@ -956,7 +957,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="sec-head">
         <h2 class="sec-title" id="work-h">Work</h2>
       </div>
-      <div class="grid">
+      <div class="grid grid-two">
         <a class="card" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
             <img class="cover-img" src="img/peaceland-town.jpg" alt="" loading="lazy">
@@ -965,6 +966,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="card-body">
             <div class="card-row"><h3>Peaceland</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">Narrative-driven video game</p>
+          </div>
+        </a>
+        <a class="card" href="#tedx" data-tags="graphic">
+          <div class="cover"><img class="cover-img" src="img/izone/tedx/photo-7-sm.jpg" alt="" loading="lazy"><span class="cover-tag">Event</span></div>
+          <div class="card-body">
+            <div class="card-row"><h3><span class="nc">TEDxURochester</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
+            <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
           </div>
         </a>
         <a class="card" href="#soulshine" data-tags="product research">
@@ -979,13 +987,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <div class="card-body">
             <div class="card-row"><h3>VALS</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
             <p class="card-type">AI voice assistant</p>
-          </div>
-        </a>
-        <a class="card" href="#tedx" data-tags="graphic">
-          <div class="cover"><img class="cover-img" src="img/izone/tedx/photo-7-sm.jpg" alt="" loading="lazy"><span class="cover-tag">Event</span></div>
-          <div class="card-body">
-            <div class="card-row"><h3><span class="nc">TEDxURochester</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
           </div>
         </a>
       </div>
