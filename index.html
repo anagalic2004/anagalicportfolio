@@ -628,9 +628,15 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .pl-fig .ipad{width:100%}
 .built-gifs .built-fig{gap:12px}
 .reel{position:relative;overflow:hidden;border-radius:10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.reel-track{display:flex;width:max-content;animation:reel 60s linear infinite}
-.reel:hover .reel-track,.reel:focus-within .reel-track{animation-play-state:paused}
-@keyframes reel{to{transform:translateX(-50%)}}
+.reel-wrap{position:relative}
+.reel-track{display:flex;width:max-content;will-change:transform}
+.reel-arrow{position:absolute;top:50%;z-index:2;width:42px;height:42px;margin-top:-21px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(11,12,14,.28);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;cursor:pointer;transition:background .25s,transform .25s,border-color .25s}
+.reel-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
+.reel-prev{left:14px}.reel-next{right:14px}
+.reel-arrow:hover{background:rgba(11,12,14,.55);border-color:#fff}
+.reel-prev:hover{transform:translateX(-2px)}.reel-next:hover{transform:translateX(2px)}
+.reel-arrow:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media (max-width:600px){.reel-arrow{width:34px;height:34px;margin-top:-17px}.reel-prev{left:8px}.reel-next{right:8px}}
 .reel-item{position:relative;margin:0;flex:none;height:clamp(190px,24vw,320px);aspect-ratio:var(--ar,1600/853);overflow:hidden}
 .reel-item .reel-btn{display:block;width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;background:#000;padding:0}
 .reel-item .reel-btn img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
@@ -640,7 +646,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .reel-cap span{font-weight:400;opacity:.75}
 .reel-item:hover .reel-cap,.reel-item:focus-within .reel-cap{opacity:1;transform:none}
 @media (hover:none){.reel-cap{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){.reel{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.reel-track{animation:none}.reel-item[aria-hidden="true"]{display:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .kit-note.art-note{max-width:none}
 .sub-btn-row{margin:-4px 0 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -1131,7 +1136,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <figure class="built-fig"><div class="ipad"><div class="ipad-screen"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-letter.gif" data-cap="Torn letter puzzle" aria-label="Enlarge: Torn letter puzzle"><img src="img/peaceland/art/gif-letter.gif" alt="Mini-game: the player pieces together a torn love letter signed by Ruzica" loading="lazy" width="800" height="450"></button></div></div><figcaption>Torn letter puzzle</figcaption></figure>
           <figure class="built-fig"><div class="ipad"><div class="ipad-screen"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-memory-tree.gif" data-cap="At the memory tree" aria-label="Enlarge: At the memory tree"><img src="img/peaceland/art/gif-memory-tree.gif" alt="Two characters stand in front of the memory tree in the museum, next to its War Memorial sign" loading="lazy" width="800" height="450"></button></div></div><figcaption>At the memory tree</figcaption></figure>
         </div></div>
-      <div class="built-group"><p class="label">Scenes</p><div class="reel" role="group" aria-label="Scenes, scrolling slowly. Hover to pause, click a scene to enlarge it."><div class="reel-track">
+      <div class="built-group"><p class="label">Scenes</p><div class="reel-wrap"><div class="reel" role="group" aria-label="Scenes, scrolling slowly. Hover to pause, click a scene to enlarge it."><div class="reel-track">
           <figure class="reel-item" style="--ar:1600/853"><button type="button" class="tx-zoom reel-btn" style="--ar:1600/853" data-full="img/pw-museum-1.jpg" data-cap="Museum: clothes and shoes (Art Team)" aria-label="Enlarge: Museum: clothes and shoes"><img src="img/pw-museum-1.jpg" alt="Museum case with an embroidered green and yellow rug, two floral headscarves, worn shoes, children's sneakers and green boots" width="1600" height="853"></button><figcaption class="reel-cap">Museum: clothes and shoes <span>(Art Team)</span></figcaption></figure>
           <figure class="reel-item" style="--ar:1600/853"><button type="button" class="tx-zoom reel-btn" style="--ar:1600/853" data-full="img/pw-museum-2.jpg" data-cap="Museum: toys and keepsakes (Art Team)" aria-label="Enlarge: Museum: toys and keepsakes"><img src="img/pw-museum-2.jpg" alt="Three faction flags above museum cases holding painted plates, books, a doll, toy soldiers, a toy horse, a teddy bear, a ball and a wooden sword" width="1600" height="853"></button><figcaption class="reel-cap">Museum: toys and keepsakes <span>(Art Team)</span></figcaption></figure>
           <figure class="reel-item" style="--ar:1600/853"><button type="button" class="tx-zoom reel-btn" style="--ar:1600/853" data-full="img/pw-museum-3.jpg" data-cap="Museum: wartime documents (Art Team)" aria-label="Enlarge: Museum: wartime documents"><img src="img/pw-museum-3.jpg" alt="Museum cases with a green uniform, a framed ceasefire agreement, coins, a passport, medals, old photos and a newspaper reading The War Finally Ends" width="1600" height="853"></button><figcaption class="reel-cap">Museum: wartime documents <span>(Art Team)</span></figcaption></figure>
@@ -1142,7 +1147,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
           <figure class="reel-item" aria-hidden="true" style="--ar:1600/853"><button type="button" class="tx-zoom reel-btn" tabindex="-1" style="--ar:1600/853" data-full="img/pw-museum-3.jpg" data-cap="Museum: wartime documents (Art Team)" aria-label="Enlarge: Museum: wartime documents"><img src="img/pw-museum-3.jpg" alt="" width="1600" height="853"></button><figcaption class="reel-cap">Museum: wartime documents <span>(Art Team)</span></figcaption></figure>
           <figure class="reel-item" aria-hidden="true" style="--ar:1600/864"><button type="button" class="tx-zoom reel-btn" tabindex="-1" style="--ar:1600/864" data-full="img/peaceland/art/place-bakery.jpg" data-cap="Dalila&rsquo;s Bakery (Art Team)" aria-label="Enlarge: Dalila&rsquo;s Bakery"><img src="img/peaceland/art/place-bakery.jpg" alt="" width="1600" height="864"></button><figcaption class="reel-cap">Dalila&rsquo;s Bakery <span>(Art Team)</span></figcaption></figure>
           <figure class="reel-item" aria-hidden="true" style="--ar:1600/844"><button type="button" class="tx-zoom reel-btn" tabindex="-1" style="--ar:1600/844" data-full="img/peaceland/art/place-kitchen.jpg" data-cap="Family kitchen (Art Team)" aria-label="Enlarge: Family kitchen"><img src="img/peaceland/art/place-kitchen.jpg" alt="" width="1600" height="844"></button><figcaption class="reel-cap">Family kitchen <span>(Art Team)</span></figcaption></figure>
-        </div></div></div>
+        </div></div>
+        <button type="button" class="reel-arrow reel-prev" aria-label="Previous scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button><button type="button" class="reel-arrow reel-next" aria-label="Next scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg></button></div></div>
       <div class="built-row2">
         <figure class="built-fig art-block"><div class="art-grid">
           <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rug.jpg" data-cap="Embroidered rug (Art Team)" aria-label="Enlarge: Embroidered rug"><img src="img/peaceland/art/artifact-rug.jpg" alt="Sketch of an embroidered rug in green, yellow and red with a cross pattern and a small pine tree" loading="lazy" width="900" height="900"></button></figure>
@@ -2927,6 +2933,37 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     if (document.fonts) document.fonts.ready.then(fitNews);
     requestAnimationFrame(fitNews);
   }
+
+  /* Peaceland scenes reel: glides on its own, pauses on hover, arrows step one scene */
+  document.querySelectorAll('.reel-wrap').forEach(wrap => {
+    const reel = wrap.querySelector('.reel'), track = wrap.querySelector('.reel-track');
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const speed = 0.028;            /* px per ms */
+    let x = 0, last = 0, hover = false, anim = null;
+    const half = () => track.scrollWidth / 2;
+    const wrapX = v => { const h = half(); return h ? ((v % h) + h) % h : 0; };
+    const draw = () => { track.style.transform = `translate3d(${-wrapX(x)}px,0,0)`; };
+    const itemW = () => { const it = track.querySelector('.reel-item'); return it ? it.getBoundingClientRect().width : 300; };
+    function frame(t){
+      const dt = last ? Math.min(64, t - last) : 0; last = t;
+      if (anim){
+        const k = Math.min(1, (t - anim.t0) / 650), e = 1 - Math.pow(1 - k, 3);
+        x = anim.from + (anim.to - anim.from) * e;
+        if (k === 1) anim = null;
+      } else if (!hover && !still && !reel.closest('[hidden]')){
+        x += speed * dt;
+      }
+      draw(); requestAnimationFrame(frame);
+    }
+    const go = d => { anim = {from: x, to: x + d * itemW(), t0: performance.now()}; };
+    wrap.querySelector('.reel-prev').addEventListener('click', () => go(-1));
+    wrap.querySelector('.reel-next').addEventListener('click', () => go(1));
+    reel.addEventListener('pointerenter', () => { hover = true; });
+    reel.addEventListener('pointerleave', () => { hover = false; });
+    reel.addEventListener('focusin', () => { hover = true; });
+    reel.addEventListener('focusout', () => { hover = false; });
+    requestAnimationFrame(frame);
+  });
 })();
 </script>
 </body>
