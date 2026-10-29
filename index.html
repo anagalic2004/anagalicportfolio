@@ -16,7 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -57,9 +57,9 @@
   --on-block:#F4F7FA;
   --block-muted:#8A939E;
   --block-line:#262B31;
-  --display:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --body:"Inter Tight",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --gutter:clamp(16px,4vw,48px);
   --max:1240px;
   --fs-label:12px;
@@ -620,6 +620,13 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Choose your memory */
 .built-group{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ipad{position:relative;padding:clamp(7px,2.6%,18px);background:#16171a;border-radius:clamp(14px,5%,34px);box-shadow:0 0 0 1.5px #d3d6da,0 0 0 2.5px #a9adb3,0 22px 36px -20px rgba(11,12,14,.45)}
+.ipad::before{content:"";position:absolute;top:calc(clamp(7px,2.6%,18px) / 2 - 2px);left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#3a3d44}
+.ipad-screen{position:relative;overflow:hidden;aspect-ratio:1.6;border-radius:clamp(7px,2.4%,16px);background:#000}
+.ipad-screen > img,.ipad-screen .tx-zoom img,.built-fig .ipad-screen .tx-zoom img{display:block;width:100%;height:100%;object-fit:cover}
+.ipad-screen .tx-zoom{height:100%;aspect-ratio:auto;border:0;border-radius:0;background:#000}
+.pl-fig .ipad{width:100%}
+.built-gifs .built-fig{gap:12px}
 .label-strong{color:var(--ink);font-weight:700}
 .kit-note.art-note{max-width:none}
 .sub-btn-row{margin:-4px 0 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -1040,9 +1047,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         <h1 class="cs-title">Peaceland</h1>
       </header>
 <div class="pl-top">
-      <figure class="pl-fig"><div class="cover cs-banner pl-pic">
+      <figure class="pl-fig"><div class="ipad"><div class="ipad-screen">
         <img class="cover-img" src="img/peaceland-cover.jpg" alt="Peaceland: Choose Your Memory title art: the memory tree, a weeping willow under a glass dome in the museum">
-      </div><figcaption class="label">Peaceland: Choose Your Memory · Title art</figcaption></figure>
+      </div></div><figcaption class="label">Peaceland: Choose Your Memory · Title art</figcaption></figure>
       <div class="pl-side">
         <dl class="meta">
       <div><dt class="label">Role</dt><dd>UX/UI Design<br>Narrative Team</dd></div>
@@ -1106,9 +1113,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       </div>
       <p class="kit-note art-note">I led characterization and art research, so every character, place and artifact was researched and chosen before the Art Team drew it.<br>These drawings will be remodeled in 3D for the game.</p>
       <div class="built-group"><p class="label">Gameplay</p><div class="built built-gifs">
-          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-kitchen.gif" data-cap="Kitchen memory" aria-label="Enlarge: Kitchen memory"><img src="img/peaceland/art/gif-kitchen.gif" alt="A memory scene in a family kitchen: one young man sits at the table while another stands in the foreground, looking worried" loading="lazy" width="800" height="450"></button><figcaption>Kitchen memory</figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-letter.gif" data-cap="Torn letter puzzle" aria-label="Enlarge: Torn letter puzzle"><img src="img/peaceland/art/gif-letter.gif" alt="Mini-game: the player pieces together a torn love letter signed by Ruzica" loading="lazy" width="800" height="450"></button><figcaption>Torn letter puzzle</figcaption></figure>
-          <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-memory-tree.gif" data-cap="At the memory tree" aria-label="Enlarge: At the memory tree"><img src="img/peaceland/art/gif-memory-tree.gif" alt="Two characters stand in front of the memory tree in the museum, next to its War Memorial sign" loading="lazy" width="800" height="450"></button><figcaption>At the memory tree</figcaption></figure>
+          <figure class="built-fig"><div class="ipad"><div class="ipad-screen"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-kitchen.gif" data-cap="Kitchen memory" aria-label="Enlarge: Kitchen memory"><img src="img/peaceland/art/gif-kitchen.gif" alt="A memory scene in a family kitchen: one young man sits at the table while another stands in the foreground, looking worried" loading="lazy" width="800" height="450"></button></div></div><figcaption>Kitchen memory</figcaption></figure>
+          <figure class="built-fig"><div class="ipad"><div class="ipad-screen"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-letter.gif" data-cap="Torn letter puzzle" aria-label="Enlarge: Torn letter puzzle"><img src="img/peaceland/art/gif-letter.gif" alt="Mini-game: the player pieces together a torn love letter signed by Ruzica" loading="lazy" width="800" height="450"></button></div></div><figcaption>Torn letter puzzle</figcaption></figure>
+          <figure class="built-fig"><div class="ipad"><div class="ipad-screen"><button type="button" class="tx-zoom" style="--ar:800/450" data-full="img/peaceland/art/gif-memory-tree.gif" data-cap="At the memory tree" aria-label="Enlarge: At the memory tree"><img src="img/peaceland/art/gif-memory-tree.gif" alt="Two characters stand in front of the memory tree in the museum, next to its War Memorial sign" loading="lazy" width="800" height="450"></button></div></div><figcaption>At the memory tree</figcaption></figure>
         </div></div>
       <div class="built-group"><p class="label">Scenes</p><div class="built built-scenes">
           <figure class="built-fig"><button type="button" class="tx-zoom" style="--ar:1600/853" data-full="img/pw-museum-1.jpg" data-cap="Museum: clothes and shoes (Art Team)" aria-label="Enlarge: Museum: clothes and shoes"><img src="img/pw-museum-1.jpg" alt="Museum case with an embroidered green and yellow rug, two floral headscarves, worn shoes, children's sneakers and green boots" loading="lazy" width="1600" height="853"></button><figcaption>Museum: clothes and shoes <span>(Art Team)</span></figcaption></figure>
