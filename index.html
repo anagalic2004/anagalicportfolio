@@ -685,7 +685,7 @@ html.dock-on .dock-name{visibility:hidden}
 html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;text-decoration:none;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
 html.dock-on.docked .dock-fly{pointer-events:auto}
 html.dock-on .brand{visibility:hidden}
-.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#6B6F75;opacity:var(--tag-o,1)}
+.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#3E4A5C;opacity:var(--tag-o,1)}
 .intro{position:relative;z-index:1;padding-bottom:clamp(24px,6vh,72px)}
 .statement .w{opacity:0;transition:opacity .9s var(--ease);transition-delay:calc(var(--i) * 18ms)}
 .statement.in .w{opacity:1}
@@ -721,6 +721,17 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .gallery .card-type{color:#59616C}
 @media (max-width:600px){.dock-hero{height:calc(100svh - 66px)}.dock-pin{justify-content:flex-start;padding-top:22vh;gap:clamp(28px,6vh,56px)}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
 @media (prefers-reduced-motion: reduce){.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
+/* Front screen: a live watercolour wash behind the name */
+.wash{display:none}
+html.home-on .wash{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;background:#D4E7FC;opacity:var(--wash-o,1);transition:opacity .2s linear}
+.wash canvas{position:absolute;inset:0;width:100%;height:100%;filter:blur(1.5px) saturate(1.05)}
+.wash::before{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 7%,rgba(255,255,255,0) 7% 16%,rgba(255,255,255,.1) 16% 19%,rgba(255,255,255,0) 19% 27%);mix-blend-mode:soft-light}
+.wash::after{content:"";position:absolute;inset:0;z-index:2;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.35 0 0 0 0 0.6 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.32;mix-blend-mode:multiply}
+html.home-on.at-top .top{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.home-on.at-top .top::after{opacity:0}
+.top::after{transition:opacity .4s}
+html.theme-dark .wash{background:#141B28}
+html.theme-dark .wash canvas{opacity:.75}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1056,7 +1067,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <div class="blobs" aria-hidden="true"><i class="bl b1"><b></b></i><i class="bl b2"><b></b></i><i class="bl b3"><b></b></i></div>
+    <div class="wash" id="wash" aria-hidden="true"><canvas id="wash-c"></canvas></div>
     <section class="dock-hero" aria-label="Ana Galic, graphic and UX/UI designer">
       <div class="dock-pin" id="dock-pin">
       <h1 class="dock-name" id="dock-name">Ana Galic</h1>
@@ -3131,9 +3142,12 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
       draw(cur);
       raf = cur === t ? 0 : requestAnimationFrame(loop);
     }
+    const washEl = document.getElementById('wash');
     function frame(){
-      if (!home || home.hidden){ html.classList.remove('dock-on','docked','home-on'); nav.style.removeProperty('--nav-shift'); return; }
+      if (!home || home.hidden){ html.classList.remove('dock-on','docked','home-on','at-top'); nav.style.removeProperty('--nav-shift'); return; }
       html.classList.add('home-on');
+      html.classList.toggle('at-top', scrollY < 6);
+      washEl.style.setProperty('--wash-o', Math.max(0, 1 - scrollY / (innerHeight * .95)).toFixed(3));
       if (still){ return; }
       html.classList.add('dock-on');
       if (!raf) raf = requestAnimationFrame(loop);
@@ -3170,6 +3184,76 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
     const set = on => { html.classList.toggle('theme-dark', on); btn.setAttribute('aria-pressed', String(on)); btn.title = btn.ariaLabel = on ? 'Light mode' : 'Dark mode'; };
     try { set(localStorage.getItem('ag-theme') === 'dark'); } catch(e){ set(false); }
     btn.addEventListener('click', () => { const on = !html.classList.contains('theme-dark'); set(on); try { localStorage.setItem('ag-theme', on ? 'dark' : 'light'); } catch(e){} });
+  }
+
+  /* Watercolour wash: soft blue blooms spread and layer on their own, and bloom where the cursor moves */
+  {
+    const wrap = document.getElementById('wash'), cv = document.getElementById('wash-c');
+    if (wrap && cv){
+      const g = cv.getContext('2d');
+      const SCALE = 0.34;
+      let W = 0, H = 0, blooms = [], last = 0, nextAuto = 0, running = false, dark = false;
+      const pal = () => dark ? {paper:[20,27,40], ink:[[52,92,150],[44,78,132],[70,112,170]]} : {paper:[212,231,252], ink:[[126,178,246],[146,191,249],[110,166,240]]};
+      function size(){
+        W = Math.max(2, Math.round(innerWidth * SCALE)); H = Math.max(2, Math.round(innerHeight * SCALE));
+        cv.width = W; cv.height = H; const p = pal().paper; g.fillStyle = `rgb(${p})`; g.fillRect(0, 0, W, H);
+        blooms = []; for (let i = 0; i < 3; i++) spawn(true);
+      }
+      function spawn(big, x, y){
+        const ph = Array.from({length: 6}, () => Math.random() * 6.283), amp = Array.from({length: 6}, (_, k) => (Math.random() * .5 + .5) / (k + 1.6));
+        const ink = pal().ink[Math.floor(Math.random() * 3)];
+        blooms.push({
+          x: x ?? W * (Math.random() * .9 + .05), y: y ?? H * (Math.random() * .9 + .05),
+          r: big ? Math.min(W, H) * (.32 + Math.random() * .3) : Math.min(W, H) * (.08 + Math.random() * .07),
+          t0: performance.now(), dur: big ? 5200 + Math.random() * 3000 : 2200 + Math.random() * 1200,
+          ph, amp, ink, a: big ? .028 : .04, drift: (Math.random() - .5) * .25
+        });
+        if (blooms.length > 14) blooms.shift();
+      }
+      function shape(b, r, wob){
+        g.beginPath();
+        for (let i = 0; i <= 48; i++){
+          const a = i / 48 * 6.283;
+          let n = 0; for (let k = 0; k < 6; k++) n += Math.sin(a * (k + 2) + b.ph[k] + wob * (k % 2 ? 1 : -1)) * b.amp[k];
+          const rr = r * (1 + .32 * n);
+          const x = b.x + Math.cos(a) * rr, y = b.y + Math.sin(a) * rr * .92;
+          i ? g.lineTo(x, y) : g.moveTo(x, y);
+        }
+        g.closePath();
+      }
+      function tick(now){
+        if (!running) return;
+        const dt = last ? Math.min(50, now - last) : 16; last = now;
+        if (now > nextAuto){ spawn(Math.random() < .55); nextAuto = now + 1300 + Math.random() * 1500; }
+        /* the paper slowly drinks the old paint so it never turns solid */
+        const p = pal().paper; g.fillStyle = `rgba(${p},${(dt / 16) * .006})`; g.fillRect(0, 0, W, H);
+        blooms = blooms.filter(b => {
+          const k = (now - b.t0) / b.dur; if (k > 1) return false;
+          const e = 1 - Math.pow(1 - k, 3), r = b.r * (.25 + .75 * e);
+          b.x += b.drift * dt / 16;
+          shape(b, r, k * 1.6);
+          g.fillStyle = `rgba(${b.ink},${b.a * (1 - k * .6)})`; g.fill();
+          if (Math.random() < .35){ g.lineWidth = 1.1; g.strokeStyle = `rgba(${b.ink.map(c => c - 22)},${b.a * .9})`; g.stroke(); }
+          return true;
+        });
+        requestAnimationFrame(tick);
+      }
+      const visible = () => !wrap.closest('[hidden]') && document.documentElement.classList.contains('home-on') && scrollY < innerHeight * 1.05;
+      function check(){ const v = visible(); if (v && !running){ running = true; last = 0; requestAnimationFrame(tick); } else if (!v) running = false; }
+      let lastPaint = 0;
+      addEventListener('pointermove', e => {
+        if (!running || e.pointerType === 'touch') return;
+        const now = performance.now(); if (now - lastPaint < 140) return; lastPaint = now;
+        spawn(false, e.clientX * SCALE, e.clientY * SCALE);
+      }, {passive: true});
+      new MutationObserver(() => { const d = document.documentElement.classList.contains('theme-dark'); if (d !== dark){ dark = d; size(); } check(); }).observe(document.documentElement, {attributes: true, attributeFilter: ['class']});
+      dark = document.documentElement.classList.contains('theme-dark');
+      size();
+      let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(size, 200); });
+      addEventListener('scroll', check, {passive: true}); addEventListener('hashchange', () => setTimeout(check, 50));
+      document.addEventListener('visibilitychange', () => { if (document.hidden) running = false; else check(); });
+      check();
+    }
   }
 })();
 </script>
