@@ -684,14 +684,9 @@ html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;marg
 html.dock-on.docked .dock-fly{pointer-events:auto}
 html.dock-on .brand{visibility:hidden}
 .dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;opacity:var(--tag-o,1)}
-.intro{position:relative;z-index:1;display:block;min-height:auto;margin-top:-40svh;padding-block:0 clamp(40px,10vh,120px)}
-.statement{margin:0;max-width:none;font-family:var(--display);font-size:clamp(30px,5.5vw,88px);font-weight:600;line-height:1.04;letter-spacing:-.012em;text-transform:uppercase;text-indent:clamp(40px,17vw,280px);text-wrap:pretty}
-.statement em{font-family:var(--display);font-style:italic;font-weight:300;letter-spacing:-.005em}
-.statement .w{display:inline-block;text-indent:0;opacity:0;transform:translateY(.45em);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i) * 28ms)}
-.statement.in .w{opacity:1;transform:none}
-.pill{display:inline-flex;align-items:center;gap:8px;vertical-align:middle;margin-left:.4em;padding:10px 18px;border-radius:999px;background:#E3F57A;color:#0B0C0E;font-family:var(--body);font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.04em;text-indent:0;text-decoration:none;transition:transform .3s var(--ease),background .3s}
-.pill:hover{transform:translateY(-2px);background:#D6EE52}
-.statement-sub{margin:clamp(28px,5vh,56px) 0 0 auto;max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--muted)}
+.intro{position:relative;z-index:1;margin-top:-40svh;padding-bottom:clamp(24px,6vh,72px)}
+.statement .w{opacity:0;transition:opacity .9s var(--ease);transition-delay:calc(var(--i) * 18ms)}
+.statement.in .w{opacity:1}
 .sec-title em{font-style:italic;font-weight:300}
 #work .sec-title{font-size:clamp(34px,5vw,72px);line-height:1}
 /* soft colour that drifts with the scroll */
@@ -719,7 +714,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
 .gallery .card-type{color:#59616C}
-@media (max-width:600px){.dock-hero{height:calc(100svh - 66px + 80svh)}.dock-pin{top:66px;height:calc(100svh - 66px);justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.statement{text-indent:0}.statement-sub{margin-left:0}.bl b{filter:blur(40px)}}
+@media (max-width:600px){.dock-hero{height:calc(100svh - 66px + 80svh)}.dock-pin{top:66px;height:calc(100svh - 66px);justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
 @media (prefers-reduced-motion: reduce){.dock-hero{height:auto}.dock-pin{position:static}.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
@@ -1065,8 +1060,10 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
     </section>
 
     <section class="intro" aria-label="About Ana">
-      <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design.</em> <a class="pill" href="#about">About me <span aria-hidden="true">&rarr;</span></a></p>
-      <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
+      <div class="intro-design" id="intro-design">
+        <p class="statement" id="statement">I am a multidisciplinary designer with a strong foundation in <mark>Computer Science</mark> and <mark>Digital Design</mark>.</p>
+        <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
+      </div>
     </section>
 
     <section class="block-section" id="work" aria-labelledby="work-h">
