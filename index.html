@@ -16,7 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -671,29 +671,52 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .reel-cap span{font-weight:400;opacity:.75}
 .reel-item:hover .reel-cap,.reel-item:focus-within .reel-cap{opacity:1;transform:none}
 @media (hover:none){.reel-cap{opacity:1;transform:none}}
-/* Front page: the name fills the first screen, then glides into the menu bar as you scroll */
-.dock-hero{position:relative;min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(16px,2.4vw,28px);padding-bottom:clamp(96px,14vh,150px)}
-.dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.9;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+/* Front page, Roof-style: the name shrinks into the corner, the menu makes room, soft colour drifts behind, the work arrives in the dark */
+:root{--serif:"Instrument Serif",Georgia,"Times New Roman",serif}
+@media (min-width:601px){
+  .nav{flex:1;justify-content:space-between;margin-left:var(--nav-shift,clamp(40px,7vw,110px));text-transform:uppercase;letter-spacing:.05em;font-size:13.5px}
+}
+.dock-hero{position:relative;min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,4vh,48px);padding-block:clamp(40px,10vh,120px) clamp(24px,5vh,60px)}
+.dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
 html.dock-on .dock-name{visibility:hidden}
 .dock-fly{display:none}
-html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform}
-html.dock-on .dock-fly.docked{visibility:hidden}
-html.dock-on .brand{opacity:0;transition:none}
+html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
+html.dock-on.docked .dock-fly{visibility:hidden}
+html.dock-on .brand{opacity:0}
 html.dock-on.docked .brand{opacity:1}
-.dock-tags{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--ink);font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.dock-cue{position:absolute;left:50%;bottom:clamp(14px,3vh,28px);transform:translateX(-50%);margin:0;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-.dock-cue::after{content:"";display:block;width:1px;height:28px;margin:8px auto 0;background:currentColor;animation:cue 1.8s ease-in-out infinite;transform-origin:top}
-@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.intro{min-height:70svh;justify-content:center}
-.intro-design{grid-template-columns:minmax(0,1fr);gap:clamp(20px,2.6vw,32px)}
-.statement{font-size:clamp(30px,4.3vw,60px);font-weight:500;line-height:1.12;letter-spacing:-.015em;max-width:24ch}
-.statement em{font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
-.statement .w{opacity:var(--o,1);transition:opacity .25s linear}
-.statement-sub{max-width:52ch}
-.gallery .card{opacity:1;translate:0 0;transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
+.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;opacity:var(--tag-o,1)}
+.intro{position:relative;display:block;min-height:auto;padding-block:clamp(60px,14vh,160px) clamp(40px,10vh,120px)}
+.statement{margin:0;max-width:none;font-family:var(--display);font-size:clamp(30px,5.5vw,88px);font-weight:600;line-height:1.04;letter-spacing:-.012em;text-transform:uppercase;text-indent:clamp(40px,17vw,280px);text-wrap:pretty}
+.statement em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;font-size:1.06em}
+.statement .w{display:inline-block;text-indent:0;opacity:0;transform:translateY(.45em);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i) * 28ms)}
+.statement.in .w{opacity:1;transform:none}
+.pill{display:inline-flex;align-items:center;gap:8px;vertical-align:middle;margin-left:.4em;padding:10px 18px;border-radius:999px;background:#E3F57A;color:#0B0C0E;font-family:var(--body);font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.04em;text-indent:0;text-decoration:none;transition:transform .3s var(--ease),background .3s}
+.pill:hover{transform:translateY(-2px);background:#D6EE52}
+.statement-sub{margin:clamp(28px,5vh,56px) 0 0 auto;max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--muted)}
+.sec-title em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;font-size:1.08em}
+#work .sec-title{font-size:clamp(34px,5vw,72px);line-height:1}
+/* soft colour that drifts with the scroll */
+.blobs{display:none}
+html.home-on .blobs{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;transition:opacity .8s}
+.bl{position:absolute;display:block;width:var(--w);aspect-ratio:1;left:var(--x);top:var(--y);transform:translate3d(0,calc(var(--sy,0) * var(--k) * 1px),0);will-change:transform}
+.bl b{position:absolute;inset:0;border-radius:42% 58% 63% 37% / 45% 40% 60% 55%;background:var(--c);filter:blur(60px);opacity:.9;animation:blob var(--t) ease-in-out infinite alternate}
+.b1{--w:62vw;--x:-18vw;--y:-30vh;--c:#A8C9F8;--k:-.25;--t:19s}
+.b2{--w:50vw;--x:56vw;--y:38vh;--c:#F6D3BD;--k:-.55;--t:23s}
+.b3{--w:42vw;--x:-8vw;--y:118vh;--c:#D9C6F2;--k:-.7;--t:17s}
+@keyframes blob{0%{transform:translate(0,0) rotate(0) scale(1)}50%{transform:translate(4vw,3vh) rotate(25deg) scale(1.08);border-radius:58% 42% 37% 63% / 55% 60% 40% 45%}100%{transform:translate(-3vw,6vh) rotate(-15deg) scale(.95)}}
+/* the work section turns the page dark */
+html{transition:background-color .7s}
+body{transition:background-color .7s,color .7s}
+html.home-on .top{background:color-mix(in srgb,var(--paper) 62%,transparent);box-shadow:0 0 0 100vmax color-mix(in srgb,var(--paper) 62%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:background .7s,box-shadow .7s}
+html.home-on.dark{--paper:#221A21;--ink:#F5EEE8;--muted:#B9AFAC;--line:rgba(255,255,255,.14)}
+html.home-on.dark .blobs{opacity:.45}
+html.home-on.dark .top-li img{filter:invert(1)}
+.gallery .card-body,.gallery .card h3,.gallery .card-link{color:#0B0C0E}
+.gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
-@media (max-width:600px){.dock-hero{min-height:calc(100svh - 66px)}.dock-tags{flex-direction:column;gap:6px}}
-@media (prefers-reduced-motion: reduce){.dock-cue::after{animation:none}.js-reveal .gallery .card:not(.shown){opacity:1;translate:none}}
+.gallery .card-type{color:#59616C}
+@media (max-width:600px){.dock-hero{min-height:calc(100svh - 66px);justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.statement{text-indent:0}.statement-sub{margin-left:0}.bl b{filter:blur(40px)}}
+@media (prefers-reduced-motion: reduce){.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1027,22 +1050,20 @@ html.dock-on.docked .brand{opacity:1}
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
     <div class="dock-fly" id="dock-fly" aria-hidden="true">Ana Galic</div>
+    <div class="blobs" aria-hidden="true"><i class="bl b1"><b></b></i><i class="bl b2"><b></b></i><i class="bl b3"><b></b></i></div>
     <section class="dock-hero" aria-label="Ana Galic, graphic and UX/UI designer">
       <h1 class="dock-name" id="dock-name">Ana Galic</h1>
-      <div class="dock-tags"><span>Graphic design</span><span>UX/UI design</span><span>Visual storytelling</span></div>
-      <p class="dock-cue" aria-hidden="true">Scroll</p>
+      <div class="dock-tags" id="dock-tags"><span>Graphic design</span><span>UX/UI design</span><span>Visual storytelling</span></div>
     </section>
 
     <section class="intro" aria-label="About Ana">
-      <div class="intro-design" id="intro-design">
-        <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design</em>.</p>
-        <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
-      </div>
+      <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design</em>.<a class="pill" href="#about">About me <span aria-hidden="true">&rarr;</span></a></p>
+      <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
     </section>
 
     <section class="block-section" id="work" aria-labelledby="work-h">
       <div class="sec-head">
-        <h2 class="sec-title" id="work-h">Work</h2>
+        <h2 class="sec-title" id="work-h"><em>Selected</em> Work</h2>
       </div>
       <div class="grid grid-two gallery">
         <a class="card" href="#peaceland" data-tags="games graphic research">
@@ -3037,60 +3058,64 @@ html.dock-on.docked .brand{opacity:1}
   }
 
 
-  /* Front page scroll story: name docks into the menu, statement reveals word by word, work rises in */
+
+  /* Front page, Roof-style scroll */
   {
     const html = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const name = document.getElementById('dock-name'), fly = document.getElementById('dock-fly'), brand = document.querySelector('.brand');
+    const nav = document.getElementById('main-nav'), tags = document.getElementById('dock-tags'), work = document.getElementById('work');
+    const blobs = [...document.querySelectorAll('.bl')];
     const home = name && name.closest('[data-view]');
-    let start = null, fs = 100;
-    function fitName(){
+    let start = null, fs = 100, travel = 600;
+    const wide = () => matchMedia('(min-width:601px)').matches;
+    function fit(){
       const box = name.parentElement.getBoundingClientRect().width;
-      name.style.fontSize = '100px'; const w = name.scrollWidth;
-      fs = Math.floor(100 * box / w * 0.995); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
+      name.style.fontSize = '100px'; const w = name.getBoundingClientRect().width;
+      fs = Math.floor(100 * box / w * 0.998); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
       const r = name.getBoundingClientRect();
-      start = {x: r.left, y: r.top + scrollY, w: r.width, h: r.height};
+      start = {x: r.left, y: r.top + scrollY, h: r.height};
+      travel = Math.max(300, innerHeight * .62);
     }
     function frame(){
-      if (!home || home.hidden){ html.classList.remove('dock-on', 'docked'); return; }
-      if (still) return;
-      html.classList.add('dock-on');
-      const b = brand.getBoundingClientRect();
-      const bfs = parseFloat(getComputedStyle(brand).fontSize);
-      const sc = bfs / fs;
-      const travel = Math.max(1, start.y - b.top) * 0.9;
-      const p = Math.min(1, Math.max(0, scrollY / travel)), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-      const s0 = 1 + (sc - 1) * e;
-      const ex = b.left, ey = b.top + (b.height - start.h * sc) / 2;
-      const x = start.x + (ex - start.x) * e, y = (start.y - scrollY) * (1 - e) + ey * e;
-      fly.style.transform = `translate(${x}px,${y}px) scale(${s0})`;
-      const dockedNow = p >= 1;
-      fly.classList.toggle('docked', dockedNow); html.classList.toggle('docked', dockedNow);
-    }
-    const words = [];
-    const st = document.getElementById('statement');
-    if (st && !still){
-      const walk = node => [...node.childNodes].forEach(n => {
-        if (n.nodeType === 3){ const frag = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(t => { if (!t) return; if (/^\s+$/.test(t)) frag.append(t); else { const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = t; words.push(sp); frag.append(sp); } }); n.replaceWith(frag); }
-        else if (n.nodeType === 1) walk(n);
-      });
-      walk(st);
-    }
-    function words_(){
-      if (!words.length || home.hidden) return;
-      const r = st.getBoundingClientRect(), vh = innerHeight;
-      const p = Math.min(1, Math.max(0, (vh * .85 - r.top) / (vh * .55)));
-      words.forEach((w, i) => { const k = Math.min(1, Math.max(0, p * words.length - i)); w.style.setProperty('--o', (.14 + .86 * k).toFixed(3)); });
+      if (!home || home.hidden){ html.classList.remove('dock-on','docked','home-on','dark'); nav.style.removeProperty('--nav-shift'); return; }
+      html.classList.add('home-on');
+      const y = scrollY, p = Math.min(1, Math.max(0, y / travel)), e = 1 - Math.pow(1 - p, 1.7);
+      if (!still){
+        html.classList.add('dock-on');
+        const b = brand.getBoundingClientRect(), sc = parseFloat(getComputedStyle(brand).fontSize) / fs;
+        const s0 = 1 + (sc - 1) * e;
+        const ty = b.top + (b.height - start.h * sc) / 2;
+        const yy = start.y + (ty - start.y) * e;
+        fly.style.transform = `translate(${start.x}px,${yy}px) scale(${s0})`;
+        html.classList.toggle('docked', p >= 1);
+        if (wide()){
+          const bw = b.width, gap = Math.min(110, Math.max(40, innerWidth * .07));
+          nav.style.setProperty('--nav-shift', ((-bw - 16) + (bw + 16 + gap) * e).toFixed(1) + 'px');
+        } else nav.style.removeProperty('--nav-shift');
+        tags.style.setProperty('--tag-o', (1 - .55 * Math.min(1, y / (travel * 1.1))).toFixed(3));
+        blobs.forEach(bl => bl.style.setProperty('--sy', y.toFixed(0)));
+      }
+      const wr = work.getBoundingClientRect();
+      html.classList.toggle('dark', wr.top < innerHeight * .55 && wr.bottom > 0 || wr.bottom <= 0);
     }
     if (home){
-      const all = () => { if (!home.hidden && start) { frame(); words_(); } };
-      const refit = () => { if (home.hidden) return; const y = scrollY; fitName(); all(); };
-      addEventListener('scroll', all, {passive: true});
+      const st = document.getElementById('statement');
+      let i = 0;
+      const walk = node => [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3){ const f = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(t => { if (!t) return; if (/^\s+$/.test(t)) f.append(t); else { const sp = document.createElement('span'); sp.className = 'w'; sp.style.setProperty('--i', i++); sp.textContent = t; f.append(sp); } }); n.replaceWith(f); }
+        else if (n.nodeType === 1 && !n.classList.contains('pill')) walk(n);
+        else if (n.nodeType === 1){ n.classList.add('w'); n.style.setProperty('--i', i++); }
+      });
+      walk(st);
+      if ('IntersectionObserver' in window) new IntersectionObserver((es, o) => es.forEach(en => { if (en.isIntersecting){ st.classList.add('in'); o.disconnect(); } }), {threshold: .25}).observe(st);
+      else st.classList.add('in');
+      const refit = () => { if (home.hidden){ frame(); return; } fit(); frame(); };
+      addEventListener('scroll', frame, {passive: true});
       addEventListener('resize', refit);
-      addEventListener('hashchange', () => requestAnimationFrame(() => { if (home.hidden) html.classList.remove('dock-on','docked'); else refit(); }));
+      addEventListener('hashchange', () => requestAnimationFrame(refit));
       if (document.fonts) document.fonts.ready.then(refit);
       requestAnimationFrame(refit);
     }
-    /* work tiles rise in as they come into view */
     if ('IntersectionObserver' in window){
       html.classList.add('js-reveal');
       const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ const c = en.target; c.style.transitionDelay = (([...c.parentElement.children].indexOf(c) % 2) * 120) + 'ms'; c.classList.add('shown'); io.unobserve(c); setTimeout(() => { c.style.transitionDelay = ''; }, 1200); } }), {rootMargin: '0px 0px -8% 0px'});
