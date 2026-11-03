@@ -675,8 +675,8 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (min-width:601px){
   .nav{flex:1;justify-content:space-between;margin-left:var(--nav-shift,clamp(40px,7vw,110px));text-transform:uppercase;letter-spacing:.05em;font-size:13.5px}
 }
-.dock-hero{position:relative;height:calc(100svh - 72px + 90svh)}
-.dock-pin{position:sticky;top:72px;height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,4vh,48px);padding-block:clamp(40px,10vh,120px) clamp(24px,5vh,60px)}
+.dock-hero{position:relative;height:calc(100svh - 72px)}
+.dock-pin{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,4vh,48px);padding-block:clamp(40px,10vh,120px) clamp(24px,5vh,60px)}
 .dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
 html.dock-on .dock-name{visibility:hidden}
 .dock-fly{display:none}
@@ -684,9 +684,11 @@ html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;marg
 html.dock-on.docked .dock-fly{pointer-events:auto}
 html.dock-on .brand{visibility:hidden}
 .dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#6B6F75;opacity:var(--tag-o,1)}
-.intro{position:relative;z-index:1;margin-top:-40svh;padding-bottom:clamp(24px,6vh,72px)}
+.intro{position:relative;z-index:1;padding-bottom:clamp(24px,6vh,72px)}
 .statement .w{opacity:0;transition:opacity .9s var(--ease);transition-delay:calc(var(--i) * 18ms)}
 .statement.in .w{opacity:1}
+.statement mark{transition:background-color .9s var(--ease) .3s}
+.statement:not(.in) mark{background-color:transparent}
 .sec-title em{font-style:italic;font-weight:300}
 #work .sec-title{font-size:clamp(34px,5vw,72px);line-height:1}
 /* soft colour that drifts with the scroll */
@@ -714,7 +716,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
 .gallery .card-type{color:#59616C}
-@media (max-width:600px){.dock-hero{height:calc(100svh - 66px + 80svh)}.dock-pin{top:66px;height:calc(100svh - 66px);justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
+@media (max-width:600px){.dock-hero{height:calc(100svh - 66px)}.dock-pin{justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
 @media (prefers-reduced-motion: reduce){.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
@@ -1055,7 +1057,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
     <section class="dock-hero" aria-label="Ana Galic, graphic and UX/UI designer">
       <div class="dock-pin" id="dock-pin">
       <h1 class="dock-name" id="dock-name">Ana Galic</h1>
-      <div class="dock-tags" id="dock-tags"><span>Graphic design</span><span>UX/UI design</span><span>Visual storytelling</span></div>
+      <div class="dock-tags" id="dock-tags"><span>Graphic design</span><span>UX/UI</span><span>Product design</span></div>
       </div>
     </section>
 
@@ -3077,21 +3079,26 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
       const box = name.parentElement.getBoundingClientRect().width;
       name.style.fontSize = '100px'; const w = name.getBoundingClientRect().width;
       fs = Math.floor(100 * box / w * 0.66); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
-      const hero = name.closest('.dock-hero'), pin = document.getElementById('dock-pin');
-      travel = Math.max(200, hero.offsetHeight - pin.offsetHeight);
+      travel = Math.max(260, innerHeight * .55);
       const r = name.getBoundingClientRect();
-      start = {x: r.left, y: r.top + scrollY - Math.min(scrollY, travel), h: r.height};
+      start = {x: r.left, y: r.top + scrollY, h: r.height};
+      tags.style.transform = 'none';
+      tagY = tags.getBoundingClientRect().top + scrollY; tagGap = tagY - (start.y + start.h);
     }
     /* the name follows the scroll with a soft lag, so it glides instead of jumping */
-    let cur = 0, raf = 0;
+    let cur = 0, raf = 0, tagY = 0, tagGap = 24;
+    const intro = document.getElementById('intro-design');
     const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     function target(){ return Math.min(1, Math.max(0, scrollY / travel)); }
     function draw(p){
       const e = ease(p);
       const b = brand.getBoundingClientRect(), sc = parseFloat(getComputedStyle(brand).fontSize) / fs;
-      const s0 = 1 + (sc - 1) * e;
+      let s0 = 1 + (sc - 1) * e;
       const ty = b.top + (b.height - start.h * sc) / 2;
-      const yy = start.y + (ty - start.y) * e;
+      let yy = start.y + (ty - start.y) * e;
+      /* never let the name sit on top of the text coming up below it */
+      const lim = intro.getBoundingClientRect().top - 24;
+      if (yy + start.h * s0 > lim){ yy = Math.max(ty, lim - start.h * s0); if (yy + start.h * s0 > lim) s0 = Math.max(sc, (lim - yy) / start.h); }
       const xx = start.x + (b.left - start.x) * e;
       fly.style.transform = `translate3d(${xx.toFixed(2)}px,${yy.toFixed(2)}px,0) scale(${s0.toFixed(4)})`;
       html.classList.toggle('docked', p > .995);
@@ -3099,11 +3106,14 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
         const bw = b.width, gap = Math.min(110, Math.max(40, innerWidth * .07));
         nav.style.setProperty('--nav-shift', ((-bw - 16) + (bw + 16 + gap) * e).toFixed(1) + 'px');
       } else nav.style.removeProperty('--nav-shift');
-      tags.style.setProperty('--tag-o', Math.max(0, 1 - 1.6 * e).toFixed(3));
+      /* the tag lines hang just under the name and fade out as it shrinks */
+      const under = yy + start.h * s0 + tagGap * (1 - e);
+      tags.style.transform = `translateY(${(under - (tagY - scrollY)).toFixed(1)}px)`;
+      tags.style.setProperty('--tag-o', Math.max(0, 1 - 2.2 * e).toFixed(3));
     }
     function loop(){
       const t = target();
-      cur += (t - cur) * 0.09;
+      cur += (t - cur) * 0.16;
       if (Math.abs(t - cur) < .0008) cur = t;
       draw(cur);
       raf = cur === t ? 0 : requestAnimationFrame(loop);
