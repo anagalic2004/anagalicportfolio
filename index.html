@@ -16,7 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -672,7 +672,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .reel-item:hover .reel-cap,.reel-item:focus-within .reel-cap{opacity:1;transform:none}
 @media (hover:none){.reel-cap{opacity:1;transform:none}}
 /* Front page, Roof-style: the name shrinks into the corner, the menu makes room, soft colour drifts behind, the work arrives in the dark */
-:root{--serif:"Instrument Serif",Georgia,"Times New Roman",serif}
 @media (min-width:601px){
   .nav{flex:1;justify-content:space-between;margin-left:var(--nav-shift,clamp(40px,7vw,110px));text-transform:uppercase;letter-spacing:.05em;font-size:13.5px}
 }
@@ -680,20 +679,19 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
 html.dock-on .dock-name{visibility:hidden}
 .dock-fly{display:none}
-html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
-html.dock-on.docked .dock-fly{visibility:hidden}
-html.dock-on .brand{opacity:0}
-html.dock-on.docked .brand{opacity:1}
+html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;text-decoration:none;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
+html.dock-on.docked .dock-fly{pointer-events:auto}
+html.dock-on .brand{visibility:hidden}
 .dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;opacity:var(--tag-o,1)}
 .intro{position:relative;display:block;min-height:auto;padding-block:clamp(60px,14vh,160px) clamp(40px,10vh,120px)}
 .statement{margin:0;max-width:none;font-family:var(--display);font-size:clamp(30px,5.5vw,88px);font-weight:600;line-height:1.04;letter-spacing:-.012em;text-transform:uppercase;text-indent:clamp(40px,17vw,280px);text-wrap:pretty}
-.statement em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;font-size:1.06em}
+.statement em{font-family:var(--display);font-style:italic;font-weight:300;letter-spacing:-.005em}
 .statement .w{display:inline-block;text-indent:0;opacity:0;transform:translateY(.45em);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i) * 28ms)}
 .statement.in .w{opacity:1;transform:none}
 .pill{display:inline-flex;align-items:center;gap:8px;vertical-align:middle;margin-left:.4em;padding:10px 18px;border-radius:999px;background:#E3F57A;color:#0B0C0E;font-family:var(--body);font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.04em;text-indent:0;text-decoration:none;transition:transform .3s var(--ease),background .3s}
 .pill:hover{transform:translateY(-2px);background:#D6EE52}
 .statement-sub{margin:clamp(28px,5vh,56px) 0 0 auto;max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--muted)}
-.sec-title em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;font-size:1.08em}
+.sec-title em{font-style:italic;font-weight:300}
 #work .sec-title{font-size:clamp(34px,5vw,72px);line-height:1}
 /* soft colour that drifts with the scroll */
 .blobs{display:none}
@@ -704,13 +702,18 @@ html.home-on .blobs{display:block;position:fixed;inset:0;z-index:-1;pointer-even
 .b2{--w:50vw;--x:56vw;--y:38vh;--c:#F6D3BD;--k:-.55;--t:23s}
 .b3{--w:42vw;--x:-8vw;--y:118vh;--c:#D9C6F2;--k:-.7;--t:17s}
 @keyframes blob{0%{transform:translate(0,0) rotate(0) scale(1)}50%{transform:translate(4vw,3vh) rotate(25deg) scale(1.08);border-radius:58% 42% 37% 63% / 55% 60% 40% 45%}100%{transform:translate(-3vw,6vh) rotate(-15deg) scale(.95)}}
-/* the work section turns the page dark */
-html{transition:background-color .7s}
-body{transition:background-color .7s,color .7s}
-html.home-on .top{background:color-mix(in srgb,var(--paper) 62%,transparent);box-shadow:0 0 0 100vmax color-mix(in srgb,var(--paper) 62%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:background .7s,box-shadow .7s}
-html.home-on.dark{--paper:#221A21;--ink:#F5EEE8;--muted:#B9AFAC;--line:rgba(255,255,255,.14)}
-html.home-on.dark .blobs{opacity:.45}
-html.home-on.dark .top-li img{filter:invert(1)}
+html.home-on .top{background:transparent;box-shadow:none}
+/* Dark mode: only when someone turns it on with the button in the top bar */
+html.theme-dark{--paper:#1C171B;--ink:#F3ECE6;--muted:#B5ABA8;--line:rgba(255,255,255,.14);--blue-soft:#2A2F3A;--block:#0E0B0D;--block-line:#2E272C;color-scheme:dark}
+html.theme-dark .top-li img{filter:invert(1)}
+html.theme-dark .bl b{opacity:.35}
+html,body{transition:background-color .5s,color .5s}
+.theme-btn{flex:none;display:grid;place-items:center;width:30px;height:30px;margin-left:clamp(10px,1.4vw,18px);padding:0;border:0;border-radius:50%;background:var(--ink);cursor:pointer;transition:transform .3s var(--ease),background .5s}
+.theme-btn:hover{transform:scale(1.08)}
+.theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.theme-btn i{width:12px;height:12px;border-radius:50%;background:var(--paper);box-shadow:inset -4px -1px 0 0 var(--ink);transition:box-shadow .4s,background .5s}
+html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
+@media (max-width:600px){.theme-btn{order:1;margin-left:10px}}
 .gallery .card-body,.gallery .card h3,.gallery .card-link{color:#0B0C0E}
 .gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
@@ -1030,6 +1033,8 @@ html.home-on.dark .top-li img{filter:invert(1)}
 </style>
 </head>
 <body>
+<script>try{if(localStorage.getItem('ag-theme')==='dark')document.documentElement.classList.add('theme-dark')}catch(e){}</script>
+<a class="dock-fly" id="dock-fly" href="#work" aria-label="Ana Galic, home">Ana Galic</a>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="#professional" aria-label="Ana Galic, home">Ana Galic</a>
@@ -1042,6 +1047,7 @@ html.home-on.dark .top-li img{filter:invert(1)}
       <a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
     </nav>
     <a class="top-li" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin.png" srcset="img/linkedin.png 1x, img/linkedin-2x.png 2x, img/linkedin-3x.png 3x" alt="" width="20" height="20"></a>
+    <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><i></i></button>
   </div>
 </header>
 
@@ -1049,7 +1055,6 @@ html.home-on.dark .top-li img{filter:invert(1)}
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <div class="dock-fly" id="dock-fly" aria-hidden="true">Ana Galic</div>
     <div class="blobs" aria-hidden="true"><i class="bl b1"><b></b></i><i class="bl b2"><b></b></i><i class="bl b3"><b></b></i></div>
     <section class="dock-hero" aria-label="Ana Galic, graphic and UX/UI designer">
       <h1 class="dock-name" id="dock-name">Ana Galic</h1>
@@ -1057,7 +1062,7 @@ html.home-on.dark .top-li img{filter:invert(1)}
     </section>
 
     <section class="intro" aria-label="About Ana">
-      <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design</em>.<a class="pill" href="#about">About me <span aria-hidden="true">&rarr;</span></a></p>
+      <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design.</em> <a class="pill" href="#about">About me <span aria-hidden="true">&rarr;</span></a></p>
       <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
     </section>
 
@@ -3077,7 +3082,7 @@ html.home-on.dark .top-li img{filter:invert(1)}
       travel = Math.max(300, innerHeight * .62);
     }
     function frame(){
-      if (!home || home.hidden){ html.classList.remove('dock-on','docked','home-on','dark'); nav.style.removeProperty('--nav-shift'); return; }
+      if (!home || home.hidden){ html.classList.remove('dock-on','docked','home-on'); nav.style.removeProperty('--nav-shift'); return; }
       html.classList.add('home-on');
       const y = scrollY, p = Math.min(1, Math.max(0, y / travel)), e = 1 - Math.pow(1 - p, 1.7);
       if (!still){
@@ -3095,8 +3100,6 @@ html.home-on.dark .top-li img{filter:invert(1)}
         tags.style.setProperty('--tag-o', (1 - .55 * Math.min(1, y / (travel * 1.1))).toFixed(3));
         blobs.forEach(bl => bl.style.setProperty('--sy', y.toFixed(0)));
       }
-      const wr = work.getBoundingClientRect();
-      html.classList.toggle('dark', wr.top < innerHeight * .55 && wr.bottom > 0 || wr.bottom <= 0);
     }
     if (home){
       const st = document.getElementById('statement');
@@ -3121,6 +3124,14 @@ html.home-on.dark .top-li img{filter:invert(1)}
       const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ const c = en.target; c.style.transitionDelay = (([...c.parentElement.children].indexOf(c) % 2) * 120) + 'ms'; c.classList.add('shown'); io.unobserve(c); setTimeout(() => { c.style.transitionDelay = ''; }, 1200); } }), {rootMargin: '0px 0px -8% 0px'});
       document.querySelectorAll('.gallery .card').forEach(c => io.observe(c));
     }
+  }
+
+  /* Dark mode: off unless the visitor turns it on; remembered on this device */
+  {
+    const btn = document.getElementById('theme-btn'), html = document.documentElement;
+    const set = on => { html.classList.toggle('theme-dark', on); btn.setAttribute('aria-pressed', String(on)); btn.title = btn.ariaLabel = on ? 'Light mode' : 'Dark mode'; };
+    try { set(localStorage.getItem('ag-theme') === 'dark'); } catch(e){ set(false); }
+    btn.addEventListener('click', () => { const on = !html.classList.contains('theme-dark'); set(on); try { localStorage.setItem('ag-theme', on ? 'dark' : 'light'); } catch(e){} });
   }
 })();
 </script>
