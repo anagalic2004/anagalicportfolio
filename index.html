@@ -715,7 +715,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
 .gallery .card-type{color:#59616C}
 @media (max-width:600px){.dock-hero{height:calc(100svh - 66px + 80svh)}.dock-pin{top:66px;height:calc(100svh - 66px);justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
-@media (prefers-reduced-motion: reduce){.dock-hero{height:auto}.dock-pin{position:static}.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion: reduce){.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -3066,7 +3066,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 
   /* Front page, Roof-style scroll */
   {
-    const html = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const html = document.documentElement, still = false;   /* scroll-driven, so it runs for everyone */
     const name = document.getElementById('dock-name'), fly = document.getElementById('dock-fly'), brand = document.querySelector('.brand');
     const nav = document.getElementById('main-nav'), tags = document.getElementById('dock-tags'), work = document.getElementById('work');
     const blobs = [...document.querySelectorAll('.bl')];
