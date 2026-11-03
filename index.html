@@ -671,38 +671,29 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .reel-cap span{font-weight:400;opacity:.75}
 .reel-item:hover .reel-cap,.reel-item:focus-within .reel-cap{opacity:1;transform:none}
 @media (hover:none){.reel-cap{opacity:1;transform:none}}
-/* Intro: a six-second reel of the work, then it opens into the site */
-.intro-gate{position:fixed;inset:0;z-index:100;background:var(--paper);color:var(--ink);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,36px) clamp(18px,4vw,48px);transition:opacity .7s ease}
-html.intro-on,html.intro-on body{overflow:hidden}
-.intro-gate.out{opacity:0;pointer-events:none}
-.ig-top,.ig-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;position:relative;z-index:2}
-.ig-top{align-items:flex-start;color:var(--muted);opacity:0;animation:igFade .8s .3s forwards}
-.ig-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.4vw,36px)}
-.ig-word{margin:0;display:flex;overflow:hidden;font-family:var(--display);font-weight:800;font-size:clamp(64px,12.5vw,210px);line-height:.9;letter-spacing:-.025em;padding-bottom:.05em}
-.ig-word span{display:inline-block;transform:translateY(110%);animation:igUp 1s cubic-bezier(.2,.8,.2,1) forwards}
-.ig-w1 span:nth-child(1){animation-delay:.25s}.ig-w1 span:nth-child(2){animation-delay:.32s}.ig-w1 span:nth-child(3){animation-delay:.39s}
-.ig-w2 span:nth-child(1){animation-delay:.46s}.ig-w2 span:nth-child(2){animation-delay:.53s}.ig-w2 span:nth-child(3){animation-delay:.6s}.ig-w2 span:nth-child(4){animation-delay:.67s}.ig-w2 span:nth-child(5){animation-delay:.74s}
-.intro-gate.leaving .ig-word span{animation:igOut .7s cubic-bezier(.7,0,.3,1) forwards}
-.intro-gate.leaving .ig-w2 span{animation-delay:.05s}
-.ig-frame{position:relative;flex:none;width:clamp(150px,19vw,300px);aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#e9ecef;clip-path:inset(50% 50% 50% 50% round 18px);animation:igOpen 1s .15s cubic-bezier(.7,0,.2,1) forwards;transition:transform 1.05s cubic-bezier(.76,0,.24,1),border-radius 1.05s}
-.ig-frame img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;opacity:0;transform:scale(1.08)}
-.ig-frame img.on{opacity:1;transform:scale(1);transition:transform 1.6s ease-out}
-.ig-roles{margin:0;height:1.4em;overflow:hidden;color:var(--ink)}
-.ig-roles-in{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.7,0,.2,1)}
-.ig-roles-in span{height:1.4em;line-height:1.4em;white-space:nowrap}
-.ig-top,.ig-bottom,.ig-skip,.ig-roles{transition:color .6s .2s}
-.intro-gate.leaving .ig-top,.intro-gate.leaving .ig-bottom,.intro-gate.leaving .ig-skip,.intro-gate.leaving .ig-roles{color:#fff}
-.ig-count{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(34px,4.6vw,64px);line-height:.8;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.ig-skip{position:absolute;left:50%;bottom:0;transform:translateX(-50%);border:0;background:none;padding:6px 10px;font:inherit;color:var(--muted);cursor:pointer;opacity:0;animation:igFade .8s 1.2s forwards}
-.ig-skip:hover{color:var(--ink)}
-.ig-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--blue);transform-origin:left;transform:scaleX(0);z-index:3}
-.ig-bottom,.ig-count{opacity:0;animation:igFade .8s .5s forwards}
-@keyframes igUp{to{transform:none}}
-@keyframes igOut{from{transform:none}to{transform:translateY(-110%)}}
-@keyframes igFade{to{opacity:1}}
-@keyframes igOpen{to{clip-path:inset(0 0 0 0 round 18px)}}
-@media (max-width:700px){.ig-stage{flex-direction:column;gap:14px}.ig-word{font-size:24vw}.ig-frame{width:46vw}.ig-skip{position:static;transform:none}.ig-bottom{flex-wrap:wrap}}
-@media (prefers-reduced-motion: reduce){.ig-word span,.ig-top,.ig-bottom,.ig-count,.ig-skip{animation:none;transform:none;opacity:1}.ig-frame{animation:none;clip-path:none;transition:none}}
+/* Front page: the name fills the first screen, then glides into the menu bar as you scroll */
+.dock-hero{position:relative;min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(16px,2.4vw,28px);padding-bottom:clamp(96px,14vh,150px)}
+.dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.9;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+html.dock-on .dock-name{visibility:hidden}
+.dock-fly{display:none}
+html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform}
+html.dock-on .dock-fly.docked{visibility:hidden}
+html.dock-on .brand{opacity:0;transition:none}
+html.dock-on.docked .brand{opacity:1}
+.dock-tags{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--ink);font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.dock-cue{position:absolute;left:50%;bottom:clamp(14px,3vh,28px);transform:translateX(-50%);margin:0;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.dock-cue::after{content:"";display:block;width:1px;height:28px;margin:8px auto 0;background:currentColor;animation:cue 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.intro{min-height:70svh;justify-content:center}
+.intro-design{grid-template-columns:minmax(0,1fr);gap:clamp(20px,2.6vw,32px)}
+.statement{font-size:clamp(30px,4.3vw,60px);font-weight:500;line-height:1.12;letter-spacing:-.015em;max-width:24ch}
+.statement em{font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.statement .w{opacity:var(--o,1);transition:opacity .25s linear}
+.statement-sub{max-width:52ch}
+.gallery .card{opacity:1;translate:0 0;transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
+.js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
+@media (max-width:600px){.dock-hero{min-height:calc(100svh - 66px)}.dock-tags{flex-direction:column;gap:6px}}
+@media (prefers-reduced-motion: reduce){.dock-cue::after{animation:none}.js-reveal .gallery .card:not(.shown){opacity:1;translate:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1016,29 +1007,6 @@ html.intro-on,html.intro-on body{overflow:hidden}
 </style>
 </head>
 <body>
-<div class="intro-gate" id="intro-gate" role="dialog" aria-label="Ana Galic, portfolio intro">
-  <div class="ig-top"><span>Ana Galić</span><span>Portfolio &copy; 2026</span></div>
-  <div class="ig-stage">
-    <p class="ig-word ig-w1" aria-hidden="true"><span>A</span><span>N</span><span>A</span></p>
-    <div class="ig-frame" id="ig-frame"><img src="img/peaceland-cover.jpg" alt="" class=on><img src="img/izone/tedx/photo-3-sm.jpg" alt=""><img src="img/izone/post-ana-sm.jpg" alt=""><img src="img/pw-museum-2.jpg" alt=""><img src="img/uo/eb-cover-cv.jpg" alt=""><img src="img/painting.jpg" alt=""><img src="img/izone/mih/post-instagram-sm.jpg" alt=""><img src="img/peaceland/art/place-bakery.jpg" alt=""><img src="img/gwc/feb-gim-cv.jpg" alt=""><img src="img/izone/tedx/flyer-instagram.jpg" alt=""><img src="img/uo/gim-instagram-cv.jpg" alt=""><img src="img/peaceland/art/place-memory-tree.jpg" alt=""></div>
-    <p class="ig-word ig-w2" aria-hidden="true"><span>G</span><span>A</span><span>L</span><span>I</span><span>C</span></p>
-  </div>
-  <div class="ig-bottom">
-    <p class="ig-roles" aria-hidden="true"><span class="ig-roles-in"><span>Graphic designer</span><span>UX/UI designer</span><span>Visual storyteller</span><span>Graphic &amp; UX/UI designer</span></span></p>
-    <p class="ig-count" aria-hidden="true"><span id="ig-num">000</span></p>
-    <button type="button" class="ig-skip" id="ig-skip">Skip intro</button>
-  </div>
-  <i class="ig-bar" aria-hidden="true"></i>
-</div>
-<script>
-  /* Only show the intro when someone opens the front page */
-  (function(){
-    var h = location.hash.replace('#','');
-    var gate = document.getElementById('intro-gate');
-    if (h && h !== 'work' && h !== 'professional'){ gate.remove(); return; }
-    document.documentElement.classList.add('intro-on');
-  })();
-</script>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="#professional" aria-label="Ana Galic, home">Ana Galic</a>
@@ -1058,11 +1026,16 @@ html.intro-on,html.intro-on body{overflow:hidden}
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <h1 class="visually-hidden">Ana Galic, graphic and UX/UI designer</h1>
+    <div class="dock-fly" id="dock-fly" aria-hidden="true">Ana Galic</div>
+    <section class="dock-hero" aria-label="Ana Galic, graphic and UX/UI designer">
+      <h1 class="dock-name" id="dock-name">Ana Galic</h1>
+      <div class="dock-tags"><span>Graphic design</span><span>UX/UI design</span><span>Visual storytelling</span></div>
+      <p class="dock-cue" aria-hidden="true">Scroll</p>
+    </section>
 
     <section class="intro" aria-label="About Ana">
       <div class="intro-design" id="intro-design">
-        <p class="statement">I am a multidisciplinary designer with a strong foundation in <mark>Computer Science</mark> and <mark>Digital Design</mark>.</p>
+        <p class="statement" id="statement">I am a <em>multidisciplinary</em> designer with a strong foundation in <em>Computer Science</em> and <em>Digital Design</em>.</p>
         <p class="statement-sub">I create visual identities, graphics for video games, and user-centered websites. I focus on strong visual design with an understanding of how people think, play, and interact.</p>
       </div>
     </section>
@@ -3063,48 +3036,66 @@ html.intro-on,html.intro-on body{overflow:hidden}
     });
   }
 
-  /* Intro: flick through the work, count to 100, open the last picture into the site */
-  const gate = document.getElementById('intro-gate');
-  if (gate){
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const total = still ? 2200 : 6000, flipEnd = 4600;
-    const frame = document.getElementById('ig-frame'), pics = [...frame.querySelectorAll('img')];
-    const num = document.getElementById('ig-num'), roles = gate.querySelector('.ig-roles-in'), bar = gate.querySelector('.ig-bar');
-    let done = false, t0 = performance.now(), cur = 0, nextFlip = 650, roleAt = 0;
-    const show = i => { pics[cur].classList.remove('on'); cur = i % pics.length; pics[cur].classList.add('on'); };
-    function tick(now){
-      if (done) return;
-      const t = now - t0;
-      const k = Math.min(1, t / (flipEnd + 300));
-      num.textContent = String(Math.round(100 * (1 - Math.pow(1 - k, 2.2)))).padStart(3, '0');
-      bar.style.transform = `scaleX(${Math.min(1, t / total)})`;
-      if (!still && t >= nextFlip && t < flipEnd){ show(cur + 1); const p = (t - 650) / (flipEnd - 650); nextFlip = t + (p < .5 ? 300 - 140 * p * 2 : 160 + 260 * (p - .5) * 2); }
-      const r = Math.min(3, Math.floor(t / 1300));
-      if (r !== roleAt){ roleAt = r; roles.style.transform = `translateY(${-1.4 * r}em)`; }
-      if (t >= flipEnd && !gate.classList.contains('leaving')) expand();
-      if (t >= total) return finish();
-      requestAnimationFrame(tick);
+
+  /* Front page scroll story: name docks into the menu, statement reveals word by word, work rises in */
+  {
+    const html = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const name = document.getElementById('dock-name'), fly = document.getElementById('dock-fly'), brand = document.querySelector('.brand');
+    const home = name && name.closest('[data-view]');
+    let start = null, fs = 100;
+    function fitName(){
+      const box = name.parentElement.getBoundingClientRect().width;
+      name.style.fontSize = '100px'; const w = name.scrollWidth;
+      fs = Math.floor(100 * box / w * 0.995); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
+      const r = name.getBoundingClientRect();
+      start = {x: r.left, y: r.top + scrollY, w: r.width, h: r.height};
     }
-    function expand(){
-      gate.classList.add('leaving');
+    function frame(){
+      if (!home || home.hidden){ html.classList.remove('dock-on', 'docked'); return; }
       if (still) return;
-      show(0);
-      const r = frame.getBoundingClientRect();
-      const sc = Math.max(innerWidth / r.width, innerHeight / r.height) * 1.04;
-      const dx = innerWidth / 2 - (r.left + r.width / 2), dy = innerHeight / 2 - (r.top + r.height / 2);
-      frame.style.transform = `translate(${dx}px,${dy}px) scale(${sc})`;
-      frame.style.animation = 'none'; frame.style.clipPath = 'none';
-      frame.style.borderRadius = '0';
+      html.classList.add('dock-on');
+      const b = brand.getBoundingClientRect();
+      const bfs = parseFloat(getComputedStyle(brand).fontSize);
+      const sc = bfs / fs;
+      const travel = Math.max(1, start.y - b.top) * 0.9;
+      const p = Math.min(1, Math.max(0, scrollY / travel)), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      const s0 = 1 + (sc - 1) * e;
+      const ex = b.left, ey = b.top + (b.height - start.h * sc) / 2;
+      const x = start.x + (ex - start.x) * e, y = (start.y - scrollY) * (1 - e) + ey * e;
+      fly.style.transform = `translate(${x}px,${y}px) scale(${s0})`;
+      const dockedNow = p >= 1;
+      fly.classList.toggle('docked', dockedNow); html.classList.toggle('docked', dockedNow);
     }
-    function finish(){
-      if (done) return; done = true;
-      gate.classList.add('out');
-      document.documentElement.classList.remove('intro-on');
-      setTimeout(() => gate.remove(), 800);
+    const words = [];
+    const st = document.getElementById('statement');
+    if (st && !still){
+      const walk = node => [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3){ const frag = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(t => { if (!t) return; if (/^\s+$/.test(t)) frag.append(t); else { const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = t; words.push(sp); frag.append(sp); } }); n.replaceWith(frag); }
+        else if (n.nodeType === 1) walk(n);
+      });
+      walk(st);
     }
-    document.getElementById('ig-skip').addEventListener('click', finish);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') finish(); });
-    requestAnimationFrame(tick);
+    function words_(){
+      if (!words.length || home.hidden) return;
+      const r = st.getBoundingClientRect(), vh = innerHeight;
+      const p = Math.min(1, Math.max(0, (vh * .85 - r.top) / (vh * .55)));
+      words.forEach((w, i) => { const k = Math.min(1, Math.max(0, p * words.length - i)); w.style.setProperty('--o', (.14 + .86 * k).toFixed(3)); });
+    }
+    if (home){
+      const all = () => { if (!home.hidden && start) { frame(); words_(); } };
+      const refit = () => { if (home.hidden) return; const y = scrollY; fitName(); all(); };
+      addEventListener('scroll', all, {passive: true});
+      addEventListener('resize', refit);
+      addEventListener('hashchange', () => requestAnimationFrame(() => { if (home.hidden) html.classList.remove('dock-on','docked'); else refit(); }));
+      if (document.fonts) document.fonts.ready.then(refit);
+      requestAnimationFrame(refit);
+    }
+    /* work tiles rise in as they come into view */
+    if ('IntersectionObserver' in window){
+      html.classList.add('js-reveal');
+      const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ const c = en.target; c.style.transitionDelay = (([...c.parentElement.children].indexOf(c) % 2) * 120) + 'ms'; c.classList.add('shown'); io.unobserve(c); setTimeout(() => { c.style.transitionDelay = ''; }, 1200); } }), {rootMargin: '0px 0px -8% 0px'});
+      document.querySelectorAll('.gallery .card').forEach(c => io.observe(c));
+    }
   }
 })();
 </script>
