@@ -84,7 +84,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
 /* Header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);box-shadow:0 0 0 100vmax var(--paper),0 1px 0 100vmax var(--line);clip-path:inset(0 -100vmax -1px)}
-.top-in{max-width:var(--max);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.top-in{max-width:none;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .brand{display:flex;align-items:center;text-decoration:none;font-family:var(--display);font-weight:800;font-size:clamp(17px,1.5vw,20px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .brand-logo{display:block;width:53px;height:60px;max-width:none;transition:transform .35s var(--ease)}
@@ -683,7 +683,7 @@ html.dock-on .dock-name{visibility:hidden}
 html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;text-decoration:none;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
 html.dock-on.docked .dock-fly{pointer-events:auto}
 html.dock-on .brand{visibility:hidden}
-.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;opacity:var(--tag-o,1)}
+.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#6B6F75;opacity:var(--tag-o,1)}
 .intro{position:relative;z-index:1;margin-top:-40svh;padding-bottom:clamp(24px,6vh,72px)}
 .statement .w{opacity:0;transition:opacity .9s var(--ease);transition-delay:calc(var(--i) * 18ms)}
 .statement.in .w{opacity:1}
@@ -3076,7 +3076,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
     function fit(){
       const box = name.parentElement.getBoundingClientRect().width;
       name.style.fontSize = '100px'; const w = name.getBoundingClientRect().width;
-      fs = Math.floor(100 * box / w * 0.998); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
+      fs = Math.floor(100 * box / w * 0.66); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
       const hero = name.closest('.dock-hero'), pin = document.getElementById('dock-pin');
       travel = Math.max(200, hero.offsetHeight - pin.offsetHeight);
       const r = name.getBoundingClientRect();
@@ -3092,7 +3092,8 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
       const s0 = 1 + (sc - 1) * e;
       const ty = b.top + (b.height - start.h * sc) / 2;
       const yy = start.y + (ty - start.y) * e;
-      fly.style.transform = `translate3d(${start.x}px,${yy.toFixed(2)}px,0) scale(${s0.toFixed(4)})`;
+      const xx = start.x + (b.left - start.x) * e;
+      fly.style.transform = `translate3d(${xx.toFixed(2)}px,${yy.toFixed(2)}px,0) scale(${s0.toFixed(4)})`;
       html.classList.toggle('docked', p > .995);
       if (wide()){
         const bw = b.width, gap = Math.min(110, Math.max(40, innerWidth * .07));
