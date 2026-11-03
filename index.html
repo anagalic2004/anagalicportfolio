@@ -676,7 +676,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   .nav{flex:1;justify-content:space-between;margin-left:var(--nav-shift,clamp(40px,7vw,110px));text-transform:uppercase;letter-spacing:.05em;font-size:13.5px}
 }
 .dock-hero{position:relative;height:calc(100svh - 72px)}
-.dock-pin{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,4vh,48px);padding-block:clamp(40px,10vh,120px) clamp(24px,5vh,60px)}
+.dock-pin{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(44px,11vh,120px);padding-block:clamp(56px,17vh,190px) clamp(24px,5vh,60px)}
 .dock-name{display:inline-block;align-self:flex-start;margin:0;font-family:var(--display);font-weight:800;font-size:13.4vw;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
 html.dock-on .dock-name{visibility:hidden}
 .dock-fly{display:none}
@@ -716,7 +716,7 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
 .gallery .card-type{color:#59616C}
-@media (max-width:600px){.dock-hero{height:calc(100svh - 66px)}.dock-pin{justify-content:flex-end}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
+@media (max-width:600px){.dock-hero{height:calc(100svh - 66px)}.dock-pin{justify-content:flex-start;padding-top:22vh;gap:clamp(28px,6vh,56px)}.dock-tags{font-size:12px;letter-spacing:.04em;flex-direction:column;gap:4px}.bl b{filter:blur(40px)}}
 @media (prefers-reduced-motion: reduce){.bl b{animation:none}.statement .w{opacity:1;transform:none;transition:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
