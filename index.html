@@ -671,6 +671,29 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .reel-cap span{font-weight:400;opacity:.75}
 .reel-item:hover .reel-cap,.reel-item:focus-within .reel-cap{opacity:1;transform:none}
 @media (hover:none){.reel-cap{opacity:1;transform:none}}
+/* Intro: full screen on arrival, lifts away on the first cursor move */
+.intro-gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--paper);color:var(--ink);overflow:hidden;transition:transform 1s cubic-bezier(.76,0,.24,1),opacity .6s}
+html.intro-on,html.intro-on body{overflow:hidden}
+.intro-gate.out{transform:translateY(-100%)}
+.ig-in{text-align:center;padding:24px}
+.ig-kicker{display:flex;justify-content:center;gap:28px;margin:0 0 clamp(14px,2vw,26px);font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);opacity:0;animation:igFade .9s .9s forwards}
+.ig-name{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(72px,17vw,250px);line-height:.86;letter-spacing:-.02em;display:flex;flex-direction:column;align-items:center}
+.ig-line{display:flex;overflow:hidden;padding-bottom:.04em}
+.ig-line > span{display:inline-block;transform:translateY(105%);animation:igUp .9s cubic-bezier(.2,.8,.2,1) forwards}
+.ig-line:nth-child(1) > span:nth-child(1){animation-delay:.05s}.ig-line:nth-child(1) > span:nth-child(2){animation-delay:.12s}.ig-line:nth-child(1) > span:nth-child(3){animation-delay:.19s}
+.ig-line:nth-child(2) > span:nth-child(1){animation-delay:.26s}.ig-line:nth-child(2) > span:nth-child(2){animation-delay:.33s}.ig-line:nth-child(2) > span:nth-child(3){animation-delay:.40s}.ig-line:nth-child(2) > span:nth-child(4){animation-delay:.47s}.ig-line:nth-child(2) > span:nth-child(5){animation-delay:.54s}
+.ig-role{margin:clamp(16px,2.4vw,30px) 0 0;font-size:clamp(15px,1.5vw,19px);font-weight:500;letter-spacing:.04em;opacity:0;animation:igFade .9s 1s forwards}
+.ig-role::before{content:"";display:block;width:44px;height:3px;margin:0 auto clamp(14px,1.8vw,22px);background:var(--blue);border-radius:2px}
+.ig-hint{position:absolute;left:50%;bottom:clamp(24px,5vh,48px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;padding:8px 14px;border:0;background:none;font:inherit;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);cursor:pointer;opacity:0;animation:igFade .9s 1.4s forwards}
+.ig-mouse{width:20px;height:31px;border:1.5px solid currentColor;border-radius:11px;position:relative}
+.ig-mouse i{position:absolute;left:50%;top:6px;width:2px;height:6px;margin-left:-1px;border-radius:1px;background:currentColor;animation:igWheel 1.6s ease-in-out infinite}
+@media (max-width:600px){.ig-name{font-size:27vw}.ig-hint{white-space:nowrap}}
+@media (hover:none){.ig-mouse{border-radius:50%;width:26px;height:26px}.ig-mouse i{top:9px;height:6px;width:6px;margin-left:-3px;border-radius:50%;animation:igTap 1.6s ease-in-out infinite}}
+@keyframes igTap{0%,100%{transform:scale(.6);opacity:.4}50%{transform:scale(1.2);opacity:1}}
+@keyframes igUp{to{transform:none}}
+@keyframes igFade{to{opacity:1}}
+@keyframes igWheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.intro-gate{transition:opacity .5s}.intro-gate.out{transform:none;opacity:0}.ig-line > span{transform:none;animation:none}.ig-kicker,.ig-role,.ig-hint{animation:none;opacity:1}.ig-mouse i{animation:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -984,6 +1007,23 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 </style>
 </head>
 <body>
+<div class="intro-gate" id="intro-gate" role="dialog" aria-label="Welcome">
+  <div class="ig-in">
+    <p class="ig-kicker"><span>Portfolio</span><span>2026</span></p>
+    <p class="ig-name" aria-label="Ana Galic"><span class="ig-line"><span>A</span><span>N</span><span>A</span></span><span class="ig-line"><span>G</span><span>A</span><span>L</span><span>I</span><span>C</span></span></p>
+    <p class="ig-role">Graphic &amp; UX/UI Designer</p>
+  </div>
+  <button type="button" class="ig-hint" id="ig-hint"><span class="ig-mouse" aria-hidden="true"><i></i></span><span class="ig-hint-t">Move your cursor to enter</span></button>
+</div>
+<script>
+  /* Only show the intro when someone opens the front page */
+  (function(){
+    var h = location.hash.replace('#','');
+    var gate = document.getElementById('intro-gate');
+    if (h && h !== 'work' && h !== 'professional'){ gate.remove(); return; }
+    document.documentElement.classList.add('intro-on');
+  })();
+</script>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="#professional" aria-label="Ana Galic, home">Ana Galic</a>
@@ -3006,6 +3046,35 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       });
       card.addEventListener('pointerleave', () => { card.classList.remove('tilting'); card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg'); });
     });
+  }
+
+  /* Intro gate: the first real cursor move (or a scroll, tap or key) lifts it away */
+  const gate = document.getElementById('intro-gate');
+  if (gate){
+    const touch = window.matchMedia('(hover: none)').matches;
+    if (touch) document.querySelector('#ig-hint .ig-hint-t').textContent = 'Tap or swipe to enter';
+    let gone = false, armed = false, moved = 0, lx = null, ly = null;
+    setTimeout(() => { armed = true; }, 700);
+    const leave = () => {
+      if (gone) return; gone = true;
+      gate.classList.add('out');
+      document.documentElement.classList.remove('intro-on');
+      setTimeout(() => gate.remove(), 1100);
+      ['pointermove','wheel','touchstart','keydown'].forEach(t => window.removeEventListener(t, on));
+    };
+    function on(e){
+      if (e.type === 'pointermove'){
+        if (e.pointerType === 'touch') return leave();
+        if (lx !== null) moved += Math.hypot(e.clientX - lx, e.clientY - ly);
+        lx = e.clientX; ly = e.clientY;
+        if (armed && moved > 24) leave();
+        return;
+      }
+      if (e.type === 'keydown' && ['Shift','Control','Alt','Meta'].includes(e.key)) return;
+      leave();
+    }
+    ['pointermove','wheel','touchstart','keydown'].forEach(t => window.addEventListener(t, on, {passive: true}));
+    document.getElementById('ig-hint').addEventListener('click', leave);
   }
 })();
 </script>
