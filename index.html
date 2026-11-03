@@ -725,7 +725,6 @@ html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
 .wash{display:none}
 html.home-on .wash{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;background:#D4E7FC;opacity:var(--wash-o,1);transition:opacity .2s linear}
 .wash canvas{position:absolute;inset:0;width:100%;height:100%;filter:blur(1.5px) saturate(1.05)}
-.wash::before{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 7%,rgba(255,255,255,0) 7% 16%,rgba(255,255,255,.1) 16% 19%,rgba(255,255,255,0) 19% 27%);mix-blend-mode:soft-light}
 .wash::after{content:"";position:absolute;inset:0;z-index:2;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.35 0 0 0 0 0.6 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.32;mix-blend-mode:multiply}
 html.home-on.at-top .top{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
 html.home-on.at-top .top::after{opacity:0}
