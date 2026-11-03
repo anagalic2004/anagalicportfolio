@@ -16,7 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -57,9 +57,9 @@
   --on-block:#F4F7FA;
   --block-muted:#8A939E;
   --block-line:#262B31;
-  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --display:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Raleway",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gutter:clamp(16px,4vw,48px);
   --max:1240px;
   --fs-label:12px;
@@ -118,7 +118,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   .nav a{padding:12px 0;border-top:1px solid var(--line);background:none}
   .nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 4px 0 0 var(--blue);padding-left:12px}
 }
-#work,#experience{scroll-margin-top:88px}
+#work{scroll-margin-top:88px}
 /* Hero buttons */
 .hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;pointer-events:auto}
 .hero-cta,.hero-cta *{cursor:pointer}
@@ -197,6 +197,31 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .grid.grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.grid.grid-two{grid-template-columns:minmax(0,1fr)}.grid .cover{aspect-ratio:16/10}}
 .grid .card{gap:14px}
+/* Work gallery: tight rounded tiles, title on a glass label, tilt toward the pointer */
+.grid.gallery{gap:10px}
+.grid.gallery > .card:last-child:nth-child(odd){grid-column:1/-1}
+.grid.gallery > .card:last-child:nth-child(odd) .cover{aspect-ratio:21/8}
+.gallery .card{position:relative;display:block;border-radius:22px;overflow:hidden;isolation:isolate;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.gallery .card:hover{box-shadow:0 22px 44px -24px rgba(11,12,14,.45)}
+.gallery .card.tilting{transition:transform .12s linear,box-shadow .5s var(--ease)}
+.gallery .cover{aspect-ratio:4/3;border:0;border-radius:inherit}
+.gallery .cover.cover-bare{background:#EEF0F3}
+.gallery .cover.cover-bare .cover-img{object-fit:contain;padding:6% 8% 14%}
+.gallery .card::after{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 60%)}
+.gallery .card:hover::after{opacity:1}
+.gallery .card-body{position:absolute;left:14px;bottom:14px;z-index:4;max-width:calc(100% - 28px);gap:0;padding:11px 16px 12px;border-radius:14px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 18px -10px rgba(11,12,14,.35);transition:transform .45s var(--ease),background .3s}
+.gallery .card-row{gap:18px;align-items:center}
+.gallery .card h3{font-size:clamp(16px,1.35vw,19px);text-decoration:none;letter-spacing:.02em}
+.gallery .card-link{font-size:13px;max-width:0;overflow:hidden;opacity:0;transition:max-width .45s var(--ease),opacity .3s}
+.gallery .card-type{font-size:14px;font-weight:500;line-height:1.35;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .45s var(--ease),opacity .35s,margin .45s var(--ease)}
+.gallery .card-type{width:0;min-width:100%}
+.gallery .card:hover .card-type,.gallery .card:focus-visible .card-type{max-height:4em;opacity:1;margin-top:5px;width:auto;min-width:0;max-width:44ch}
+.gallery .card:hover .card-link,.gallery .card:focus-visible .card-link{max-width:80px;opacity:1}
+.gallery .card:hover .card-body{transform:translateY(-4px);background:rgba(255,255,255,.95)}
+.gallery .card:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media (hover:none){.gallery .card-body{right:10px;max-width:none}.gallery .card-type{max-height:none;opacity:1;margin-top:4px;width:auto;min-width:0}.gallery .card-link{max-width:80px;opacity:1}}
+@media (max-width:600px){.grid.gallery > .card:last-child:nth-child(odd) .cover{aspect-ratio:4/3}.gallery .card{border-radius:18px}.gallery .card-body{left:10px;bottom:10px;max-width:calc(100% - 20px);padding:9px 13px 10px}}
+
 .grid .card-type{font-size:15.5px;line-height:1.4}
 .card{display:flex;flex-direction:column;gap:18px;text-decoration:none;transition:opacity .4s var(--ease)}
 .card.is-dim{opacity:.2}
@@ -965,7 +990,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav"><span class="nav-toggle-txt">Menu</span><span class="nav-toggle-ico" aria-hidden="true"></span></button>
     <nav class="nav" id="main-nav" aria-label="Main">
       <a href="#work" data-nav="work">Work</a>
-      <a href="#experience" data-nav="experience">Experience</a>
       <a href="#personal" data-nav="personal">Personal</a>
       <a href="#about" data-nav="about">About</a>
       <a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
@@ -992,7 +1016,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
       <div class="sec-head">
         <h2 class="sec-title" id="work-h">Work</h2>
       </div>
-      <div class="grid grid-two">
+      <div class="grid grid-two gallery">
         <a class="card" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
             <img class="cover-img" src="img/peaceland-town.jpg" alt="" loading="lazy">
@@ -1024,12 +1048,6 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
             <p class="card-type">AI voice assistant</p>
           </div>
         </a>
-      </div>
-    </section>
-
-    <section class="block-section" id="experience" aria-labelledby="exp-h">
-      <div class="sec-head"><h2 class="sec-title" id="exp-h">Experience</h2></div>
-      <div class="grid">
         <a class="card" href="#izone" data-tags="graphic">
           <div class="cover iz-cover" aria-hidden="true">
             <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-linkedin-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
@@ -1062,6 +1080,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </a>
       </div>
     </section>
+
 
   </div>
 
@@ -1770,7 +1789,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <article class="view wrap" data-view="izone" hidden>
 
     <div class="cs-top">
-      <a class="back" href="#experience">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Marketing &amp; graphic design</p>
         <h1 class="cs-title"><span class="nc">iZone</span></h1>
@@ -1906,7 +1925,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <article class="view wrap" data-view="rochester-design-hub" hidden>
 
     <div class="cs-top">
-      <a class="back" href="#experience">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Brand &amp; social media design</p>
         <h1 class="cs-title long">Rochester Design Hub</h1>
@@ -2110,7 +2129,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
   <article class="view wrap" data-view="girls-who-code" hidden>
 
     <div class="cs-top">
-      <a class="back" href="#experience">&larr; All work</a>
+      <a class="back" href="#work">&larr; All work</a>
       <header class="cs-head">
         <p class="label">Social media &amp; event design</p>
         <h1 class="cs-title long">Girls Who Code</h1>
@@ -2354,7 +2373,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
         </div>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#work">Work</a><a href="#experience">Experience</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </nav>
     </div>
     <div class="foot-small"><span>© 2026 Ana Galic</span><span>Designed and created by Ana Galic</span></div>
@@ -2429,9 +2448,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 
   /* Router: one view per bare #anchor */
   const routes = ['professional','personal','about','peaceland','soulshine','vals','tedx','izone','rochester-design-hub','girls-who-code'];
-  const homeAnchors = ['work','experience'];
-  const navOf = {peaceland:'work', soulshine:'work', vals:'work', tedx:'work', 'peaceland-research':'work', professional:'work', izone:'experience', 'rochester-design-hub':'experience', 'girls-who-code':'experience'};
-  const aliases = {'tedxurochester':'tedx', 'selected-work':'work', 'peaceland-research':'peaceland', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
+  const homeAnchors = ['work'];
+  const navOf = {peaceland:'work', soulshine:'work', vals:'work', tedx:'work', 'peaceland-research':'work', professional:'work', izone:'work', 'rochester-design-hub':'work', 'girls-who-code':'work'};
+  const aliases = {experience:'work', 'tedxurochester':'tedx', 'selected-work':'work', 'peaceland-research':'peaceland', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
   function setNav(key){
     document.querySelectorAll('.nav a').forEach(a => {
       if (a.dataset.nav === key) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
@@ -2973,6 +2992,21 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
     reel.addEventListener('focusout', () => { hover = false; });
     requestAnimationFrame(frame);
   });
+
+  /* Work gallery: each tile leans toward the pointer and a soft light follows it */
+  if (window.matchMedia('(hover: hover)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.gallery .card').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.classList.add('tilting');
+        card.style.setProperty('--ry', ((x - .5) * 6).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((.5 - y) * 6).toFixed(2) + 'deg');
+        card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', () => { card.classList.remove('tilting'); card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg'); });
+    });
+  }
 })();
 </script>
 </body>
