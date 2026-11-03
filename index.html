@@ -198,7 +198,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 @media (max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.grid.grid-two{grid-template-columns:minmax(0,1fr)}.grid .cover{aspect-ratio:16/10}}
 .grid .card{gap:14px}
 /* Work gallery: tight rounded tiles, title on a glass label, tilt toward the pointer */
-.grid.gallery{gap:10px}
+.grid.gallery{gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:980px){.grid.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid.gallery{grid-template-columns:minmax(0,1fr)}}
 .grid.gallery > .card:last-child:nth-child(odd){grid-column:1/-1}
 .grid.gallery > .card:last-child:nth-child(odd) .cover{aspect-ratio:21/8}
 .gallery .card{position:relative;display:block;border-radius:22px;overflow:hidden;isolation:isolate;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
