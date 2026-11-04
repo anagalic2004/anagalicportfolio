@@ -685,7 +685,7 @@ html.dock-on .dock-name{visibility:hidden}
 html.dock-on .dock-fly{display:block;position:fixed;left:0;top:0;z-index:30;margin:0;text-decoration:none;font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transform-origin:0 0;pointer-events:none;will-change:transform;transition:color .6s}
 html.dock-on.docked .dock-fly{pointer-events:auto}
 html.dock-on .brand{visibility:hidden}
-.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(14px,2.05vw,30px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#3E4A5C;opacity:var(--tag-o,1)}
+.dock-tags{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-size:clamp(12px,1.35vw,20px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;color:#3E4A5C;opacity:var(--tag-o,1)}
 .intro{position:relative;z-index:1;padding-bottom:clamp(24px,6vh,72px)}
 .statement .w{opacity:0;transition:opacity .9s var(--ease);transition-delay:calc(var(--i) * 18ms)}
 .statement.in .w{opacity:1}
@@ -3090,7 +3090,7 @@ html.theme-dark .wash canvas{opacity:.75}
     function fit(){
       const box = name.parentElement.getBoundingClientRect().width;
       name.style.fontSize = '100px'; const w = name.getBoundingClientRect().width;
-      fs = Math.floor(100 * box / w * 0.66); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
+      fs = Math.floor(100 * box / w * 0.5); name.style.fontSize = fs + 'px'; fly.style.fontSize = fs + 'px';
       travel = Math.max(260, innerHeight * .55);
       const r = name.getBoundingClientRect();
       start = {x: r.left, y: r.top + scrollY, h: r.height};
