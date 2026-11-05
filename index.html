@@ -750,6 +750,14 @@ html.theme-dark .wash canvas{opacity:.75}
 @media (hover:none){.masonry .card-row{opacity:1;transform:none}}
 @media (max-width:980px){.grid.gallery.masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}.m-col{display:contents}.masonry .cover{aspect-ratio:4/3}}
 @media (max-width:640px){.grid.gallery.masonry{grid-template-columns:minmax(0,1fr)}}
+.pf-top{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.pf-fig{margin:0;display:flex;flex-direction:column;gap:10px}
+.pf-zoom{border-radius:18px;background:#F2F1ED;border:0}
+.pf-zoom img{object-fit:contain;mix-blend-mode:multiply}
+.pf-side{display:flex;flex-direction:column;gap:18px}
+[data-view="perfume"] .cs-step:not(:has(.cs-step-body *)){display:none}
+[data-view="perfume"] .block-section:not(:has(> :not(.label))){display:none}
+@media (max-width:760px){.pf-top{grid-template-columns:minmax(0,1fr)}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1135,14 +1143,14 @@ html.theme-dark .wash canvas{opacity:.75}
         </a>
       </div>
       <div class="m-col">
-        <a class="card" style="--ar:4/5;order:2" href="#tedx" data-tags="graphic">
+        <a class="card" style="--ar:16/10;order:2" href="#tedx" data-tags="graphic">
           <div class="cover"><img class="cover-img" src="img/izone/tedx/photo-7-sm.jpg" alt="" loading="lazy"></div>
           <div class="card-body">
             <div class="card-row" data-type="Event branding & photography · reHuman"><h3><span class="nc">TEDxURochester</span></h3></div>
             <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
           </div>
         </a>
-        <a class="card" style="--ar:1/1;order:5" href="#izone" data-tags="graphic">
+        <a class="card" style="--ar:16/10;order:5" href="#izone" data-tags="graphic">
           <div class="cover iz-cover" aria-hidden="true">
             <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-linkedin-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
             
@@ -1150,6 +1158,13 @@ html.theme-dark .wash canvas{opacity:.75}
           <div class="card-body">
             <div class="card-row" data-type="Marketing Assistant · Graphic Design Team"><h3><span class="nc">iZone</span></h3></div>
             <p class="card-type">Marketing Assistant · Graphic Design Team</p>
+          </div>
+        </a>
+        <a class="card" style="--ar:1/1;order:8" href="#perfume" data-tags="product graphic">
+          <div class="cover"><img class="cover-img" src="img/perfume/cover.jpg" alt="" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-row" data-type="Product design · in progress"><h3>Perfume Bottle</h3></div>
+            <p class="card-type">Product design · in progress</p>
           </div>
         </a>
       </div>
@@ -2343,8 +2358,79 @@ html.theme-dark .wash canvas{opacity:.75}
     </section>
       </div>
     </div>
+    <a class="next" href="#perfume"><span class="label">Next project</span><span class="next-title">Perfume Bottle &rarr;</span></a>
+  </article>
+
+  <!-- PERFUME BOTTLE -->
+  <article class="view wrap" data-view="perfume" hidden>
+
+    <div class="cs-top">
+      <a class="back" href="#work">&larr; All work</a>
+      <header class="cs-head">
+        <p class="label">Product design &middot; In progress</p>
+        <h1 class="cs-title">Perfume Bottle</h1>
+      </header>
+      <div class="pf-top">
+        <figure class="pf-fig"><button type="button" class="tx-zoom pf-zoom" style="--ar:1581/2035" data-full="img/perfume/sketches.jpg" data-cap="Initial sketches &middot; bottle, cap and sprayer" aria-label="Enlarge: initial sketches"><img src="img/perfume/sketches.jpg" alt="Hand-drawn grey-shaded sketches of a rectangular perfume bottle with a wide flared cap: the bottle from the front, from an angle, and taken apart into the cap with its sprayer tube and the empty glass body" width="1581" height="2035"></button><figcaption class="label">Initial sketches &middot; Click to zoom in</figcaption></figure>
+        <div class="pf-side">
+          <p class="lede">Designing the perfect perfume bottle, from the first sketch to the final form.</p>
+          <p class="kit-note">Case study in progress &middot; more coming soon.</p>
+          <dl class="meta">
+            <div><dt class="label">Role</dt><dd>Product designer</dd></div>
+            <div><dt class="label">What I did</dt><dd>Research, sketching, form and cap design</dd></div>
+            <div><dt class="label">Duration</dt><dd>2026 &ndash; in progress</dd></div>
+            <div><dt class="label">Tools</dt><dd>Hand sketching, Procreate</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <p class="label label-strong">Problem</p>
+      <div class="cs-step-body">
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <p class="label label-strong">Goals</p>
+      <div class="cs-step-body">
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <p class="label label-strong">Process</p>
+      <div class="cs-step-body">
+        <section class="block-section" aria-label="Research">
+          <p class="label">Research</p>
+        </section>
+        <section class="block-section" aria-label="Sketches">
+          <p class="label">Sketches</p>
+          <p class="kit-note">The first round: the bottle from the front and from an angle, then taken apart into the cap, the sprayer tube and the glass body to work out how the pieces fit together.</p>
+        </section>
+        <section class="block-section" aria-label="Iterations">
+          <p class="label">Iterations</p>
+        </section>
+        <section class="block-section" aria-label="Final design">
+          <p class="label">Final design</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <p class="label label-strong">Results</p>
+      <div class="cs-step-body">
+      </div>
+    </div>
+
+    <div class="cs-step">
+      <p class="label label-strong">Reflection</p>
+      <div class="cs-step-body">
+      </div>
+    </div>
+
     <a class="next" href="#peaceland"><span class="label">Next project</span><span class="next-title">Peaceland &rarr;</span></a>
   </article>
+
 
   <!-- ABOUT -->
   <article class="view wrap" data-view="about" hidden>
@@ -2541,9 +2627,9 @@ html.theme-dark .wash canvas{opacity:.75}
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(sizePad, 120); });
 
   /* Router: one view per bare #anchor */
-  const routes = ['professional','personal','about','peaceland','soulshine','vals','tedx','izone','rochester-design-hub','girls-who-code'];
+  const routes = ['professional','personal','about','peaceland','soulshine','vals','tedx','perfume','izone','rochester-design-hub','girls-who-code'];
   const homeAnchors = ['work'];
-  const navOf = {peaceland:'work', soulshine:'work', vals:'work', tedx:'work', 'peaceland-research':'work', professional:'work', izone:'work', 'rochester-design-hub':'work', 'girls-who-code':'work'};
+  const navOf = {peaceland:'work', soulshine:'work', vals:'work', tedx:'work', perfume:'work', 'peaceland-research':'work', professional:'work', izone:'work', 'rochester-design-hub':'work', 'girls-who-code':'work'};
   const aliases = {experience:'work', 'tedxurochester':'tedx', 'selected-work':'work', 'peaceland-research':'peaceland', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
   function setNav(key){
     document.querySelectorAll('.nav a').forEach(a => {
