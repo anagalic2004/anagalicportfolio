@@ -751,6 +751,21 @@ html.home-on.at-top .top::after{opacity:0}
 .nav .nav-li:hover img{transform:rotate(-5deg) scale(1.06)}
 @media (min-width:601px){.top-li{display:none}}
 @media (max-width:600px){.nav .nav-li{display:none}}
+/* Peaceland: extra art folds away behind "See more" */
+.more-art{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .8s var(--ease),opacity .6s var(--ease),margin .8s var(--ease);margin-top:-12px}
+.more-art > .more-art-in{min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:clamp(18px,2.4vw,28px)}
+.more-art.open{grid-template-rows:1fr;opacity:1;margin-top:clamp(8px,1.4vw,16px)}
+.more-art:not(.open) .more-art-in{visibility:hidden;transition:visibility 0s .8s}
+.see-more{align-self:center;display:inline-flex;align-items:center;gap:14px;margin-top:4px;padding:12px 18px 12px 22px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer;transition:background .3s,color .3s}
+.see-more .sm-t{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.see-more .sm-n{font-size:13px;color:var(--muted);transition:color .3s}
+.see-more i{position:relative;width:12px;height:12px}
+.see-more i::before,.see-more i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;margin-top:-.75px;background:currentColor;transition:transform .4s var(--ease)}
+.see-more i::after{transform:rotate(90deg)}
+.see-more[aria-expanded="true"] i::after{transform:rotate(0)}
+.see-more:hover{background:var(--ink);color:var(--paper)}
+.see-more:hover .sm-n{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+@media (max-width:600px){.see-more .sm-n{display:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1279,6 +1294,8 @@ html.home-on.at-top .top::after{opacity:0}
           <figure class="reel-item" aria-hidden="true" style="--ar:1600/844"><button type="button" class="tx-zoom reel-btn" tabindex="-1" style="--ar:1600/844" data-full="img/peaceland/art/place-kitchen.jpg" data-cap="Family kitchen" aria-label="Enlarge: Family kitchen"><img src="img/peaceland/art/place-kitchen.jpg" alt="" width="1600" height="844"></button><figcaption class="reel-cap">Family kitchen</figcaption></figure>
         </div></div>
         <button type="button" class="reel-arrow reel-prev" aria-label="Previous scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button><button type="button" class="reel-arrow reel-next" aria-label="Next scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg></button></div></div>
+      <div class="more-art" id="more-art">
+        <div class="more-art-in">
       <div class="built-row2">
         <figure class="built-fig art-block"><div class="art-grid">
           <figure class="art-tile"><button type="button" class="tx-zoom" data-full="img/peaceland/art/artifact-rug.jpg" data-cap="Embroidered rug" aria-label="Enlarge: Embroidered rug"><img src="img/peaceland/art/artifact-rug.jpg" alt="Sketch of an embroidered rug in green, yellow and red with a cross pattern and a small pine tree" loading="lazy" width="900" height="900"></button></figure>
@@ -1305,6 +1322,9 @@ html.home-on.at-top .top::after{opacity:0}
           <figure class="built-fig" style="flex-grow:0.5847"><button type="button" class="tx-zoom" style="--ar:656/1122" data-full="img/peaceland/art/minigame-flower.jpg" data-cap="Flower mini-game" aria-label="Enlarge: Flower mini-game"><img src="img/peaceland/art/minigame-flower.jpg" alt="Flower mini-game: a purple tulip growing out of grey soil, with two small panels showing the stem and leaves step by step" loading="lazy" width="656" height="1122"></button><figcaption>Flower mini-game</figcaption></figure>
         </div></div>
       </div>
+        </div>
+      </div>
+      <button type="button" class="see-more" id="see-more" aria-expanded="false" aria-controls="more-art"><span class="sm-t">See more</span><span class="sm-n">Artifacts, characters &amp; places</span><i aria-hidden="true"></i></button>
     </section>
       </div>
     </div>
@@ -3349,6 +3369,20 @@ html.home-on.at-top .top::after{opacity:0}
       addEventListener('scroll', check, {passive: true}); addEventListener('hashchange', () => setTimeout(check, 50));
       document.addEventListener('visibilitychange', () => { if (document.hidden) running = false; else check(); });
       check();
+    }
+  }
+
+  /* Peaceland: See more / See less */
+  {
+    const btn = document.getElementById('see-more'), box = document.getElementById('more-art');
+    if (btn && box){
+      btn.addEventListener('click', () => {
+        const open = !box.classList.contains('open');
+        box.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.querySelector('.sm-t').textContent = open ? 'See less' : 'See more';
+        if (!open) btn.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+      });
     }
   }
 })();
