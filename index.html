@@ -731,7 +731,7 @@ html.home-on.at-top .top::after{opacity:0}
 html.theme-dark .wash{background:#141B28}
 html.theme-dark .wash canvas{opacity:.75}
 /* Work: two staggered columns, titles slide in under a work on hover */
-.grid.gallery.masonry{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start;min-width:0;width:100%}
+.grid.gallery.masonry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;min-width:0;width:100%}
 .masonry .card,.masonry .card-body,.masonry .card-row{min-width:0;max-width:100%}
 .masonry .card-row{overflow:hidden}
 .m-col{display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -748,7 +748,8 @@ html.theme-dark .wash canvas{opacity:.75}
 .masonry .card-link{order:3;margin-left:auto;max-width:none;opacity:1;font-size:13px;color:var(--ink)!important}
 .masonry .card:hover .card-row,.masonry .card:focus-visible .card-row{opacity:1;transform:none}
 @media (hover:none){.masonry .card-row{opacity:1;transform:none}}
-@media (max-width:700px){.grid.gallery.masonry{display:flex;flex-direction:column;gap:6px}.m-col{display:contents}.masonry .cover{aspect-ratio:4/3}}
+@media (max-width:980px){.grid.gallery.masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}.m-col{display:contents}.masonry .cover{aspect-ratio:4/3}}
+@media (max-width:640px){.grid.gallery.masonry{grid-template-columns:minmax(0,1fr)}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1103,7 +1104,7 @@ html.theme-dark .wash canvas{opacity:.75}
       <div class="sec-head">
         <h2 class="sec-title" id="work-h">Selected work</h2>
       </div>
-      <div class="grid gallery masonry">
+      <div class="grid gallery masonry m3">
       <div class="m-col">
         <a class="card" style="--ar:6/5;order:1" href="#peaceland" data-tags="games graphic research">
           <div class="cover" aria-hidden="true">
@@ -1111,25 +1112,15 @@ html.theme-dark .wash canvas{opacity:.75}
             
           </div>
           <div class="card-body">
-            <div class="card-row" data-type="Narrative-driven video game"><h3>Peaceland</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
+            <div class="card-row" data-type="Narrative-driven video game"><h3>Peaceland</h3></div>
             <p class="card-type">Narrative-driven video game</p>
           </div>
         </a>
-        <a class="card" style="--ar:16/9;order:3" href="#soulshine" data-tags="product research">
-          <div class="cover cover-bare"><img class="cover-img" src="img/soulshine/cover-device.webp" alt="" loading="lazy"></div>
+        <a class="card" style="--ar:4/3;order:4" href="#vals" data-tags="research code">
+          <div class="cover cover-bare"><img class="cover-img" src="img/vals/cover-device.webp" alt="" loading="lazy"></div>
           <div class="card-body">
-            <div class="card-row" data-type="Digital wellbeing website for a multi-sensory focus lamp & companion app"><h3>Soulshine</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
-          </div>
-        </a>
-        <a class="card" style="--ar:8/5;order:5" href="#izone" data-tags="graphic">
-          <div class="cover iz-cover" aria-hidden="true">
-            <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-linkedin-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
-            
-          </div>
-          <div class="card-body">
-            <div class="card-row" data-type="Marketing Assistant · Graphic Design Team"><h3><span class="nc">iZone</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">Marketing Assistant · Graphic Design Team</p>
+            <div class="card-row" data-type="AI voice assistant"><h3>VALS</h3></div>
+            <p class="card-type">AI voice assistant</p>
           </div>
         </a>
         <a class="card" style="--ar:8/5;order:7" href="#girls-who-code" data-tags="graphic">
@@ -1138,38 +1129,50 @@ html.theme-dark .wash canvas{opacity:.75}
             
           </div>
           <div class="card-body">
-            <div class="card-row" data-type="Executive Board · Social Media Manager"><h3>Girls Who Code</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
+            <div class="card-row" data-type="Executive Board · Social Media Manager"><h3>Girls Who Code</h3></div>
             <p class="card-type">Executive Board · Social Media Manager</p>
           </div>
         </a>
       </div>
       <div class="m-col">
-        <a class="card" style="--ar:16/9;order:2" href="#tedx" data-tags="graphic">
+        <a class="card" style="--ar:4/5;order:2" href="#tedx" data-tags="graphic">
           <div class="cover"><img class="cover-img" src="img/izone/tedx/photo-7-sm.jpg" alt="" loading="lazy"></div>
           <div class="card-body">
-            <div class="card-row" data-type="Event branding & photography · reHuman"><h3><span class="nc">TEDxURochester</span></h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
+            <div class="card-row" data-type="Event branding & photography · reHuman"><h3><span class="nc">TEDxURochester</span></h3></div>
             <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
           </div>
         </a>
-        <a class="card" style="--ar:1/1;order:4" href="#vals" data-tags="research code">
-          <div class="cover cover-bare"><img class="cover-img" src="img/vals/cover-device.webp" alt="" loading="lazy"></div>
+        <a class="card" style="--ar:1/1;order:5" href="#izone" data-tags="graphic">
+          <div class="cover iz-cover" aria-hidden="true">
+            <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-linkedin-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
+            
+          </div>
           <div class="card-body">
-            <div class="card-row" data-type="AI voice assistant"><h3>VALS</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
-            <p class="card-type">AI voice assistant</p>
+            <div class="card-row" data-type="Marketing Assistant · Graphic Design Team"><h3><span class="nc">iZone</span></h3></div>
+            <p class="card-type">Marketing Assistant · Graphic Design Team</p>
           </div>
         </a>
-        <a class="card" style="--ar:19/20;order:6" href="#rochester-design-hub" data-tags="graphic">
+      </div>
+      <div class="m-col">
+        <a class="card" style="--ar:1/1;order:3" href="#soulshine" data-tags="product research">
+          <div class="cover cover-bare"><img class="cover-img" src="img/soulshine/cover-device.webp" alt="" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-row" data-type="Digital wellbeing website for a multi-sensory focus lamp & companion app"><h3>Soulshine</h3></div>
+            <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
+          </div>
+        </a>
+        <a class="card" style="--ar:4/5;order:6" href="#rochester-design-hub" data-tags="graphic">
           <div class="cover uo-cover" aria-hidden="true">
             <div class="uo-fan"><img src="img/uo/gim-instagram-cv.jpg" alt="" loading="lazy"><img src="img/uo/eb-cover-cv.jpg" alt="" loading="lazy"><img src="img/uo/dl-instagram-cv.jpg" alt="" loading="lazy"></div>
             
           </div>
           <div class="card-body">
-            <div class="card-row" data-type="Executive Board · Marketing Manager"><h3>Rochester Design Hub</h3><span class="card-link" aria-hidden="true">View <i>&rarr;</i></span></div>
+            <div class="card-row" data-type="Executive Board · Marketing Manager"><h3>Rochester Design Hub</h3></div>
             <p class="card-type">Executive Board · Marketing Manager</p>
           </div>
         </a>
       </div>
-      </div>
+    </div>
     </section>
 
 
