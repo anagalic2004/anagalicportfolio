@@ -704,17 +704,7 @@ html.home-on .blobs{display:none;position:fixed;inset:0;z-index:-1;pointer-event
 .top{margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);background:color-mix(in srgb,var(--paper) 86%,transparent);box-shadow:none;clip-path:none;-webkit-backdrop-filter:blur(30px) saturate(1.2);backdrop-filter:blur(30px) saturate(1.2)}
 .top::after{content:"";position:absolute;left:0;right:0;top:100%;height:34px;pointer-events:none;background:linear-gradient(color-mix(in srgb,var(--paper) 86%,transparent),transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
 html:not(.home-on) .top{border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
-/* Dark mode: only when someone turns it on with the button in the top bar */
-html.theme-dark{--paper:#1C171B;--ink:#F3ECE6;--muted:#B5ABA8;--line:rgba(255,255,255,.14);--blue-soft:#2A2F3A;--block:#0E0B0D;--block-line:#2E272C;color-scheme:dark}
-html.theme-dark .top-li img{filter:invert(1)}
-html.theme-dark .bl b{opacity:.35}
 html,body{transition:background-color .5s,color .5s}
-.theme-btn{flex:none;display:grid;place-items:center;width:30px;height:30px;margin-left:clamp(10px,1.4vw,18px);padding:0;border:0;border-radius:50%;background:var(--ink);cursor:pointer;transition:transform .3s var(--ease),background .5s}
-.theme-btn:hover{transform:scale(1.08)}
-.theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.theme-btn i{width:12px;height:12px;border-radius:50%;background:var(--paper);box-shadow:inset -4px -1px 0 0 var(--ink);transition:box-shadow .4s,background .5s}
-html.theme-dark .theme-btn i{box-shadow:inset 0 0 0 0 var(--ink)}
-@media (max-width:600px){.theme-btn{order:1;margin-left:10px}}
 .gallery .card-body,.gallery .card h3,.gallery .card-link{color:#0B0C0E}
 .gallery .card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),translate .9s var(--ease)}
 .js-reveal .gallery .card:not(.shown){opacity:0;translate:0 60px}
@@ -728,8 +718,6 @@ html.home-on .wash{display:block;position:fixed;inset:0;z-index:-1;pointer-event
 html.home-on.at-top .top{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
 html.home-on.at-top .top::after{opacity:0}
 .top::after{transition:opacity .4s}
-html.theme-dark .wash{background:#141B28}
-html.theme-dark .wash canvas{opacity:.75}
 /* Work: two staggered columns, titles slide in under a work on hover */
 .grid.gallery.masonry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;min-width:0;width:100%}
 .masonry .card,.masonry .card-body,.masonry .card-row{min-width:0;max-width:100%}
@@ -758,6 +746,11 @@ html.theme-dark .wash canvas{opacity:.75}
 [data-view="perfume"] .cs-step:not(:has(.cs-step-body *)){display:none}
 [data-view="perfume"] .block-section:not(:has(> :not(.label))){display:none}
 @media (max-width:760px){.pf-top{grid-template-columns:minmax(0,1fr)}}
+.nav .nav-li{display:flex;align-items:center;padding-bottom:5px;background:none}
+.nav .nav-li img{display:block;width:20px;height:20px;max-width:none;transition:transform .35s var(--ease)}
+.nav .nav-li:hover img{transform:rotate(-5deg) scale(1.06)}
+@media (min-width:601px){.top-li{display:none}}
+@media (max-width:600px){.nav .nav-li{display:none}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1071,7 +1064,6 @@ html.theme-dark .wash canvas{opacity:.75}
 </style>
 </head>
 <body>
-<script>try{if(localStorage.getItem('ag-theme')==='dark')document.documentElement.classList.add('theme-dark')}catch(e){}</script>
 <a class="dock-fly" id="dock-fly" href="#work" aria-label="Ana Galic, home">Ana Galic</a>
 <header class="top">
   <div class="top-in">
@@ -1081,11 +1073,11 @@ html.theme-dark .wash canvas{opacity:.75}
       <a href="#work" data-nav="work">Work</a>
       <a href="#personal" data-nav="personal">Personal</a>
       <a href="#about" data-nav="about">About</a>
-      <a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
+      <a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> &#8599;</span></a>
       <a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a>
+      <a class="nav-li" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin.png" srcset="img/linkedin.png 1x, img/linkedin-2x.png 2x, img/linkedin-3x.png 3x" alt="" width="20" height="20"></a>
     </nav>
     <a class="top-li" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin.png" srcset="img/linkedin.png 1x, img/linkedin-2x.png 2x, img/linkedin-3x.png 3x" alt="" width="20" height="20"></a>
-    <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><i></i></button>
   </div>
 </header>
 
@@ -2447,7 +2439,7 @@ html.theme-dark .wash canvas{opacity:.75}
         <p>As a designer, my goal is to create work that is both beautiful and genuinely useful: products that are easy and accessible for everyone, and stories and games that bring people closer together. I look for every chance to learn from professionals in the field as I shape my direction.</p>
         <p>Feel free to look around my projects, and you can find my resume, LinkedIn, or a direct link to email me right below. I'd love to connect, so reach out!</p>
         <div class="contact-row">
-          <a class="biglink" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener"><span><small>PDF</small><strong>Resume</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
+          <a class="biglink" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener"><span><small>PDF</small><strong>Resume</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
           <a class="biglink" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener"><span><small>Profile</small><strong>LinkedIn</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
           <a class="biglink" href="mailto:anagalic.2004@gmail.com"><span><small>Gmail</small><strong>Email me</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -2553,7 +2545,7 @@ html.theme-dark .wash canvas{opacity:.75}
         </div>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-10-15" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </nav>
     </div>
     <div class="foot-small"><span>© 2026 · Designed and built by me</span></div>
@@ -3288,13 +3280,7 @@ html.theme-dark .wash canvas{opacity:.75}
     }
   }
 
-  /* Dark mode: off unless the visitor turns it on; remembered on this device */
-  {
-    const btn = document.getElementById('theme-btn'), html = document.documentElement;
-    const set = on => { html.classList.toggle('theme-dark', on); btn.setAttribute('aria-pressed', String(on)); btn.title = btn.ariaLabel = on ? 'Light mode' : 'Dark mode'; };
-    try { set(localStorage.getItem('ag-theme') === 'dark'); } catch(e){ set(false); }
-    btn.addEventListener('click', () => { const on = !html.classList.contains('theme-dark'); set(on); try { localStorage.setItem('ag-theme', on ? 'dark' : 'light'); } catch(e){} });
-  }
+
 
   /* Watercolour wash: soft blue blooms spread and layer on their own, and bloom where the cursor moves */
   {
