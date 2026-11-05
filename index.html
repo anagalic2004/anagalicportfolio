@@ -766,6 +766,12 @@ html.home-on.at-top .top::after{opacity:0}
 .see-more:hover{background:var(--ink);color:var(--paper)}
 .see-more:hover .sm-n{color:color-mix(in srgb,var(--paper) 70%,transparent)}
 @media (max-width:600px){.see-more .sm-n{display:none}}
+.rec-photos{display:flex;gap:14px;align-items:flex-start}
+.rec-ph{flex:1 1 0;min-width:0}
+.rec-ph.rec-wide{flex-grow:2.946}
+.rec-ph .tx-zoom{border-radius:12px;border:0}
+.rec-ph .tx-zoom img{object-fit:cover}
+@media (max-width:640px){.rec-photos{flex-direction:column}.rec-ph{width:100%}.rec-ph:first-child{max-width:260px}}
 .label-strong{color:var(--ink);font-weight:700}
 .built-row2 figcaption,.built-row2 .built-fig figcaption,.built-row3 .label,.built-row3 figcaption,.built-row3 .row3-items .built-fig figcaption{font-family:var(--body);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;color:var(--muted)}
 .sec-head-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -1356,16 +1362,19 @@ html.home-on.at-top .top::after{opacity:0}
 <section class="block-section" aria-labelledby="pl-rec-h">
       <h2 class="label label-strong" id="pl-rec-h">Recognition</h2>
       <div class="noticed">
-        <div class="noticed-main"><p class="label">Award &amp; exhibition</p>
+        <div class="noticed-main"><p class="label">Awards &amp; exhibitions</p>
           <ul class="noticed-list">
             <li><strong>Schwartz Discover Scholar, 2026:</strong> named by the University of Rochester for full-time summer research on Peaceland, which I presented at the Schwartz Discover Scholar Showcase.</li>
             <li><strong>Imagine RIT, April 25, 2026:</strong> presented Peaceland and its prototype to visitors.</li>
+            <li><strong>Undergraduate Research Poster Showcase, October 30, 2026:</strong> presented the research and the prototype built with the Schwartz Discover Grant to faculty, classmates and visitors, with special thanks to my mentors and the University of Rochester Office of Undergraduate Research.</li>
           </ul></div>
       </div>
-      <figure class="photo-wide">
-        <img src="img/imagine-rit.jpg" alt="The Peaceland team at Imagine RIT, with posters, concept art and a tablet demo at their booth" loading="lazy">
-        <figcaption class="label">Peaceland at Imagine RIT · April 25, 2026 · With special thanks to RIT MAGIC Spell Studios</figcaption>
-      </figure>
+      <div class="rec-photos">
+        <figure class="photo-wide rec-ph"><button type="button" class="tx-zoom" style="--ar:1/1" data-full="img/peaceland/showcase-2026.jpg" data-cap="Undergraduate Research Poster Showcase · October 30, 2026" aria-label="Enlarge: me with my Peaceland poster at the Undergraduate Research Poster Showcase"><img src="img/peaceland/showcase-2026.jpg" alt="Ana standing beside her Peaceland research poster and a laptop showing the game's title screen at the University of Rochester Undergraduate Research Poster Showcase" loading="lazy" width="1200" height="1200"></button>
+        <figcaption class="label">Undergraduate Research Poster Showcase · October 30, 2026</figcaption></figure>
+        <figure class="photo-wide rec-ph rec-wide"><button type="button" class="tx-zoom" style="--ar:1856/630" data-full="img/imagine-rit.jpg" data-cap="Peaceland at Imagine RIT · April 25, 2026" aria-label="Enlarge: Peaceland at Imagine RIT"><img src="img/imagine-rit.jpg" alt="The Peaceland team at Imagine RIT, with posters, concept art and a tablet demo at their booth" loading="lazy"></button>
+        <figcaption class="label">Imagine RIT · April 25, 2026 · With special thanks to RIT MAGIC Spell Studios</figcaption></figure>
+      </div>
     </section>
       </div>
     </div>
