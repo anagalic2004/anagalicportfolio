@@ -396,7 +396,7 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .logo-tile.fit{padding:0}
 .mockup{margin:0;display:flex;flex-direction:column;gap:10px}
 .mockup img{display:block;width:100%;height:auto;border-radius:clamp(10px,1.6vw,18px)}
-.mockup-phones{margin-top:clamp(28px,4vw,56px)}.mockup-phones img{border-radius:0}
+.ss-phones{margin:clamp(8px,2vw,24px) 0 0}.ss-phones img{display:block;width:100%;height:auto}
 .with-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mode-icons{display:inline-flex;gap:4px}
 .mode-icons img{width:26px;height:26px;border-radius:6px;border:1px solid var(--line)}
@@ -1407,19 +1407,7 @@ html.home-on.at-top .top::after{opacity:0}
         <h1 class="cs-title">Soulshine</h1>
         <a class="visit-top v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live Soulshine website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
-      <div class="ss-explorer" data-dir="img/soulshine/ss-">
-        <div class="ss-tabs" role="tablist" aria-label="Soulshine website pages">
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-about" aria-controls="ss-viewport" aria-selected="true" tabindex="0" data-page="about" data-alt="Soulshine About page: the hero line “Your attention is worth protecting. We help you do it.”, our approach, research-backed insights, the gap Soulshine fills, and two user personas">About</button>
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-product" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="product" data-alt="Soulshine Product page: the physical lamp with its dimensions, features and materials, next to the companion app controls">Product</button>
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-research" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="research" data-alt="Soulshine Research page: key findings from 11 academic sources and the survey results of 71, 74 and 61 percent">Research</button>
-          <button type="button" class="chip ss-tab" role="tab" id="ss-tab-team" aria-controls="ss-viewport" aria-selected="false" tabindex="-1" data-page="team" data-alt="Soulshine Team page: Ana Galić, Rosemary Trotter, Yufan Lin and Arthur Chow, and a contact form">Team</button>
-        </div>
-        <div class="ss-window">
-          <div class="ss-bar"><span class="ss-dots"><i></i><i></i><i></i></span><span class="ss-url">linter-berry-84402425.figma.site / <b class="ss-path">about</b></span></div>
-          <div class="ss-viewport" id="ss-viewport" role="tabpanel" aria-labelledby="ss-tab-about" tabindex="0"><img class="ss-page" src="img/soulshine/ss-about.jpg" alt="Soulshine About page: the hero line “Your attention is worth protecting. We help you do it.”, our approach, research-backed insights, the gap Soulshine fills, and two user personas"></div>
-        </div>
-        <p class="label">Scroll inside the window, or switch pages above</p>
-      </div>
+      <figure class="ss-phones"><img src="img/soulshine/mobile-mockup.webp?v=5" width="2600" height="1642" alt="Five phones showing the Soulshine About, Product, Companion App, Research and Team pages on mobile"></figure>
     </div>
 
     <div class="cs-step">
@@ -1496,7 +1484,6 @@ html.home-on.at-top .top::after{opacity:0}
 <section class="block-section" aria-labelledby="ss-site-h">
       <h2 class="sec-title" id="ss-site-h">Building the website &amp; brand</h2>
       <figure class="mockup"><img src="img/soulshine/mockup-modes.jpg" alt="Two laptops showing the Soulshine homepage in light mode and in dark mode, under the blue Soulshine lamp logo" loading="lazy"><figcaption class="label">The homepage in light and dark mode</figcaption></figure>
-      <figure class="mockup mockup-phones"><img src="img/soulshine/mobile-mockup.webp?v=5" width="2600" height="1642" alt="Five phones showing the Soulshine About, Product, Companion App, Research and Team pages on mobile" loading="lazy"><figcaption class="label">About, Product, Companion App, Research and Team on a phone</figcaption></figure>
       <div class="highlights">
         <div class="hl"><p class="label">Built by me</p><h3>Figma Sites</h3><p>Designed and built the whole site myself: problem, product, research and team.</p></div>
         <div class="hl"><p class="label">A choice for the viewer</p><h3 class="with-icons">Light and dark mode <span class="mode-icons" aria-hidden="true"><img src="img/soulshine/icon-moon.png" alt=""><img src="img/soulshine/icon-sun.png" alt=""></span></h3><p>Every page works in both, switched with the sun icon.</p></div>
