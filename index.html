@@ -981,8 +981,9 @@ html.home-on.at-top .top::after{opacity:0}
 .stat-chart{margin-top:12px;background:#FFFFFF}
 .stat-chart img{object-fit:contain}
 .ss-lead{margin-top:clamp(40px,6vw,88px)}
-.ss-intro{margin:0 0 clamp(8px,1.5vw,16px);max-width:68ch;font-size:clamp(16px,1.35vw,18px);line-height:1.6;color:var(--ink)}
-.ss-lead .highlights{margin-top:clamp(16px,2.4vw,28px)}.ss-lead .hl{border-top:0;gap:8px;padding:clamp(20px,2.4vw,28px);border-radius:20px;background:linear-gradient(180deg,#FFFFFF 0%,#F6F8FC 100%);border:1px solid rgba(20,40,80,.06);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(15,30,60,.06),0 6px 14px -4px rgba(15,30,60,.10),0 22px 44px -14px rgba(30,70,160,.22);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}.ss-lead .hl:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(15,30,60,.06),0 10px 20px -6px rgba(15,30,60,.12),0 30px 56px -16px rgba(30,70,160,.28)}.ss-lead .hl .label{color:#2F6FE4;font-size:11.5px}.ss-lead .hl h3{font-family:inherit;font-size:16px;font-weight:700;line-height:1.35}.ss-lead .hl p:not(.label){font-size:14px;line-height:1.5;color:#4A5262}
+.ss-intro{margin:0 0 clamp(8px,1.5vw,16px);max-width:none;font-size:clamp(16px,1.35vw,18px);line-height:1.6;color:var(--ink)}
+.ss-lead .highlights,.ss-roles .highlights{margin-top:clamp(16px,2.4vw,28px)}.ss-lead .hl,.ss-roles .hl{border-top:0;gap:8px;padding:clamp(20px,2.4vw,28px);border-radius:20px;background:linear-gradient(180deg,#FFFFFF 0%,#F6F8FC 100%);border:1px solid rgba(20,40,80,.06);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(15,30,60,.06),0 6px 14px -4px rgba(15,30,60,.10),0 22px 44px -14px rgba(30,70,160,.22);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}.ss-lead .hl:hover,.ss-roles .hl:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(15,30,60,.06),0 10px 20px -6px rgba(15,30,60,.12),0 30px 56px -16px rgba(30,70,160,.28)}.ss-lead .hl .label,.ss-roles .hl .label{color:#2F6FE4;font-size:11.5px}.ss-lead .hl h3,.ss-roles .hl h3{font-family:inherit;font-size:16px;font-weight:700;line-height:1.35}.ss-lead .hl p:not(.label){font-size:14px;line-height:1.5;color:#4A5262}
+.ss-roles .hl p:not(.label){font-size:15px;line-height:1.6;color:#4A5262;margin:0}.ss-role-cards{display:flex;flex-direction:column;gap:clamp(14px,2vw,20px)}.ss-role-lead{display:grid!important;grid-template-columns:minmax(0,1fr) clamp(200px,26vw,320px);gap:clamp(16px,3vw,40px);align-items:center}.ss-role-text{display:flex;flex-direction:column;gap:8px}.ss-board{border:0;background:transparent;overflow:visible;position:relative}.ss-board img{object-fit:contain}.ss-board:hover img{transform:translateY(-4px) scale(1.01)}.ss-board-cap{position:absolute;right:6px;bottom:-4px;font-size:10.5px;color:#6B7480}.ss-roles .linkrow{margin-top:clamp(14px,2vw,20px)}@media (max-width:760px){.ss-role-lead{grid-template-columns:minmax(0,1fr)}}
 @media (min-width:1180px){.ss-lead .highlights{gap:16px}.ss-lead .hl{padding:22px 20px;container-type:inline-size}.ss-lead .hl p:not(.label){white-space:nowrap;font-size:min(14px,calc(100cqi / 38.5))}}
 .ss-lead .stat{border-top:0;padding-top:0;gap:4px}.ss-lead .stat strong{font-size:clamp(26px,2.6vw,34px)}.ss-lead .stat span{font-size:13.5px}
 .ss-lead .stat-chart{margin-top:12px;border:0;background:transparent;overflow:visible}.ss-lead .stat-chart:hover img{transform:translateY(-4px)}
@@ -1431,7 +1432,7 @@ html.home-on.at-top .top::after{opacity:0}
 
 <section class="block-section ss-lead" aria-labelledby="ss-sit-h">
       <h2 class="sec-title" id="ss-sit-h">Scrolling is costing people their focus</h2>
-      <p class="ss-intro">Endless short-form scrolling hurts focus, sleep and wellbeing, and the tools that exist each solve only half the problem. Eleven academic sources and our own survey of 31 students and young professionals backed this up.</p>
+      <p class="ss-intro">Endless short-form scrolling hurts focus, sleep and wellbeing, and the tools that exist each solve only half the problem. Eleven academic sources and our own survey of 31 students and young professionals backed this up. Soulshine is a desk lamp and app that pulls people out of mindless scrolling with calm light, sound, scent and vibration, instead of another screen.</p>
       <div class="stats">
         <div class="stat"><p class="label">Survey</p><strong>71%</strong><span>say scrolling has hurt their ability to focus</span><button type="button" class="tx-zoom stat-chart" style="--ar:400/452" data-full="img/soulshine/survey3d-focus.webp?v=3" data-cap="Survey · Do you feel like scrolling in the past affects your ability to focus on longer tasks now? · 31 responses" aria-label="Enlarge the survey chart about scrolling and focus"><img src="img/soulshine/survey3d-focus.webp?v=3" alt="3D chart for the question: Do you feel like scrolling in the past affects your ability to focus on longer tasks now? 38.7% yes, significantly; 32.3% yes, somewhat; 25.8% not sure; the rest no" loading="lazy" width="1200" height="1356"></button></div>
         <div class="stat"><p class="label">Survey</p><strong>74%</strong><span>have lost track of time while scrolling</span><button type="button" class="tx-zoom stat-chart" style="--ar:400/452" data-full="img/soulshine/survey3d-time.webp?v=3" data-cap="Survey · Have you ever lost track of time while scrolling? · 31 responses" aria-label="Enlarge the survey chart about losing track of time"><img src="img/soulshine/survey3d-time.webp?v=3" alt="3D chart for the question: Have you ever lost track of time while scrolling? 54.8% yes, sometimes; 19.4% yes, frequently; 22.6% rarely; the rest never" loading="lazy" width="1200" height="1356"></button></div>
@@ -1443,46 +1444,17 @@ html.home-on.at-top .top::after{opacity:0}
       </div>
     </section>
 
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">01</span>Task</p>
-      <div class="cs-step-body">
-<div class="cs-intro">
-      <div class="cs-copy">
-        <p class="lede">As Team Lead and UX/UI Designer, take a team of four from an idea to a working lamp, companion app and website in five months.</p>
-        <p>Soulshine is a desk lamp and app that pulls people out of mindless scrolling with calm light, sound, scent and vibration, instead of another screen.</p>
+<section class="block-section ss-roles" aria-labelledby="ss-role-h">
+      <h2 class="sec-title" id="ss-role-h">My role</h2>
+      <div class="ss-role-cards">
+        <div class="hl ss-role-lead">
+          <div class="ss-role-text"><p class="label">Team Lead</p><h3>From idea to working product in five months</h3><p>I led a team of four from an idea to a working lamp, companion app and website, running our workflow, timeline and weekly priorities across hardware and software. I grounded the concept in research and our survey, and brought 15 potential users in at every stage, from concept to prototype.</p></div>
+          <button type="button" class="tx-zoom ss-board" style="--ar:1200/718" data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · how the team weighed materials, lighting, wiring, scent and sound" aria-label="Enlarge the team's planning board"><img src="img/soulshine/planning-board-3d.webp" alt="The Soulshine planning board tilted in 3D, with sticky notes lifting off it" width="1200" height="718" loading="lazy"><span class="ss-board-cap label">Our planning board</span></button>
+        </div>
+        <div class="hl">
+          <p class="label">UX/UI &amp; Visual Designer</p><h3>Designed around real users</h3><p>I built the user personas and wireframed the companion app&rsquo;s core flows, then reworked the design around what users needed after their feedback on my first pitch. I designed and built the website in Figma Sites and created the Soulshine logo and brand.</p>
+        </div>
       </div>
-    </div>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">02</span>Action</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="ss-lead-h">
-      <h2 class="sec-title" id="ss-lead-h">Leading the team</h2>
-      <ul class="noticed-list">
-        <li><strong>Plan and roles:</strong> ran our workflow, timeline and weekly priorities across hardware and software.</li>
-        <li><strong>Research:</strong> grounded the concept in academic sources and a student survey.</li>
-        <li><strong>User feedback loop:</strong> brought 15 potential users in at every stage, from concept to prototype.</li>
-      </ul>
-      <div class="stats">
-      <div class="stat"><p class="label">Research</p><strong>11</strong><span>academic sources on attention, memory and wellbeing</span></div>
-      <div class="stat"><p class="label">Survey</p><strong>31</strong><span>students and young professionals answered our survey</span></div>
-      <div class="stat"><p class="label">User testing</p><strong>15</strong><span>potential users gave feedback at every stage</span></div>
-    </div>
-      <ol class="steps">
-        <li><p class="label">January 2026</p><div><h3>Research and brainstorming</h3><p>Literature review and first ideas for hardware and software.</p><button type="button" class="peek" data-zoom data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · Click the board to zoom in"><img src="img/soulshine/planning-board-thumb.jpg" alt="The Soulshine team's planning board: sticky notes comparing materials for the lamp base and buttons, LED options, wiring, scents and speakers, with pros and cons" loading="lazy"><span class="peek-text"><span class="peek-title">Our planning board</span><span class="peek-sub">How the team weighed materials, lighting, wiring, scent and sound</span></span><span class="peek-go" aria-hidden="true">View</span></button></div></li>
-        <li><p class="label">February 2026</p><div><h3>Concept and wireframes</h3><p>Locked the idea, planned the team's workflow, and wireframed the app's core screens with user input.</p></div></li>
-        <li><p class="label">March 2026</p><div><h3>Bringing the parts together</h3><p>Connected the lamp's light, sound and scent to the app at StudioX.</p></div></li>
-        <li><p class="label">May 2026</p><div><h3>Prototype, website and final presentation</h3><p>Tested the working lamp and app, launched the site, presented.</p></div></li>
-      </ol>
-    </section>
-
-<section class="block-section" aria-labelledby="ss-ux-h">
-      <h2 class="sec-title" id="ss-ux-h">Designing the experience</h2>
-      <ul class="noticed-list">
-        <li><strong>Personas and wireframes:</strong> built the user personas and wireframed the companion app's core flows.</li>
-        <li><strong>Designing with users:</strong> my first pitch looked different; after user feedback I reworked the design around what they needed.</li>
-      </ul>
       <div class="highlights two">
         <div class="hl"><p class="label">The lamp</p><h3>A calm cue on your desk</h3><p>Light that slowly dims through a session, scent, a 360° speaker, and a stand that charges the phone out of sight.</p></div>
         <div class="hl"><p class="label">The companion app</p><h3>Tracking without stress</h3><p>Tracks TikTok and Instagram time, runs focus sessions, and shows a virtual lamp that dims, with no guilt.</p></div>
@@ -1585,10 +1557,9 @@ html.home-on.at-top .top::after{opacity:0}
         </div>
       </div>
     </section>
-      </div>
-    </div>
+
     <div class="cs-step">
-      <p class="step-tag"><span class="st-n">03</span>Result</p>
+      <p class="step-tag"><span class="st-n">01</span>Result</p>
       <div class="cs-step-body">
 <section class="block-section" aria-labelledby="ss-res-h">
       <h2 class="sec-title" id="ss-res-h">What we delivered</h2>
