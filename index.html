@@ -432,6 +432,9 @@ mark{background:var(--blue);color:var(--on-blue);padding:0 .1em;-webkit-box-deco
 .v-vl{--v-bg:var(--vl-burgundy);--v-glow:var(--vl-sky);--v-fg:var(--vl-white)}
 .visit-top{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;margin-top:6px;padding:14px 22px;border-radius:999px;background:var(--v-bg);color:var(--v-fg);font-weight:700;font-size:clamp(15px,1.4vw,17px);text-decoration:none;box-shadow:0 0 0 0 color-mix(in srgb,var(--v-bg) 55%,transparent);animation:visit-pulse 2.6s ease-out infinite;transition:transform .25s var(--ease)}
 .visit-top:hover{transform:translateY(-2px)}
+.visit-top.v-ss{gap:7px;padding:7px 13px;font-size:12.5px;font-weight:600;animation-name:visit-pulse-sm}
+.visit-top.v-ss .visit-dot{width:6px;height:6px;box-shadow:0 0 6px 1px color-mix(in srgb,var(--v-glow) 70%,transparent)}
+@keyframes visit-pulse-sm{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ss-blue) 50%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
 .visit-top:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .visit-dot{width:9px;height:9px;border-radius:50%;background:var(--v-glow);box-shadow:0 0 10px 2px color-mix(in srgb,var(--v-glow) 70%,transparent)}
 .visit-arrow{font-size:1.15em;line-height:1;transition:transform .3s var(--ease)}
@@ -1407,7 +1410,7 @@ html.home-on.at-top .top::after{opacity:0}
         <h1 class="cs-title">Soulshine</h1>
         <a class="visit-top v-ss" href="https://linter-berry-84402425.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live Soulshine website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
       </header>
-      <figure class="ss-phones"><img src="img/soulshine/mobile-mockup.webp?v=5" width="2600" height="1642" alt="Five phones showing the Soulshine About, Product, Companion App, Research and Team pages on mobile"></figure>
+      <figure class="ss-phones"><img src="img/soulshine/mobile-mockup.webp?v=6" width="2600" height="1642" alt="Five phones showing the Soulshine About, Product, Companion App, Research and Team pages on mobile"></figure>
     </div>
 
     <div class="cs-step">
