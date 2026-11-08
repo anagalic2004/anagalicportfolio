@@ -16,7 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
 :root{
@@ -57,9 +57,9 @@
   --on-block:#F4F7FA;
   --block-muted:#8A939E;
   --block-line:#262B31;
-  --display:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --body:"Raleway",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gutter:clamp(16px,4vw,48px);
   --max:1240px;
   --fs-label:12px;
@@ -1099,6 +1099,25 @@ html.home-on.at-top .top::after{opacity:0}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
 }
+
+/* ---- Clean type pass: Figtree, lighter weights, calmer greys ---- */
+:root{--muted:#6E7480;--fs-body:17px}
+body{line-height:1.65;letter-spacing:-.003em}
+.label{font-weight:400;letter-spacing:.06em;color:#8A9099}
+.brand{font-weight:600;letter-spacing:.04em}
+.dock-name,html.dock-on .dock-fly{font-weight:700}
+.wordmark{font-weight:700}
+.cs-title{font-weight:600;letter-spacing:-.015em}
+.sec-title{font-weight:500;letter-spacing:-.005em}
+.lede{font-weight:400;line-height:1.4;color:#3A3F47}
+.card h3{font-weight:500}
+.hl h3,.steps h3{font-weight:500}
+.hl p,.stat span{font-size:16px}
+.stat strong{font-weight:600}
+.statement{font-weight:400}
+.meta dd{font-weight:400;color:#3A3F47}
+.nav a,.top nav a{font-weight:500}
+p{color:inherit}
 </style>
 </head>
 <body>
@@ -3245,7 +3264,7 @@ html.home-on.at-top .top::after{opacity:0}
     let cur = 0, raf = 0, tagY = 0, tagGap = 24, navMid = 36, flyMid = 40;
     const capMid = (el, weight, px) => {
       const c = capMid.c || (capMid.c = document.createElement('canvas').getContext('2d'));
-      c.font = `${weight} 100px Raleway, sans-serif`; const m = c.measureText('H');
+      c.font = `${weight} 100px Figtree, sans-serif`; const m = c.measureText('H');
       const k = px / 100, asc = (m.fontBoundingBoxAscent || 92) * k, desc = (m.fontBoundingBoxDescent || 23) * k, cap = (m.actualBoundingBoxAscent || 71) * k;
       const lhv = getComputedStyle(el).lineHeight, L = lhv === 'normal' ? asc + desc : parseFloat(lhv);
       return (L - asc - desc) / 2 + asc - cap / 2;   /* distance from the box top to the middle of the capitals */
