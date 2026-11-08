@@ -3403,6 +3403,26 @@ html.home-on.at-top .top::after{opacity:0}
     }
   }
   document.querySelectorAll('.ss-jump [data-jump]').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.jump);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+  // keep the card cover videos (Peaceland, TEDx) playing on a loop
+  (() => {
+    const vids = [...document.querySelectorAll('.cover-video video')];
+    if (!vids.length) return;
+    const go = v => { v.muted = true; v.loop = true; if (v.paused && v.offsetParent !== null) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } };
+    const all = () => vids.forEach(go);
+    vids.forEach(v => {
+      v.addEventListener('ended', () => { v.currentTime = 0; go(v); });
+      v.addEventListener('pause', () => setTimeout(() => go(v), 250));
+      v.addEventListener('stalled', () => { v.load(); go(v); });
+    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) go(en.target); }), { threshold: 0.1 });
+      vids.forEach(v => io.observe(v));
+    }
+    addEventListener('hashchange', () => setTimeout(all, 60));
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) all(); });
+    ['touchstart', 'pointerdown', 'scroll'].forEach(e => addEventListener(e, all, { once: true, passive: true }));
+    setInterval(all, 3000);
+  })();
 })();
 </script>
 </body>
