@@ -1484,6 +1484,21 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-lsteps .shots img{display:block;height:clamp(96px,10vw,140px)!important;width:auto!important;object-fit:contain}
 .vl-lsteps .shots figcaption{font-size:12.5px!important}
 .vl-lsteps .lstep{display:flex;flex-direction:column;gap:12px}
+
+/* Soulshine typography: horizontal rows beside the palette */
+@media (min-width:1001px){[data-view="soulshine"] .ss-kit-row{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}}
+[data-view="soulshine"] .ss-kit .type-grid.three{grid-template-columns:minmax(0,1fr)!important;gap:10px}
+[data-view="soulshine"] .ss-kit .type-grid.three .type-card{display:grid!important;grid-template-columns:clamp(84px,9vw,120px) minmax(0,.9fr) minmax(0,1.3fr);grid-template-rows:auto auto;column-gap:clamp(14px,2vw,24px);row-gap:4px;align-items:center;padding:14px 18px}
+[data-view="soulshine"] .ss-kit .type-card > .type-aa,[data-view="soulshine"] .ss-kit .type-card > .type-hero{grid-column:1;grid-row:1/3;margin:0;line-height:1}
+[data-view="soulshine"] .ss-kit .type-card > .type-aa{font-size:clamp(34px,3.2vw,44px)!important}
+[data-view="soulshine"] .ss-kit .type-card > .type-hero{width:100%;height:auto}
+[data-view="soulshine"] .ss-kit .type-card > .type-name{grid-column:2;grid-row:1;align-self:end}
+[data-view="soulshine"] .ss-kit .type-card > .type-use{grid-column:2;grid-row:2;align-self:start}
+[data-view="soulshine"] .ss-kit .type-card > .type-sample,[data-view="soulshine"] .ss-kit .type-card > .type-img{grid-column:3;grid-row:1;margin:0;padding:0;align-self:end}
+[data-view="soulshine"] .ss-kit .type-card > .type-img{grid-row:1/3;align-self:center;width:100%;height:auto}
+[data-view="soulshine"] .ss-kit .type-card > .weights{grid-column:3;grid-row:2;align-self:start;margin:0}
+[data-view="soulshine"] .ss-kit .type-card > .type-sample{font-size:12.5px!important}
+@media (max-width:640px){[data-view="soulshine"] .ss-kit .type-grid.three .type-card{grid-template-columns:64px minmax(0,1fr);grid-template-rows:auto}[data-view="soulshine"] .ss-kit .type-card > .type-aa,[data-view="soulshine"] .ss-kit .type-card > .type-hero{grid-row:1/3}[data-view="soulshine"] .ss-kit .type-card > .type-sample,[data-view="soulshine"] .ss-kit .type-card > .type-img,[data-view="soulshine"] .ss-kit .type-card > .weights{grid-column:1/-1;grid-row:auto}}
 </style>
 </head>
 <body>
@@ -1950,9 +1965,6 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         </div>
         </div>
         <div class="brand-block logos-block">
-          <div class="origin-text">
-            <h3>From a wordmark to a 3D lamp</h3>
-          </div>
           <div class="lsteps">
             <div class="lstep full">
               <p class="label">Wordmark</p>
