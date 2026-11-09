@@ -1386,6 +1386,14 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-duo-r .ss-flow-btn img{height:auto}
 .ss-duo-link{position:absolute;top:50%;left:auto;right:calc(clamp(28px,4vw,64px) / -2);transform:translate(50%,-50%);color:#A9B0BA;pointer-events:none;z-index:2}
 @media (max-width:860px){.ss-duo{grid-template-columns:minmax(0,1fr)}.ss-duo-link{display:none}.ss-duo-app{margin-top:0!important}}
+
+.ss-how{margin-top:18px;border-radius:22px;padding:clamp(20px,2.2vw,26px);background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
+.ss-how-tag{display:inline-block;margin:0 0 12px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);font-size:13px;font-weight:500;color:#3A3F47!important}
+.ss-how ol{margin:0;padding:0;list-style:none;counter-reset:how;display:flex;flex-direction:column;gap:10px}
+.ss-how li{counter-increment:how;position:relative;padding-left:30px;font-size:14px;line-height:1.5;color:#7A808A}
+.ss-how li::before{content:counter(how);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.12);font-size:11px;font-weight:600;color:#4E545F;display:grid;place-items:center}
+.ss-how li b{color:#4E545F!important;font-weight:600}
 </style>
 </head>
 <body>
@@ -1873,6 +1881,15 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
             <button type="button" data-part="speaker">Speaker</button>
             <button type="button" data-part="stand">Phone stand</button>
             <button type="button" data-part="scent">Scent diffuser</button>
+          </div>
+          <div class="ss-how">
+            <p class="ss-how-tag">How it works</p>
+            <ol>
+              <li><b>Dock your phone.</b> Set a session on the base timer and stand the phone face-away to charge, out of sight.</li>
+              <li><b>Focus in calm light.</b> The LED strip glows and slowly dims as the session runs.</li>
+              <li><b>Get a gentle nudge.</b> If you start scrolling, the app tells the lamp to cue you back with light, sound, scent or vibration.</li>
+              <li><b>Track without guilt.</b> The app logs TikTok and Instagram time and shows a virtual lamp that dims as you near your limit.</li>
+            </ol>
           </div>
         </div>
       </div>
