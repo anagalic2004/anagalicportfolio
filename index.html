@@ -1394,6 +1394,16 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-how li{counter-increment:how;position:relative;padding-left:30px;font-size:14px;line-height:1.5;color:#7A808A}
 .ss-how li::before{content:counter(how);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.12);font-size:11px;font-weight:600;color:#4E545F;display:grid;place-items:center}
 .ss-how li b{color:#4E545F!important;font-weight:600}
+
+/* Outcome: delivered + learned in one glossy card */
+.ss-outcome{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);border-radius:22px;padding:clamp(22px,2.4vw,30px);
+ background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
+.ss-oc-col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ss-oc-col + .ss-oc-col{border-left:1px solid rgba(15,20,30,.07);padding-left:clamp(20px,3vw,44px)}
+.ss-oc-tag{align-self:flex-start;margin:0;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);font-size:13px;font-weight:500;color:#3A3F47!important}
+[data-view="soulshine"] .ss-outcome .noticed-list{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0}
+.ss-oc-text{margin:0;font-size:15px;line-height:1.55;color:#7A808A}
+@media (max-width:760px){.ss-outcome{grid-template-columns:minmax(0,1fr)}.ss-oc-col + .ss-oc-col{border-left:0;padding-left:0;border-top:1px solid rgba(15,20,30,.07);padding-top:18px}}
 </style>
 </head>
 <body>
@@ -1900,14 +1910,15 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
     <div class="cs-step">
       <div class="cs-step-body">
 <section class="block-section ss-result" aria-labelledby="ss-res-h">
-      <h2 class="sec-title" id="ss-res-h">What we delivered</h2>
-      <ul class="noticed-list">
-        <li><strong>A working lamp and companion app,</strong> tested with 15 potential users.</li>
-        <li><strong>A live website</strong> in light and dark mode, designed and built by me.</li>
-        <li><strong>A final presentation</strong> delivered on schedule in May 2026.</li>
-      </ul>
-      <div class="reflect">
-        <div class="rf-row"><p class="label">What I learned</p><div><p>To build around user input at every stage, not just at the end, and to lead a team through strict requirements while the product kept evolving.</p></div></div>
+      <h2 class="sec-title" id="ss-res-h">Outcome</h2>
+      <div class="ss-outcome">
+        <div class="ss-oc-col"><p class="ss-oc-tag">What we delivered</p>
+          <ul class="noticed-list">
+            <li><strong>A live website</strong> in light and dark mode, designed and built by me.</li>
+            <li><strong>A final presentation</strong> delivered on schedule in May 2026.</li>
+          </ul>
+        </div>
+        <div class="ss-oc-col"><p class="ss-oc-tag">What I learned</p><p class="ss-oc-text">To build around user input at every stage, not just at the end, and to lead a team through strict requirements while the product kept evolving.</p></div>
       </div>
     </section>
 
