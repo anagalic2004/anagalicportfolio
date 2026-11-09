@@ -3,11 +3,11 @@
 import * as THREE from './three.module.min.js';
 
 const PARTS = {
-  all:     { name: 'Full lamp',        dims: '43 × 48.1 × 36.2 cm', text: 'Lamp, phone stand, speaker and scent diffuser on one desk mat.' },
-  head:    { name: 'Lamp head & neck', dims: '34.3 × 35.6 × 11.4 cm', text: 'A 30 cm LED strip behind a diffuser that slowly dims as a focus session runs.' },
-  base:    { name: 'Lamp base',        dims: '8.6 × 25 × 25 cm',      text: 'Holds the session timer with + / − controls; the vents let the light and sound breathe.' },
+  all:     { name: 'Full lamp',        dims: '43 × 48.1 × 36.2 cm · 16.9 × 18.9 × 14.3 in', text: 'Lamp, phone stand, speaker and scent diffuser on one desk mat.' },
+  head:    { name: 'Lamp head & neck', dims: '34.3 × 35.6 × 11.4 cm · 13.5 × 14 × 4.5 in', text: 'A 30 cm LED strip behind a diffuser that slowly dims as a focus session runs.' },
+  base:    { name: 'Lamp base',        dims: '8.6 × 25 × 25 cm · 3.4 × 9.8 × 9.8 in',      text: 'Holds the session timer with + / − controls; the vents let the light and sound breathe.' },
   speaker: { name: '360° speaker',     dims: '',                      text: 'Plays a soft sound cue to pull you back from scrolling.' },
-  stand:   { name: 'Phone stand',      dims: '5 × 24.5 × 11 cm',      text: 'Charges the phone face-away, out of sight, while you focus.' },
+  stand:   { name: 'Phone stand',      dims: '5 × 24.5 × 11 cm · 2 × 9.6 × 4.3 in',      text: 'Charges the phone face-away, out of sight, while you focus.' },
   scent:   { name: 'Scent diffuser',   dims: '',                      text: 'Inspired by Pura: slits release a calming scent such as lavender.' }
 };
 
@@ -171,7 +171,7 @@ function init(host) {
   }
   function select(key) {
     sel = key; chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.part === key)));
-    const p = PARTS[key]; nameEl.textContent = p.name; dimEl.textContent = p.dims; dimEl.hidden = !p.dims; txtEl.textContent = p.text;
+    const p = PARTS[key]; nameEl.textContent = p.name; dimEl.textContent = p.dims; dimEl.hidden = !p.dims; if (txtEl) txtEl.hidden = true;
     requestAnimationFrame(() => frame(key));
   }
   chips.forEach(c => c.addEventListener('click', () => select(c.dataset.part)));
@@ -195,7 +195,7 @@ function init(host) {
   });
   canvas.addEventListener('pointerleave', () => { highlight(hover, false); hover = null; tip.hidden = true; });
   canvas.addEventListener('pointerup', e => {
-    dragging = false; setTimeout(() => auto = true, 2500);
+    dragging = false; setTimeout(() => auto = true, 1500);
     if (moved < 6) { const k = pick(e); if (k && sel === 'all') { highlight(hover, false); hover = null; tip.hidden = true; select(k); } else if (!k && sel !== 'all') select('all'); }
   });
 
@@ -209,7 +209,7 @@ function init(host) {
     requestAnimationFrame(loop);
     const dt = Math.min(.05, (t - last) / 1000); last = t;
     if (!visible) return;
-    if (auto && !reduce) rotY += dt * (sel === 'all' ? .35 : .55);
+    if (auto) rotY += dt * (sel === 'all' ? .22 : .35);
     { const want = sel === 'all' ? 1 : 0; matG.userData.vis += (want - matG.userData.vis) * Math.min(1, dt * 7); matG.scale.setScalar(Math.max(.0001, matG.userData.vis)); matG.visible = matG.userData.vis > .01; }
     keys.forEach(k => { const g = parts[k], want = (sel === 'all' || sel === k) ? 1 : 0; g.userData.vis += (want - g.userData.vis) * Math.min(1, dt * 7); const v = g.userData.vis; g.scale.setScalar(Math.max(.0001, v)); g.visible = v > .01; });
     spin.rotation.y = rotY;
