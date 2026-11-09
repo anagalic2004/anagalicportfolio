@@ -1291,6 +1291,17 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-title-logo img{display:block;height:clamp(44px,5.4vw,74px);width:auto;max-width:100%}.ss-title-logo{margin-bottom:6px!important}
 
 .ss-roles .ss-pts li,.ss-roles .hl p:not(.label){font-size:14px!important;line-height:1.5!important}@media (min-width:1180px){.ss-roles .hl{container-type:inline-size}.ss-roles .ss-pts li{font-size:min(14px,calc(100cqi / 38.5))!important}}.ss-roles .ss-pts li::before{top:.55em}
+
+/* "Built by me" in the same glossy card style as What exists */
+.ss-note-card{border-radius:22px;padding:clamp(22px,2.4vw,30px)!important;gap:8px!important;
+ background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(0,0,0,.03),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22);
+ transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.ss-note-card:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 #fff,0 2px 4px rgba(16,24,40,.05),0 20px 38px -18px rgba(16,24,40,.26)}
+.ss-note-card .label{align-self:flex-start;display:inline-block;width:fit-content;padding:5px 12px;margin-bottom:4px;border-radius:999px;
+ background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);color:#3A3F47!important;font-size:13px;letter-spacing:0;text-transform:none;font-weight:500}
+.ss-note-card p:not(.label){font-size:14px!important;line-height:1.5!important;color:#7A808A!important;margin:0}
+@media (min-width:1180px){.ss-note-card p:not(.label){font-size:12.3px!important}}
 </style>
 </head>
 <body>
@@ -1647,7 +1658,7 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
       <h2 class="sec-title" id="ss-site-h">Website, companion app &amp; brand</h2>
       <div class="ss-site-top">
       <figure class="mockup mbp-fig"><div class="mbp" aria-label="Laptop showing the Soulshine homepage switching between light and dark mode"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><video autoplay muted loop playsinline preload="metadata" poster="img/soulshine/site-modes2-poster.jpg"><source src="img/soulshine/site-modes2.webm" type="video/webm"><source src="img/soulshine/site-modes2.mp4" type="video/mp4"></video><span class="mbp-notch"></span></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="label">The homepage in light and dark mode</figcaption></figure>
-      <div class="ss-site-notes">
+      <div class="ss-site-notes ss-note-card">
         <p class="label">Built by me</p>
         <p>I designed and built the whole site in Figma Sites, from the problem to the product, research and team, with light and dark mode on every page.</p>
         <p>I drew the logo in Photoshop and rebuilt it as a 3D lamp in Figma, in a calming blue.</p>
