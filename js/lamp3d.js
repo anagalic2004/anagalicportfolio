@@ -157,7 +157,7 @@ function init(host) {
   const keys = Object.keys(parts);
   keys.forEach(k => parts[k].userData.vis = 1);
 
-  let sel = 'all', rotY = -.5, tilt = .42, auto = true, dragging = false, lastX = 0, lastY = 0, moved = 0, hover = null;
+  let sel = 'all', rotY = (window.L3_ROT ?? .75), tilt = .42, auto = !window.L3_ROT_FIXED, dragging = false, lastX = 0, lastY = 0, moved = 0, hover = null;
   const rootGoal = new THREE.Vector3(0, -1.9, 0); let dist = 13, distGoal = 13, groundGoal = -2, tiltGoal = .42;
 
   function frame(key) {
@@ -166,7 +166,7 @@ function init(host) {
     const box = new THREE.Box3().setFromObject(key === 'all' ? root : parts[key]);
     keys.forEach((k, i) => parts[k].scale.setScalar(saved[i])); root.position.copy(rp); spin.rotation.y = sr;
     const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
-    rootGoal.set(-c.x, -c.y, -c.z); groundGoal = -c.y + box.min.y - .01; distGoal = Math.max(4.6, Math.max(s.x, s.y, s.z) * (key === 'all' ? 1.8 : key === 'head' ? 2.4 : 2.0));
+    rootGoal.set(-c.x, -c.y, -c.z); groundGoal = -c.y + box.min.y - .01; distGoal = Math.max(4.6, Math.max(s.x, s.y, s.z) * (key === 'all' ? 1.95 : key === 'head' ? 2.4 : 2.0));
     tiltGoal = key === 'head' ? -.32 : key === 'scent' ? .62 : .42;
   }
   function select(key) {
