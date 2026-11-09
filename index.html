@@ -1501,9 +1501,12 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 @media (max-width:640px){[data-view="soulshine"] .ss-kit .type-grid.three .type-card{grid-template-columns:64px minmax(0,1fr);grid-template-rows:auto}[data-view="soulshine"] .ss-kit .type-card > .type-aa,[data-view="soulshine"] .ss-kit .type-card > .type-hero{grid-row:1/3}[data-view="soulshine"] .ss-kit .type-card > .type-sample,[data-view="soulshine"] .ss-kit .type-card > .type-img,[data-view="soulshine"] .ss-kit .type-card > .weights{grid-column:1/-1;grid-row:auto}}
 
 /* Soulshine: demure all-caps section titles */
-[data-view="soulshine"] h2.sec-title{text-transform:uppercase!important;font-size:clamp(13px,1.05vw,15px)!important;font-weight:500!important;letter-spacing:.16em!important;line-height:1.4!important;color:#0B0C0E!important}
+:is([data-view="soulshine"],[data-view="vals"]) h2.sec-title{text-transform:uppercase!important;font-size:clamp(13px,1.05vw,15px)!important;font-weight:500!important;letter-spacing:.16em!important;line-height:1.4!important;color:#0B0C0E!important}
 
 [data-view="vals"] .vl-top .ss-phones img{width:76%;margin:0 auto}
+
+[data-view="vals"] .stat-src{margin:2px 0 0;font-size:12px;color:#A3A8B0;letter-spacing:.02em}
+[data-view="vals"] .vl-open{margin-top:clamp(28px,4vw,56px)!important}
 </style>
 </head>
 <body>
@@ -2044,13 +2047,12 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         </div>
       </div>
 
-      <section class="block-section ss-lead vl-lead" aria-labelledby="vl-over-h">
-        <h2 class="sec-title" id="vl-over-h">Overview</h2>
+      <section class="block-section ss-lead vl-lead vl-open" aria-label="Overview">
         <p class="ss-intro">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
         <div class="stats">
-          <div class="stat"><p class="label">Languages</p><strong>6</strong><span>English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
-          <div class="stat"><p class="label">Website</p><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
-          <div class="stat"><p class="label">Designed for</p><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
+          <div class="stat"><strong>6</strong><span>languages: English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
+          <div class="stat"><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
+          <div class="stat"><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
         </div>
       </section>
 
@@ -2058,9 +2060,9 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         <h2 class="sec-title" id="vl-problem-h">The problem</h2>
         <p class="ss-intro">Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p>
         <div class="stats">
-          <div class="stat"><p class="label">Deloitte, 2017</p><strong>91%</strong><span>of people accept terms without reading them</span></div>
-          <div class="stat"><p class="label">Average agreement</p><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span></div>
-          <div class="stat"><p class="label">The Atlantic, 2012</p><strong>73</strong><span>days a year to read every policy we agree to</span></div>
+          <div class="stat"><strong>91%</strong><span>of people accept terms without reading them</span><p class="stat-src">Deloitte, 2017</p></div>
+          <div class="stat"><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span><p class="stat-src">Average agreement</p></div>
+          <div class="stat"><strong>73</strong><span>days a year to read every policy we agree to</span><p class="stat-src">The Atlantic, 2012</p></div>
         </div>
         <div class="highlights">
           <div class="hl"><p class="label">Barrier 1</p><h3>Length and complexity</h3><p>Most people don't have half an hour to read one agreement, so they skip it.</p></div>
