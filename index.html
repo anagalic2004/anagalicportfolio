@@ -1326,6 +1326,28 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-lead .stat-chart{max-width:180px!important;margin-top:6px!important}
 .ss-lead .highlights{margin-top:clamp(12px,1.6vw,20px)!important}
 .ss-lead.block-section,.ss-lead{gap:clamp(12px,1.6vw,20px)!important}
+
+/* Result: same glossy card language as the rest of the Soulshine page */
+[data-view="soulshine"] .ss-result .noticed-list{list-style:none;margin:0;padding:clamp(22px,2.4vw,30px);gap:12px;border-radius:22px;
+ background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
+[data-view="soulshine"] .ss-result .noticed-list li{font-size:15px;line-height:1.55;color:#7A808A}
+[data-view="soulshine"] .ss-result .noticed-list li strong{color:#4E545F!important;font-weight:600}
+[data-view="soulshine"] .ss-result .noticed-list li::before{background:#B5BAC2!important}
+[data-view="soulshine"] .ss-result .reflect{border:0!important;margin-top:clamp(14px,2vw,20px)}
+[data-view="soulshine"] .ss-result .rf-row{display:flex;flex-direction:column;gap:8px;border:0!important;padding:clamp(22px,2.4vw,30px)!important;border-radius:22px;
+ background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
+[data-view="soulshine"] .ss-result .rf-row .label{align-self:flex-start;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);color:#3A3F47!important;font-size:13px;letter-spacing:0;text-transform:none;font-weight:500}
+[data-view="soulshine"] .ss-result .rf-row p:not(.label){font-size:15px;line-height:1.55;color:#7A808A;margin:0}
+/* visit banner: soft glossy instead of solid blue */
+[data-view="soulshine"] .visit-banner{background:linear-gradient(155deg,#FCFCFD 0%,#F1F3F8 50%,#E4E8F2 100%)!important;color:#1F2228!important;border-radius:22px;
+ box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)!important}
+[data-view="soulshine"] .visit-banner *{color:inherit}
+[data-view="soulshine"] .visit-banner .visit-kicker{color:#8A9099!important;opacity:1}
+[data-view="soulshine"] .visit-banner strong,[data-view="soulshine"] .visit-banner h3,[data-view="soulshine"] .visit-banner .visit-title{color:#0B0C0E!important}
+/* brand section labels: quiet, sentence case */
+[data-view="soulshine"] .ss-kit .label{text-transform:none;letter-spacing:0;font-size:14px;color:#7A808A}
 </style>
 </head>
 <body>
@@ -1694,7 +1716,6 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         <button type="button" data-jump="ss-brand-h">Brand</button>
       </nav>
       <h2 class="sec-title ss-sub-h" id="ss-web-h">Website</h2>
-      <p class="ss-app-intro">The five pages of the site on iPhone 17: wireframes and a user flow, then the final screens.</p>
       <div class="ss-flows" id="ss-web" style="margin-top:0">
         <div class="ss-pair">
         <figure class="ss-flow" style="flex:2.593"><button type="button" class="tx-zoom ss-flow-btn" style="--ar:2800/1080" data-full="img/soulshine/wireframes.webp?v=2" data-cap="Low-fidelity wireframes of the Soulshine site on iPhone 17: About, Product, Companion app, Research and Team" aria-label="Enlarge the wireframes"><img src="img/soulshine/wireframes.webp?v=2" width="2800" height="1080" alt="Five grey low-fidelity wireframes on iPhone 17 screens: About, Product, Companion app, Research and Team" loading="lazy"></button></figure>
@@ -1703,7 +1724,6 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         <figure class="ss-flow ss-flow-wide"><button type="button" class="tx-zoom ss-flow-btn" style="--ar:2590/1625" data-full="img/soulshine/web-hifi.webp?v=3" data-cap="High-fidelity user flow of the Soulshine site on iPhone 17: About, menu, Product, Companion app, Research and Team" aria-label="Enlarge"><img src="img/soulshine/web-hifi.webp?v=3" width="2590" height="1625" alt="Final Soulshine website screens on iPhone 17, laid out like the user flow and connected with red arrows" loading="lazy"></button></figure>
       </div>
       <h2 class="sec-title ss-sub-h" id="ss-brand-h">Brand</h2>
-      <p class="ss-app-intro">Colour, typography, logo and backgrounds.</p>
       <div class="brand-kit ss-kit" id="ss-brand">
         <div class="ss-kit-row">
         <div class="brand-block">
@@ -1747,13 +1767,12 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         </div>
         </div>
         <div class="brand-block logos-block">
-          <p class="label">Logo · Adobe Photoshop, then Figma</p>
           <div class="origin-text">
             <h3>From a wordmark to a 3D lamp</h3>
           </div>
           <div class="lsteps">
             <div class="lstep full">
-              <p class="label">1 · Wordmark · Adobe Photoshop</p>
+              <p class="label">Wordmark</p>
               <div class="wordmarks">
                 <span class="wm-tile"><img src="img/soulshine/wordmark-black-cut.png" alt="Soulshine wordmark in black" loading="lazy"></span>
                 <span class="wm-tile"><img src="img/soulshine/wordmark-blue-cut.png" alt="Soulshine wordmark in blue" loading="lazy"></span>
@@ -1762,30 +1781,30 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
               </div>
             </div>
             <div class="lstep">
-              <p class="label">2 · Flat lamp · Adobe Photoshop</p>
+              <p class="label">Flat lamp</p>
               <div class="shots">
                 <figure><img src="img/soulshine/logo-idea-light-cut.png" alt="Flat Soulshine lamp logo in light mode: the same blue shade with a soft yellow glow on white" loading="lazy"></figure>
               </div>
             </div>
             <div class="lstep">
-              <p class="label">3 · 3D lamp · Figma</p>
+              <p class="label">3D lamp</p>
               <div class="shots">
                 <figure><img src="img/soulshine/logo-3d-light-cut.png" alt="3D Soulshine lamp logo on white" loading="lazy"></figure>
               </div>
             </div>
           </div>
-          <p class="label">4 · 3D logo · three color versions</p>
+          <p class="label">3D logo</p>
           <div class="logos">
-            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-glow-cut.png" alt="Soulshine 3D logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span><figcaption class="label">Version 1 · Glow</figcaption></figure>
-            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-blue-cut.png" alt="Soulshine 3D logo, blue version: a blue lamp shade with the word Soulshine in navy and a glowing warm bulb underneath" loading="lazy"></span><figcaption class="label">Version 2 · Blue</figcaption></figure>
-            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-dark-cut.png" alt="Soulshine 3D logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span><figcaption class="label">Version 3 · Dark</figcaption></figure>
+            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-glow-cut.png" alt="Soulshine 3D logo, glow version: a pale glass lamp shade with the word Soulshine, on blue" loading="lazy"></span></figure>
+            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-blue-cut.png" alt="Soulshine 3D logo, blue version: a blue lamp shade with the word Soulshine in navy and a glowing warm bulb underneath" loading="lazy"></span></figure>
+            <figure><span class="logo-tile cutout"><img src="img/soulshine/brand-logo-dark-cut.png" alt="Soulshine 3D logo, dark version: a dark lamp shade with the word Soulshine in black, on light blue" loading="lazy"></span></figure>
           </div>
         </div>
         <div class="brand-block">
           <p class="label">Background design</p>
           <div class="bgs">
-            <figure><img src="img/soulshine/bg-glow.jpg" alt="Background design: a single soft halo of blue light on black" loading="lazy"><figcaption class="label">Halo, like the lamp's light</figcaption></figure>
-            <figure><img src="img/soulshine/bg-wave.jpg" alt="Background design: slow, blurred waves of blue on black" loading="lazy"><figcaption class="label">Slow wave of blue</figcaption></figure>
+            <figure><img src="img/soulshine/bg-glow.jpg" alt="Background design: a single soft halo of blue light on black" loading="lazy"></figure>
+            <figure><img src="img/soulshine/bg-wave.jpg" alt="Background design: slow, blurred waves of blue on black" loading="lazy"></figure>
           </div>
         </div>
       </div>
@@ -1793,7 +1812,6 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 
 <section class="block-section ss-app" aria-labelledby="ss-app-h">
       <h2 class="sec-title" id="ss-app-h">Companion app</h2>
-      <p class="ss-app-intro">A welcome screen that pairs the lamp, then one screen with three tabs: Lamp, Focus and Virtual.</p>
       <div class="ss-flows" style="margin-top:0">
         <div class="ss-pair">
         <figure class="ss-flow" style="flex:2.593"><button type="button" class="tx-zoom ss-flow-btn" style="--ar:2800/1080" data-full="img/soulshine/app-wireframes.webp?v=2" data-cap="Companion app wireframes on iPhone 17: Welcome, Lamp, Focus and Virtual" aria-label="Enlarge"><img src="img/soulshine/app-wireframes.webp?v=2" width="2800" height="1080" alt="Four grey low-fidelity wireframes of the Soulshine companion app on iPhone 17 screens" loading="lazy"></button></figure>
@@ -1804,9 +1822,8 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
     </section>
 
     <div class="cs-step">
-      <p class="step-tag"><span class="st-n">01</span>Result</p>
       <div class="cs-step-body">
-<section class="block-section" aria-labelledby="ss-res-h">
+<section class="block-section ss-result" aria-labelledby="ss-res-h">
       <h2 class="sec-title" id="ss-res-h">What we delivered</h2>
       <ul class="noticed-list">
         <li><strong>A working lamp and companion app,</strong> tested with 15 potential users.</li>
