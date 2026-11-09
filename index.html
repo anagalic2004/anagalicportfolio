@@ -1176,7 +1176,7 @@ html,body{overflow-x:clip}
 .avail-dot{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#10B981}
 .avail-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;background:#BBF7D0;opacity:.6;animation:pulse-ring 1.8s ease-out infinite}
 @keyframes pulse-ring{0%{transform:scale(.6);opacity:.6}100%{transform:scale(1.9);opacity:0}}
-.gallery.framed .ssr-cover{background:radial-gradient(120% 90% at 0% 0%,#CDEBFA 0%,transparent 55%),radial-gradient(110% 90% at 100% 0%,#C9CDF4 0%,transparent 55%),linear-gradient(180deg,#E3EEFB 0%,#F4F7FC 62%,#FBF6F6 100%)!important;display:flex;flex-direction:column;align-items:center;justify-content:center}.ssr-phone{height:84%;aspect-ratio:393/852;border-radius:13%/6%;background:#0e0f12;padding:2.2%;box-shadow:0 0 0 1px #2a2c31,inset 0 0 0 1px #3a3d44,0 18px 34px -16px rgba(30,50,110,.45);transition:transform .6s var(--ease)}.gallery.framed .card:hover .ssr-phone{transform:translateY(-4px) scale(1.015)}.ssr-screen{position:relative;width:100%;height:100%;border-radius:11%/5%;overflow:hidden;background:#080808}.ssr-isl{position:absolute;top:2%;left:50%;transform:translateX(-50%);width:30%;height:3.6%;border-radius:999px;background:#000;z-index:2}.ssr-track{display:flex;width:600%;height:100%;animation:ssr-slide 17s cubic-bezier(.45,.05,.25,1) infinite}.ssr-track img{width:calc(100% / 6);height:100%;object-fit:cover;object-position:top;flex:none;display:block}@keyframes ssr-slide{0.00%,12.80%{transform:translateX(-0.0000%)}20.00%,32.80%{transform:translateX(-16.6667%)}40.00%,52.80%{transform:translateX(-33.3333%)}60.00%,72.80%{transform:translateX(-50.0000%)}80.00%,92.80%{transform:translateX(-66.6667%)}100%{transform:translateX(-83.3333%)}}.gallery.framed .card:hover .ssr-cover .cover-img{transform:none}@media (max-width:760px){.ssr-phone{height:86%;margin-left:28%}}
+.gallery.framed .ssr-cover{background:radial-gradient(120% 90% at 0% 0%,#CDEBFA 0%,transparent 55%),radial-gradient(110% 90% at 100% 0%,#C9CDF4 0%,transparent 55%),linear-gradient(180deg,#E3EEFB 0%,#F4F7FC 62%,#FBF6F6 100%)!important;display:flex;flex-direction:column;align-items:center;justify-content:center}.gallery.framed .card:hover .gallery.framed .card:hover .ssr-cover .cover-img{transform:none}@media (max-width:760px){}
 
 /* ---- Site-wide soft gradient background ---- */
 html{background:#F6F7FD}
@@ -1202,6 +1202,17 @@ html.home-on .wash{background:transparent;mix-blend-mode:multiply}
 [data-view="professional"] #work{border-top:1px solid rgba(15,20,30,.08);padding-top:clamp(24px,3vw,36px);margin-top:0}
 /* top-bar name in the same type as the menu */
 .brand{font-family:var(--body);font-size:13.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+
+/* ---- Soulshine card: 3D coverflow of the five site pages ---- */
+.ssf-stage{position:absolute;inset:0;perspective:1100px;transform-style:preserve-3d;pointer-events:none}
+.ssf{touch-action:pan-y;cursor:grab}.ssf.drag{cursor:grabbing}.ssf-ph{pointer-events:auto}
+.ssf-ph{position:absolute;left:50%;top:50%;height:78%;aspect-ratio:393/852;padding:0;margin:0;border:clamp(4px,.55vw,7px) solid #0b0b0d;border-radius:clamp(18px,2.4vw,32px);background:#080808;overflow:hidden;cursor:inherit;
+ box-shadow:0 0 0 2px #cfd2d8,0 0 0 3px #8d9098,0 24px 40px -18px rgba(25,45,110,.5);
+ transform:translate(-50%,-50%) translateX(var(--x,0)) translateZ(var(--z,0)) rotateY(var(--ry,0deg)) scale(var(--s,1));opacity:var(--o,1);z-index:var(--zi,1);
+ transition:transform .95s cubic-bezier(.33,.0,.15,1),opacity .95s ease,filter .95s ease;filter:brightness(var(--b,1));will-change:transform}
+.ssf-ph img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.ssf-isl{position:absolute;top:2.2%;left:50%;transform:translateX(-50%);width:30%;height:3.4%;border-radius:999px;background:#000;z-index:2}
+.gallery.framed .card:hover .ssf .cover-img{transform:none}
 </style>
 </head>
 <body>
@@ -1296,7 +1307,7 @@ html.home-on .wash{background:transparent;mix-blend-mode:multiply}
       <div class="m-col">
         <a class="card" style="--ar:1/1;order:3" href="#soulshine" data-tags="product research">
           <span class="card-pill">Soulshine<i aria-hidden="true">•</i><em>2026</em></span>
-          <div class="cover ssr-cover" aria-hidden="true"><div class="ssr-phone"><div class="ssr-screen"><span class="ssr-isl"></span><div class="ssr-track"><img src="img/soulshine/reel/s1.webp" alt="" width="280" height="607" loading="lazy"><img src="img/soulshine/reel/s2.webp" alt="" width="280" height="607" loading="lazy"><img src="img/soulshine/reel/s3.webp" alt="" width="280" height="607" loading="lazy"><img src="img/soulshine/reel/s4.webp" alt="" width="280" height="607" loading="lazy"><img src="img/soulshine/reel/s5.webp" alt="" width="280" height="607" loading="lazy"><img src="img/soulshine/reel/s1.webp" alt="" width="280" height="607" loading="lazy"></div></div></div></div>
+          <div class="cover ssr-cover ssf" aria-hidden="true"><div class="ssf-stage"><button type="button" class="ssf-ph" tabindex="-1" aria-hidden="true"><span class="ssf-isl"></span><img src="img/soulshine/reel/s1.webp" alt="" width="280" height="607" loading="lazy" draggable="false"></button><button type="button" class="ssf-ph" tabindex="-1" aria-hidden="true"><span class="ssf-isl"></span><img src="img/soulshine/reel/s2.webp" alt="" width="280" height="607" loading="lazy" draggable="false"></button><button type="button" class="ssf-ph" tabindex="-1" aria-hidden="true"><span class="ssf-isl"></span><img src="img/soulshine/reel/s3.webp" alt="" width="280" height="607" loading="lazy" draggable="false"></button><button type="button" class="ssf-ph" tabindex="-1" aria-hidden="true"><span class="ssf-isl"></span><img src="img/soulshine/reel/s4.webp" alt="" width="280" height="607" loading="lazy" draggable="false"></button><button type="button" class="ssf-ph" tabindex="-1" aria-hidden="true"><span class="ssf-isl"></span><img src="img/soulshine/reel/s5.webp" alt="" width="280" height="607" loading="lazy" draggable="false"></button></div></div>
           <div class="card-body">
             <div class="card-row" data-type="Digital wellbeing website for a multi-sensory focus lamp & companion app"><h3>Soulshine</h3></div>
             <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
@@ -3533,6 +3544,43 @@ html.home-on .wash{background:transparent;mix-blend-mode:multiply}
       const done = () => box.classList.remove('img-loading');
       img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true });
     });
+  })();
+  // Soulshine card: phones rotate automatically; drag/swipe or click a side phone to turn it; hover pauses
+  (() => {
+    const st = document.querySelector('.ssf-stage'); if (!st) return;
+    const ph = [...st.querySelectorAll('.ssf-ph')], n = ph.length, card = st.closest('a'), cov = st.parentElement;
+    let cur = 0, timer = 0, hover = false, dragX = null, moved = 0;
+    const L = [
+      {x:'0%',  z:'0px',    ry:0,   s:1,   o:1,   b:1,   zi:5},
+      {x:'70%', z:'-140px', ry:-34, s:.86, o:1,   b:.92, zi:4},
+      {x:'122%',z:'-280px', ry:-44, s:.72, o:.9,  b:.82, zi:3}];
+    function lay(){
+      ph.forEach((p, i) => {
+        let d = ((i - cur) % n + n) % n; if (d > n / 2) d -= n;
+        const a = L[Math.min(2, Math.abs(d))], sg = Math.sign(d);
+        const xx = sg < 0 ? '-' + a.x : a.x;
+        p.style.setProperty('--x', xx);
+        p.style.setProperty('--z', a.z); p.style.setProperty('--ry', (sg < 0 ? -a.ry : a.ry) + 'deg');
+        p.style.setProperty('--s', a.s); p.style.setProperty('--o', Math.abs(d) > 2 ? 0 : a.o); p.style.setProperty('--b', a.b); p.style.setProperty('--zi', a.zi);
+        p.dataset.d = d;
+      });
+    }
+    const go = k => { cur = ((cur + k) % n + n) % n; lay(); };
+    const tick = () => { if (!hover && !document.hidden && dragX === null) go(1); };
+    const start = () => { clearInterval(timer); timer = setInterval(tick, 2600); };
+    cov.addEventListener('mouseenter', () => hover = true);
+    cov.addEventListener('mouseleave', () => hover = false);
+    cov.addEventListener('pointerdown', e => { dragX = e.clientX; moved = 0; cov.classList.add('drag'); });
+    addEventListener('pointermove', e => { if (dragX === null) return; const dx = e.clientX - dragX; moved = Math.max(moved, Math.abs(dx)); if (Math.abs(dx) > 70){ go(dx < 0 ? 1 : -1); dragX = e.clientX; } });
+    addEventListener('pointerup', () => { if (dragX !== null){ dragX = null; cov.classList.remove('drag'); start(); } });
+    card.addEventListener('dragstart', e => e.preventDefault());
+    addEventListener('pointercancel', () => { dragX = null; cov.classList.remove('drag'); });
+    card.addEventListener('click', e => {
+      const p = e.target.closest('.ssf-ph');
+      if (moved > 6){ e.preventDefault(); moved = 0; return; }
+      if (p && +p.dataset.d !== 0){ e.preventDefault(); go(+p.dataset.d); start(); }
+    });
+    lay(); start();
   })();
 })();
 </script>
