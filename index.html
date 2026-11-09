@@ -1276,6 +1276,17 @@ html.at-top.home-on body .top::before{opacity:0}
  animation:ss1-fade 5s cubic-bezier(.45,0,.25,1) infinite;animation-delay:calc(var(--i) * 1s - .3s);animation-fill-mode:backwards;will-change:opacity,transform}
 @keyframes ss1-fade{0%{opacity:0;transform:scale(1.04);filter:blur(4px)}6%{opacity:1;transform:scale(1);filter:blur(0)}20%{opacity:1;transform:scale(1);filter:blur(0)}26%{opacity:0;transform:scale(.985);filter:blur(3px)}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.ss1-screen img{animation:none}.ss1-screen img:first-of-type{opacity:1}}
+
+/* ---- Titles are the only black text; everything else a lighter grey ---- */
+:root{--ink:#5A606B;--muted:#8A9099}
+body{color:#5A606B}
+.sec-title,.cs-title{color:#0B0C0E!important;text-transform:none!important;letter-spacing:-.015em}
+.sec-title::first-letter{text-transform:uppercase}
+h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong,strong,b{color:#4E545F!important}
+.label{color:#9AA0A8}
+.card-pill{color:#4E545F!important}
+.nav a{color:#4E545F}
+.nav a[aria-current="page"]{color:#2A2E35}
 </style>
 </head>
 <body>
