@@ -1132,6 +1132,60 @@ p{color:inherit}
 @media (max-width:760px){.grid.gallery.masonry.framed{grid-template-columns:minmax(0,1fr)}}
 /* ---- Project pages: narrower column with wide white margins ---- */
 article.view.wrap{max-width:1080px}
+
+/* ---- Materials (inspired by a design-system study) ---- */
+:root{--line:#ECEDF0;
+ --sh-soft:0 1px 2px rgba(16,24,40,.05);
+ --sh-default:0 1px 2px rgba(16,24,40,.04),0 6px 18px -8px rgba(16,24,40,.12);
+ --sh-hover:0 2px 4px rgba(16,24,40,.05),0 16px 34px -12px rgba(30,60,130,.22);
+ --sh-media:0 1px 2px rgba(16,24,40,.06),0 14px 30px -14px rgba(16,24,40,.24);
+ --sh-glass:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(16,24,40,.06),0 6px 16px -8px rgba(30,60,130,.22)}
+::selection{background:#DBEAFE;color:inherit}
+/* glass nav pill */
+@media (min-width:601px){
+ .nav a:not(.nav-li){padding:7px 14px;margin-block:-7px;border-radius:999px;background:none;border:1px solid transparent;transition:background-color .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
+ .nav a:not(.nav-li):hover{background-color:rgba(236,240,247,.6)}
+ .nav a[aria-current="page"]{background-color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.7);box-shadow:var(--sh-glass);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5)}
+ html.at-top .nav a[aria-current="page"]{background-color:rgba(255,255,255,.4)}
+}
+/* soft shadows, squircle-ish corners, hairlines */
+.gallery.framed .cover{box-shadow:var(--sh-default);transition:box-shadow .3s var(--ease)}
+.gallery.framed .card:hover .cover{box-shadow:var(--sh-hover)}
+.card-pill{box-shadow:var(--sh-soft),0 4px 14px -6px rgba(16,24,40,.18)}
+.tx-zoom{border-color:#F1F1F3;border-radius:14px;box-shadow:var(--sh-media)}
+.ss-flow-btn,.stat-chart,.ss-board,.ipad-screen .tx-zoom,.pl-news .tx-zoom,.reel-btn,.mbp .tx-zoom{box-shadow:none!important}
+.pl-mock{box-shadow:none}
+.brand-kit{border-color:var(--line)}
+.ss-lead .hl,.ss-roles .hl{border-color:#F1F1F3}
+@supports (corner-shape:squircle){
+ .gallery.framed .cover,.gallery.framed .card{corner-shape:squircle;border-radius:40px}
+ .ss-lead .hl,.ss-roles .hl,.ss-kit,.tx-zoom{corner-shape:squircle}
+}
+/* gradient + grain header behind each project title */
+article.view.wrap{position:relative}
+article.view.wrap > .cs-top{position:relative;z-index:1}
+article.view.wrap::before{content:"";position:absolute;z-index:0;pointer-events:none;top:calc(-1 * clamp(70px,9vw,120px));left:calc(50% - 50vw);width:100vw;height:clamp(460px,46vw,640px);
+ background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),radial-gradient(ellipse 60% 70% at 18% 20%,rgba(168,201,248,.55),transparent 70%),radial-gradient(ellipse 50% 60% at 82% 10%,rgba(214,206,250,.45),transparent 70%),radial-gradient(ellipse 70% 60% at 60% 60%,rgba(196,226,255,.4),transparent 72%);
+ background-size:160px 160px,140% 140%,140% 140%,140% 140%;opacity:.9;
+ -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent);
+ animation:hdr-drift 18s ease-in-out infinite alternate}
+@keyframes hdr-drift{0%{background-position:0 0,0% 0%,100% 0%,50% 100%}100%{background-position:0 0,30% 20%,70% 30%,30% 70%}}
+@media (prefers-reduced-motion:reduce){article.view.wrap::before{animation:none}}
+html,body{overflow-x:clip}
+/* image shimmer while loading */
+@keyframes shimmer{to{background-position:-200% 0}}
+.img-loading{background:linear-gradient(100deg,#F4F4F5 30%,#E4E4E7 50%,#F4F4F5 70%) 0 0/200% 100%!important;animation:shimmer 1.4s linear infinite}
+.img-loading > img,.img-loading > video{opacity:0}
+.img-fade{transition:opacity .45s var(--ease)}
+/* edge fades on scrolling rows + liquid-glass carousel arrows */
+.reel{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel-arrow{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);color:#fff;box-shadow:var(--sh-glass);-webkit-backdrop-filter:blur(12px) saturate(1.6);backdrop-filter:blur(12px) saturate(1.6);transition:transform .15s var(--ease),background .15s}
+.reel-arrow:hover{background:rgba(255,255,255,.42);border-color:rgba(255,255,255,.9)}
+/* open-to-work dot */
+.avail{display:inline-flex;width:fit-content;align-self:flex-start;align-items:center;gap:10px;margin:0 0 clamp(18px,2.4vw,28px);padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);font-size:14px;font-weight:500;color:var(--on-block)}
+.avail-dot{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#10B981}
+.avail-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;background:#BBF7D0;opacity:.6;animation:pulse-ring 1.8s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(.6);opacity:.6}100%{transform:scale(1.9);opacity:0}}
 </style>
 </head>
 <body>
@@ -2613,6 +2667,7 @@ article.view.wrap{max-width:1080px}
 
 <footer class="foot" id="contact">
   <div class="foot-in">
+    <p class="avail"><span class="avail-dot" aria-hidden="true"></span>Open to work</p>
     <p class="foot-cta">Got an idea? Let&rsquo;s sketch it, design it, and make it <em>real</em>.</p>
     <div class="foot-row">
       <div class="email">
@@ -3463,6 +3518,16 @@ article.view.wrap{max-width:1080px}
     document.addEventListener('visibilitychange', () => { if (!document.hidden) all(); });
     ['touchstart', 'pointerdown', 'scroll'].forEach(e => addEventListener(e, all, { once: true, passive: true }));
     setInterval(all, 3000);
+  })();
+  // shimmer placeholder until each lazy image has loaded
+  (() => {
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      if (img.complete && img.naturalWidth) return;
+      const box = img.parentElement; if (!box) return;
+      box.classList.add('img-loading'); img.classList.add('img-fade');
+      const done = () => box.classList.remove('img-loading');
+      img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true });
+    });
   })();
 })();
 </script>
