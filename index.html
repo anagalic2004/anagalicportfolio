@@ -1513,6 +1513,16 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-users-card .vl-pts{margin:10px 0 0;display:flex;flex-direction:column;gap:10px}
 .vl-users-card .vl-pts li{font-size:14.5px;line-height:1.6;color:#7A808A}
 .vl-users-card .vl-pts strong{color:#4E545F;font-weight:600}
+
+/* VALS stat strips */
+.vl-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:22px;background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22);margin-top:clamp(18px,2vw,26px)}
+.vl-cell{display:flex;flex-direction:column;gap:4px;padding:clamp(18px,2vw,26px) clamp(20px,2.4vw,32px)}
+.vl-cell + .vl-cell{border-left:1px solid rgba(16,24,40,.08)}
+.vl-cell strong{font-size:clamp(28px,2.8vw,38px);font-weight:600;line-height:1.05;color:#3A3F47;letter-spacing:-.01em}
+.vl-cell span{font-size:14px;line-height:1.45;color:#7A808A}
+.vl-cell em{font-style:normal;font-size:12px;color:#A3A8B0;margin-top:2px}
+@media (max-width:640px){.vl-strip{grid-template-columns:minmax(0,1fr)}.vl-cell + .vl-cell{border-left:0;border-top:1px solid rgba(16,24,40,.08)}}
+[data-view="vals"] .vl-users-card{margin-top:clamp(14px,1.6vw,18px)!important}
 </style>
 </head>
 <body>
@@ -2055,20 +2065,20 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 
       <section class="block-section ss-lead vl-lead vl-open" aria-label="Overview">
         <p class="ss-intro">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
-        <div class="stats">
-          <div class="stat"><strong>6</strong><span>languages: English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
-          <div class="stat"><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
-          <div class="stat"><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
+        <div class="vl-strip">
+          <div class="vl-cell"><strong>6</strong><span>languages</span></div>
+          <div class="vl-cell"><strong>6</strong><span>pages designed &amp; built</span></div>
+          <div class="vl-cell"><strong>3</strong><span>user groups</span></div>
         </div>
       </section>
 
       <section class="block-section ss-lead vl-lead" aria-labelledby="vl-problem-h">
         <h2 class="sec-title" id="vl-problem-h">Our users</h2>
         <p class="ss-intro">Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p>
-        <div class="stats">
-          <div class="stat"><strong>91%</strong><span>of people accept terms without reading them</span><p class="stat-src">Deloitte, 2017</p></div>
-          <div class="stat"><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span><p class="stat-src">Average agreement</p></div>
-          <div class="stat"><strong>73</strong><span>days a year to read every policy we agree to</span><p class="stat-src">The Atlantic, 2012</p></div>
+        <div class="vl-strip">
+          <div class="vl-cell"><strong>91%</strong><span>accept terms without reading them</span><em>Deloitte, 2017</em></div>
+          <div class="vl-cell"><strong>10,000+</strong><span>words in an average agreement</span><em>30–40 minutes to read</em></div>
+          <div class="vl-cell"><strong>73</strong><span>days a year to read every policy</span><em>The Atlantic, 2012</em></div>
         </div>
         <div class="ss-outcome vl-users-card">
           <div class="ss-oc-col"><p class="ss-oc-tag">The barriers</p>
