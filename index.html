@@ -1328,26 +1328,26 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-lead.block-section,.ss-lead{gap:clamp(12px,1.6vw,20px)!important}
 
 /* Result: same glossy card language as the rest of the Soulshine page */
-[data-view="soulshine"] .ss-result .noticed-list{list-style:none;margin:0;padding:clamp(22px,2.4vw,30px);gap:12px;border-radius:22px;
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .noticed-list{list-style:none;margin:0;padding:clamp(22px,2.4vw,30px);gap:12px;border-radius:22px;
  background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
-[data-view="soulshine"] .ss-result .noticed-list li{font-size:15px;line-height:1.55;color:#7A808A}
-[data-view="soulshine"] .ss-result .noticed-list li strong{color:#4E545F!important;font-weight:600}
-[data-view="soulshine"] .ss-result .noticed-list li::before{background:#B5BAC2!important}
-[data-view="soulshine"] .ss-result .reflect{border:0!important;margin-top:clamp(14px,2vw,20px)}
-[data-view="soulshine"] .ss-result .rf-row{display:flex;flex-direction:column;gap:8px;border:0!important;padding:clamp(22px,2.4vw,30px)!important;border-radius:22px;
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .noticed-list li{font-size:15px;line-height:1.55;color:#7A808A}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .noticed-list li strong{color:#4E545F!important;font-weight:600}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .noticed-list li::before{background:#B5BAC2!important}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .reflect{border:0!important;margin-top:clamp(14px,2vw,20px)}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .rf-row{display:flex;flex-direction:column;gap:8px;border:0!important;padding:clamp(22px,2.4vw,30px)!important;border-radius:22px;
  background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);
  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
-[data-view="soulshine"] .ss-result .rf-row .label{align-self:flex-start;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);color:#3A3F47!important;font-size:13px;letter-spacing:0;text-transform:none;font-weight:500}
-[data-view="soulshine"] .ss-result .rf-row p:not(.label){font-size:15px;line-height:1.55;color:#7A808A;margin:0}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .rf-row .label{align-self:flex-start;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);color:#3A3F47!important;font-size:13px;letter-spacing:0;text-transform:none;font-weight:500}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-result .rf-row p:not(.label){font-size:15px;line-height:1.55;color:#7A808A;margin:0}
 /* visit banner: soft glossy instead of solid blue */
-[data-view="soulshine"] .visit-banner{background:linear-gradient(155deg,#FCFCFD 0%,#F1F3F8 50%,#E4E8F2 100%)!important;color:#1F2228!important;border-radius:22px;
+:is([data-view="soulshine"],[data-view="vals"]) .visit-banner{background:linear-gradient(155deg,#FCFCFD 0%,#F1F3F8 50%,#E4E8F2 100%)!important;color:#1F2228!important;border-radius:22px;
  box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)!important}
-[data-view="soulshine"] .visit-banner *{color:inherit}
-[data-view="soulshine"] .visit-banner .visit-kicker{color:#8A9099!important;opacity:1}
-[data-view="soulshine"] .visit-banner strong,[data-view="soulshine"] .visit-banner h3,[data-view="soulshine"] .visit-banner .visit-title{color:#0B0C0E!important}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-banner *{color:inherit}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-banner .visit-kicker{color:#8A9099!important;opacity:1}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-banner strong,:is([data-view="soulshine"],[data-view="vals"]) .visit-banner h3,:is([data-view="soulshine"],[data-view="vals"]) .visit-banner .visit-title{color:#0B0C0E!important}
 /* brand section labels: quiet, sentence case */
-[data-view="soulshine"] .ss-kit .label{text-transform:none;letter-spacing:0;font-size:14px;color:#7A808A}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-kit .label{text-transform:none;letter-spacing:0;font-size:14px;color:#7A808A}
 
 /* ---- Interactive 3D lamp ---- */
 .lamp3d{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(18px,2.6vw,36px);align-items:center;border-radius:22px;padding:clamp(10px,1.4vw,16px);
@@ -1401,16 +1401,16 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .ss-oc-col{display:flex;flex-direction:column;gap:10px;min-width:0}
 .ss-oc-col + .ss-oc-col{border-left:1px solid rgba(15,20,30,.07);padding-left:clamp(20px,3vw,44px)}
 .ss-oc-tag{align-self:flex-start;margin:0;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(16,24,40,.06);font-size:13px;font-weight:500;color:#3A3F47!important}
-[data-view="soulshine"] .ss-outcome .noticed-list{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0}
+:is([data-view="soulshine"],[data-view="vals"]) .ss-outcome .noticed-list{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0}
 .ss-oc-text{margin:0;font-size:15px;line-height:1.55;color:#7A808A}
 @media (max-width:760px){.ss-outcome{grid-template-columns:minmax(0,1fr)}.ss-oc-col + .ss-oc-col{border-left:0;padding-left:0;border-top:1px solid rgba(15,20,30,.07);padding-top:18px}}
 
 /* website link card, compact version under Timeline */
-[data-view="soulshine"] .visit-compact{margin-top:14px;padding:16px 16px 16px 18px!important;gap:12px!important;border-radius:18px;align-items:center}
-[data-view="soulshine"] .visit-compact .visit-kicker{font-size:10.5px}
-[data-view="soulshine"] .visit-compact .visit-title{font-size:16px!important;line-height:1.2}
-[data-view="soulshine"] .visit-compact .visit-url{font-size:11.5px}
-[data-view="soulshine"] .visit-compact .visit-circle{width:40px!important;height:40px!important;font-size:16px!important;flex:none}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact{margin-top:14px;padding:16px 16px 16px 18px!important;gap:12px!important;border-radius:18px;align-items:center}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-kicker{font-size:10.5px}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-title{font-size:16px!important;line-height:1.2}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-url{font-size:11.5px}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-circle{width:40px!important;height:40px!important;font-size:16px!important;flex:none}
 
 .ss-duo-intro{margin:2px 0 16px;max-width:52ch}
 .ss-duo-intro h3{margin:0 0 4px;font-size:16px;font-weight:600;color:#1F2228!important}
@@ -1418,13 +1418,13 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 
 .ss-site-side{display:flex;flex-direction:column;gap:16px;min-width:0}.ss-site-side .ss-jump{margin-top:0;gap:8px}.ss-site-side .ss-jump button{padding:9px 16px;font-size:12px}
 
-[data-view="soulshine"] .visit-compact{display:flex!important;width:100%;box-sizing:border-box;justify-content:space-between;align-items:center!important;padding:14px 14px 14px 18px!important;margin-top:16px}
-[data-view="soulshine"] .visit-compact .visit-copy{gap:3px!important;min-width:0}
-[data-view="soulshine"] .visit-compact .visit-title{white-space:nowrap;font-weight:600!important}
-[data-view="soulshine"] .visit-compact .visit-url{color:#8A9099!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-[data-view="soulshine"] .visit-compact .visit-circle{width:36px!important;height:36px!important;font-size:15px!important}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact{display:flex!important;width:100%;box-sizing:border-box;justify-content:space-between;align-items:center!important;padding:14px 14px 14px 18px!important;margin-top:16px}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-copy{gap:3px!important;min-width:0}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-title{white-space:nowrap;font-weight:600!important}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-url{color:#8A9099!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-circle{width:36px!important;height:36px!important;font-size:15px!important}
 
-@media (max-width:760px){[data-view="soulshine"] .visit-banner.visit-compact{flex-direction:row!important;text-align:left!important;align-items:center!important}[data-view="soulshine"] .visit-compact .visit-copy{align-items:flex-start!important}}
+@media (max-width:760px){:is([data-view="soulshine"],[data-view="vals"]) .visit-banner.visit-compact{flex-direction:row!important;text-align:left!important;align-items:center!important}:is([data-view="soulshine"],[data-view="vals"]) .visit-compact .visit-copy{align-items:flex-start!important}}
 
 .l3-rot{position:absolute;right:10px;top:10px;color:#9AA3AE;pointer-events:none;opacity:.85}
 .l3-rot svg{display:block;width:clamp(80px,9vw,110px);height:auto}
@@ -1440,6 +1440,50 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .l3-rot{left:auto!important;right:10px!important;top:10px!important;bottom:auto!important;transform:none!important}.l3-rot svg{width:clamp(44px,4.5vw,56px)!important}.l3-rot{color:#7F8893!important;opacity:1!important}
 
 .ss-kit .lsteps{align-items:stretch!important}.ss-kit .lstep{display:flex;flex-direction:column;gap:12px}.ss-kit .lstep .shots{margin-top:auto;align-items:flex-end}.ss-kit .l3dlogo .shots{align-items:flex-end;gap:clamp(16px,2.4vw,32px)}.ss-kit .shots figure img{width:clamp(150px,15vw,200px)!important}
+
+/* VALS remade in the Soulshine style */
+[data-view="vals"] .ss-lead .hl p:not(.label){white-space:normal!important;font-size:14px!important}
+[data-view="vals"] .vl-lead .stat .label{font-size:12px;letter-spacing:.04em;color:#9AA0A9}
+.vl-device{margin:0;display:flex;justify-content:center}.vl-device img{display:block;width:min(100%,560px);height:auto;filter:drop-shadow(0 26px 30px rgba(16,24,40,.16))}
+.vl-role .hl{border:0}.vl-role .hl p:not(.label){font-size:15px!important;line-height:1.65!important;max-width:78ch}
+.vl-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);align-items:start;margin-top:clamp(48px,6vw,88px)}
+.vl-duo > .block-section{margin:0!important}
+.vl-duo-intro{margin:0 0 4px!important;font-size:15px;line-height:1.6;color:#7A808A}
+.vl-how{margin-top:0!important}.vl-how ol{gap:16px!important}
+.vl-how li{display:flex;flex-direction:column;gap:3px;padding-left:34px!important}
+.vl-how li::before{top:2px!important}
+.vl-how .vl-k{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9AA0A9}
+.vl-how li b{font-size:15px}
+.vl-how li > span:last-child{font-size:14px;line-height:1.5;color:#7A808A}
+@media (max-width:860px){.vl-duo{grid-template-columns:minmax(0,1fr)}}
+.vl-screens{position:relative;aspect-ratio:1.78;overflow:hidden;background:#13100F}
+.vl-screens img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;animation:vlScr 15s infinite}
+.vl-screens img:first-child{opacity:1;animation:none}
+
+.vl-screens img:not(:first-child){animation-name:vlScr;animation-duration:15s}
+@keyframes vlScr{0%,16.6%{opacity:0}20%,36.7%{opacity:1}38.5%,100%{opacity:0}}
+.vl-screens img:nth-child(3){animation-delay:2.5s}.vl-screens img:nth-child(4){animation-delay:5s}.vl-screens img:nth-child(5){animation-delay:7.5s}.vl-screens img:nth-child(6){animation-delay:10s}
+.ss-note-card h3{margin:0;font-size:16px;font-weight:600;color:#4E545F}
+[data-view="vals"] .ss-site-notes{gap:8px}
+#vl-web-h,#vl-feat-h,#vl-brand-h{scroll-margin-top:110px}
+[data-view="vals"] .vl-explorer{margin-top:0}
+.vl-feat{margin-top:0!important}.vl-feat .highlights{margin-top:0!important}
+.vl-feat .ss-pts li{font-size:14px}.vl-feat .ss-pts li::before{background:#9AA0A9}
+.vl-kit2 .swatches{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.vl-types{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.vl-types .type-card{border:0;box-shadow:0 6px 14px -8px rgba(15,30,60,.3)}
+.vl-types .type-card:first-child{background:#13100F!important;color:#EDE8E7!important}
+.vl-types .type-card:first-child .type-name{color:#EDE8E7!important}
+.vl-types .type-card:first-child .type-use{color:#A6A0A0!important}
+.vl-types .type-card:last-child{background:#fff!important}
+.vl-types .type-img{width:100%;margin-top:6px;padding-top:6px}
+.vl-kit2 .logos-block{display:flex;flex-direction:column;gap:14px}
+.vl-kit2 .origin-text{display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.vl-kit2 .origin-text h3{margin:0}.vl-kit2 .origin-text p{margin:0;font-size:14px;line-height:1.6;color:#7A808A}
+.vl-lsteps .shots figure{margin:0;align-items:center;text-align:center}
+.vl-lsteps .shots img{display:block;height:clamp(96px,10vw,140px)!important;width:auto!important;object-fit:contain}
+.vl-lsteps .shots figcaption{font-size:12.5px!important}
+.vl-lsteps .lstep{display:flex;flex-direction:column;gap:12px}
 </style>
 </head>
 <body>
@@ -1961,16 +2005,122 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
   </article>
 
   <!-- VALS -->
-  <article class="view wrap" data-view="vals" hidden>
+    <article class="view wrap" data-view="vals" hidden>
 
-    <div class="cs-top">
-      <a class="back" href="#work">&larr; All work</a>
-      <header class="cs-head">
-        <p class="label">AI voice assistant</p>
-        <h1 class="cs-title">VALS</h1>
-        <a class="visit-top v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span class="visit-dot" aria-hidden="true"></span><span>Visit the live VALS website</span><span class="visit-arrow" aria-hidden="true">&#8599;</span></a>
-      </header>
-      <div class="ss-explorer vl-explorer" data-dir="img/vals/vals-">
+      <div class="cs-top">
+        <a class="back" href="#work">&larr; All work</a>
+        <header class="cs-head">
+          <h1 class="cs-title">VALS</h1>
+          <p class="label ss-sub">AI voice assistant</p>
+        </header>
+        <div class="pl-top ss-top vl-top">
+          <figure class="ss-phones vl-device"><img src="img/vals/device-top.webp" width="931" height="862" alt="The VALS homepage on a tablet with a keyboard: the headline Understand Before You Accept, a language picker and a Get Started button"></figure>
+          <div class="pl-side">
+            <dl class="meta">
+              <div><dt class="label">Role</dt><dd>Product Design &amp; Front-End Development</dd></div>
+              <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
+              <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React, Adobe Photoshop</dd></div>
+              <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
+            </dl>
+            <a class="visit-banner v-ss visit-compact" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener"><span class="visit-copy"><span class="visit-title">Live VALS website</span><span class="visit-url">serene-july-87892059.figma.site</span></span><span class="visit-circle" aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+      </div>
+
+      <section class="block-section ss-lead vl-lead" aria-labelledby="vl-over-h">
+        <h2 class="sec-title" id="vl-over-h">Overview</h2>
+        <p class="ss-intro">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
+        <div class="stats">
+          <div class="stat"><p class="label">Languages</p><strong>6</strong><span>English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
+          <div class="stat"><p class="label">Website</p><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
+          <div class="stat"><p class="label">Designed for</p><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
+        </div>
+      </section>
+
+      <section class="block-section ss-lead vl-lead" aria-labelledby="vl-problem-h">
+        <h2 class="sec-title" id="vl-problem-h">The problem</h2>
+        <p class="ss-intro">Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p>
+        <div class="stats">
+          <div class="stat"><p class="label">Deloitte, 2017</p><strong>91%</strong><span>of people accept terms without reading them</span></div>
+          <div class="stat"><p class="label">Average agreement</p><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span></div>
+          <div class="stat"><p class="label">The Atlantic, 2012</p><strong>73</strong><span>days a year to read every policy we agree to</span></div>
+        </div>
+        <div class="highlights">
+          <div class="hl"><p class="label">Barrier 1</p><h3>Length and complexity</h3><p>Most people don't have half an hour to read one agreement, so they skip it.</p></div>
+          <div class="hl"><p class="label">Barrier 2</p><h3>Language</h3><p>Agreements come in only a handful of languages, leaving billions of non-native speakers in the dark.</p></div>
+          <div class="hl"><p class="label">Barrier 3</p><h3>Accessibility</h3><p>Text-only documents exclude visually impaired, dyslexic and elderly users, and screen readers can't simplify legal language.</p></div>
+        </div>
+      </section>
+
+      <section class="block-section ss-lead vl-lead" aria-labelledby="vl-who-h">
+        <h2 class="sec-title" id="vl-who-h">Who it's for</h2>
+        <div class="highlights">
+          <div class="hl"><p class="label">2.2 billion people</p><h3>Visually impaired</h3><p>Screen readers can't simplify dense legal text. A voice-first design removes that barrier.</p></div>
+          <div class="hl"><p class="label">15–20% have dyslexia</p><h3>Reading difficulties</h3><p>Audio and plain-language summaries replace impenetrable paragraphs, for the 130 million US adults who struggle with literacy too.</p></div>
+          <div class="hl"><p class="label">761 million aged 65+</p><h3>Elderly users</h3><p>Small print gets harder to read with age. Voice guidance feels like a familiar phone call.</p></div>
+        </div>
+      </section>
+
+      <section class="block-section ss-roles vl-role" aria-labelledby="vl-role-h">
+        <h2 class="sec-title" id="vl-role-h">My role</h2>
+        <div class="hl">
+          <p class="label">Product Designer &amp; Front-End Developer</p>
+          <p>I was the Product Designer and Front-End Developer on a team of five. I built the complete VALS website you can explore below, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
+        </div>
+      </section>
+
+      <div class="vl-duo">
+        <section class="block-section" aria-labelledby="vl-origin-h">
+          <h2 class="sec-title" id="vl-origin-h">How VALS came to be</h2>
+          <p class="ss-intro vl-duo-intro">VALS started in one of our team&rsquo;s brainstorming sessions. One of my teammates has a visually impaired family member, and we wanted to make something that would help them.</p>
+          <div class="ss-how vl-how">
+            <ol>
+              <li><span class="vl-k">Brainstorm</span><b>One person we wanted to help</b><span>A teammate&rsquo;s visually impaired family member gave us our starting point.</span></li>
+              <li><span class="vl-k">Widen</span><b>Three groups who struggle with the fine print</b><span>We widened the goal to visually impaired people, elderly users and people with reading difficulties.</span></li>
+              <li><span class="vl-k">Design</span><b>A product that reads it for you</b><span>We designed a product for anyone who struggles to use products and read the &ldquo;fine print&rdquo; in today&rsquo;s very technological world.</span></li>
+            </ol>
+          </div>
+        </section>
+        <section class="block-section" aria-labelledby="vl-how-h">
+          <h2 class="sec-title" id="vl-how-h">How it works</h2>
+          <div class="ss-how vl-how">
+            <ol>
+              <li><span class="vl-k">Step 1</span><b>Install</b><span>Add VALS to Chrome, Edge or Firefox in one click. It sits quietly in the toolbar.</span></li>
+              <li><span class="vl-k">Step 2</span><b>Browse normally</b><span>VALS scans each page in the background, and its icon lights up the moment it finds Terms of Service, a privacy policy or any legal agreement.</span></li>
+              <li><span class="vl-k">Step 3</span><b>Hear your summary</b><span>Click the icon, or turn on Auto Mode, and VALS reads the agreement back as a spoken summary in your language in under two minutes.</span></li>
+              <li><span class="vl-k">Step 4</span><b>Decide with confidence</b><span>VALS rates the risk as low, medium or high and flags the clauses that matter, such as data sharing, arbitration and cancellation rights.</span></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+
+      <section class="block-section" aria-labelledby="vl-site-h">
+        <h2 class="sec-title" id="vl-site-h">Designing the website</h2>
+        <div class="ss-site-top">
+          <figure class="mockup mbp-fig"><div class="mbp" aria-label="Laptop showing the VALS website moving through its six pages"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><div class="vl-screens">
+            <img src="img/vals/vals-home.jpg" alt="" loading="lazy">
+            <img src="img/vals/vals-about.jpg" alt="" loading="lazy">
+            <img src="img/vals/vals-team.jpg" alt="" loading="lazy">
+            <img src="img/vals/vals-demo.jpg" alt="" loading="lazy">
+            <img src="img/vals/vals-signup.jpg" alt="" loading="lazy">
+            <img src="img/vals/vals-account.jpg" alt="" loading="lazy">
+          </div></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
+          <div class="ss-site-side">
+            <div class="ss-site-notes ss-note-card">
+              <p class="label">Built by me</p>
+              <h3>Six pages, start to finish</h3>
+              <p>A landing page with a language picker, the about page, the team, an interactive demo, sign-up and an account page, with the animations and navigation that connect them.</p>
+            </div>
+            <nav class="ss-jump" aria-label="Jump to a part of this section">
+              <button type="button" data-jump="vl-web-h">Website</button>
+              <button type="button" data-jump="vl-feat-h">Features</button>
+              <button type="button" data-jump="vl-brand-h">Brand</button>
+            </nav>
+          </div>
+        </div>
+
+        <h2 class="sec-title ss-sub-h" id="vl-web-h">Website</h2>
+        <div class="ss-explorer vl-explorer" data-dir="img/vals/vals-">
         <div class="ss-tabs" role="tablist" aria-label="VALS website pages">
           <button type="button" class="chip ss-tab" role="tab" id="vl-tab-home" aria-controls="vl-viewport" aria-selected="true" tabindex="0" data-page="home" data-path="home" data-alt="VALS homepage: the VALS logo above the headline “Understand Before You Accept” and a picker for six languages">Home</button>
           <button type="button" class="chip ss-tab" role="tab" id="vl-tab-about" aria-controls="vl-viewport" aria-selected="false" tabindex="-1" data-page="about" data-path="about" data-alt="VALS About page: the mission, the problem with Terms &amp; Conditions, how the browser extension works, and who VALS is for">About</button>
@@ -1984,171 +2134,95 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
           <div class="ss-viewport" id="vl-viewport" role="tabpanel" aria-labelledby="vl-tab-home" tabindex="0"><img class="ss-page" src="img/vals/vals-home.jpg" alt="VALS homepage: the VALS logo above the headline “Understand Before You Accept” and a picker for six languages"></div>
         </div>
         <p class="label">Scroll inside the window, or switch pages above</p>
-      </div>
-    </div>
-
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">01</span>Overview</p>
-      <div class="cs-step-body">
-<div class="cs-intro">
-      <div class="cs-copy">
-        <p class="lede">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
-        <p>I was the Product Designer and Front-End Developer on a team of five. I built the complete VALS website you can explore above, including its UI/UX, animations, payment flow and navigation, and prototyped the product itself in Figma with user flows, wireframes and high-fidelity screens. I also designed the VALS logo, first in Adobe Photoshop and then as a 3D model in Figma.</p>
-      </div>
-      <dl class="meta">
-        <div><dt class="label">Role</dt><dd>Product Design &amp; Front-End Development</dd></div>
-        <div><dt class="label">Team</dt><dd>Ana Galić, Jillian Bell, Emmie Yuan, Kevin Zhang, Phong Nguyen</dd></div>
-        <div><dt class="label">Tools</dt><dd>Figma, Figma Sites, React, Adobe Photoshop</dd></div>
-        <div><dt class="label">Timeline</dt><dd>Aug 2025 – Dec 2025</dd></div>
-      </dl>
-    </div>
-
-<div class="stats">
-      <div class="stat"><p class="label">Languages</p><strong>6</strong><span>English, Mandarin, Hindi, Spanish, Arabic and French</span></div>
-      <div class="stat"><p class="label">Website</p><strong>6</strong><span>pages I designed and built, from the landing page to the account page</span></div>
-      <div class="stat"><p class="label">Designed for</p><strong>3</strong><span>user groups: visually impaired people, people with reading difficulties, and elderly users</span></div>
-    </div>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">02</span>Challenge</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="vl-problem-h">
-      <h2 class="sec-title" id="vl-problem-h">The problem</h2>
-      <div class="cs-copy"><p>Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p></div>
-      <div class="stats">
-        <div class="stat"><p class="label">Deloitte, 2017</p><strong>91%</strong><span>of people accept terms without reading them</span></div>
-        <div class="stat"><p class="label">Average agreement</p><strong>10,000+</strong><span>words, which takes 30 to 40 minutes to read</span></div>
-        <div class="stat"><p class="label">The Atlantic, 2012</p><strong>73</strong><span>days a year to read every policy we agree to</span></div>
-      </div>
-      <div class="highlights">
-        <div class="hl"><p class="label">Barrier 1</p><h3>Length and complexity</h3><p>Most people don't have half an hour to read one agreement, so they skip it.</p></div>
-        <div class="hl"><p class="label">Barrier 2</p><h3>Language</h3><p>Agreements come in only a handful of languages, leaving billions of non-native speakers in the dark.</p></div>
-        <div class="hl"><p class="label">Barrier 3</p><h3>Accessibility</h3><p>Text-only documents exclude visually impaired, dyslexic and elderly users, and screen readers can't simplify legal language.</p></div>
-      </div>
-    </section>
-
-<section class="block-section" aria-labelledby="vl-who-h">
-      <h2 class="sec-title" id="vl-who-h">Who it's for</h2>
-      <div class="highlights">
-        <div class="hl"><p class="label">2.2 billion people</p><h3>Visually impaired</h3><p>Screen readers can't simplify dense legal text. A voice-first design removes that barrier.</p></div>
-        <div class="hl"><p class="label">15–20% have dyslexia</p><h3>Reading difficulties</h3><p>Audio and plain-language summaries replace impenetrable paragraphs, for the 130 million US adults who struggle with literacy too.</p></div>
-        <div class="hl"><p class="label">761 million aged 65+</p><h3>Elderly users</h3><p>Small print gets harder to read with age. Voice guidance feels like a familiar phone call.</p></div>
-      </div>
-    </section>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">03</span>Process</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="vl-origin-h">
-      <h2 class="sec-title" id="vl-origin-h">How VALS came to be</h2>
-      <div class="cs-copy"><p>VALS started in one of our team&rsquo;s brainstorming sessions. One of my teammates has a visually impaired family member, and we wanted to make something that would help them.</p></div>
-      <ol class="steps">
-        <li><p class="label">Brainstorm</p><div><h3>One person we wanted to help</h3><p>A teammate&rsquo;s visually impaired family member gave us our starting point.</p></div></li>
-        <li><p class="label">Widen</p><div><h3>Three groups who struggle with the fine print</h3><p>We widened the goal to visually impaired people, elderly users and people with reading difficulties.</p></div></li>
-        <li><p class="label">Design</p><div><h3>A product that reads it for you</h3><p>We designed a product for anyone who struggles to use products and read the &ldquo;fine print&rdquo; in today&rsquo;s very technological world.</p></div></li>
-      </ol>
-    </section>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">04</span>Final design</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="vl-how-h">
-      <h2 class="sec-title" id="vl-how-h">How it works</h2>
-      <ol class="steps">
-        <li><p class="label">Step 1</p><div><h3>Install</h3><p>Add VALS to Chrome, Edge or Firefox in one click. It sits quietly in the toolbar.</p></div></li>
-        <li><p class="label">Step 2</p><div><h3>Browse normally</h3><p>VALS scans each page in the background, and its icon lights up the moment it finds Terms of Service, a privacy policy or any legal agreement.</p></div></li>
-        <li><p class="label">Step 3</p><div><h3>Hear your summary</h3><p>Click the icon, or turn on Auto Mode, and VALS reads the agreement back as a spoken summary in your language in under two minutes.</p></div></li>
-        <li><p class="label">Step 4</p><div><h3>Decide with confidence</h3><p>VALS rates the risk as low, medium or high and flags the clauses that matter, such as data sharing, arbitration and cancellation rights.</p></div></li>
-      </ol>
-    </section>
-
-<section class="block-section" aria-labelledby="vl-site-h">
-      <h2 class="sec-title" id="vl-site-h">Designing the website</h2>
-      <div class="highlights">
-        <div class="hl"><p class="label">Built by me</p><h3>Six pages, start to finish</h3><p>A landing page with a language picker, the about page, the team, an interactive demo, sign-up and an account page, with the animations and navigation that connect them.</p></div>
-        <div class="hl"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p></div>
-        <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
-      </div>
-      <ul class="did">
-        <li>Available in six languages: English, Mandarin, Hindi, Spanish, Arabic and French</li>
-        <li>Full screen reader compatibility</li>
-        <li>Audio-first design</li>
-        <li>Large text and high contrast modes</li>
-      </ul>
-      <div class="brand-kit vl-kit">
-        <div class="brand-block">
-          <p class="label">Color palette</p>
-          <ul class="swatches seven">
-            <li class="swatch"><span class="chip-color" style="background:#13100F"></span><span class="sw-name">Deep black</span><span class="sw-meta">#13100F</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#1E191A"></span><span class="sw-name">Card dark</span><span class="sw-meta">#1E191A</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#EDE8E7"></span><span class="sw-name">Off-white</span><span class="sw-meta">#EDE8E7</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#64313E"></span><span class="sw-name">Burgundy</span><span class="sw-meta">#64313E</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#7A3B4A"></span><span class="sw-name">Burgundy hover</span><span class="sw-meta">#7A3B4A</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#A7C6ED"></span><span class="sw-name">Sky blue</span><span class="sw-meta">#A7C6ED</span></li>
-            <li class="swatch"><span class="chip-color" style="background:#C8E3F5"></span><span class="sw-name">Light sky blue</span><span class="sw-meta">#C8E3F5</span></li>
-          </ul>
         </div>
-        <div class="brand-block">
-          <p class="label">Typography · Adobe Fonts</p>
-          <div class="type-grid">
-            <div class="type-card">
-              <span class="type-name">Proxima Nova Medium</span>
-              <span class="type-use">The website: headings, body text, buttons and UI</span>
-              <img class="type-img" src="img/vals/vals-type.jpg" alt="The VALS headline Understand Before You Accept, set in Proxima Nova" loading="lazy">
-            </div>
-            <div class="type-card light">
-              <span class="type-name">Halyard Display Bold</span>
-              <span class="type-use">Brand display face</span>
-              <img class="type-img" src="img/vals/type-halyard.png" alt="The words Halyard Display Bold, set in Halyard Display Bold" loading="lazy">
+
+        <h2 class="sec-title ss-sub-h" id="vl-feat-h">Features</h2>
+        <div class="ss-lead vl-feat">
+          <div class="highlights">
+            <div class="hl"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p></div>
+            <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
+            <div class="hl"><p class="label">Accessibility</p>
+              <ul class="ss-pts">
+                <li>Available in six languages: English, Mandarin, Hindi, Spanish, Arabic and French</li>
+                <li>Full screen reader compatibility</li>
+                <li>Audio-first design</li>
+                <li>Large text and high contrast modes</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="brand-block">
-          <p class="label">Logo · Adobe Photoshop, then Figma</p>
-          <div class="logo-origin vl-origin">
-            <div class="vl-explore">
-              <figure><span class="vl-tile wide"><img src="img/vals/logo-wordmark-1.png" alt="Early VALS wordmark idea: light blue letters running along a black wedge, with a large S" loading="lazy"></span></figure>
-              <figure><span class="vl-tile wide"><img src="img/vals/logo-wordmark-2.png" alt="The same VALS wordmark idea rendered in 3D, with the letters standing out from the black wedge" loading="lazy"></span></figure>
-              <p class="label">Early explorations · wordmark</p>
+      </section>
+
+      <section class="block-section ss-brand-sec" aria-labelledby="vl-brand-h">
+        <h2 class="sec-title ss-sub-h" id="vl-brand-h">Brand</h2>
+        <div class="brand-kit ss-kit vl-kit2">
+          <div class="ss-kit-row">
+            <div class="brand-block">
+              <p class="label">Color palette</p>
+              <ul class="swatches">
+                <li class="swatch"><span class="chip-color" style="background:#13100F;color:#FFFFFF"><span class="sw-hex">#13100F</span></span><span class="sw-name">Deep black</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#1E191A;color:#FFFFFF"><span class="sw-hex">#1E191A</span></span><span class="sw-name">Card dark</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#EDE8E7;color:#0E1116"><span class="sw-hex">#EDE8E7</span></span><span class="sw-name">Off-white</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#64313E;color:#FFFFFF"><span class="sw-hex">#64313E</span></span><span class="sw-name">Burgundy</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#7A3B4A;color:#FFFFFF"><span class="sw-hex">#7A3B4A</span></span><span class="sw-name">Burgundy hover</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#A7C6ED;color:#0E1116"><span class="sw-hex">#A7C6ED</span></span><span class="sw-name">Sky blue</span></li>
+                <li class="swatch"><span class="chip-color" style="background:#C8E3F5;color:#0E1116"><span class="sw-hex">#C8E3F5</span></span><span class="sw-name">Light sky blue</span></li>
+              </ul>
             </div>
+            <div class="brand-block">
+              <p class="label">Typography · Adobe Fonts</p>
+              <div class="type-grid vl-types">
+                <div class="type-card light-card">
+                  <span class="type-name">Proxima Nova Medium</span>
+                  <span class="type-use">The website: headings, body text, buttons and UI</span>
+                  <img class="type-img" src="img/vals/vals-type.jpg" alt="The VALS headline Understand Before You Accept, set in Proxima Nova" loading="lazy">
+                </div>
+                <div class="type-card light-card">
+                  <span class="type-name">Halyard Display Bold</span>
+                  <span class="type-use">Brand display face</span>
+                  <img class="type-img" src="img/vals/type-halyard.png" alt="The words Halyard Display Bold, set in Halyard Display Bold" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="brand-block logos-block">
+            <p class="label">Logo · Adobe Photoshop, then Figma</p>
             <div class="origin-text">
               <h3>From a wordmark to a character</h3>
               <p>I designed the VALS logo myself in Adobe Photoshop. I started with wordmark ideas, the letters running along a black wedge, then turned it into a round character whose eyes peek out through the letters. I then rebuilt it as a 3D model in Figma and gave it a soft blue glow.</p>
             </div>
-          </div>
-          <div class="logos">
-            <figure><span class="vl-tile"><img src="img/vals/logo-flat.png" alt="The flat VALS character: a round black shape with two ears and a light blue band spelling VALS in burgundy, with two eyes" loading="lazy"></span><figcaption class="label">1 · Flat · Adobe Photoshop</figcaption></figure>
-            <figure><span class="vl-tile"><img src="img/vals/logo-3d.png" alt="The VALS character as a glossy 3D model with a blue rim" loading="lazy"></span><figcaption class="label">2 · 3D model · Figma</figcaption></figure>
-            <figure><span class="vl-tile"><img src="img/vals/logo-glow.png" alt="The final VALS logo: the 3D character surrounded by a soft blue glow" loading="lazy"></span><figcaption class="label">3 · Final with glow · Figma</figcaption></figure>
+            <div class="lsteps vl-lsteps">
+              <div class="lstep">
+                <p class="label">Early explorations · wordmark</p>
+                <div class="shots">
+                  <figure><img src="img/vals/logo-wordmark-1.png" alt="Early VALS wordmark idea: light blue letters running along a black wedge, with a large S" loading="lazy"></figure>
+                  <figure><img src="img/vals/logo-wordmark-2.png" alt="The same VALS wordmark idea rendered in 3D, with the letters standing out from the black wedge" loading="lazy"></figure>
+                </div>
+              </div>
+              <div class="lstep">
+                <p class="label">Character</p>
+                <div class="shots">
+                  <figure><img src="img/vals/logo-flat.png" alt="The flat VALS character: a round black shape with two ears and a light blue band spelling VALS in burgundy, with two eyes" loading="lazy"><figcaption class="label">1 · Flat · Adobe Photoshop</figcaption></figure>
+                  <figure><img src="img/vals/logo-3d.png" alt="The VALS character as a glossy 3D model with a blue rim" loading="lazy"><figcaption class="label">2 · 3D model · Figma</figcaption></figure>
+                  <figure><img src="img/vals/logo-glow.png" alt="The final VALS logo: the 3D character surrounded by a soft blue glow" loading="lazy"><figcaption class="label">3 · Final with glow · Figma</figcaption></figure>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-      </div>
-    </div>
-    <div class="cs-step">
-      <p class="step-tag"><span class="st-n">05</span>Outcome &amp; reflection</p>
-      <div class="cs-step-body">
-<section class="block-section" aria-labelledby="vl-ref-h">
-      <h2 class="sec-title" id="vl-ref-h">Reflection</h2>
-      <div class="reflect">
-        <div class="rf-row"><p class="label">Outcome</p><div><p>The live website is the final product, and it was also our final presentation.</p></div></div>
-        <div class="rf-row"><p class="label">What I learned</p><div><p>VALS taught me how to focus on the specific group I&rsquo;m designing for, and to put their needs above everything else. Usability and the overall UX and UI design were crucial: everything had to be clear and practical.</p></div></div>
-      </div>
-    </section>
+      </section>
 
-<a class="visit-banner v-vl" href="https://serene-july-87892059.figma.site/" target="_blank" rel="noopener">
-      <span class="visit-copy"><span class="visit-kicker">Live website · Figma Sites</span><span class="visit-title">Visit the VALS website</span><span class="visit-url">serene-july-87892059.figma.site</span></span>
-      <span class="visit-circle" aria-hidden="true">&#8599;</span>
-    </a>
-      </div>
-    </div>
-    <a class="back back-row" href="#work">&larr; Back to all work</a>
-    <a class="next" href="#tedx"><span class="label">Next project</span><span class="next-title"><span class="nc">TEDxURochester</span> &rarr;</span></a>
-  </article>
+      <section class="block-section ss-result" aria-labelledby="vl-ref-h">
+        <h2 class="sec-title" id="vl-ref-h">Reflection</h2>
+        <div class="ss-outcome">
+          <div class="ss-oc-col"><p class="ss-oc-tag">Outcome</p><p class="ss-oc-text">The live website is the final product, and it was also our final presentation.</p></div>
+          <div class="ss-oc-col"><p class="ss-oc-tag">What I learned</p><p class="ss-oc-text">VALS taught me how to focus on the specific group I&rsquo;m designing for, and to put their needs above everything else. Usability and the overall UX and UI design were crucial: everything had to be clear and practical.</p></div>
+        </div>
+      </section>
+
+      <a class="back back-row" href="#work">&larr; Back to all work</a>
+      <a class="next" href="#tedx"><span class="label">Next project</span><span class="next-title"><span class="nc">TEDxURochester</span> &rarr;</span></a>
+    </article>
 
   <!-- TEDX -->
   <article class="view wrap" data-view="tedx" hidden>
