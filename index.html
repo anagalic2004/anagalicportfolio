@@ -1555,6 +1555,18 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-mac-cap{display:flex;align-items:center;gap:10px;font-size:14px;color:#7A808A}
 .vl-risk{padding:5px 12px;border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(16,24,40,.06)}
 .vl-risk-low{color:#2F7A4C}.vl-risk-medium{color:#A26A0E}.vl-risk-high{color:#B23A34}
+
+.vl-outcome{grid-template-columns:minmax(0,1fr)!important}.vl-outcome .ss-oc-text{max-width:80ch}
+
+/* VALS brand: Soulshine-style sizes and horizontal type rows */
+[data-view="vals"] .vl-kit2 .wm-tile img{height:clamp(70px,7vw,100px)!important;width:auto!important}
+[data-view="vals"] .vl-kit2 .lstep .shots img{height:clamp(90px,9vw,124px)!important;width:auto!important}
+[data-view="vals"] .vl-kit2 .lstep .shots figure{margin:0}
+.vl-types .type-card{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);column-gap:clamp(14px,2vw,24px);row-gap:4px;align-items:center;padding:16px 18px!important}
+.vl-types .type-card .type-name{grid-column:1;grid-row:1;align-self:end}
+.vl-types .type-card .type-use{grid-column:1;grid-row:2;align-self:start}
+.vl-types .type-card .type-img{grid-column:2;grid-row:1/3;margin:0!important;padding:0!important;width:100%;height:auto}
+@media (max-width:640px){.vl-types .type-card{grid-template-columns:minmax(0,1fr)}.vl-types .type-card .type-img{grid-column:1;grid-row:auto}}
 </style>
 </head>
 <body>
@@ -2250,25 +2262,25 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
             </div>
           </div>
           <div class="brand-block logos-block">
-            <p class="label">Logo · Adobe Photoshop, then Figma</p>
-            <div class="origin-text">
-              <h3>From a wordmark to a character</h3>
-              <p>I designed the VALS logo myself in Adobe Photoshop. I started with wordmark ideas, the letters running along a black wedge, then turned it into a round character whose eyes peek out through the letters. I then rebuilt it as a 3D model in Figma and gave it a soft blue glow.</p>
-            </div>
-            <div class="lsteps vl-lsteps">
-              <div class="lstep">
-                <p class="label">Early explorations · wordmark</p>
-                <div class="shots">
-                  <figure><img src="img/vals/logo-wordmark-1.png" alt="Early VALS wordmark idea: light blue letters running along a black wedge, with a large S" loading="lazy"></figure>
-                  <figure><img src="img/vals/logo-wordmark-2.png" alt="The same VALS wordmark idea rendered in 3D, with the letters standing out from the black wedge" loading="lazy"></figure>
+            <div class="lsteps">
+              <div class="lstep full">
+                <p class="label">Wordmark</p>
+                <div class="wordmarks">
+                  <span class="wm-tile"><img src="img/vals/logo-wordmark-1.png" alt="Early VALS wordmark: light blue letters running along a black wedge" loading="lazy"></span>
+                  <span class="wm-tile"><img src="img/vals/logo-wordmark-2.png" alt="The same VALS wordmark in 3D" loading="lazy"></span>
                 </div>
               </div>
               <div class="lstep">
-                <p class="label">Character</p>
+                <p class="label">Flat logo</p>
                 <div class="shots">
-                  <figure><img src="img/vals/logo-flat.png" alt="The flat VALS character: a round black shape with two ears and a light blue band spelling VALS in burgundy, with two eyes" loading="lazy"><figcaption class="label">1 · Flat · Adobe Photoshop</figcaption></figure>
-                  <figure><img src="img/vals/logo-3d.png" alt="The VALS character as a glossy 3D model with a blue rim" loading="lazy"><figcaption class="label">2 · 3D model · Figma</figcaption></figure>
-                  <figure><img src="img/vals/logo-glow.png" alt="The final VALS logo: the 3D character surrounded by a soft blue glow" loading="lazy"><figcaption class="label">3 · Final with glow · Figma</figcaption></figure>
+                  <figure><img src="img/vals/logo-flat.png" alt="Flat VALS character: a round black shape with ears and a light blue band spelling VALS" loading="lazy"></figure>
+                </div>
+              </div>
+              <div class="lstep l3dlogo">
+                <p class="label">3D logo</p>
+                <div class="shots">
+                  <figure><img src="img/vals/logo-3d.png" alt="VALS character as a glossy 3D model" loading="lazy"></figure>
+                  <figure><img src="img/vals/logo-glow.png" alt="Final VALS logo with a soft blue glow" loading="lazy"></figure>
                 </div>
               </div>
             </div>
@@ -2278,9 +2290,8 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 
       <section class="block-section ss-result" aria-labelledby="vl-ref-h">
         <h2 class="sec-title" id="vl-ref-h">Reflection</h2>
-        <div class="ss-outcome">
-          <div class="ss-oc-col"><p class="ss-oc-tag">Outcome</p><p class="ss-oc-text">The live website is the final product, and it was also our final presentation.</p></div>
-          <div class="ss-oc-col"><p class="ss-oc-tag">What I learned</p><p class="ss-oc-text">VALS taught me how to focus on the specific group I&rsquo;m designing for, and to put their needs above everything else. Usability and the overall UX and UI design were crucial: everything had to be clear and practical.</p></div>
+        <div class="ss-outcome vl-outcome">
+          <div class="ss-oc-col"><p class="ss-oc-tag">Outcome</p><p class="ss-oc-text">The live website is the final product, and it was also our final presentation. VALS taught me how to focus on the specific group I&rsquo;m designing for and put their needs above everything else, so usability and the overall UX and UI had to be clear and practical.</p></div>
         </div>
       </section>
 
