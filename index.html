@@ -1550,6 +1550,11 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-macs{grid-template-columns:minmax(0,1fr)!important;justify-items:center;gap:clamp(22px,3vw,40px)!important;margin-top:clamp(18px,2.4vw,30px)!important}
 .vl-mac{width:min(100%,860px)}
 .vl-mac .mbp-lid{border-radius:16px 16px 0 0}.vl-mac .mbp-screen{border-radius:7px 7px 0 0}.vl-mac .mbp-base{height:16px}
+
+.vl-mac{display:flex!important;flex-direction:column;align-items:center;gap:14px!important}
+.vl-mac-cap{display:flex;align-items:center;gap:10px;font-size:14px;color:#7A808A}
+.vl-risk{padding:5px 12px;border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(16,24,40,.06)}
+.vl-risk-low{color:#2F7A4C}.vl-risk-medium{color:#A26A0E}.vl-risk-high{color:#B23A34}
 </style>
 </head>
 <body>
@@ -2203,9 +2208,9 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
           </div>
           <div class="hl vl-demo"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p>
             <div class="vl-macs">
-              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph1.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
-              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph2.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
-              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph3.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-low-poster.jpg" aria-label="Low risk example: VALS summarizing the Netflix Agreement"><source src="img/vals/demo-low.webm" type="video/webm"><source src="img/vals/demo-low.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-low">Low risk</span><span>Netflix Agreement</span></figcaption></figure>
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-medium-poster.jpg" aria-label="Medium risk example: VALS summarizing the Instagram Terms"><source src="img/vals/demo-medium.webm" type="video/webm"><source src="img/vals/demo-medium.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-medium">Medium risk</span><span>Instagram Terms</span></figcaption></figure>
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-high-poster.jpg" aria-label="High risk example: VALS summarizing the Banking Policy"><source src="img/vals/demo-high.webm" type="video/webm"><source src="img/vals/demo-high.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-high">High risk</span><span>Banking Policy</span></figcaption></figure>
             </div>
           </div>
           <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
