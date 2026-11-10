@@ -1533,6 +1533,15 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 @media (max-width:640px){.vl-cell + .vl-cell{border-top:0!important}}
 
 .vl-duo{align-items:stretch}.vl-duo > .block-section{display:flex;flex-direction:column}.vl-duo .vl-how{flex:1}
+
+/* VALS features: stacked cards, demo card holds three laptops */
+.vl-feat{display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.vl-acc .ss-pts{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:6px}
+.vl-macs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px);margin-top:clamp(14px,1.8vw,22px);align-items:end}
+.vl-mac{margin:0}.vl-mac .mbp{width:100%!important;filter:drop-shadow(0 16px 18px rgba(25,55,120,.16))}
+.vl-mac .mbp-lid{border-radius:10px 10px 0 0}.vl-mac .mbp-screen{border-radius:4px 4px 0 0}.vl-mac .mbp-base{height:8px}
+.vl-mac-ph,.vl-mac video{display:block;width:100%;aspect-ratio:1.78;object-fit:cover}
+@media (max-width:760px){.vl-macs{grid-template-columns:minmax(0,1fr)}.vl-acc .ss-pts{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -2176,18 +2185,22 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 
         <h2 class="sec-title ss-sub-h" id="vl-feat-h">Features</h2>
         <div class="ss-lead vl-feat">
-          <div class="highlights">
-            <div class="hl"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p></div>
-            <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
-            <div class="hl"><p class="label">Accessibility</p>
-              <ul class="ss-pts">
-                <li>Available in six languages: English, Mandarin, Hindi, Spanish, Arabic and French</li>
-                <li>Full screen reader compatibility</li>
-                <li>Audio-first design</li>
-                <li>Large text and high contrast modes</li>
-              </ul>
+          <div class="hl vl-acc"><p class="label">Accessibility</p>
+            <ul class="ss-pts">
+              <li>Available in six languages: English, Mandarin, Hindi, Spanish, Arabic and French</li>
+              <li>Full screen reader compatibility</li>
+              <li>Audio-first design</li>
+              <li>Large text and high contrast modes</li>
+            </ul>
+          </div>
+          <div class="hl vl-demo"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p>
+            <div class="vl-macs">
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph1.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph2.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
+              <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><img class="vl-mac-ph" src="img/vals/demo-ph3.webp" alt="" loading="lazy"></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div></figure>
             </div>
           </div>
+          <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
         </div>
       </section>
 
