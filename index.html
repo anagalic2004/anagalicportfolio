@@ -1542,6 +1542,10 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-mac .mbp-lid{border-radius:10px 10px 0 0}.vl-mac .mbp-screen{border-radius:4px 4px 0 0}.vl-mac .mbp-base{height:8px}
 .vl-mac-ph,.vl-mac video{display:block;width:100%;aspect-ratio:1.78;object-fit:cover}
 @media (max-width:760px){.vl-macs{grid-template-columns:minmax(0,1fr)}.vl-acc .ss-pts{grid-template-columns:minmax(0,1fr)}}
+
+.vl-title-row{display:flex;align-items:center;gap:clamp(12px,1.4vw,20px)}
+.vl-title-row .cs-title{font-size:calc(var(--fs-title) * .82)!important;line-height:1}
+.vl-title-logo{display:block;height:calc(var(--fs-title) * .95);width:auto;filter:drop-shadow(0 6px 10px rgba(16,24,40,.18))}
 </style>
 </head>
 <body>
@@ -2065,7 +2069,7 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
       <div class="cs-top">
         <a class="back" href="#work">&larr; All work</a>
         <header class="cs-head">
-          <h1 class="cs-title">VALS</h1>
+          <div class="vl-title-row"><img class="vl-title-logo" src="img/vals/logo-3d.png" width="440" height="442" alt="VALS logo"><h1 class="cs-title">VALS</h1></div>
           <p class="label ss-sub">AI voice assistant</p>
         </header>
         <div class="pl-top ss-top vl-top">
