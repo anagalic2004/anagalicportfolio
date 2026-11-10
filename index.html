@@ -1275,7 +1275,7 @@ html.at-top.home-on body .top::before{opacity:0}
 .ss1-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
  animation:ss1-fade 5s cubic-bezier(.45,0,.25,1) infinite;animation-delay:calc(var(--i) * 1s - .3s);animation-fill-mode:backwards;will-change:opacity,transform}
 @keyframes ss1-fade{0%{opacity:0;transform:scale(1.04);filter:blur(4px)}6%{opacity:1;transform:scale(1);filter:blur(0)}20%{opacity:1;transform:scale(1);filter:blur(0)}26%{opacity:0;transform:scale(.985);filter:blur(3px)}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.ss1-screen img{animation:none}.ss1-screen img:first-of-type{opacity:1}}
+
 
 /* ---- Titles are the only black text; everything else a lighter grey ---- */
 :root{--ink:#5A606B;--muted:#8A9099}
@@ -1568,6 +1568,14 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
 .vl-types .type-card .type-img{grid-column:2;grid-row:1/3;margin:0!important;padding:0!important;width:100%;height:auto}
 @media (max-width:640px){.vl-types .type-card{grid-template-columns:minmax(0,1fr)}.vl-types .type-card .type-img{grid-column:1;grid-row:auto}}
 
+
+.gallery.framed .vlr-cover{background:radial-gradient(120% 90% at 0% 0%,#D7E6F7 0%,transparent 55%),radial-gradient(110% 90% at 100% 0%,#EAD6DC 0%,transparent 55%),linear-gradient(180deg,#ECEFF7 0%,#F6F6FA 62%,#FAF5F5 100%)!important}
+
+/* Showcase motion stays on even when the device asks for reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ss1-screen img{animation:ss1-fade 5s cubic-bezier(.45,0,.25,1) infinite!important;animation-delay:calc(var(--i) * 1s - .3s)!important;animation-fill-mode:backwards!important}
+  .vl-cell:hover::after,.vl-cell.is-shine::after{animation:vlShine 1.1s ease-in-out 1 forwards!important}
+}
 </style>
 </head>
 <body>
@@ -1612,7 +1620,7 @@ h3,.hl h3,.ss-lead .hl h3,.ss-roles .hl h3,.steps h3,.lede,.meta dd,.stat strong
         </a>
         <a class="card" style="--ar:4/3;order:4" href="#vals" data-tags="research code">
           <span class="card-pill">VALS<i aria-hidden="true">•</i><em>2025</em></span>
-          <div class="cover cover-bare"><img class="cover-img" src="img/vals/cover-device.webp" alt="" loading="lazy"></div>
+          <div class="cover ssr-cover vlr-cover" aria-hidden="true"><div class="ss1-phone"><div class="ss1-screen"><span class="ss1-isl"></span><img src="img/vals/reel/v1.webp" alt="" width="280" height="606" loading="lazy" style="--i:0"><img src="img/vals/reel/v2.webp" alt="" width="280" height="606" loading="lazy" style="--i:1"><img src="img/vals/reel/v3.webp" alt="" width="280" height="606" loading="lazy" style="--i:2"><img src="img/vals/reel/v4.webp" alt="" width="280" height="606" loading="lazy" style="--i:3"><img src="img/vals/reel/v5.webp" alt="" width="280" height="606" loading="lazy" style="--i:4"></div></div></div>
           <div class="card-body">
             <div class="card-row" data-type="AI voice assistant"><h3>VALS</h3></div>
             <p class="card-type">AI voice assistant</p>
