@@ -1872,8 +1872,15 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 [data-view="girls-who-code"] .tx-intro{margin-bottom:0!important}[data-view="girls-who-code"] .tx-intro .cs-copy p{margin:0}
 [data-view="girls-who-code"] .izg-group:nth-child(2) .izg-main{max-width:62%}
 @media (max-width:760px){[data-view="girls-who-code"] .izg-group:nth-child(2) .izg-main{max-width:none}}
-.iz-wall{margin:0}.iz-wall img{display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 26px 50px -28px rgba(16,24,40,.55)}
-[data-view="izone"] .pm-head{margin-bottom:clamp(28px,3.4vw,44px)!important}
+[data-view="izone"] .pl-top.pm-hero{display:none!important}
+[data-view="izone"] .cs-top + .cs-step{margin-top:-56px!important}
+[data-view="izone"] .pm-head{margin-bottom:0!important}
+/* iZone card: the rocket flies loops around the sky */
+.iz-cover.izr{background:#C9D8F2;overflow:hidden}
+.izr-bg{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .izr-bg{transform:scale(1.035)}
+.izr-ship{position:absolute;left:0;top:0;width:11%;max-width:none;height:auto;transform-origin:50% 50%;filter:drop-shadow(0 10px 10px rgba(30,50,90,.22));will-change:transform;pointer-events:none}
+@media (max-width:640px){.izr-ship{width:13%}}
 </style>
 </head>
 <body>
@@ -1947,8 +1954,8 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
         </a>
         <a class="card" style="--ar:16/10;order:5" href="#izone" data-tags="graphic">
           <span class="card-pill">iZone<i aria-hidden="true">•</i><em>2026</em></span>
-          <div class="cover iz-cover" aria-hidden="true">
-            <div class="iz-fan"><img src="img/izone/post-ana-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-linkedin-sm.jpg" alt="" loading="lazy"><img src="img/izone/mih/post-instagram-sm.jpg" alt="" loading="lazy"><img src="img/izone/post-chase-sm.jpg" alt="" loading="lazy"></div>
+          <div class="cover iz-cover izr" aria-hidden="true">
+            <img class="izr-bg" src="img/izone/rocket-bg.jpg" width="1400" height="906" alt="" loading="lazy"><img class="izr-ship" src="img/izone/rocket-ship.png" width="215" height="370" alt="" data-rocket>
             
           </div>
           <div class="card-body">
@@ -2689,7 +2696,6 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
         <p class="label ss-sub">Marketing &amp; graphic design</p>
       </header>
       <div class="pl-top ss-top tx-top iz-top">
-        <figure class="iz-wall"><img src="img/izone/izone-wall.webp" width="2760" height="1732" alt="Three of my iZone designs hung on a dark gallery wall: the Make It Happen Prize post, my introduction post and Chase Hayden&rsquo;s introduction post"></figure>
         <div class="pl-side">
           <dl class="meta">
         <div><dt class="label">Role</dt><dd>Marketing Assistant<br>Graphic Design Team</dd></div>
@@ -3500,6 +3506,31 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
     }
   }
   window.addEventListener('hashchange', closeLb);
+
+  /* iZone card: the rocket flies a looping figure-eight around the card, nose along its path */
+  document.querySelectorAll('[data-rocket]').forEach(ship => {
+    const box = ship.parentElement, card = box.closest('.card');
+    let w = 0, h = 0, t = 0, speed = 1, target = 1, last = 0, on = false, raf = 0;
+    const size = () => { w = box.clientWidth; h = box.clientHeight; };
+    const pt = a => [0.5 + 0.34 * Math.sin(a) + 0.04 * Math.sin(3 * a), 0.40 + 0.22 * Math.sin(2 * a)];
+    const draw = () => {
+      const [x, y] = pt(t), [x2, y2] = pt(t + 0.02);
+      const ang = Math.atan2((y2 - y) * h, (x2 - x) * w) * 180 / Math.PI + 60;
+      ship.style.transform = `translate(${x * w}px, ${y * h}px) translate(-50%, -50%) rotate(${ang}deg)`;
+    };
+    const step = now => {
+      const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
+      speed += (target - speed) * Math.min(1, dt * 3);
+      t += dt * 0.62 * speed;
+      draw();
+      raf = on ? requestAnimationFrame(step) : 0;
+    };
+    const go = v => { on = v; if (v && !raf) { last = 0; raf = requestAnimationFrame(step); } };
+    size(); draw();
+    if ('ResizeObserver' in window) new ResizeObserver(() => { size(); draw(); }).observe(box);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(en => go(en.isIntersecting))).observe(box); else go(true);
+    if (card){ card.addEventListener('mouseenter', () => target = 2.2); card.addEventListener('mouseleave', () => target = 1); }
+  });
 
   /* iZone card: on phones the posts spread apart once the card is in view */
   if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
