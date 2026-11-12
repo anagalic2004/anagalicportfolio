@@ -1726,9 +1726,9 @@ article.view.is-proj > .next{border-radius:0}
   .pm-head dl.meta{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 /* star cursor */
-html,body{cursor:image-set(url("img/cursor-star-28.png") 1x,url("img/cursor-star-56.png") 2x) 11 14,auto}
-:root{--cur-hover:image-set(url("img/cursor-star-36.png") 1x,url("img/cursor-star-72.png") 2x) 14 18,pointer}
-a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:var(--cur-hover)!important}
+html,body{cursor:url("img/cursor-star-28.png") 11 14,auto;cursor:-webkit-image-set(url("img/cursor-star-28.png") 1x,url("img/cursor-star-56.png") 2x) 11 14,auto}
+:root{--cur-hover:url("img/cursor-star-36.png") 14 18,pointer}
+a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:url("img/cursor-star-36.png") 14 18,pointer!important;cursor:-webkit-image-set(url("img/cursor-star-36.png") 1x,url("img/cursor-star-72.png") 2x) 14 18,pointer!important}
 input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:text!important}
 .pm-head .meta-mentors > .mm-names,.pm-head .meta-mentors > div{padding:0!important;margin:0!important;border:0!important}
 
@@ -1745,6 +1745,7 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
 .iz-m:last-child{grid-column:1/-1;max-width:calc(50% - clamp(7px,.9vw,11px));justify-self:center}
 @media (max-width:640px){.iz-more-grid{grid-template-columns:minmax(0,1fr)}.iz-m:last-child{max-width:none}}
 .lightbox{z-index:100!important}
+@media (min-width:761px){.pm-head dl.meta{grid-template-columns:repeat(var(--n,4),minmax(0,1fr))!important}}
 </style>
 </head>
 <body>
@@ -3400,6 +3401,14 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
       /* Meta row under the title, then the hero */
       const head = a.querySelector('.cs-head'), dl = a.querySelector('dl.meta');
       if (!head || !dl || a.querySelector('.pm-head')) return;
+      dl.querySelectorAll('.meta-mentors').forEach(mm => {
+        const names = mm.querySelector('.mm-names');
+        const cell = document.createElement('div');
+        if (names) while (names.firstChild) cell.appendChild(names.firstChild);
+        mm.querySelectorAll('.visit-compact').forEach(l => cell.appendChild(l));
+        mm.replaceWith(cell);
+      });
+      dl.style.setProperty('--n', dl.children.length);
       const box = document.createElement('div'); box.className = 'pm-head';
       const side = dl.closest('.pl-side');
       head.after(box); box.appendChild(dl);
