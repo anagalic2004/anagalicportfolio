@@ -1731,6 +1731,20 @@ html,body{cursor:image-set(url("img/cursor-star-28.png") 1x,url("img/cursor-star
 a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:var(--cur-hover)!important}
 input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:text!important}
 .pm-head .meta-mentors > .mm-names,.pm-head .meta-mentors > div{padding:0!important;margin:0!important;border:0!important}
+
+/* iZone: more designs */
+.iz-more{margin-top:clamp(48px,6vw,80px)}
+.iz-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,22px)}
+.iz-m{margin:0;display:flex;flex-direction:column;gap:8px}
+.iz-m .tx-zoom{display:block;width:100%;padding:0;border:0;background:none;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(16,24,40,.35)}
+.iz-m img{display:block;width:100%;height:auto;transition:transform .5s ease}
+.iz-m .tx-zoom:hover img{transform:scale(1.02)}
+.iz-m-ufo .tx-zoom{background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22);aspect-ratio:2000/1294;display:grid!important;place-items:center}
+.iz-m-ufo img{width:78%}
+.iz-m figcaption{font-size:13px;color:#8A9099}
+.iz-m:last-child{grid-column:1/-1;max-width:calc(50% - clamp(7px,.9vw,11px));justify-self:center}
+@media (max-width:640px){.iz-more-grid{grid-template-columns:minmax(0,1fr)}.iz-m:last-child{max-width:none}}
+.lightbox{z-index:100!important}
 </style>
 </head>
 <body>
@@ -2665,7 +2679,16 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
     </section>
       </div>
     </div>
-    <a class="next" href="#rochester-design-hub"><span class="label">Next project</span><span class="next-title">Rochester Design Hub &rarr;</span></a>
+    <section class="block-section iz-more" aria-labelledby="iz-more-h">
+        <div class="sec-head"><h2 class="sec-title" id="iz-more-h">More for iZone</h2><p class="label">Backgrounds &amp; illustration</p></div>
+        <div class="iz-more-grid">
+          <figure class="iz-m iz-m-wide"><button type="button" class="tx-zoom" data-full="img/izone/more/rocket.jpg" data-cap="iZone · Rocket background" aria-label="Enlarge the rocket background"><img src="img/izone/more/rocket-sm.jpg" width="900" height="582" alt="A background of light blue textured paper with torn white paper clouds along the bottom and a hand-drawn red and white rocket taking off on a dashed line" loading="lazy"></button><figcaption>Rocket background</figcaption></figure>
+          <figure class="iz-m iz-m-ufo"><button type="button" class="tx-zoom" data-full="img/izone/more/ufo.png" data-cap="iZone · UFO illustration" aria-label="Enlarge the UFO illustration"><img src="img/izone/more/ufo.png" width="1400" height="817" alt="Hand-drawn illustration of a smiling green alien in a grey flying saucer with colored lights and an iZone sign on the front" loading="lazy"></button><figcaption>iZone UFO illustration</figcaption></figure>
+          <figure class="iz-m iz-m-wide"><button type="button" class="tx-zoom" data-full="img/izone/more/template.jpg" data-cap="iZone · Photo template" aria-label="Enlarge the photo template"><img src="img/izone/more/template-sm.jpg" width="900" height="582" alt="A yellow background with an empty instant-photo frame on the left and the iZone UFO flying over torn white paper on the right, next to an orange star" loading="lazy"></button><figcaption>Photo template with the UFO</figcaption></figure>
+        </div>
+      </section>
+
+      <a class="next" href="#rochester-design-hub"><span class="label">Next project</span><span class="next-title">Rochester Design Hub &rarr;</span></a>
   </article>
 
   <!-- ROCHESTER DESIGN HUB -->
@@ -3366,7 +3389,7 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
       ctl.querySelector('.pc-exp').setAttribute('aria-label', full ? 'Back to window size' : 'Expand to full screen');
     });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && document.documentElement.classList.contains('proj-lock') && !document.querySelector('#lightbox:not([hidden]), .lb-open')) close();
+      if (e.key === 'Escape' && document.documentElement.classList.contains('proj-lock') && !document.querySelector('.lightbox:not([hidden])')) close();
     });
     PROJECTS.forEach(id => {
       const a = document.querySelector('article[data-view="' + id + '"]');
