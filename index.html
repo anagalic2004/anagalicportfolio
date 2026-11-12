@@ -1919,6 +1919,28 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 .cover-soon{background:#ECECEE}
 .cover-soon .cover-img{filter:blur(28px) saturate(.9);transform:scale(1.2)!important}
 .cover-soon .soon-tag{position:absolute;left:50%;top:50%;z-index:4;transform:translate(-50%,-50%);padding:14px 26px 15px;border-radius:999px;white-space:nowrap;background:linear-gradient(155deg,rgba(255,255,255,.92),rgba(244,244,246,.78));box-shadow:inset 0 1px 0 #fff,0 18px 36px -18px rgba(16,24,40,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--body);font-weight:500;font-size:clamp(12px,1vw,14px);letter-spacing:.26em;text-transform:uppercase;color:#1F232A;padding-right:calc(26px - .26em)}
+/* Footer: light glossy card to match the rest of the site */
+.foot{background:none!important;color:#1F232A!important;box-shadow:none!important;clip-path:none!important;padding-block:clamp(8px,2vw,32px) 28px!important}
+.foot-in{gap:22px!important}
+.foot-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:clamp(26px,3.4vw,40px);padding:clamp(28px,4.4vw,60px);border-radius:28px;background:radial-gradient(ellipse 60% 90% at 100% 0%,rgba(247,206,226,.55),transparent 60%),radial-gradient(ellipse 50% 80% at 0% 100%,rgba(190,212,248,.45),transparent 60%),linear-gradient(155deg,#FCFCFD,#F4F4F6 45%,#E9E9EC);box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.7),0 30px 60px -36px rgba(16,24,40,.35)}
+.foot-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.foot-kicker{margin:0;font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8A9099}
+.foot .avail{margin:0!important;padding:8px 16px 8px 13px!important;border:0!important;background:#fff!important;color:#1F232A!important;font-size:14px!important;font-weight:500!important;box-shadow:0 6px 16px -10px rgba(16,24,40,.35)}
+.foot-cta{font-family:var(--display)!important;font-weight:500!important;font-size:clamp(28px,3.6vw,50px)!important;line-height:1.08!important;letter-spacing:-.02em!important;text-transform:none!important;max-width:20ch!important;color:#1F232A}
+.foot-cta em{font-style:normal;background:linear-gradient(100deg,#7FA6EE,#C98BC0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-row{align-items:flex-end!important;gap:28px!important;padding-top:clamp(22px,2.8vw,32px);border-top:1px solid rgba(31,35,42,.08)}
+.foot .email{gap:12px}
+.foot .email .label{margin:0;font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8A9099!important;font-family:var(--body)}
+.foot .email-line{display:inline-flex;flex-wrap:nowrap!important;align-items:center;gap:6px;padding:6px 6px 6px 20px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px rgba(31,35,42,.06),0 10px 24px -16px rgba(16,24,40,.35)}
+.foot .email-addr{font-family:var(--body)!important;font-weight:500!important;font-size:clamp(15px,1.3vw,18px)!important;color:#1F232A;margin-right:8px}
+.foot .copy{flex:none;white-space:nowrap;border-radius:999px;background:#1F232A!important;color:#fff!important;font-weight:500!important;font-size:13.5px!important;padding:10px 18px!important;transition:transform .2s,background .2s}
+.foot .copy:hover{background:#000!important;transform:translateY(-1px)}
+.foot-nav{gap:8px!important;font-weight:500!important;font-size:14px!important}
+.foot-nav a{padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.7);color:#5A606B;box-shadow:inset 0 0 0 1px rgba(31,35,42,.07);transition:background .2s,color .2s,transform .2s}
+.foot-nav a:hover{background:#fff;color:#1F232A!important;transform:translateY(-1px)}
+.foot-nav a span{color:#A3A9B3}
+.foot-small{justify-content:space-between!important;padding:0 6px!important;border:0!important;font-family:var(--body)!important;font-size:13px!important;color:#8A9099!important}
+@media (max-width:640px){.foot-top{flex-wrap:wrap}.foot .email-line{width:100%;justify-content:space-between}.foot .email-addr{font-size:14px!important;margin-right:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.foot .email-line{padding-left:16px}.foot .copy{padding:10px 14px!important;font-size:13px!important}.foot-row{flex-direction:column;align-items:stretch!important}}
 </style>
 </head>
 <body>
@@ -3213,21 +3235,26 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 
 <footer class="foot" id="contact">
   <div class="foot-in">
-    <p class="avail"><span class="avail-dot" aria-hidden="true"></span>Open to work</p>
-    <p class="foot-cta">Got an idea? Let&rsquo;s sketch it, design it, and make it <em>real</em>.</p>
-    <div class="foot-row">
-      <div class="email">
-        <p class="label">Say hello</p>
-        <div class="email-line">
-          <span class="email-addr" id="email-addr">anagalic.2004@gmail.com</span>
-          <button type="button" class="copy" id="copy-email">Copy email</button>
-        </div>
+    <div class="foot-card">
+      <div class="foot-top">
+        <p class="avail"><span class="avail-dot" aria-hidden="true"></span>Open to work</p>
+        <p class="foot-kicker">Contact</p>
       </div>
-      <nav class="foot-nav" aria-label="Footer">
-        <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener">Resume &#8599;</a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn &#8599;</a>
-      </nav>
+      <p class="foot-cta">Got an idea? Let&rsquo;s sketch it, design it, and make it <em>real</em>.</p>
+      <div class="foot-row">
+        <div class="email">
+          <p class="label">Say hello</p>
+          <div class="email-line">
+            <span class="email-addr" id="email-addr">anagalic.2004@gmail.com</span>
+            <button type="button" class="copy" id="copy-email">Copy email</button>
+          </div>
+        </div>
+        <nav class="foot-nav" aria-label="Footer">
+          <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener">Resume <span aria-hidden="true">&#8599;</span></a><a href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a>
+        </nav>
+      </div>
     </div>
-    <div class="foot-small"><span>© 2026 · Designed and built by me</span></div>
+    <div class="foot-small"><span>&copy; 2026 Ana Gali&#263;</span><span>Designed and built by me</span></div>
   </div>
 </footer>
 
