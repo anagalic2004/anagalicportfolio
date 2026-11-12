@@ -1831,6 +1831,11 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
 .pm-head dl.meta dd,.pm-head dl.meta dd *{font-size:13.5px!important;line-height:1.5!important;color:#8A9099!important}
 .pm-head dl.meta > div{gap:5px!important}
 .pm-head dl.meta{gap:16px clamp(14px,2vw,28px)!important}
+
+/* one body size inside cards on every project page */
+:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .hl p:not(.label),:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .hl li,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .ss-pts li,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .ss-note-card p:not(.label),:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .ss-oc-text,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .kit-note,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .ss-how li > span:last-child,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .vl-steps span,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .vl-cell span{font-size:15px!important;line-height:1.6!important;color:#7A808A!important;white-space:normal!important}
+:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .hl .label + p,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .hl .label + ul,:is([data-view="peaceland"],[data-view="soulshine"],[data-view="vals"],[data-view="tedx"],[data-view="izone"],[data-view="rochester-design-hub"],[data-view="girls-who-code"],[data-view="perfume"]) .ss-note-card .label + p{margin-top:12px!important}
+.ss-site-side .ss-jump button{font-size:11px!important;letter-spacing:.06em!important;padding:9px 6px!important}
 </style>
 </head>
 <body>
@@ -2166,8 +2171,8 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
         <div class="stat"><strong>61%</strong><span>want a physical device to remind them to stop</span><button type="button" class="tx-zoom stat-chart" style="--ar:850/520" data-full="img/soulshine/survey3d-device-lb.webp" data-cap="Survey · How interested would you be in a physical device that reminds you to take a break from scrolling? · 31 responses" aria-label="Enlarge the survey chart about a physical device"><img src="img/soulshine/survey3d-device-pie.webp" alt="3D chart for the question: How interested would you be in a physical device that reminds you to take a break from scrolling? 38.7% somewhat interested; 22.6% very interested; 16.1% neutral; 19.4% not very interested; the rest not at all interested" loading="lazy" width="850" height="520"></button></div>
       </div>
       <div class="highlights two">
-        <div class="hl"><p class="label">What exists</p><h3>Apps or lockboxes</h3><p>Forest, One Sec, Opal and lockboxes act on the screen or lock the phone away.</p></div>
-        <div class="hl"><p class="label">What was missing</p><h3>Physical and digital, together</h3><p>Research shows paired cues work best, yet nothing combined them.</p></div>
+        <div class="hl"><p class="label">What exists</p><p>Forest, One Sec, Opal and lockboxes act on the screen or lock the phone away.</p></div>
+        <div class="hl"><p class="label">What was missing</p><p>Research shows paired cues work best, yet nothing combined them.</p></div>
       </div>
     </section>
 
@@ -2175,11 +2180,11 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
       <h2 class="sec-title" id="ss-role-h">My role</h2>
       <div class="ss-role-cards">
         <div class="hl ss-role-lead">
-          <div class="ss-role-text"><p class="label">Team Lead</p><h3>From idea to working product in five months</h3><ul class="ss-pts"><li>Led a team of four across hardware and software</li><li>Ran our workflow, timeline and weekly priorities</li><li>Brought 15 users in at every stage</li></ul></div>
+          <div class="ss-role-text"><p class="label">Team Lead</p><ul class="ss-pts"><li>Led a team of four across hardware and software</li><li>Ran our workflow, timeline and weekly priorities</li><li>Brought 15 users in at every stage</li></ul></div>
           <button type="button" class="tx-zoom ss-board" style="--ar:1200/790" data-full="img/soulshine/planning-board.jpg" data-cap="Soulshine planning board · how the team weighed materials, lighting, wiring, scent and sound" aria-label="Enlarge the team's planning board"><img src="img/soulshine/planning-board-3d.webp?v=2" alt="The Soulshine planning board tilted in 3D, with sticky notes lifting off it" width="1200" height="790" loading="lazy"></button>
         </div>
         <div class="hl">
-          <p class="label">UX/UI &amp; Visual Designer</p><h3>Designed around real users</h3><ul class="ss-pts"><li>Built personas and wireframed the app&rsquo;s core flows</li><li>Reworked the design after user feedback</li><li>Designed the website, logo and brand</li></ul>
+          <p class="label">UX/UI &amp; Visual Designer</p><ul class="ss-pts"><li>Built personas and wireframed the app&rsquo;s core flows</li><li>Reworked the design after user feedback</li><li>Designed the website, logo and brand</li></ul>
         </div>
       </div>
     </section>
@@ -2416,7 +2421,7 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
           <div class="ss-site-side">
             <div class="ss-site-notes ss-note-card">
               <p class="label">Built by me</p>
-              <h3>Every page, designed and coded by me</h3>
+              <p>Every page, designed and coded by me.</p>
             </div>
             <nav class="ss-jump" aria-label="Jump to a part of this section">
               <button type="button" data-jump="vl-web-h">Website</button>
@@ -2445,14 +2450,14 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
               <li>Large text and high contrast modes</li>
             </ul>
           </div>
-          <div class="hl vl-demo"><p class="label">Try before you buy</p><h3>Interactive demo</h3><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p>
+          <div class="hl vl-demo"><p class="label">Try before you buy</p><p>Visitors pick a sample agreement from Instagram, Netflix or a bank and watch VALS rate its risk and summarize it.</p>
             <div class="vl-macs">
               <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-low-poster.jpg" aria-label="Low risk example: VALS summarizing the Netflix Agreement"><source src="img/vals/demo-low.webm" type="video/webm"><source src="img/vals/demo-low.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-low">Low risk</span><span>Netflix Agreement</span></figcaption></figure>
               <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-medium-poster.jpg" aria-label="Medium risk example: VALS summarizing the Instagram Terms"><source src="img/vals/demo-medium.webm" type="video/webm"><source src="img/vals/demo-medium.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-medium">Medium risk</span><span>Instagram Terms</span></figcaption></figure>
               <figure class="mockup mbp-fig vl-mac"><div class="mbp"><div class="mbp-lid"><div class="mbp-screen"><span class="mbp-bar"></span><span class="mbp-notch"></span><video autoplay muted loop playsinline preload="metadata" poster="img/vals/demo-high-poster.jpg" aria-label="High risk example: VALS summarizing the Banking Policy"><source src="img/vals/demo-high.webm" type="video/webm"><source src="img/vals/demo-high.mp4" type="video/mp4"></video></div></div><div class="mbp-base"><span class="mbp-lip"></span></div></div><figcaption class="vl-mac-cap"><span class="vl-risk vl-risk-high">High risk</span><span>Banking Policy</span></figcaption></figure>
             </div>
           </div>
-          <div class="hl"><p class="label">Payment flow</p><h3>One price, for life</h3><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
+          <div class="hl"><p class="label">Payment flow</p><p>A one-time $5.99 purchase for lifetime access, from the sign-up form to an account page that confirms the plan.</p></div>
         </div>
       </section>
 
@@ -2986,8 +2991,8 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
 <section class="block-section" aria-labelledby="gwc-how-h">
       <h2 class="sec-title" id="gwc-how-h">How I approached it</h2>
       <div class="highlights two">
-        <div class="hl"><p class="label">Two audiences</p><h3>Students and young coders</h3><p>Our designs had to catch the attention of university students, and of the young people who join our outreach workshops.</p></div>
-        <div class="hl"><p class="label">Two versions</p><h3>More of campus</h3><p>For the February General Interest Meeting, the president wanted two flyers to attract as much attention as possible. I designed both, and each went up in a different part of campus.</p></div>
+        <div class="hl"><p class="label">Two audiences</p><p>Our designs had to catch the attention of university students, and of the young people who join our outreach workshops.</p></div>
+        <div class="hl"><p class="label">Two versions</p><p>For the February General Interest Meeting, the president wanted two flyers to attract as much attention as possible. I designed both, and each went up in a different part of campus.</p></div>
       </div>
     </section>
       </div>
