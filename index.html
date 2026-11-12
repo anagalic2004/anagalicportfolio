@@ -1859,6 +1859,10 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
 [data-view="rochester-design-hub"] .pm-head{margin-bottom:0!important}
 [data-view="rochester-design-hub"] .tx-intro{margin-bottom:0!important}
 [data-view="rochester-design-hub"] .tx-intro .cs-copy p{margin:0}
+/* more breathing room at the top of an opened project */
+article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
+@media (max-width:760px){article.view.is-proj{padding-top:96px!important}}
+:is([data-view="izone"],[data-view="rochester-design-hub"]) .tx-intro{margin-bottom:0!important;padding-bottom:0!important}
 </style>
 </head>
 <body>
