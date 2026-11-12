@@ -1780,6 +1780,24 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
 [data-view="peaceland"] .pl-sum .trailer.has-thumb .trailer-text{flex-direction:row!important;align-items:baseline!important;gap:4px 12px!important;padding:44px 22px 18px!important}
 [data-view="peaceland"] .pl-sum .trailer .trailer-title{font-size:20px!important}
 @media (max-width:760px){[data-view="peaceland"] .pl-sum{grid-template-columns:minmax(0,1fr)!important}[data-view="peaceland"] .pl-sum > .pl-news{grid-column:1;grid-row:2}[data-view="peaceland"] .pl-sum > .trailer.has-thumb{grid-row:3}[data-view="peaceland"] .pl-sum > .trailer.has-thumb .tr-thumb{aspect-ratio:16/9!important}}
+
+/* VALS: compact steps row */
+.vl-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,16px);counter-reset:st}
+.vl-steps li{counter-increment:st;position:relative;display:flex;flex-direction:column;gap:4px;padding:clamp(16px,1.8vw,22px);border-radius:20px;background:linear-gradient(155deg,#FCFCFD 0%,#F4F4F6 45%,#E9E9EC 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.05),0 14px 30px -18px rgba(16,24,40,.22)}
+.vl-steps li::before{content:counter(st);width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.12);font-size:11.5px;font-weight:600;color:#3A3F47;margin-bottom:6px}
+.vl-steps b{font-size:15.5px;font-weight:600;color:#3A3F47}
+.vl-steps span{font-size:13.5px;line-height:1.45;color:#8A9099}
+@media (max-width:760px){.vl-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+[data-view="vals"] .vl-how-sec,[data-view="vals"] .vl-role{margin-top:clamp(40px,5vw,72px)!important}
+[data-view="vals"] .vl-lead + .vl-lead{margin-top:clamp(28px,3.4vw,44px)!important}
+[data-view="vals"] .vl-role .hl .label{margin-bottom:10px}
+[data-view="vals"] .vl-role .ss-pts li{font-size:14.5px!important;line-height:1.55!important;color:#7A808A!important}
+[data-view="vals"] .vl-role .ss-pts{gap:6px!important}
+[data-view="vals"] .vl-open{margin-bottom:0!important}
+[data-view="vals"] .vl-open + section,[data-view="vals"] .vl-lead + .vl-how-sec,[data-view="vals"] .vl-how-sec + .vl-role{margin-top:-24px!important}
+[data-view="vals"] .block-section > .sec-title{margin-bottom:clamp(14px,1.6vw,20px)!important}
+[data-view="vals"] section.vl-lead.vl-open + section.vl-lead.block-section{margin-top:-24px!important}
+[data-view="vals"] .vl-lead .vl-strip,[data-view="vals"] .vl-how-sec .vl-steps,[data-view="vals"] .vl-role .ss-role-cards{margin-top:0!important}
 </style>
 </head>
 <body>
@@ -2322,74 +2340,38 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
       </div>
 
       <section class="block-section ss-lead vl-lead vl-open" aria-label="Overview">
-        <p class="ss-intro">VALS is a browser extension that reads Terms &amp; Conditions for you. It scans any legal agreement and plays back a clear spoken summary in your language, so you know what you are agreeing to before you click Accept.</p>
-        <div class="vl-strip">
-          <div class="vl-cell"><strong>6</strong><span>languages</span></div>
-          <div class="vl-cell"><strong>6</strong><span>pages designed &amp; built</span></div>
-          <div class="vl-cell"><strong>3</strong><span>user groups</span></div>
-        </div>
+        <p class="ss-intro">A browser extension that reads Terms &amp; Conditions aloud, in your language, before you click Accept.</p>
       </section>
 
       <section class="block-section ss-lead vl-lead" aria-labelledby="vl-problem-h">
-        <h2 class="sec-title" id="vl-problem-h">Our users</h2>
-        <p class="ss-intro">Terms &amp; Conditions decide what happens to our data, rights and privacy, yet they are built to be unreadable.</p>
+        <h2 class="sec-title" id="vl-problem-h">The problem</h2>
         <div class="vl-strip">
           <div class="vl-cell"><strong>91%</strong><span>accept terms without reading them</span><em>Deloitte, 2017</em></div>
-          <div class="vl-cell"><strong>10,000+</strong><span>words in an average agreement</span><em>30–40 minutes to read</em></div>
-          <div class="vl-cell"><strong>73</strong><span>days a year to read every policy</span><em>The Atlantic, 2012</em></div>
-        </div>
-        <div class="ss-outcome vl-users-card">
-          <div class="ss-oc-col"><p class="ss-oc-tag">The barriers</p>
-            <ul class="ss-pts vl-pts">
-              <li>Terms are too long to read, so people skip them.</li>
-              <li>Terms come in only a few languages.</li>
-              <li>Terms are text-only, which shuts many people out.</li>
-            </ul>
-          </div>
-          <div class="ss-oc-col"><p class="ss-oc-tag">Who it's for</p>
-            <ul class="ss-pts vl-pts">
-              <li><strong>2.2 billion</strong> people are visually impaired.</li>
-              <li><strong>15–20%</strong> of people have dyslexia.</li>
-              <li><strong>761 million</strong> people are aged 65+.</li>
-            </ul>
-          </div>
+          <div class="vl-cell"><strong>10,000+</strong><span>words in an average agreement</span></div>
+          <div class="vl-cell"><strong>2.2 billion</strong><span>people are visually impaired</span></div>
         </div>
       </section>
 
-      <div class="vl-duo">
-        <section class="block-section" aria-labelledby="vl-origin-h">
-          <h2 class="sec-title" id="vl-origin-h">How VALS came to be</h2>
-          <div class="ss-how vl-how">
-            <ol>
-              <li><span class="vl-k">Brainstorm</span><b>One person we wanted to help</b><span>A teammate&rsquo;s visually impaired relative.</span></li>
-              <li><span class="vl-k">Widen</span><b>Three groups, one problem</b><span>Visually impaired, elderly and dyslexic users.</span></li>
-              <li><span class="vl-k">Design</span><b>A product that reads it for you</b><span>Spoken summaries of any agreement.</span></li>
-            </ol>
-          </div>
-        </section>
-        <section class="block-section" aria-labelledby="vl-how-h">
-          <h2 class="sec-title" id="vl-how-h">How it works</h2>
-          <div class="ss-how vl-how">
-            <ol>
-              <li><span class="vl-k">Step 1</span><b>Install</b><span>Add VALS to Chrome, Edge or Firefox.</span></li>
-              <li><span class="vl-k">Step 2</span><b>Browse normally</b><span>Its icon lights up when it finds an agreement.</span></li>
-              <li><span class="vl-k">Step 3</span><b>Hear your summary</b><span>A spoken summary, in your language.</span></li>
-              <li><span class="vl-k">Step 4</span><b>Decide with confidence</b><span>Risk rated low, medium or high.</span></li>
-            </ol>
-          </div>
-        </section>
-      </div>
+      <section class="block-section vl-how-sec" aria-labelledby="vl-how-h">
+        <h2 class="sec-title" id="vl-how-h">How it works</h2>
+        <ol class="vl-steps">
+          <li><b>Install</b><span>in Chrome, Edge or Firefox</span></li>
+          <li><b>Browse</b><span>it spots any agreement</span></li>
+          <li><b>Listen</b><span>a spoken summary, in your language</span></li>
+          <li><b>Decide</b><span>risk rated low, medium or high</span></li>
+        </ol>
+      </section>
 
       <section class="block-section ss-roles vl-role" aria-labelledby="vl-role-h">
         <h2 class="sec-title" id="vl-role-h">My role</h2>
         <div class="ss-role-cards">
           <div class="hl">
-            <p class="label">Product Designer</p><h3>From the idea to the brand</h3>
-            <ul class="ss-pts"><li>Came up with the idea for VALS</li><li>Researched three language groups</li><li>Designed the brand and logo, flat to 3D</li></ul>
+            <p class="label">Product Designer</p>
+            <ul class="ss-pts"><li>Came up with the idea</li><li>Researched three language groups</li><li>Designed the brand and 3D logo</li></ul>
           </div>
           <div class="hl">
-            <p class="label">Front-End Developer</p><h3>Built the website you see below</h3>
-            <ul class="ss-pts"><li>Built all six pages of the site</li><li>Designed its UI and animations</li><li>Built the payment flow and navigation</li></ul>
+            <p class="label">Front-End Developer</p>
+            <ul class="ss-pts"><li>Built all six pages</li><li>Designed the UI and animations</li><li>Built the payment flow</li></ul>
           </div>
         </div>
       </section>
@@ -2401,9 +2383,7 @@ input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:
           <div class="ss-site-side">
             <div class="ss-site-notes ss-note-card">
               <p class="label">Built by me</p>
-              <h3>Idea, research, website and brand</h3>
-              <p>I came up with the idea for VALS and ran our research across three language groups.</p>
-              <p>I designed and built the whole website, and created the VALS brand and logo.</p>
+              <h3>Every page, designed and coded by me</h3>
             </div>
             <nav class="ss-jump" aria-label="Jump to a part of this section">
               <button type="button" data-jump="vl-web-h">Website</button>
