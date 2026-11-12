@@ -1941,6 +1941,51 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 .foot-nav a span{color:#A3A9B3}
 .foot-small{justify-content:space-between!important;padding:0 6px!important;border:0!important;font-family:var(--body)!important;font-size:13px!important;color:#8A9099!important}
 @media (max-width:640px){.foot-top{flex-wrap:wrap}.foot .email-line{width:100%;justify-content:space-between}.foot .email-addr{font-size:14px!important;margin-right:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.foot .email-line{padding-left:16px}.foot .copy{padding:10px 14px!important;font-size:13px!important}.foot-row{flex-direction:column;align-items:stretch!important}}
+/* Personal: blurred preview with a Coming soon card */
+.pp-soon{position:relative}
+.pp-soon .soon-blur{display:flex;flex-direction:column;gap:clamp(48px,6.4vw,88px);filter:blur(18px) saturate(.85);opacity:.75;pointer-events:none;user-select:none;-webkit-user-select:none}
+.pp-soon .soon-veil{position:absolute;inset:0;z-index:6;pointer-events:none}
+.pp-soon .soon-card{position:sticky;top:calc(50vh - 110px);margin:clamp(120px,22vh,220px) auto 0;width:min(460px,calc(100% - 8px));padding:34px 34px 30px;border-radius:26px;text-align:center;pointer-events:auto;background:radial-gradient(ellipse 70% 90% at 100% 0%,rgba(247,206,226,.5),transparent 60%),linear-gradient(155deg,rgba(252,252,253,.94),rgba(244,244,246,.9) 45%,rgba(233,233,236,.9));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.7),0 30px 60px -30px rgba(16,24,40,.4)}
+.soon-k{margin:0 0 12px;font-size:14px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#1F232A;padding-left:.3em}
+.soon-t{margin:0 auto 22px;max-width:32ch;font-size:15px;line-height:1.55;color:#7A808A}
+.soon-back{display:inline-flex;align-items:center;gap:10px;padding:10px 12px 10px 20px;border-radius:999px;background:#1F232A;color:#fff;font-size:14px;font-weight:500;text-decoration:none;transition:transform .2s,background .2s}
+.soon-back span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.16);font-size:12px}
+.soon-back:hover{background:#000;transform:translateY(-1px)}
+
+/* About me: light glossy cards, small spaced titles, grey text */
+.ab{gap:clamp(40px,5vw,72px)!important}
+.ab-kicker{margin:0;font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8A9099}
+.ab-head{display:flex;flex-direction:column;gap:14px}
+.ab-title{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:-.025em;color:#1F232A}
+.ab-title em{font-style:normal;background:linear-gradient(100deg,#7FA6EE,#C98BC0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab-facts{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:12px;margin-top:clamp(14px,2vw,24px)}
+.ab-fact{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:20px;background:linear-gradient(155deg,#FCFCFD,#F4F4F6 45%,#E9E9EC);box-shadow:inset 0 1px 0 #fff,0 14px 30px -22px rgba(16,24,40,.35)}
+.ab-fact span{font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8A9099}
+.ab-fact b{font-weight:500;font-size:15.5px;line-height:1.35;color:#1F232A}
+.ab-main{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(16px,2vw,24px);align-items:start}
+.ab-portrait{margin:0;position:sticky;top:96px;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 56px -34px rgba(16,24,40,.5)}
+.ab-portrait img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 18%}
+.ab-card{padding:clamp(24px,3.2vw,40px);border-radius:24px;background:radial-gradient(ellipse 60% 70% at 100% 0%,rgba(247,206,226,.45),transparent 60%),linear-gradient(155deg,#FCFCFD,#F4F4F6 45%,#E9E9EC);box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.7),0 24px 50px -34px rgba(16,24,40,.4)}
+.ab-card p{margin:0 0 14px;font-size:15px;line-height:1.65;color:#7A808A}
+.ab-card .ab-lede{margin-bottom:18px;font-size:clamp(17px,1.5vw,19.5px);line-height:1.5;font-weight:500;color:#1F232A;letter-spacing:-.005em}
+.ab-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(31,35,42,.08)}
+.ab-link{display:inline-flex;align-items:center;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:#fff;color:#1F232A;font-size:14px;font-weight:500;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(31,35,42,.06),0 10px 22px -16px rgba(16,24,40,.4);transition:transform .2s}
+.ab-link span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1F232A;color:#fff;font-size:13px}
+.ab-link:hover{transform:translateY(-2px)}
+.ab-pics{display:grid;grid-template-columns:minmax(0,1.95fr) minmax(0,.76fr);gap:clamp(12px,1.6vw,20px)}
+.ab-pics figure{position:relative;margin:0;border-radius:24px;overflow:hidden;box-shadow:0 26px 50px -34px rgba(16,24,40,.5)}
+.ab-pics img{display:block;width:100%;height:100%;max-width:none;object-fit:cover}
+.ab-pics figure:first-child{aspect-ratio:1600/820}
+.ab-pics figcaption{position:absolute;left:14px;bottom:14px;padding:8px 15px 9px;border-radius:999px;background:#fff;color:#0E1116;font-size:13.5px;font-weight:500;box-shadow:0 8px 20px -12px rgba(16,24,40,.45)}
+.ab-do{display:flex;flex-direction:column;gap:18px}
+.ab-do-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ab-do-card{padding:22px 24px 24px;border-radius:22px;background:linear-gradient(155deg,#FCFCFD,#F4F4F6 45%,#E9E9EC);box-shadow:inset 0 1px 0 #fff,0 14px 30px -22px rgba(16,24,40,.35);transition:transform .25s}
+.ab-do-card:hover{transform:translateY(-3px)}
+.ab-n{display:inline-block;margin-bottom:14px;padding:4px 10px;border-radius:999px;background:#fff;font-size:11.5px;font-weight:500;letter-spacing:.14em;color:#8A9099;box-shadow:inset 0 0 0 1px rgba(31,35,42,.06)}
+.ab-do-card h3{margin:0 0 6px;font-size:17px;font-weight:500;color:#1F232A;letter-spacing:-.005em}
+.ab-do-card p{margin:0;font-size:15px;line-height:1.55;color:#7A808A}
+@media (max-width:820px){.ab-main{grid-template-columns:minmax(0,1fr)}.ab-portrait{position:relative;top:0;max-width:440px;width:100%}.ab-facts{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.ab-pics{grid-template-columns:minmax(0,1fr)}.ab-pics figure:last-child{aspect-ratio:4/5}.ab-do-grid{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -3125,43 +3170,50 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 
 
   <!-- ABOUT -->
-  <article class="view wrap" data-view="about" hidden>
-    <header class="cs-head">
-      <p class="label">About</p>
-      <h1 class="cs-title long">Hi, I'm Ana!</h1>
+  <article class="view wrap ab" data-view="about" hidden>
+    <header class="ab-head">
+      <p class="ab-kicker">About me</p>
+      <h1 class="ab-title">Hi, I&rsquo;m <em>Ana</em>!</h1>
+      <div class="ab-facts">
+        <div class="ab-fact"><span>Double major</span><b>Computer Science &amp; Digital Media Studies</b></div>
+        <div class="ab-fact"><span>Focus</span><b>Psychology</b></div>
+        <div class="ab-fact"><span>School</span><b>University of Rochester</b></div>
+      </div>
     </header>
-    <div class="two-col">
-      <figure class="about-photo"><img src="img/about-portrait.jpg" alt="Ana Galic smiling, in a white and black striped sweater"></figure>
-      <div class="prose">
-        <p class="lede">I'm a multidisciplinary designer double majoring in Computer Science and Digital Media Studies at the University of Rochester, with a focus in Psychology. I love complex problems, especially ones that call for creative thinking, and I feel most at home where logic, design, and human needs meet.</p>
-        <p>My work spans UX/UI, graphic design, and human-computer interaction. At Peaceland Research, I took an interactive game from concept to prototype and playtested it across 4 international regions. On the iZone's graphic design team, I create social media graphics and campaigns, including for a TEDx event. I've also designed Soulshine, a digital wellbeing website, and VALS, an AI voice assistant that turns documents into audio summaries in 6 languages.</p>
-        <p>I believe technology should make life easier and more accessible, and I'm especially curious about how people think, play, and interact. Most of my inspiration comes from the people and the nature around me. People remind me who I'm designing for. Nature shows me that beauty and purpose can be the same thing, since every curve of a canyon wall and every vein in a leaf is there for a reason.</p>
-        <p>As a designer, my goal is to create work that is both beautiful and genuinely useful: products that are easy and accessible for everyone, and stories and games that bring people closer together. I look for every chance to learn from professionals in the field as I shape my direction.</p>
-        <p>Feel free to look around my projects, and you can find my resume, LinkedIn, or a direct link to email me right below. I'd love to connect, so reach out!</p>
-        <div class="contact-row">
-          <a class="biglink" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener"><span><small>PDF</small><strong>Resume</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
-          <a class="biglink" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener"><span><small>Profile</small><strong>LinkedIn</strong></span><span class="arrow" aria-hidden="true">&#8599;</span></a>
-          <a class="biglink" href="mailto:anagalic.2004@gmail.com"><span><small>Gmail</small><strong>Email me</strong></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="ab-main">
+      <figure class="ab-portrait"><img src="img/about-portrait.jpg" width="1000" height="1500" alt="Ana Galic smiling, in a white and black striped sweater"></figure>
+      <div class="ab-card">
+        <p class="ab-lede">I'm a multidisciplinary designer double majoring in Computer Science and Digital Media Studies at the University of Rochester, with a focus in Psychology. I love complex problems, especially ones that call for creative thinking, and I feel most at home where logic, design, and human needs meet.</p>
+          <p>My work spans UX/UI, graphic design, and human-computer interaction. At Peaceland Research, I took an interactive game from concept to prototype and playtested it across 4 international regions. On the iZone's graphic design team, I create social media graphics and campaigns, including for a TEDx event. I've also designed Soulshine, a digital wellbeing website, and VALS, an AI voice assistant that turns documents into audio summaries in 6 languages.</p>
+          <p>I believe technology should make life easier and more accessible, and I'm especially curious about how people think, play, and interact. Most of my inspiration comes from the people and the nature around me. People remind me who I'm designing for. Nature shows me that beauty and purpose can be the same thing, since every curve of a canyon wall and every vein in a leaf is there for a reason.</p>
+          <p>As a designer, my goal is to create work that is both beautiful and genuinely useful: products that are easy and accessible for everyone, and stories and games that bring people closer together. I look for every chance to learn from professionals in the field as I shape my direction.</p>
+          <p>Feel free to look around my projects, and you can find my resume, LinkedIn, or a direct link to email me right below. I'd love to connect, so reach out!</p>
+        <div class="ab-links">
+          <a class="ab-link" href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-04" target="_blank" rel="noopener">Resume<span aria-hidden="true">&#8599;</span></a>
+          <a class="ab-link" href="https://www.linkedin.com/in/anagalic04" target="_blank" rel="noopener">LinkedIn<span aria-hidden="true">&#8599;</span></a>
+          <a class="ab-link" href="mailto:anagalic.2004@gmail.com">Email me<span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
-    <div class="about-pics">
-      <figure><img src="img/about-moma.jpg" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"><figcaption class="label">At MoMA, New York</figcaption></figure>
-      <figure><img src="img/about-canyon.jpg" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"><figcaption class="label">On the trail</figcaption></figure>
+    <div class="ab-pics">
+      <figure><img src="img/about-moma.jpg" width="1600" height="820" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"><figcaption>At MoMA, New York</figcaption></figure>
+      <figure><img src="img/about-canyon.jpg" width="900" height="1180" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"><figcaption>On the trail</figcaption></figure>
     </div>
-    <section class="block-section" aria-labelledby="do-h">
-      <h2 class="sec-title" id="do-h">What I do</h2>
-      <div class="services">
-        <div class="hl"><h3>Visual identity</h3><p>Graphics and promotional systems that hold together across every format.</p></div>
-        <div class="hl"><h3>Game graphics &amp; UX/UI</h3><p>Worlds, characters, branching choices, and in-game interfaces.</p></div>
-        <div class="hl"><h3>Web design &amp; development</h3><p>User-centered sites, designed in Figma and built in code.</p></div>
-        <div class="hl"><h3>User research</h3><p>Playtesting and research that shape design decisions.</p></div>
+    <section class="ab-do" aria-labelledby="do-h">
+      <h2 class="ab-kicker" id="do-h">What I do</h2>
+      <div class="ab-do-grid">
+        <div class="ab-do-card"><span class="ab-n">01</span><h3>Visual identity</h3><p>Graphics and promotional systems that hold together across every format.</p></div>
+        <div class="ab-do-card"><span class="ab-n">02</span><h3>Game graphics &amp; UX/UI</h3><p>Worlds, characters, branching choices, and in-game interfaces.</p></div>
+        <div class="ab-do-card"><span class="ab-n">03</span><h3>Web design &amp; development</h3><p>User-centered sites, designed in Figma and built in code.</p></div>
+        <div class="ab-do-card"><span class="ab-n">04</span><h3>User research</h3><p>Playtesting and research that shape design decisions.</p></div>
       </div>
     </section>
   </article>
 
   <!-- PLAY -->
-  <article class="view wrap" data-view="personal" hidden>
+  <article class="view wrap pp-soon" data-view="personal" hidden>
+    <div class="soon-veil"><div class="soon-card"><p class="soon-k">Coming soon</p><p class="soon-t">Murals, digital paintings and a sketchpad for your doodles are getting a fresh look.</p><a class="soon-back" href="#work">See my work<span aria-hidden="true">&rarr;</span></a></div></div>
+    <div class="soon-blur" inert aria-hidden="true">
     <header class="cs-head">
       <p class="label">Personal</p>
       <h1 class="cs-title long">Small experiments, studies, and things made for the joy of it.</h1>
@@ -3229,6 +3281,7 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
       </form>
       <iframe name="doodle-sink" id="doodle-sink" class="pad-sink" title="Doodle sending" tabindex="-1" aria-hidden="true"></iframe>
     </div>
+  </div>
   </article>
 
 </main>
