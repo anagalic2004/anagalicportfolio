@@ -2003,12 +2003,10 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 .star-cur b{position:absolute;inset:0;transition:transform .28s cubic-bezier(.3,1.6,.5,1)}
 .star-cur.hov b{transform:scale(1.32)}
 .star-cur.down b{transform:scale(.78)}
-.star-cur i{position:absolute;inset:0;background:url("img/cursor-star-72.png") center/contain no-repeat;filter:drop-shadow(0 2px 3px rgba(16,24,40,.28));animation:starTw 2.6s ease-in-out infinite!important}
-.star-cur.hov i{animation:starSpin 1.6s linear infinite!important}
-@keyframes starTw{0%,100%{transform:rotate(-10deg) scale(1);filter:drop-shadow(0 2px 3px rgba(16,24,40,.28)) brightness(1)}50%{transform:rotate(12deg) scale(.9);filter:drop-shadow(0 0 4px rgba(200,212,255,.95)) brightness(1.22)}}
-@keyframes starSpin{to{transform:rotate(360deg)}}
+.star-cur i{position:absolute;inset:0;background:url("img/cursor-star-72.png") center/contain no-repeat;filter:drop-shadow(0 2px 3px rgba(16,24,40,.28));animation:starTw 3.6s ease-in-out infinite!important}
+@keyframes starTw{0%,78%,100%{transform:scale(1);filter:drop-shadow(0 2px 3px rgba(16,24,40,.28)) brightness(1)}84%{transform:scale(1.18);filter:drop-shadow(0 0 6px rgba(214,224,255,1)) brightness(1.45)}90%{transform:scale(.96);filter:drop-shadow(0 0 3px rgba(214,224,255,.8)) brightness(1.15)}}
 .star-spark{position:fixed;left:0;top:0;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;pointer-events:none;z-index:2147483646;background:url("img/cursor-star-44.png") center/contain no-repeat;animation:starSpark .75s ease-out forwards!important}
-@keyframes starSpark{from{opacity:.85;transform:translate(var(--x),var(--y)) scale(1) rotate(0)}to{opacity:0;transform:translate(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy))) scale(.25) rotate(120deg)}}
+@keyframes starSpark{from{opacity:.85;transform:translate(var(--x),var(--y)) scale(1)}to{opacity:0;transform:translate(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy))) scale(.25)}}
 </style>
 </head>
 <body>
