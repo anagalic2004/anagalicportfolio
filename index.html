@@ -1181,7 +1181,7 @@ html,body{overflow-x:clip}
 /* ---- Site-wide soft gradient background ---- */
 html{background:#F6F7FD}
 body{background:transparent!important}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("img/bg-site-pastel.webp") center/cover no-repeat,#F8F6FB}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("img/bg-site-pastel.webp") center/cover no-repeat,#FAF9FC}
 .top,html:not(.home-on) .top,html.home-on .top{background:rgba(255,255,255,.14)!important;border-bottom:0!important;box-shadow:none!important;-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
 .top::after{display:none}
 html.home-on.at-top .top{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -2007,6 +2007,10 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 @keyframes starTw{0%,78%,100%{transform:scale(1);filter:drop-shadow(0 2px 3px rgba(16,24,40,.28)) brightness(1)}84%{transform:scale(1.18);filter:drop-shadow(0 0 6px rgba(214,224,255,1)) brightness(1.45)}90%{transform:scale(.96);filter:drop-shadow(0 0 3px rgba(214,224,255,.8)) brightness(1.15)}}
 .star-spark{position:fixed;left:0;top:0;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;pointer-events:none;z-index:2147483646;background:url("img/cursor-star-44.png") center/contain no-repeat;animation:starSpark .75s ease-out forwards!important}
 @keyframes starSpark{from{opacity:.85;transform:translate(var(--x),var(--y)) scale(1)}to{opacity:0;transform:translate(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy))) scale(.25)}}
+/* Wordmark and hero name in black */
+.bw-mark{background-color:#0E1116!important}
+.brand-word:hover .bw-mark,.brand-word:focus-visible .bw-mark{background-image:linear-gradient(105deg,#0E1116 0%,#3A3F47 14%,#A3A9B3 24%,#2A2E35 34%,#0E1116 44%,#4D535C 51%,#D9DCE1 56%,#6B717A 61%,#1A1D22 70%,#454B54 82%,#B8BDC5 90%,#1A1D22 100%)!important;filter:drop-shadow(0 2px 3px rgba(16,18,24,.3))!important}
+.hh-name{color:#0E1116!important;-webkit-text-fill-color:#0E1116!important}
 </style>
 </head>
 <body>
