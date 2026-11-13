@@ -2016,6 +2016,18 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 .hh-name{color:#3F3F45!important;-webkit-text-fill-color:#3F3F45!important}
 .hh-line{color:#A1A1A9!important}
 .hh-name{text-transform:none!important;letter-spacing:-.015em!important;font-weight:500!important;font-size:clamp(34px,3.8vw,50px)!important;margin-bottom:12px!important}
+/* Header: sentence-case links with a soft active pill, spread across the bar */
+@media (min-width:601px){
+  .nav{flex:1!important;justify-content:space-between!important;margin-left:var(--nav-shift,clamp(40px,7vw,110px))!important;gap:4px!important;text-transform:none!important;letter-spacing:0!important;font-size:15px!important}
+  .nav a:not(.nav-li){display:inline-flex!important;align-items:center;height:36px!important;min-height:0!important;line-height:1!important;margin-block:0!important}
+  .nav{align-items:center!important}
+  .nav a{color:#8A8F98!important;font-weight:400!important;padding:0 14px!important;border-radius:999px;border:1px solid transparent;transition:color .2s,background-color .2s}
+  .nav a:hover{color:#3F3F45!important}
+  .nav a[aria-current="page"]{color:#3F3F45!important;background-color:rgba(255,255,255,.75)!important}
+  .nav a .ext{opacity:.6;margin-left:3px}
+  .top-li{margin-left:10px!important;opacity:.75;transition:opacity .2s}
+  .top-li:hover{opacity:1}
+}
 </style>
 </head>
 <body>
