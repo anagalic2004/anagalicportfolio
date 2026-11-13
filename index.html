@@ -1726,9 +1726,9 @@ article.view.is-proj > .next{border-radius:0}
   .pm-head dl.meta{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 /* star cursor */
-html,body{cursor:url("img/cursor-star-28.png") 11 14,auto;cursor:-webkit-image-set(url("img/cursor-star-28.png") 1x,url("img/cursor-star-56.png") 2x) 11 14,auto}
+html,body{cursor:url("img/cursor-star-22.png") 9 11,auto;cursor:-webkit-image-set(url("img/cursor-star-22.png") 1x,url("img/cursor-star-44.png") 2x) 9 11,auto}
 :root{--cur-hover:url("img/cursor-star-36.png") 14 18,pointer}
-a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:url("img/cursor-star-36.png") 14 18,pointer!important;cursor:-webkit-image-set(url("img/cursor-star-36.png") 1x,url("img/cursor-star-72.png") 2x) 14 18,pointer!important}
+a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:url("img/cursor-star-28.png") 11 14,pointer!important;cursor:-webkit-image-set(url("img/cursor-star-28.png") 1x,url("img/cursor-star-56.png") 2x) 11 14,pointer!important}
 input[type="text"],input[type="email"],textarea,[contenteditable="true"]{cursor:text!important}
 .pm-head .meta-mentors > .mm-names,.pm-head .meta-mentors > div{padding:0!important;margin:0!important;border:0!important}
 
@@ -1995,6 +1995,20 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
 /* VALS: logo alone as the title */
 .vl-logo-title{line-height:0!important;margin:0 0 10px}
 .vl-logo-title img{display:block;height:clamp(120px,13vw,170px);width:auto;filter:drop-shadow(0 14px 18px rgba(16,24,40,.22))}
+/* Animated star cursor (mouse only): twinkles, grows over links, leaves a few sparkles */
+html.star-on,html.star-on *{cursor:none!important}
+html.star-on input,html.star-on textarea{cursor:text!important}
+.star-cur{position:fixed;left:0;top:0;width:22px;height:22px;margin:-11px 0 0 -11px;pointer-events:none;z-index:2147483647;opacity:0;transition:opacity .2s;will-change:transform}
+.star-cur.on{opacity:1}
+.star-cur b{position:absolute;inset:0;transition:transform .28s cubic-bezier(.3,1.6,.5,1)}
+.star-cur.hov b{transform:scale(1.32)}
+.star-cur.down b{transform:scale(.78)}
+.star-cur i{position:absolute;inset:0;background:url("img/cursor-star-72.png") center/contain no-repeat;filter:drop-shadow(0 2px 3px rgba(16,24,40,.28));animation:starTw 2.6s ease-in-out infinite!important}
+.star-cur.hov i{animation:starSpin 1.6s linear infinite!important}
+@keyframes starTw{0%,100%{transform:rotate(-10deg) scale(1);filter:drop-shadow(0 2px 3px rgba(16,24,40,.28)) brightness(1)}50%{transform:rotate(12deg) scale(.9);filter:drop-shadow(0 0 4px rgba(200,212,255,.95)) brightness(1.22)}}
+@keyframes starSpin{to{transform:rotate(360deg)}}
+.star-spark{position:fixed;left:0;top:0;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;pointer-events:none;z-index:2147483646;background:url("img/cursor-star-44.png") center/contain no-repeat;animation:starSpark .75s ease-out forwards!important}
+@keyframes starSpark{from{opacity:.85;transform:translate(var(--x),var(--y)) scale(1) rotate(0)}to{opacity:0;transform:translate(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy))) scale(.25) rotate(120deg)}}
 </style>
 </head>
 <body>
@@ -4271,6 +4285,36 @@ article.view.is-proj{padding-top:clamp(130px,20vh,220px)!important}
   if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
     var shineIO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-shine');shineIO.unobserve(e.target);}});},{threshold:.6});
     document.querySelectorAll('.vl-cell').forEach(function(c){shineIO.observe(c);});
+  }
+
+  /* Animated star cursor: only for a real mouse */
+  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cur = document.createElement('div');
+    cur.className = 'star-cur'; cur.setAttribute('aria-hidden', 'true');
+    cur.innerHTML = '<b><i></i></b>';
+    document.body.appendChild(cur);
+    document.documentElement.classList.add('star-on');
+    const HOV = 'a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]';
+    let x = -100, y = -100, lx = 0, ly = 0, lt = 0, sparks = 0;
+    const place = () => { cur.style.transform = `translate(${x}px,${y}px)`; };
+    document.addEventListener('mousemove', e => {
+      x = e.clientX; y = e.clientY; place(); cur.classList.add('on');
+      const now = performance.now(), d = Math.hypot(x - lx, y - ly);
+      if (d > 34 && now - lt > 70 && sparks < 10) {
+        lx = x; ly = y; lt = now; sparks++;
+        const sp = document.createElement('span'); sp.className = 'star-spark';
+        const a = Math.random() * Math.PI * 2, r = 10 + Math.random() * 14;
+        sp.style.cssText = `--x:${x + (Math.random() * 10 - 5)}px;--y:${y + (Math.random() * 10 - 5)}px;--dx:${Math.cos(a) * r}px;--dy:${Math.sin(a) * r + 8}px`;
+        document.body.appendChild(sp);
+        sp.addEventListener('animationend', () => { sp.remove(); sparks--; });
+      }
+    }, { passive: true });
+    document.addEventListener('mouseover', e => cur.classList.toggle('hov', !!(e.target.closest && e.target.closest(HOV))));
+    document.addEventListener('mousedown', () => cur.classList.add('down'));
+    document.addEventListener('mouseup', () => cur.classList.remove('down'));
+    document.addEventListener('mouseleave', () => cur.classList.remove('on'));
+    document.documentElement.addEventListener('mouseleave', () => cur.classList.remove('on'));
+    window.addEventListener('blur', () => cur.classList.remove('on'));
   }
 })();
 </script>
