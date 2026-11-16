@@ -2079,6 +2079,12 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
 .brand-word:hover .brand-logo{transform:translateY(-1px)}
 html,body{background-color:#FFFFFF!important}
 html body .wash,html body .blobs{display:none!important}
+/* Home: logo sits lower, with more air above it */
+@media (min-width:601px){
+  html.tabs-home .top-in{padding-top:clamp(36px,4.2vw,60px)!important;padding-bottom:18px!important;transition:padding .35s var(--ease)}
+  html.tabs-home.hs-scrolled .top-in{padding-top:14px!important;padding-bottom:14px!important}
+  html.tabs-home .hh-type,html.tabs-home .home-hero{padding-top:clamp(56px,7vw,104px)!important}
+}
 </style>
 </head>
 <body>
@@ -4397,6 +4403,9 @@ html body .wash,html body .blobs{display:none!important}
     upd(); new MutationObserver(upd).observe(hv, { attributes: true, attributeFilter: ['hidden'] });
     addEventListener('hashchange', upd);
   })();
+
+  /* flag once the page is scrolled (logo bar tightens up) */
+  (function(){ const sc = () => document.documentElement.classList.toggle('hs-scrolled', scrollY > 8); sc(); addEventListener('scroll', sc, { passive: true }); })();
 })();
 </script>
 <script type="module" src="js/lamp3d.js"></script>
