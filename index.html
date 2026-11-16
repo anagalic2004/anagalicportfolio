@@ -2060,6 +2060,19 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
 [data-view="peaceland"] .pl-sum > .trailer.has-thumb .play{width:60px!important;height:60px!important}
 [data-view="peaceland"] .pl-sum .trailer.has-thumb .trailer-text{padding:30px 18px 14px!important}
 [data-view="peaceland"] .pl-sum .trailer .trailer-title{font-size:17px!important}
+/* Home: section tabs sit under the name (like a profile header); top bar keeps just the logo */
+.hh-tabs{display:none}
+@media (min-width:601px){
+  html.tabs-home .top .nav,html.tabs-home .top .top-li{display:none!important}
+  .hh-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:clamp(22px,2.4vw,32px)}
+  .hh-tabs a{display:inline-flex;align-items:center;height:42px;padding:0 20px;border-radius:999px;font-size:16px;font-weight:500;color:#9A9EA6;text-decoration:none;transition:color .2s,background-color .2s,box-shadow .2s}
+  .hh-tabs a:hover{color:#4A4D55}
+  .hh-tabs a[aria-current="page"]{color:#4A4D55;background:#EEEEF0;box-shadow:0 6px 14px -8px rgba(16,24,40,.25)}
+  .hh-tabs a span{margin-left:3px;opacity:.7}
+  .hh-tabs .hh-li{margin-left:4px;padding:0 10px}
+  .hh-tabs .hh-li img{display:block;width:20px;height:20px;background:#9A9EA6;object-position:-9999px 0;-webkit-mask:url("img/linkedin-3x.png") center/contain no-repeat;mask:url("img/linkedin-3x.png") center/contain no-repeat;transition:background-color .2s}
+  .hh-tabs .hh-li:hover img{background:#4A4D55}
+}
 </style>
 </head>
 <body>
@@ -2086,6 +2099,9 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
     <section class="home-hero" aria-label="About Ana">
       <h1 class="hh-name">ANA GALIC</h1>
       <p class="hh-line">Multidisciplinary designer grounded in <span class="hh-hi">Computer Science</span> &amp; <span class="hh-hi">Digital Design</span>.</p>
+      <nav class="hh-tabs" aria-label="Sections">
+        <a href="#work" aria-current="page">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-15" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span></a><a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a><a class="hh-li" href="https://www.linkedin.com/in/anagalic" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin-3x.png" width="20" height="20" alt=""></a>
+      </nav>
     </section>
 
     <section class="block-section" id="work" aria-labelledby="work-h">
@@ -4366,6 +4382,15 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
     document.documentElement.addEventListener('mouseleave', () => cur.classList.remove('on'));
     window.addEventListener('blur', () => cur.classList.remove('on'));
   }
+
+  /* Home: section tabs live under the name, so hide the top-bar links while the home view shows */
+  (function(){
+    const hv = document.querySelector('[data-view="professional"]');
+    if (!hv) return;
+    const upd = () => document.documentElement.classList.toggle('tabs-home', !hv.hidden);
+    upd(); new MutationObserver(upd).observe(hv, { attributes: true, attributeFilter: ['hidden'] });
+    addEventListener('hashchange', upd);
+  })();
 })();
 </script>
 <script type="module" src="js/lamp3d.js"></script>
