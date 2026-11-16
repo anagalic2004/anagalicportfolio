@@ -2058,6 +2058,16 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 .home-hero{position:relative}
 .bw-mark{background-color:#B48A92!important}
 .ab-title,.ab-title em{color:#B48A92!important;-webkit-text-fill-color:#B48A92!important;background:none!important}
+/* Cursor: a small grey circle (mouse only) */
+.star-cur{width:12px!important;height:12px!important;margin:-6px 0 0 -6px!important}
+.star-cur b{transition:transform .25s cubic-bezier(.3,1.4,.5,1)!important}
+.star-cur i{background:rgba(110,116,128,.85)!important;border-radius:50%;filter:none!important;animation:none!important;box-shadow:0 0 0 1px rgba(255,255,255,.7)}
+.star-cur.hov b{transform:scale(2.2)!important}
+.star-cur.hov i{background:rgba(110,116,128,.35)!important}
+.star-cur.down b{transform:scale(.75)!important}
+.star-spark{display:none!important}
+html,body{cursor:default}
+a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:pointer!important}
 </style>
 </head>
 <body>
@@ -4348,7 +4358,7 @@ html.star-on input,html.star-on textarea{cursor:text!important}
     document.addEventListener('mousemove', e => {
       x = e.clientX; y = e.clientY; place(); cur.classList.add('on');
       const now = performance.now(), d = Math.hypot(x - lx, y - ly);
-      if (d > 34 && now - lt > 70 && sparks < 10) {
+      if (false && d > 34 && now - lt > 70 && sparks < 10) {
         lx = x; ly = y; lt = now; sparks++;
         const sp = document.createElement('span'); sp.className = 'star-spark';
         const a = Math.random() * Math.PI * 2, r = 10 + Math.random() * 14;
