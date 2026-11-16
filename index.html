@@ -2182,6 +2182,16 @@ article.view > .pj-foot{margin-top:0!important}
 .gallery.framed .card .cover,.gallery.framed .cover-video video{border-radius:22px!important}
 .gallery.framed .card .cover{overflow:hidden}
 .gallery.framed .card .card-pill{left:calc(var(--gf) + clamp(10px,1.2vw,16px))!important;bottom:calc(var(--gf) + clamp(10px,1.2vw,16px))!important}
+/* Project name tags: smaller, light pink jelly-glass pills */
+html body .gallery.framed .card .card-pill{isolation:isolate;gap:6px!important;padding:6px 13px 7px!important;font-size:13px!important;font-weight:500;line-height:1.2;color:#2A1F2C!important;
+  background:linear-gradient(180deg,rgba(255,236,246,.88),rgba(247,214,232,.8))!important;
+  -webkit-backdrop-filter:blur(10px) saturate(1.4);backdrop-filter:blur(10px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.85)!important;
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.95),inset 0 0 0 2.5px rgba(255,255,255,.35),inset 0 -5px 8px -4px rgba(214,140,190,.45),0 6px 14px -6px rgba(170,80,140,.35),0 0 0 .5px rgba(150,80,130,.18)!important}
+html body .gallery.framed .card .card-pill::before{content:"";position:absolute;left:9%;right:9%;top:2px;height:45%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+html body .gallery.framed .card .card-pill i{color:rgba(42,31,44,.35)!important}
+html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
+@media (max-width:600px){html body .gallery.framed .card .card-pill{font-size:12.5px!important;padding:5px 11px 6px!important}}
 </style>
 </head>
 <body>
