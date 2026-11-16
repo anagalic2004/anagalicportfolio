@@ -1181,7 +1181,7 @@ html,body{overflow-x:clip}
 /* ---- Site-wide soft gradient background ---- */
 html{background:#F6F7FD}
 body{background:transparent!important}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("img/bg-site-iris.webp") center/cover no-repeat,#F6F3FC}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("img/bg-site-dawn.webp") center/cover no-repeat,#F8EEF2}
 .top,html:not(.home-on) .top,html.home-on .top{background:rgba(255,255,255,.14)!important;border-bottom:0!important;box-shadow:none!important;-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
 .top::after{display:none}
 html.home-on.at-top .top{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -2074,12 +2074,16 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
   .hh-tabs .hh-li:hover img{background:#4A4D55}
 }
 @media (min-width:601px){html.tabs-home .top-in{max-width:var(--max)!important;margin-inline:auto!important}}
+/* New logo + dawn wallpaper (portrait version on tall screens) */
+.brand-logo{display:block;height:clamp(22px,2vw,30px);width:auto;transition:transform .25s var(--ease)}
+.brand-word:hover .brand-logo{transform:translateY(-1px)}
+@media (max-aspect-ratio:4/5){body::before{background:url("img/bg-site-dawn-tall.webp") center/cover no-repeat,#F8EEF2!important}}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand brand-word" href="#professional" aria-label="Ana Galic, home"><span class="bw-mark" aria-hidden="true"></span></a>
+    <a class="brand brand-word" href="#professional" aria-label="Ana Galic, home"><img class="brand-logo" src="img/logo-anci.png" width="900" height="239" alt=""></a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav"><span class="nav-toggle-txt">Menu</span><span class="nav-toggle-ico" aria-hidden="true"></span></button>
     <nav class="nav" id="main-nav" aria-label="Main">
       <a href="#work" data-nav="work">Work</a>
