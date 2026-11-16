@@ -2207,6 +2207,12 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
   html:not(.tabs-home) .top .nav{align-items:center!important}
   html:not(.tabs-home) .top .top-li{align-self:center;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;padding:0!important;transform:none!important}
 }
+/* About page links as liquid-glass pills with plum glass arrow buttons */
+.ab-link{position:relative;isolation:isolate;color:#3A2A3C!important;padding:6px 6px 6px 20px!important;transition:transform .25s var(--ease)!important;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6))!important;border:1px solid rgba(255,255,255,.9)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12)!important}
+.ab-link::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+.ab-link span{position:relative;isolation:isolate;width:30px!important;height:30px!important;background:radial-gradient(120% 70% at 50% 120%,rgba(255,120,220,.85),rgba(255,120,220,0) 60%),radial-gradient(60% 90% at 0% 85%,rgba(255,160,70,.8),rgba(255,160,70,0) 70%),radial-gradient(60% 80% at 50% 35%,#3A0E33,#5A1650 70%,#7A2468)!important;border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 -2px 4px rgba(255,190,240,.5),0 6px 12px -5px rgba(200,60,170,.5)!important;color:#fff!important}
+.ab-link span::before{content:"";position:absolute;left:18%;right:18%;top:2px;height:40%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
+.ab-link:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
