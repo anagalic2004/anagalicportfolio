@@ -2218,6 +2218,14 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
 .ab-link span{position:relative;isolation:isolate;width:30px!important;height:30px!important;background:radial-gradient(120% 70% at 50% 120%,rgba(255,120,220,.85),rgba(255,120,220,0) 60%),radial-gradient(60% 90% at 0% 85%,rgba(255,160,70,.8),rgba(255,160,70,0) 70%),radial-gradient(60% 80% at 50% 35%,#3A0E33,#5A1650 70%,#7A2468)!important;border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 -2px 4px rgba(255,190,240,.5),0 6px 12px -5px rgba(200,60,170,.5)!important;color:#fff!important}
 .ab-link span::before{content:"";position:absolute;left:18%;right:18%;top:2px;height:40%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
 .ab-link:hover{transform:translateY(-2px)}
+/* Shared header for Work / Personal / About: same width as the home grid, one line under the tabs */
+.hero-shell{display:none;width:100%;max-width:var(--max);margin-inline:auto;box-sizing:border-box}
+html.tabs-home .hero-shell{display:block}
+.hero-shell .home-hero{max-width:none;padding-bottom:clamp(20px,2.4vw,30px)!important;border-bottom:1px solid rgba(15,20,30,.08)}
+[data-view="professional"] #work{border-top:0!important}
+html.tabs-home [data-view="professional"],html.tabs-home [data-view="about"],html.tabs-home [data-view="personal"]{padding-top:clamp(22px,2.6vw,34px)!important}
+[data-view="about"].view.wrap,[data-view="personal"].view.wrap{max-width:var(--max)!important}
+@media (max-width:600px){html.tabs-home:not(.tabs-at-home) .hero-shell{display:none}}
 </style>
 </head>
 <body>
@@ -2239,16 +2247,19 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
 
 <main id="main">
 
-  <!-- HOME -->
-  <div class="view wrap" data-view="professional">
+  <!-- Shared header: name, line and section tabs stay put on Work, Personal and About -->
+  <div class="hero-shell">
     <section class="home-hero" aria-label="About Ana">
       <h1 class="hh-name">ANA GALIC</h1>
       <p class="hh-line">Multidisciplinary designer grounded in <span class="hh-hi">Computer Science</span> &amp; <span class="hh-hi">Digital Design</span>.</p>
       <nav class="hh-tabs" aria-label="Sections">
-        <a href="#work" aria-current="page">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-15" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span></a><a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a><a class="hh-li" href="https://www.linkedin.com/in/anagalic" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin-3x.png" width="20" height="20" alt=""></a>
+        <a href="#work" data-nav="work" aria-current="page">Work</a><a href="#personal" data-nav="personal">Personal</a><a href="#about" data-nav="about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-15" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span></a><a href="mailto:anagalic.2004@gmail.com?subject=Hello%20from%20your%20portfolio">Contact</a><a class="hh-li" href="https://www.linkedin.com/in/anagalic" target="_blank" rel="noopener" aria-label="Ana Galic on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="img/linkedin-3x.png" width="20" height="20" alt=""></a>
       </nav>
     </section>
+  </div>
 
+  <!-- HOME -->
+  <div class="view wrap" data-view="professional">
     <section class="block-section" id="work" aria-labelledby="work-h">
       <h2 class="visually-hidden" id="work-h">Selected work</h2>
       <div class="grid gallery masonry m3 framed">
@@ -3618,7 +3629,7 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
   const navOf = {peaceland:'work', soulshine:'work', vals:'work', tedx:'work', perfume:'work', 'peaceland-research':'work', professional:'work', izone:'work', 'rochester-design-hub':'work', 'girls-who-code':'work'};
   const aliases = {experience:'work', 'tedxurochester':'tedx', 'selected-work':'work', 'peaceland-research':'peaceland', play:'personal', 'promotional-material':'rochester-design-hub', 'university-organizations':'rochester-design-hub'};
   function setNav(key){
-    document.querySelectorAll('.nav a').forEach(a => {
+    document.querySelectorAll('.nav a, .hh-tabs a').forEach(a => {
       if (a.dataset.nav === key) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
   }
@@ -3667,6 +3678,7 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
     setNav(anchor || navOf[r] || r);
     if (r === 'personal') sizePad();
     preloadExplorer(r);
+    if (anchor === 'work') anchor = null;
     if (anchor){
       const el = document.getElementById(anchor);
       if (samePage) el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
@@ -4523,10 +4535,10 @@ html body .gallery.framed .card .card-pill em{color:rgba(42,31,44,.6)!important}
 
   /* Home: section tabs live under the name, so hide the top-bar links while the home view shows */
   (function(){
-    const hv = document.querySelector('[data-view="professional"]');
-    if (!hv) return;
-    const upd = () => document.documentElement.classList.toggle('tabs-home', !hv.hidden);
-    upd(); new MutationObserver(upd).observe(hv, { attributes: true, attributeFilter: ['hidden'] });
+    const vs = ['professional','personal','about'].map(k => document.querySelector('[data-view="' + k + '"]')).filter(Boolean);
+    const H = document.documentElement;
+    const upd = () => { const on = vs.find(v => !v.hidden); H.classList.toggle('tabs-home', !!on); H.classList.toggle('tabs-at-home', !!on && on.dataset.view === 'professional'); };
+    upd(); vs.forEach(v => new MutationObserver(upd).observe(v, { attributes: true, attributeFilter: ['hidden'] }));
     addEventListener('hashchange', upd);
   })();
 
