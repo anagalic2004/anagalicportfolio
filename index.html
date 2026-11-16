@@ -16,6 +16,7 @@
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: Ana's painting as a live canvas framed like an artboard, her name centered on it, then one bold two-up project grid. Black blocks are the only heavy surfaces; light blue (pulled from the painting) works as a highlighter. */
@@ -2052,6 +2053,36 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
 .nav a,.nav a:not([aria-current="page"]),.nav a:hover,.nav a[aria-current="page"],.nav a .ext,.nav-toggle{color:#8A5F69!important}
 .nav-toggle{border-color:rgba(138,95,105,.45)!important}
 .top-li img,.nav-li img{background:#8A5F69;object-position:-9999px 0;-webkit-mask:url("img/linkedin-3x.png") center/contain no-repeat;mask:url("img/linkedin-3x.png") center/contain no-repeat}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/instrument-serif-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/instrument-serif-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/instrument-serif-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/instrument-serif-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Typographic header: serif/sans pairing, true italics, tuned tracking, numbered nav */
+.top,.home-hero{font-kerning:normal;font-feature-settings:"kern","liga","calt"}
+.hh-type{padding-top:clamp(64px,9vw,136px)!important}
+.hh-eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 clamp(18px,2vw,28px);font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#8A5F69;opacity:.8}
+.hh-eyebrow .hh-dash{width:44px;height:1px;background:currentColor;opacity:.55}
+.hh-eyebrow .hh-yr{font-family:"Instrument Serif",Georgia,serif;font-size:17px;font-weight:400;letter-spacing:.02em;text-transform:none;font-style:italic;font-variant-numeric:oldstyle-nums}
+.hh-type .hh-name{font-family:"Instrument Serif",Georgia,"Times New Roman",serif!important;font-weight:400!important;font-size:clamp(60px,8.4vw,128px)!important;line-height:.92!important;letter-spacing:-.028em!important;text-transform:none!important;color:#8A5F69!important;-webkit-text-fill-color:#8A5F69!important;margin:0 0 clamp(16px,1.8vw,26px)!important;margin-left:-.04em!important;font-optical-sizing:auto}
+.hh-type .hh-name em{font-style:italic;letter-spacing:-.012em;padding-right:.04em}
+.hh-type .hh-line{max-width:34ch;margin:0;font-family:var(--body);font-size:clamp(18px,1.55vw,22px)!important;line-height:1.42;letter-spacing:-.006em;font-weight:400;color:#8A5F69!important;text-wrap:balance;hanging-punctuation:first}
+.hh-type .hh-hi{font-weight:inherit}
+.hh-type .hh-amp{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:1.28em;line-height:0;padding:0 .04em;position:relative;top:.02em}
+/* nav: index numerals as superscripts, underline (not pill) for the current page */
+.nav{counter-reset:navi}
+.nav a:not(.nav-li){counter-increment:navi;font-feature-settings:"kern","tnum"}
+.nav a:not(.nav-li)::before{content:counter(navi,decimal-leading-zero);font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:.72em;letter-spacing:.02em;margin-right:5px;position:relative;top:-.55em;opacity:.65;font-variant-numeric:oldstyle-nums}
+@media (min-width:601px){
+  .nav a[aria-current="page"]{background:none!important;box-shadow:none!important;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px;text-decoration-color:rgba(138,95,105,.55)}
+  .nav a:not([aria-current="page"]):hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px;text-decoration-color:rgba(138,95,105,.3)}
+}
+@media (max-width:600px){.hh-eyebrow{font-size:11px;gap:10px}.hh-eyebrow .hh-dash{width:28px}}
+html body .top .nav a[aria-current="page"]{background:transparent!important;box-shadow:none!important}
+.nav a:not(.nav-li){position:relative}
+.nav a:not(.nav-li)::before{position:absolute!important;right:100%;top:.15em!important;margin-right:-6px!important}
+html body .top .nav a{border-color:transparent!important;outline:0}
+@media (max-width:600px){.nav a:not(.nav-li)::before{position:relative!important;right:auto;top:-.55em!important;margin-right:6px!important}}
+@media (max-width:600px){html body .top .nav a[aria-current="page"]{padding-left:0!important;padding-right:0!important;font-weight:600!important}}
 </style>
 </head>
 <body>
@@ -2075,9 +2106,10 @@ a,button,[role="button"],label,summary,select,.tx-zoom,.card,[data-full]{cursor:
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <section class="home-hero" aria-label="About Ana">
-      <h1 class="hh-name">ANA GALIC</h1>
-      <p class="hh-line">Multidisciplinary designer grounded in <span class="hh-hi">Computer Science</span> &amp; <span class="hh-hi">Digital Design</span>.</p>
+    <section class="home-hero hh-type" aria-label="About Ana">
+      <p class="hh-eyebrow"><span>Portfolio</span><span class="hh-dash" aria-hidden="true"></span><span class="hh-yr">2026</span></p>
+      <h1 class="hh-name">Ana <em>Gali&#263;</em></h1>
+      <p class="hh-line">Multidisciplinary designer grounded in Computer&nbsp;Science <span class="hh-amp">&amp;</span> Digital&nbsp;Design.</p>
     </section>
 
     <section class="block-section" id="work" aria-labelledby="work-h">
