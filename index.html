@@ -2032,6 +2032,49 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 .bw-mark{background-color:#6A6D75!important}
 .hh-name{color:#6A6D75!important;-webkit-text-fill-color:#6A6D75!important;letter-spacing:.02em!important}
 .hh-name{font-size:clamp(26px,2.6vw,36px)!important;margin-bottom:10px!important}
+/* ===== Home as a house: sky, roof with dormers, projects in window frames ===== */
+:root{--ink:#2338A8}
+html.hs-home body::before{background:url("img/home-sky.jpg") center top/cover no-repeat,#B9D6FC!important}
+html.hs-home .wash,html.hs-home .blobs{display:none!important}
+html.hs-home body .top,html.hs-home:not(.home-on) body .top{background:rgba(214,231,255,.78)!important;box-shadow:0 1px 0 rgba(35,56,168,.12)!important;-webkit-backdrop-filter:blur(14px) saturate(1.2)!important;backdrop-filter:blur(14px) saturate(1.2)!important;border-bottom:0!important}
+html.hs-home body .top::before,html.hs-home body .top::after{display:none!important}
+[data-view="professional"]{max-width:min(1240px,100%)!important}
+.hs-hero{padding:clamp(56px,8vw,120px) clamp(4px,4vw,64px) clamp(36px,5vw,64px)!important;max-width:none}
+.hs-hi{margin:0 0 12px;font-family:var(--body);font-weight:500;font-size:clamp(19px,2.1vw,30px);letter-spacing:-.01em;color:#141824}
+.hs-lead{margin:0;max-width:44ch;font-weight:400;font-size:clamp(19px,2.1vw,30px);line-height:1.28;letter-spacing:-.012em;color:#141824}
+.hs-house{position:relative;margin-top:clamp(40px,6vw,90px);padding-bottom:0}
+.hs-roof{position:relative;height:clamp(170px,24vw,330px);margin-inline:-1.2%}
+.hs-roof-shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hs-chim{position:absolute;left:73%;bottom:calc(100% - 2px);width:6%;min-width:34px;height:clamp(46px,6vw,86px);background:#fff;border:2px solid var(--ink);border-bottom:0}
+.hs-chim span{position:absolute;left:-12%;right:-12%;top:-12px;height:12px;background:#fff;border:2px solid var(--ink);border-radius:2px}
+.hs-dormers{position:absolute;left:0;right:0;bottom:7%;height:68%;display:flex;justify-content:space-evenly;align-items:flex-end;padding-inline:14%}
+.hs-dormers .dm{height:100%;width:auto;display:block;overflow:visible}
+.hs-cornice{position:relative;margin-inline:-2.2%;height:clamp(30px,3.6vw,46px)}
+.hs-cornice i{position:absolute;left:0;right:0;top:0;height:55%;background:#fff;border:2px solid var(--ink)}
+.hs-cornice b{position:absolute;left:2.2%;right:2.2%;top:calc(55% - 2px);bottom:0;background:#fff;border:2px solid var(--ink);border-top:0}
+.hs-facade{position:relative;margin-top:-2px;padding:clamp(44px,6vw,84px) clamp(22px,6vw,92px) 0;border:2px solid var(--ink);border-top:0;border-bottom:0;background:repeating-linear-gradient(90deg,#FBDDE3 0 22px,#FDF7D9 22px 44px)}
+.hs-facade::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(35,56,168,.06),transparent 90px)}
+.hs-facade #work{border:0!important;padding-top:0!important;margin:0!important}
+.hs-facade .grid.gallery.masonry{column-gap:clamp(36px,7vw,120px)!important;row-gap:clamp(70px,8vw,120px)!important}
+.hs-win{position:relative;padding:clamp(9px,1vw,14px);background:linear-gradient(var(--ink),var(--ink)) 50% 0/2px 100% no-repeat,#fff;border:2px solid var(--ink);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 7px var(--ink),0 18px 26px -22px rgba(20,30,90,.45)}
+.hs-win::before{content:"";position:absolute;left:-12px;right:-12px;top:-15px;height:11px;background:#fff;border:2px solid var(--ink);border-radius:2px}
+.hs-win::after{content:"";position:absolute;left:-20px;right:-20px;bottom:-23px;height:17px;border:2px solid var(--ink);border-radius:2px;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(35,56,168,.18) 5px 6px),#F3E7D3}
+.hs-win .card{position:relative;z-index:1}
+.hs-win .cover{border-radius:8px!important}
+.hs-entry{display:flex;justify-content:center;margin-top:clamp(70px,8vw,120px)}
+.hs-door{display:block;width:clamp(150px,16vw,230px);height:auto;margin-bottom:-2px;position:relative;z-index:2}
+.hs-ground{position:relative;height:clamp(26px,3vw,40px);margin-inline:calc(50% - 50vw);background:#B6DBA4;border-top:2px solid var(--ink);box-shadow:0 160px 0 160px #B6DBA4}
+html.hs-home .foot{background:#B6DBA4!important;box-shadow:0 0 0 100vmax #B6DBA4!important;clip-path:inset(0 -100vmax -100vmax)!important;padding-top:clamp(20px,3vw,40px)!important}
+html.hs-home,html.hs-home body{background-color:#B6DBA4}
+html.hs-home .foot-small{color:#4F6B47!important}
+html.hs-home .nav a:not([aria-current="page"]){color:#4A5578!important}
+html.hs-home .nav a:hover{color:#1C2340!important}
+[data-view="professional"] > .hs-house + *{margin-top:0}
+@media (max-width:600px){
+  .hs-facade{background:repeating-linear-gradient(90deg,#FBDDE3 0 14px,#FDF7D9 14px 28px)}
+  .hs-win::after{left:-12px;right:-12px}.hs-win::before{left:-8px;right:-8px}
+  .hs-dormers{padding-inline:12%}
+}
 </style>
 </head>
 <body>
@@ -2055,32 +2098,40 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <section class="home-hero" aria-label="About Ana">
-      <h1 class="hh-name">ANA GALIC</h1>
-      <p class="hh-line">Multidisciplinary designer grounded in <span class="hh-hi">Computer Science</span> &amp; <span class="hh-hi">Digital Design</span>.</p>
+    <section class="home-hero hs-hero" aria-label="About Ana">
+      <h1 class="hs-hi">Hi, my name is Ana!</h1>
+      <p class="hs-lead">I&rsquo;m an interdisciplinary designer who enjoys exploring the intersection between technology and creative design.</p>
     </section>
 
+    <div class="hs-house">
+      <div class="hs-roof" aria-hidden="true">
+        <div class="hs-chim"><span></span></div>
+        <svg class="hs-roof-shape" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M13 1.2H87L99.4 99H.6z" fill="#fff" stroke="#2338A8" stroke-width="2" vector-effect="non-scaling-stroke"/><path d="M13 1.2L5.4 99" fill="none" stroke="#2338A8" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".55"/></svg>
+        <div class="hs-dormers"><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V108a78 78 0 0 1 156 0v178z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M45 280V112a55 55 0 0 1 110 0v168" fill="none" stroke="#2338A8" stroke-width="1.4"/><path d="M48 102l16 -16 M61 117l16 -16 M74 133l16 -16 M104 102l16 -16 M117 117l16 -16 M130 133l16 -16 M48 178l16 -16 M61 191l16 -16 M74 203l16 -16 M104 178l16 -16 M117 191l16 -16 M130 203l16 -16 M48 243l16 -16 M61 256l16 -16 M74 268l16 -16 M104 243l16 -16 M117 256l16 -16 M130 268l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 57v223M45 150h110M45 215h110" stroke="#2338A8" stroke-width="3" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V128Q22 50 100 8Q178 50 178 128V286z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V130Q36 64 100 26Q164 64 164 130V280z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M48 119l16 -16 M61 132l16 -16 M74 146l16 -16 M104 119l16 -16 M117 132l16 -16 M130 146l16 -16 M48 189l16 -16 M61 200l16 -16 M74 211l16 -16 M104 189l16 -16 M117 200l16 -16 M130 211l16 -16 M48 250l16 -16 M61 260l16 -16 M74 271l16 -16 M104 250l16 -16 M117 260l16 -16 M130 271l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 26V280M45 160V128Q45 92 72 72Q100 92 100 128M100 128Q100 92 128 72Q155 92 155 128V160M45 160h110M45 222h110" stroke="#2338A8" stroke-width="2.8" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V108a78 78 0 0 1 156 0v178z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M45 280V112a55 55 0 0 1 110 0v168" fill="none" stroke="#2338A8" stroke-width="1.4"/><path d="M48 102l16 -16 M61 117l16 -16 M74 133l16 -16 M104 102l16 -16 M117 117l16 -16 M130 133l16 -16 M48 178l16 -16 M61 191l16 -16 M74 203l16 -16 M104 178l16 -16 M117 191l16 -16 M130 203l16 -16 M48 243l16 -16 M61 256l16 -16 M74 268l16 -16 M104 243l16 -16 M117 256l16 -16 M130 268l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 57v223M45 150h110M45 215h110" stroke="#2338A8" stroke-width="3" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg></div>
+      </div>
+      <div class="hs-cornice" aria-hidden="true"><i></i><b></b></div>
+      <div class="hs-facade">
     <section class="block-section" id="work" aria-labelledby="work-h">
       <h2 class="visually-hidden" id="work-h">Selected work</h2>
       <div class="grid gallery masonry m3 framed">
       <div class="m-col">
-        <a class="card" style="--ar:1100/912;order:1" href="#peaceland" data-tags="games graphic research">
+        <div class="hs-win" style="order:1"><a class="card" style="--ar:1100/912;order:1" href="#peaceland" data-tags="games graphic research">
           <span class="card-pill">Peaceland<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/peaceland-cover/playing2-poster.jpg" aria-hidden="true"><source src="img/peaceland-cover/playing2.webm" type="video/webm"><source src="img/peaceland-cover/playing2.mp4" type="video/mp4"></video></div>
           <div class="card-body">
             <div class="card-row" data-type="Narrative-driven video game"><h3>Peaceland</h3></div>
             <p class="card-type">Narrative-driven video game</p>
           </div>
-        </a>
-        <a class="card" style="--ar:4/3;order:4" href="#vals" data-tags="research code">
+        </a></div>
+        <div class="hs-win" style="order:4"><a class="card" style="--ar:4/3;order:4" href="#vals" data-tags="research code">
           <span class="card-pill">VALS<i aria-hidden="true">•</i><em>2025</em></span>
           <div class="cover ssr-cover vlr-cover" aria-hidden="true"><div class="ss1-phone"><div class="ss1-screen"><span class="ss1-isl"></span><img src="img/vals/reel/v1.webp" alt="" width="280" height="606" loading="lazy" style="--i:0"><img src="img/vals/reel/v2.webp" alt="" width="280" height="606" loading="lazy" style="--i:1"><img src="img/vals/reel/v3.webp" alt="" width="280" height="606" loading="lazy" style="--i:2"><img src="img/vals/reel/v4.webp" alt="" width="280" height="606" loading="lazy" style="--i:3"><img src="img/vals/reel/v5.webp" alt="" width="280" height="606" loading="lazy" style="--i:4"></div></div></div>
           <div class="card-body">
             <div class="card-row" data-type="AI voice assistant"><h3>VALS</h3></div>
             <p class="card-type">AI voice assistant</p>
           </div>
-        </a>
-        <a class="card" style="--ar:1598/846;order:7" href="#girls-who-code" data-tags="graphic">
+        </a></div>
+        <div class="hs-win" style="order:7"><a class="card" style="--ar:1598/846;order:7" href="#girls-who-code" data-tags="graphic">
           <span class="card-pill">Girls Who Code<i aria-hidden="true">•</i><em>2025–26</em></span>
           <div class="cover gwc-cover gwc-talk" aria-hidden="true">
             <svg viewBox="0 0 1598 846" preserveAspectRatio="xMidYMax meet"><image href="img/gwc/talk/base.jpg" width="1598" height="846"/><g class="gt-h gt-hl" style="transform-origin:372px 462px"><image href="img/gwc/talk/head-l.webp" x="130" y="80" width="401" height="383"/></g><g class="gt-h gt-hm" style="transform-origin:950px 382px"><image href="img/gwc/talk/head-m.webp" x="785" y="20" width="346" height="363"/></g><g class="gt-h gt-hr" style="transform-origin:1300px 590px"><image href="img/gwc/talk/head-r.webp" x="1195" y="255" width="366" height="348"/></g><g class="gt-b gt-bm" style="transform-origin:730px 138px"><path d="M712 100 L758 138 L748 100 Z" class="gt-tail"/><rect x="440" y="10" width="350" height="96" rx="48"/><path d="M712 100 L758 138 L748 100 Z" class="gt-tail2"/><g class="gt-dots"><circle cx="587.0" cy="58.0" r="9"/><circle cx="615.0" cy="58.0" r="9"/><circle cx="643.0" cy="58.0" r="9"/></g><text x="615.0" y="72.0" text-anchor="middle">let&rsquo;s build it!</text></g><g class="gt-b gt-bl" style="transform-origin:546px 318px"><path d="M528 280 L518 318 L564 280 Z" class="gt-tail"/><rect x="486" y="190" width="318" height="96" rx="48"/><path d="M528 280 L518 318 L564 280 Z" class="gt-tail2"/><g class="gt-dots"><circle cx="617.0" cy="238.0" r="9"/><circle cx="645.0" cy="238.0" r="9"/><circle cx="673.0" cy="238.0" r="9"/></g><text x="645.0" y="252.0" text-anchor="middle">I&rsquo;ll design it &#9825;</text></g><g class="gt-b gt-br" style="transform-origin:1338px 268px"><path d="M1320 230 L1366 268 L1356 230 Z" class="gt-tail"/><rect x="1136" y="140" width="262" height="96" rx="48"/><path d="M1320 230 L1366 268 L1356 230 Z" class="gt-tail2"/><g class="gt-dots"><circle cx="1239.0" cy="188.0" r="9"/><circle cx="1267.0" cy="188.0" r="9"/><circle cx="1295.0" cy="188.0" r="9"/></g><text x="1267.0" y="202.0" text-anchor="middle">ooh, yes!</text></g></svg>
@@ -2090,18 +2141,18 @@ html.star-on input,html.star-on textarea{cursor:text!important}
             <div class="card-row" data-type="Executive Board · Social Media Manager"><h3>Girls Who Code</h3></div>
             <p class="card-type">Executive Board · Social Media Manager</p>
           </div>
-        </a>
+        </a></div>
       </div>
       <div class="m-col">
-        <a class="card" style="--ar:16/10;order:2" href="#tedx" data-tags="graphic">
+        <div class="hs-win" style="order:2"><a class="card" style="--ar:16/10;order:2" href="#tedx" data-tags="graphic">
           <span class="card-pill">TEDxURochester<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/tedx-cover/rehuman-poster.jpg" aria-hidden="true"><source src="img/tedx-cover/rehuman.webm" type="video/webm"><source src="img/tedx-cover/rehuman.mp4" type="video/mp4"></video></div>
           <div class="card-body">
             <div class="card-row" data-type="Event branding & photography · reHuman"><h3><span class="nc">TEDxURochester</span></h3></div>
             <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
           </div>
-        </a>
-        <a class="card" style="--ar:16/10;order:5" href="#izone" data-tags="graphic">
+        </a></div>
+        <div class="hs-win" style="order:5"><a class="card" style="--ar:16/10;order:5" href="#izone" data-tags="graphic">
           <span class="card-pill">Barbara J. Burger iZone<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover iz-cover izr" aria-hidden="true">
             <img class="izr-bg" src="img/izone/rocket-bg.jpg" width="1400" height="906" alt="" loading="lazy"><img class="izr-ship" src="img/izone/rocket-ship.png" width="215" height="370" alt="" data-rocket>
@@ -2111,26 +2162,26 @@ html.star-on input,html.star-on textarea{cursor:text!important}
             <div class="card-row" data-type="Marketing Assistant · Graphic Design Team"><h3><span class="nc">iZone</span></h3></div>
             <p class="card-type">Marketing Assistant · Graphic Design Team</p>
           </div>
-        </a>
-        <a class="card" style="--ar:1/1;order:8" href="#perfume" data-tags="product graphic">
+        </a></div>
+        <div class="hs-win" style="order:8"><a class="card" style="--ar:1/1;order:8" href="#perfume" data-tags="product graphic">
           <span class="card-pill">Perfume Bottle<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover cover-soon"><img class="cover-img" src="img/perfume/cover.jpg" alt="" loading="lazy"><span class="soon-tag">Coming soon</span></div>
           <div class="card-body">
             <div class="card-row" data-type="Product design · in progress"><h3>Perfume Bottle</h3></div>
             <p class="card-type">Product design · in progress</p>
           </div>
-        </a>
+        </a></div>
       </div>
       <div class="m-col">
-        <a class="card" style="--ar:1/1;order:3" href="#soulshine" data-tags="product research">
+        <div class="hs-win" style="order:3"><a class="card" style="--ar:1/1;order:3" href="#soulshine" data-tags="product research">
           <span class="card-pill">Soulshine<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover ssr-cover" aria-hidden="true"><div class="ss1-phone"><div class="ss1-screen"><span class="ss1-isl"></span><img src="img/soulshine/reel/s1.webp" alt="" width="280" height="607" loading="lazy" style="--i:0"><img src="img/soulshine/reel/s2.webp" alt="" width="280" height="607" loading="lazy" style="--i:1"><img src="img/soulshine/reel/s3.webp" alt="" width="280" height="607" loading="lazy" style="--i:2"><img src="img/soulshine/reel/s4.webp" alt="" width="280" height="607" loading="lazy" style="--i:3"><img src="img/soulshine/reel/s5.webp" alt="" width="280" height="607" loading="lazy" style="--i:4"></div></div></div>
           <div class="card-body">
             <div class="card-row" data-type="Digital wellbeing website for a multi-sensory focus lamp & companion app"><h3>Soulshine</h3></div>
             <p class="card-type">Digital wellbeing website for a multi-sensory focus lamp &amp; companion app</p>
           </div>
-        </a>
-        <a class="card" style="--ar:32/21;order:6" href="#rochester-design-hub" data-tags="graphic">
+        </a></div>
+        <div class="hs-win" style="order:6"><a class="card" style="--ar:32/21;order:6" href="#rochester-design-hub" data-tags="graphic">
           <span class="card-pill">Rochester Design Hub<i aria-hidden="true">•</i><em>2026</em></span>
           <div class="cover cover-video rdh-feed"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/uo/rdh-feed-poster.jpg" aria-hidden="true"><source src="img/uo/rdh-feed.mp4" type="video/mp4"></video>
             
@@ -2139,10 +2190,14 @@ html.star-on input,html.star-on textarea{cursor:text!important}
             <div class="card-row" data-type="Executive Board · Marketing Manager"><h3>Rochester Design Hub</h3></div>
             <p class="card-type">Executive Board · Marketing Manager</p>
           </div>
-        </a>
+        </a></div>
       </div>
     </div>
     </section>
+        <div class="hs-entry"><svg class="hs-door" viewBox="0 0 240 320" aria-hidden="true"><path d="M30 296V114a90 90 0 0 1 180 0v182z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M46 296V116a74 74 0 0 1 148 0v180z" fill="#F7DCE2" stroke="#2338A8" stroke-width="2.6"/><path d="M46 116h148" stroke="#2338A8" stroke-width="2.6"/><path d="M46 116a74 74 0 0 1 148 0z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M120 116L184 79 M120 116L157 52 M120 116L120 42 M120 116L83 52 M120 116L56 79" stroke="#2338A8" stroke-width="1.6"/><path d="M120 116V296" stroke="#2338A8" stroke-width="2.6"/><rect x="60" y="134" width="46" height="66" rx="3" fill="none" stroke="#2338A8" stroke-width="2"/><rect x="134" y="134" width="46" height="66" rx="3" fill="none" stroke="#2338A8" stroke-width="2"/><rect x="60" y="216" width="46" height="66" rx="3" fill="none" stroke="#2338A8" stroke-width="2"/><rect x="134" y="216" width="46" height="66" rx="3" fill="none" stroke="#2338A8" stroke-width="2"/><circle cx="110" cy="210" r="4.5" fill="#2338A8"/><circle cx="130" cy="210" r="4.5" fill="#2338A8"/><rect x="14" y="296" width="212" height="11" rx="2" fill="#fff" stroke="#2338A8" stroke-width="2.6"/><rect x="2" y="307" width="236" height="11" rx="2" fill="#fff" stroke="#2338A8" stroke-width="2.6"/></svg></div>
+      </div>
+      <div class="hs-ground" aria-hidden="true"></div>
+    </div>
 
 
   </div>
@@ -4338,6 +4393,15 @@ html.star-on input,html.star-on textarea{cursor:text!important}
     document.documentElement.addEventListener('mouseleave', () => cur.classList.remove('on'));
     window.addEventListener('blur', () => cur.classList.remove('on'));
   }
+
+  /* House home page: flag when the home view is showing */
+  (function(){
+    const hv = document.querySelector('[data-view="professional"]');
+    if (!hv) return;
+    const upd = () => document.documentElement.classList.toggle('hs-home', !hv.hidden);
+    upd(); new MutationObserver(upd).observe(hv, { attributes: true, attributeFilter: ['hidden'] });
+    addEventListener('hashchange', upd);
+  })();
 })();
 </script>
 <script type="module" src="js/lamp3d.js"></script>
