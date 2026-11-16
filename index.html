@@ -2090,6 +2090,31 @@ html body .wash,html body .blobs{display:none!important}
 .home-hero .hh-name{padding:.16em .5em .2em!important;margin:0 0 clamp(18px,2vw,26px)!important;line-height:1!important}
 .home-hero .hh-line{padding:clamp(12px,1.2vw,16px) clamp(22px,2.2vw,32px)!important;margin:0!important;line-height:1.35}
 @media (max-width:600px){.home-hero .hh-line{border-radius:28px;padding:12px 18px!important}.home-hero .hh-name,.home-hero .hh-line{border-width:3px}}
+/* Home tabs as glossy glass pills: plum glass with a magenta/orange glow for the current tab, clear glass for the rest */
+@media (min-width:601px){
+  .hh-tabs{gap:12px!important}
+  .hh-tabs a{position:relative;isolation:isolate;height:46px!important;padding:0 24px!important;border-radius:999px!important;color:#3A2A3C!important;font-weight:500;
+    background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6));
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12)!important;
+    transition:transform .25s var(--ease),box-shadow .25s,color .25s,background .25s}
+  .hh-tabs a::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0));pointer-events:none;z-index:1}
+  .hh-tabs a > *{position:relative;z-index:2}
+  .hh-tabs a:hover{transform:translateY(-2px);box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.5),0 16px 26px -12px rgba(170,70,170,.45),0 0 0 1px rgba(120,80,130,.14)!important}
+  .hh-tabs a[aria-current="page"]{color:#fff!important;
+    background:
+      radial-gradient(120% 70% at 50% 120%,rgba(255,120,220,.85),rgba(255,120,220,0) 60%),
+      radial-gradient(40% 90% at 4% 85%,rgba(255,160,70,.9),rgba(255,160,70,0) 70%),
+      radial-gradient(40% 90% at 96% 85%,rgba(255,170,80,.75),rgba(255,170,80,0) 70%),
+      radial-gradient(60% 80% at 50% 35%,#3A0E33,#5A1650 70%,#7A2468)!important;
+    border-color:rgba(255,255,255,.55)!important;
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 0 0 3px rgba(255,255,255,.18),inset 0 -2px 6px rgba(255,190,240,.5),0 14px 24px -10px rgba(200,60,170,.55),0 22px 34px -18px rgba(255,140,60,.45),0 0 0 1px rgba(80,20,70,.25)!important;
+    text-shadow:0 1px 2px rgba(40,0,30,.4)}
+  .hh-tabs a[aria-current="page"]::before{background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
+  .hh-tabs a span{opacity:.75}
+  .hh-tabs .hh-li{padding:0 14px!important}
+  .hh-tabs .hh-li img{background:#3A2A3C!important;position:relative;z-index:2}
+}
 </style>
 </head>
 <body>
