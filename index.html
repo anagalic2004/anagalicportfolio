@@ -2036,7 +2036,7 @@ html.star-on input,html.star-on textarea{cursor:text!important}
 :root{--ink:#2338A8}
 html.hs-home body::before{background:url("img/home-sky.jpg") center top/cover no-repeat,#B9D6FC!important}
 html.hs-home .wash,html.hs-home .blobs{display:none!important}
-html.hs-home body .top,html.hs-home:not(.home-on) body .top{background:rgba(214,231,255,.78)!important;box-shadow:0 1px 0 rgba(35,56,168,.12)!important;-webkit-backdrop-filter:blur(14px) saturate(1.2)!important;backdrop-filter:blur(14px) saturate(1.2)!important;border-bottom:0!important}
+html.hs-home body .top,html.hs-home:not(.home-on) body .top{background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-bottom:0!important}
 html.hs-home body .top::before,html.hs-home body .top::after{display:none!important}
 [data-view="professional"]{max-width:min(1240px,100%)!important}
 .hs-hero{padding:clamp(56px,8vw,120px) clamp(4px,4vw,64px) clamp(36px,5vw,64px)!important;max-width:none}
@@ -2075,6 +2075,15 @@ html.hs-home .nav a:hover{color:#1C2340!important}
   .hs-win::after{left:-12px;right:-12px}.hs-win::before{left:-8px;right:-8px}
   .hs-dormers{padding-inline:12%}
 }
+/* House home: one text colour and one size for the intro, menu in the same colour */
+html.hs-home{--hs-text:#1C2238}
+.hs-hi,.hs-lead{font-family:var(--body)!important;font-weight:400!important;font-size:clamp(20px,2vw,28px)!important;line-height:1.35!important;letter-spacing:-.005em!important;color:var(--hs-text)!important;max-width:44ch}
+.hs-hi{margin:0 0 4px!important}
+html.hs-home .nav a,html.hs-home .nav a:not([aria-current="page"]),html.hs-home .nav a:hover{color:var(--hs-text)!important}
+html.hs-home .nav a .ext{opacity:1}
+html.hs-home .bw-mark{background-color:var(--hs-text)!important}
+html.hs-home .nav a[aria-current="page"]{background-color:rgba(255,255,255,.6)!important}
+html.hs-home.hs-scrolled body .top{background:rgba(163,200,250,.62)!important;-webkit-backdrop-filter:blur(16px) saturate(1.15)!important;backdrop-filter:blur(16px) saturate(1.15)!important}
 </style>
 </head>
 <body>
@@ -4401,6 +4410,8 @@ html.hs-home .nav a:hover{color:#1C2340!important}
     const upd = () => document.documentElement.classList.toggle('hs-home', !hv.hidden);
     upd(); new MutationObserver(upd).observe(hv, { attributes: true, attributeFilter: ['hidden'] });
     addEventListener('hashchange', upd);
+    const sc = () => document.documentElement.classList.toggle('hs-scrolled', scrollY > 8);
+    sc(); addEventListener('scroll', sc, { passive: true });
   })();
 })();
 </script>
