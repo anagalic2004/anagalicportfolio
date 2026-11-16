@@ -2085,11 +2085,6 @@ html body .wash,html body .blobs{display:none!important}
   html.tabs-home.hs-scrolled .top-in{padding-top:14px!important;padding-bottom:14px!important}
   html.tabs-home .hh-type,html.tabs-home .home-hero{padding-top:clamp(56px,7vw,104px)!important}
 }
-/* Home hero: name and line sit in pink pills with a black outline, like the logo */
-.home-hero .hh-name,.home-hero .hh-line{width:fit-content;max-width:100%;box-sizing:border-box;background:#FADEF5;border:3.5px solid #111;border-radius:999px}
-.home-hero .hh-name{padding:.16em .5em .2em!important;margin:0 0 clamp(18px,2vw,26px)!important;line-height:1!important}
-.home-hero .hh-line{padding:clamp(12px,1.2vw,16px) clamp(22px,2.2vw,32px)!important;margin:0!important;line-height:1.35}
-@media (max-width:600px){.home-hero .hh-line{border-radius:28px;padding:12px 18px!important}.home-hero .hh-name,.home-hero .hh-line{border-width:3px}}
 /* Home tabs as glossy glass pills: plum glass with a magenta/orange glow for the current tab, clear glass for the rest */
 @media (min-width:601px){
   .hh-tabs{gap:12px!important}
@@ -2115,6 +2110,9 @@ html body .wash,html body .blobs{display:none!important}
   .hh-tabs .hh-li{padding:0 14px!important}
   .hh-tabs .hh-li img{background:#3A2A3C!important;position:relative;z-index:2}
 }
+/* Home hero: plain black text, no frames */
+.home-hero .hh-name{color:#111!important;-webkit-text-fill-color:#111!important}
+.home-hero .hh-line{color:#111!important}
 </style>
 </head>
 <body>
