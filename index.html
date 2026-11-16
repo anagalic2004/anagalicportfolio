@@ -2084,6 +2084,41 @@ html.hs-home .nav a .ext{opacity:1}
 html.hs-home .bw-mark{background-color:var(--hs-text)!important}
 html.hs-home .nav a[aria-current="page"]{background-color:rgba(255,255,255,.6)!important}
 html.hs-home.hs-scrolled body .top{background:rgba(163,200,250,.62)!important;-webkit-backdrop-filter:blur(16px) saturate(1.15)!important;backdrop-filter:blur(16px) saturate(1.15)!important}
+/* House v2: house sits higher, intro written on the roof, one dormer where Ana pops out and waves */
+.hs-house{margin-top:clamp(120px,13vw,180px)!important}
+.hs-roof{height:clamp(260px,27vw,390px)!important}
+.hs-chim{left:79%!important}
+.hs-roof-in{position:absolute;left:15.5%;right:13.5%;top:13%;bottom:7%;display:flex;align-items:center;justify-content:space-between;gap:4%}
+.hs-intro{flex:1;min-width:0;max-width:38ch}
+.hs-intro .hs-hi,.hs-intro .hs-lead{font-size:clamp(17px,1.75vw,26px)!important;max-width:none}
+.hs-dorm{height:100%;flex:none;aspect-ratio:200/300;align-self:flex-end}
+.hs-dorm svg{display:block;width:100%;height:100%;overflow:visible}
+.hs-dorm svg *{transform-box:view-box}
+.hs-dorm .dw-pl{transform-origin:36px 160px}
+.hs-dorm .dw-pr{transform-origin:164px 160px}
+.hs-dorm .dw-girl{transform:translateY(150px)}
+.hs-dorm .dw-arm{transform-origin:142px 214px;opacity:0;transform:translateY(40px)}
+.hs-dorm .dw-arm-in{transform-origin:142px 214px}
+.hs-dorm .dw-eyes{transform-origin:100px 118px}
+.hs-dorm.open .dw-pl{animation:dwOpenL .8s cubic-bezier(.3,.7,.3,1) forwards!important}
+.hs-dorm.open .dw-pr{animation:dwOpenR .8s cubic-bezier(.3,.7,.3,1) forwards!important}
+.hs-dorm.open .dw-girl{animation:dwRise .9s cubic-bezier(.3,1.35,.5,1) .5s forwards!important}
+.hs-dorm.open .dw-arm{animation:dwArm .5s ease-out 1.15s forwards!important}
+.hs-dorm.open .dw-arm-in{animation:dwWave 4.5s ease-in-out 1.5s infinite!important}
+.hs-dorm.open .dw-eyes{animation:dwBlink 3.8s ease-in-out 2s infinite!important}
+@keyframes dwOpenL{to{transform:scaleX(.16) skewY(-7deg)}}
+@keyframes dwOpenR{to{transform:scaleX(.16) skewY(7deg)}}
+@keyframes dwRise{from{transform:translateY(150px)}to{transform:translateY(0)}}
+@keyframes dwArm{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dwWave{0%,46%,100%{transform:rotate(0)}6%{transform:rotate(-16deg)}13%{transform:rotate(12deg)}20%{transform:rotate(-16deg)}27%{transform:rotate(12deg)}34%{transform:rotate(-12deg)}40%{transform:rotate(6deg)}}
+@keyframes dwBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@media (max-width:700px){
+  .hs-roof{height:clamp(320px,86vw,370px)!important}
+  .hs-roof-in{flex-direction:column;align-items:stretch;left:17%;right:15%;top:8%;bottom:6%;gap:10px}
+  .hs-intro .hs-hi,.hs-intro .hs-lead{font-size:15.5px!important}
+  .hs-dorm{height:auto;flex:1;min-height:0;align-self:center}
+  .hs-chim{left:76%!important}
+}
 </style>
 </head>
 <body>
@@ -2107,16 +2142,52 @@ html.hs-home.hs-scrolled body .top{background:rgba(163,200,250,.62)!important;-w
 
   <!-- HOME -->
   <div class="view wrap" data-view="professional">
-    <section class="home-hero hs-hero" aria-label="About Ana">
-      <h1 class="hs-hi">Hi, my name is Ana!</h1>
-      <p class="hs-lead">I&rsquo;m an interdisciplinary designer who enjoys exploring the intersection between technology and creative design.</p>
-    </section>
-
     <div class="hs-house">
-      <div class="hs-roof" aria-hidden="true">
-        <div class="hs-chim"><span></span></div>
-        <svg class="hs-roof-shape" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M13 1.2H87L99.4 99H.6z" fill="#fff" stroke="#2338A8" stroke-width="2" vector-effect="non-scaling-stroke"/><path d="M13 1.2L5.4 99" fill="none" stroke="#2338A8" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".55"/></svg>
-        <div class="hs-dormers"><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V108a78 78 0 0 1 156 0v178z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M45 280V112a55 55 0 0 1 110 0v168" fill="none" stroke="#2338A8" stroke-width="1.4"/><path d="M48 102l16 -16 M61 117l16 -16 M74 133l16 -16 M104 102l16 -16 M117 117l16 -16 M130 133l16 -16 M48 178l16 -16 M61 191l16 -16 M74 203l16 -16 M104 178l16 -16 M117 191l16 -16 M130 203l16 -16 M48 243l16 -16 M61 256l16 -16 M74 268l16 -16 M104 243l16 -16 M117 256l16 -16 M130 268l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 57v223M45 150h110M45 215h110" stroke="#2338A8" stroke-width="3" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V128Q22 50 100 8Q178 50 178 128V286z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V130Q36 64 100 26Q164 64 164 130V280z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M48 119l16 -16 M61 132l16 -16 M74 146l16 -16 M104 119l16 -16 M117 132l16 -16 M130 146l16 -16 M48 189l16 -16 M61 200l16 -16 M74 211l16 -16 M104 189l16 -16 M117 200l16 -16 M130 211l16 -16 M48 250l16 -16 M61 260l16 -16 M74 271l16 -16 M104 250l16 -16 M117 260l16 -16 M130 271l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 26V280M45 160V128Q45 92 72 72Q100 92 100 128M100 128Q100 92 128 72Q155 92 155 128V160M45 160h110M45 222h110" stroke="#2338A8" stroke-width="2.8" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg><svg class="dm" viewBox="0 0 200 300" aria-hidden="true"><path d="M22 286V108a78 78 0 0 1 156 0v178z" fill="#fff" stroke="#2338A8" stroke-width="3"/><path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="#FBF1E1" stroke="#2338A8" stroke-width="2.6"/><path d="M45 280V112a55 55 0 0 1 110 0v168" fill="none" stroke="#2338A8" stroke-width="1.4"/><path d="M48 102l16 -16 M61 117l16 -16 M74 133l16 -16 M104 102l16 -16 M117 117l16 -16 M130 133l16 -16 M48 178l16 -16 M61 191l16 -16 M74 203l16 -16 M104 178l16 -16 M117 191l16 -16 M130 203l16 -16 M48 243l16 -16 M61 256l16 -16 M74 268l16 -16 M104 243l16 -16 M117 256l16 -16 M130 268l16 -16" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".38" fill="none"/><path d="M100 57v223M45 150h110M45 215h110" stroke="#2338A8" stroke-width="3" fill="none"/><rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/><path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/></svg></div>
+<div class="hs-roof">
+        <div class="hs-chim" aria-hidden="true"><span></span></div>
+        <svg class="hs-roof-shape" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M13 1.2H87L99.4 99H.6z" fill="#fff" stroke="#2338A8" stroke-width="2" vector-effect="non-scaling-stroke"/><path d="M13 1.2L5.4 99" fill="none" stroke="#2338A8" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".55"/></svg>
+        <div class="hs-roof-in">
+          <div class="hs-intro">
+            <h1 class="hs-hi">Hi, my name is Ana!</h1>
+            <p class="hs-lead">I&rsquo;m an interdisciplinary designer who enjoys exploring the intersection between technology and creative design.</p>
+          </div>
+          <div class="hs-dorm" data-dorm>
+        <svg viewBox="0 0 200 300" aria-hidden="true">
+          <defs>
+            <clipPath id="dwClip"><path d="M36 280V110a64 64 0 0 1 128 0v170z"/></clipPath>
+            <pattern id="dwStripe" width="10" height="13" patternUnits="userSpaceOnUse"><rect width="10" height="13" fill="#fff"/><rect y="8" width="10" height="5" fill="#1E2030"/></pattern>
+          </defs>
+          <path d="M22 286V108a78 78 0 0 1 156 0v178z" fill="#fff" stroke="#2338A8" stroke-width="3"/>
+          <g clip-path="url(#dwClip)">
+            <path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="#E7E9F6"/>
+            <path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="url(#dwGlow)" opacity=".0"/>
+            <g class="dw-girl">
+          <path d="M60 128Q56 66 100 62Q144 66 140 128L146 250Q100 266 54 250Z" fill="#3A2419" stroke="#2338A8" stroke-width="1.6"/>
+          <path d="M91 146h18v30H91z" fill="#F3D2BC" stroke="#2338A8" stroke-width="1.4"/>
+          <path d="M44 290Q44 186 100 172Q156 186 156 290Z" fill="url(#dwStripe)" stroke="#2338A8" stroke-width="2"/>
+          <path d="M88 174Q100 183 112 174" fill="none" stroke="#2338A8" stroke-width="1.6"/>
+          <ellipse cx="100" cy="120" rx="25" ry="30" fill="#F3D2BC" stroke="#2338A8" stroke-width="1.6"/>
+          <circle cx="76" cy="134" r="3.2" fill="none" stroke="#D9A441" stroke-width="2"/><circle cx="124" cy="134" r="3.2" fill="none" stroke="#D9A441" stroke-width="2"/>
+          <path d="M100 82Q72 84 70 124L68 168Q76 140 82 112Q88 94 100 88Q112 94 118 112Q124 140 132 168L130 124Q128 84 100 82Z" fill="#3A2419"/>
+          <path d="M84 109q6-3 12 0M104 109q6-3 12 0" fill="none" stroke="#3A2419" stroke-width="2" stroke-linecap="round"/>
+          <g class="dw-eyes"><ellipse cx="90" cy="118" rx="2.6" ry="3.2" fill="#2338A8"/><ellipse cx="110" cy="118" rx="2.6" ry="3.2" fill="#2338A8"/></g>
+          <circle cx="84" cy="130" r="5" fill="#F2A7B0" opacity=".55"/><circle cx="116" cy="130" r="5" fill="#F2A7B0" opacity=".55"/>
+          <path d="M92 135Q100 143 108 135" fill="none" stroke="#2338A8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M48 266Q48 256 60 255H96Q104 256 104 266Q104 276 96 278H58Q48 278 48 266Z" fill="url(#dwStripe)" stroke="#2338A8" stroke-width="1.8"/>
+          <ellipse cx="106" cy="267" rx="9" ry="8" fill="#F3D2BC" stroke="#2338A8" stroke-width="1.6"/>
+        </g>
+          </g>
+          <path d="M36 280V110a64 64 0 0 1 128 0v170z" fill="none" stroke="#2338A8" stroke-width="2.6"/>
+          <g class="dw-pl"><path d="M36 280V110a64 64 0 0 1 64-64V280z" fill="rgba(255,255,255,.55)" stroke="#2338A8" stroke-width="2.6"/><path d="M36 150h64M36 215h64M68 52V280" stroke="#2338A8" stroke-width="2.4" fill="none"/><path d="M44 108l8 -8 M53 128l8 -8 M74 95l8 -8 M84 121l8 -8 M44 177l8 -8 M53 195l8 -8 M74 177l8 -8 M84 196l8 -8" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".35" fill="none"/></g><g class="dw-pr"><path d="M100 46a64 64 0 0 1 64 64V280H100z" fill="rgba(255,255,255,.55)" stroke="#2338A8" stroke-width="2.6"/><path d="M100 150h64M100 215h64M132 52V280" stroke="#2338A8" stroke-width="2.4" fill="none"/><path d="M106 95l8 -8 M116 121l8 -8 M138 108l8 -8 M147 128l8 -8 M106 177l8 -8 M116 196l8 -8 M138 177l8 -8 M147 195l8 -8" stroke="#2338A8" stroke-width="1.2" stroke-linecap="round" opacity=".35" fill="none"/></g>
+          <rect x="12" y="279" width="176" height="17" rx="2" fill="#F3E7D3" stroke="#2338A8" stroke-width="2.6"/>
+          <path d="M28 287h30M74 286h44M134 288h36" stroke="#2338A8" stroke-width="1" opacity=".45"/>
+          <g class="dw-arm"><g class="dw-arm-in">
+          <path d="M134 206L140 152Q141 144 150 145L160 147Q166 149 164 157L154 216Z" fill="url(#dwStripe)" stroke="#2338A8" stroke-width="1.8"/>
+          <g class="dw-hand"><ellipse cx="153" cy="133" rx="11" ry="13" fill="#F3D2BC" stroke="#2338A8" stroke-width="1.6"/><path d="M146 122v-8M151 120v-10M156 120v-9M161 124v-7" stroke="#2338A8" stroke-width="5.5" stroke-linecap="round"/><path d="M146 122v-8M151 120v-10M156 120v-9M161 124v-7" stroke="#F3D2BC" stroke-width="3" stroke-linecap="round"/></g>
+        </g></g>
+        </svg>
+      </div>
+        </div>
       </div>
       <div class="hs-cornice" aria-hidden="true"><i></i><b></b></div>
       <div class="hs-facade">
@@ -4413,6 +4484,15 @@ html.hs-home.hs-scrolled body .top{background:rgba(163,200,250,.62)!important;-w
     const sc = () => document.documentElement.classList.toggle('hs-scrolled', scrollY > 8);
     sc(); addEventListener('scroll', sc, { passive: true });
   })();
+
+  /* House: the dormer opens and Ana waves when the roof comes into view */
+  document.querySelectorAll('[data-dorm]').forEach(d => {
+    if (!('IntersectionObserver' in window)) { d.classList.add('open'); return; }
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > .55) d.classList.add('open');
+      else if (!e.isIntersecting) d.classList.remove('open');
+    }), { threshold: [0, .6] }).observe(d);
+  });
 })();
 </script>
 <script type="module" src="js/lamp3d.js"></script>
