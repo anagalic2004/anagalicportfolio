@@ -2144,6 +2144,33 @@ article.view .back-row,article.view > a.next{display:none!important}
 }
 article.view.is-proj > *{flex-shrink:0}
 article.view > .pj-foot{margin-top:0!important}
+/* Footer: no card, just "Say hello" + email and glass pill links on white */
+.foot.ft2{background:none!important;box-shadow:none!important;clip-path:none!important;color:#1F232A!important;padding-block:clamp(40px,5vw,72px) 28px!important}
+.ft2 .foot-in{gap:clamp(28px,3vw,40px)!important}
+.ft2-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(31,35,42,.08)}
+.ft2 .email{display:flex;flex-direction:column;gap:14px}
+.ft2 .email .label{margin:0;font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8A9099!important}
+.ft2 .email-line{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:8px;padding:6px 6px 6px 22px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6))!important;border:1px solid rgba(255,255,255,.9)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12)!important}
+.ft2 .email-line::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+.ft2 .email-addr{font-weight:500!important;font-size:clamp(15px,1.3vw,18px)!important;color:#3A2A3C!important}
+.ft2 .copy{position:relative;isolation:isolate;flex:none;white-space:nowrap;height:40px;padding:0 20px!important;border-radius:999px!important;font-size:14px!important;font-weight:500!important;cursor:pointer;transition:transform .25s;background:radial-gradient(120% 70% at 50% 120%,rgba(255,120,220,.85),rgba(255,120,220,0) 60%),radial-gradient(40% 90% at 4% 85%,rgba(255,160,70,.9),rgba(255,160,70,0) 70%),radial-gradient(40% 90% at 96% 85%,rgba(255,170,80,.75),rgba(255,170,80,0) 70%),radial-gradient(60% 80% at 50% 35%,#3A0E33,#5A1650 70%,#7A2468)!important;border:1px solid rgba(255,255,255,.55)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 0 0 3px rgba(255,255,255,.18),inset 0 -2px 6px rgba(255,190,240,.5),0 14px 24px -10px rgba(200,60,170,.55),0 22px 34px -18px rgba(255,140,60,.45),0 0 0 1px rgba(80,20,70,.25)!important;color:#fff!important;text-shadow:0 1px 2px rgba(40,0,30,.4)}
+.ft2 .copy::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));z-index:-1}
+.ft2 .copy:hover{transform:translateY(-2px)}
+.ft2 .foot-nav{display:flex;flex-wrap:wrap;gap:10px!important;font-size:15px!important}
+.ft2 .foot-nav a{position:relative;isolation:isolate;display:inline-flex;align-items:center;height:42px;padding:0 20px!important;border-radius:999px;color:#3A2A3C!important;font-weight:500!important;text-decoration:none;transition:transform .25s;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6))!important;border:1px solid rgba(255,255,255,.9)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12)!important}
+.ft2 .foot-nav a::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+.ft2 .foot-nav a:hover{transform:translateY(-2px)}
+.ft2 .foot-nav a span{color:inherit!important;opacity:.7;margin-left:3px}
+.ft2 .foot-small{display:flex;justify-content:space-between;font-size:13px!important;color:#8A9099!important;border:0!important;padding:0!important}
+@media (max-width:640px){.ft2-row{flex-direction:column;align-items:stretch}.ft2 .email-line{width:100%;justify-content:space-between;padding-left:16px}.ft2 .email-addr{font-size:14px!important;min-width:0;overflow:hidden;text-overflow:ellipsis}.ft2 .copy{padding:0 14px!important}}
+/* Selected work: 3 per row on wide screens */
+@media (min-width:1101px){.grid.gallery.masonry.framed{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(18px,2vw,28px)!important}.gallery.framed .card-pill{font-size:14.5px}}
+@media (min-width:761px) and (max-width:1100px){.grid.gallery.masonry.framed{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+/* Bigger logo */
+.brand-logo{height:clamp(40px,3.6vw,56px)!important}
+/* Peaceland key finding: tag as a plum liquid-glass pill */
+[data-view="peaceland"] .pl-q-tag{position:relative;isolation:isolate;padding:0 20px!important;height:38px;align-items:center;font-size:14px!important;font-weight:500;background:radial-gradient(120% 70% at 50% 120%,rgba(255,120,220,.85),rgba(255,120,220,0) 60%),radial-gradient(40% 90% at 4% 85%,rgba(255,160,70,.9),rgba(255,160,70,0) 70%),radial-gradient(40% 90% at 96% 85%,rgba(255,170,80,.75),rgba(255,170,80,0) 70%),radial-gradient(60% 80% at 50% 35%,#3A0E33,#5A1650 70%,#7A2468)!important;border:1px solid rgba(255,255,255,.55)!important;box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 0 0 3px rgba(255,255,255,.18),inset 0 -2px 6px rgba(255,190,240,.5),0 14px 24px -10px rgba(200,60,170,.55),0 22px 34px -18px rgba(255,140,60,.45),0 0 0 1px rgba(80,20,70,.25)!important;color:#fff!important;text-shadow:0 1px 2px rgba(40,0,30,.4)}
+[data-view="peaceland"] .pl-q-tag::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));z-index:-1}
 </style>
 </head>
 <body>
@@ -3454,15 +3481,9 @@ article.view > .pj-foot{margin-top:0!important}
 
 </main>
 
-<footer class="foot" id="contact">
+<footer class="foot ft2" id="contact">
   <div class="foot-in">
-    <div class="foot-card">
-      <div class="foot-top">
-        <p class="avail"><span class="avail-dot" aria-hidden="true"></span>Open to work</p>
-        <p class="foot-kicker">Contact</p>
-      </div>
-      <p class="foot-cta">Got an idea? Let&rsquo;s sketch it, design it, and make it <em>real</em>.</p>
-      <div class="foot-row">
+    <div class="ft2-row">
         <div class="email">
           <p class="label">Say hello</p>
           <div class="email-line">
@@ -3473,7 +3494,6 @@ article.view > .pj-foot{margin-top:0!important}
         <nav class="foot-nav" aria-label="Footer">
           <a href="#work">Work</a><a href="#personal">Personal</a><a href="#about">About</a><a href="https://anagalicportfolio.com/AnaGalic_Resume.pdf?v=2026-11-15" target="_blank" rel="noopener">Resume <span aria-hidden="true">&#8599;</span></a><a href="https://www.linkedin.com/in/anagalic" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a>
         </nav>
-      </div>
     </div>
     <div class="foot-small"><span>&copy; 2026 Ana Gali&#263;</span><span>Designed and built by me</span></div>
   </div>
