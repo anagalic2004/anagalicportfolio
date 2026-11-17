@@ -2292,6 +2292,28 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
 .pt figcaption b{font-weight:500;font-size:14px;color:#2A2D33}
 .pt figcaption span{font-size:13px;color:#8A9099}
 @media (max-width:560px){.ab2-snaps{flex-direction:column}.ab2-snaps figure{flex:none!important;width:100%}.ab2-paint{columns:2 140px}}
+/* Gallery: a sideways-scrolling strip; "See full gallery" opens the full grid */
+.ab2-galwrap{position:relative}
+.ab2-paint:not(.full){columns:auto!important;display:flex;gap:clamp(18px,2vw,28px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 14px;scrollbar-width:thin;scrollbar-color:rgba(90,22,80,.25) transparent;-webkit-mask:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.ab2-paint:not(.full) .pt{flex:none;width:auto;margin:0!important;scroll-snap-align:start;display:block}
+.ab2-paint:not(.full) .pt-btn img{height:clamp(170px,17vw,230px);width:auto;max-width:none}
+.ab2-paint:not(.full) .pt figcaption{max-width:260px;margin-inline:auto}
+.ab2-paint:focus-visible{outline:2px solid #5A1650;outline-offset:4px;border-radius:8px}
+.ab2-arr{position:absolute;top:calc(clamp(170px,17vw,230px)/2 + 16px);z-index:3;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:17px;color:#3A2A3C;cursor:pointer;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12);transition:opacity .2s,transform .2s}
+.ab2-arr.prev{left:-14px}.ab2-arr.next{right:-14px}
+.ab2-arr:hover{transform:translateY(calc(-50% - 2px))}
+.ab2-arr[disabled]{opacity:0;pointer-events:none}
+.ab2-galwrap.is-full .ab2-arr{display:none}
+.ab2-paint.full{display:block;-webkit-mask:none;mask:none}
+.ab2-more{display:flex;justify-content:center;margin-top:clamp(18px,2vw,26px)}
+.ab2-full{position:relative;isolation:isolate;height:42px;padding:0 22px;border-radius:999px;font:inherit;font-size:15px;font-weight:500;color:#3A2A3C;cursor:pointer;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(246,238,248,.6));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.35),0 10px 20px -12px rgba(150,70,150,.35),0 0 0 1px rgba(120,80,130,.12);transition:transform .25s}
+.ab2-full::before{content:"";position:absolute;left:10%;right:10%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+.ab2-full:hover{transform:translateY(-2px)}
+.ab2-full span{opacity:.6;margin-left:2px}
+@media (hover:none){.ab2-arr{display:none}}
+@media (max-width:560px){.ab2-paint:not(.full) .pt-btn img{height:150px}}
+.ab2-main{gap:clamp(48px,5vw,72px)!important}
+.ab2-arr{line-height:1;padding:0;padding-bottom:2px}
 </style>
 </head>
 <body>
@@ -3519,21 +3541,17 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
             <figure style="flex:1.95"><div class="plaque"><img src="img/about-moma.jpg" width="1600" height="820" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"></div><figcaption>At MoMA, New York</figcaption></figure>
             <figure style="flex:.76"><div class="plaque"><img src="img/about-canyon.jpg" width="900" height="1180" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"></div><figcaption>On the trail</figcaption></figure>
           </div>
-          <div class="abx">
-            <h2 class="ab2-h2">Experience</h2>
-            <ul class="abx-list">
-              <li class="abx-row"><span class="abx-logo"><i>iZ</i></span><span class="abx-txt"><b>Barbara J. Burger iZone</b><span>Marketing Assistant, Graphic Design Team</span></span><span class="abx-when">Aug 2026 &ndash; Present</span></li>
-              <li class="abx-row"><span class="abx-logo"><i>PR</i></span><span class="abx-txt"><b>Peaceland Research</b><span>UX/UI Design &amp; Narrative Research Assistant</span></span><span class="abx-when">Jan &ndash; Jul 2026</span></li>
-            </ul>
-          </div>
         </section>
 
         <section class="ab2-sec" id="ab-gallery" aria-labelledby="ab-gal-h">
           <h2 class="ab2-h2" id="ab-gal-h">Gallery</h2>
           <p class="ab2-sub">Favorite paintings I&rsquo;ve seen in person.</p>
-          <div class="ab2-paint" data-gallery="Favorite paintings">
+          <div class="ab2-galwrap"><button type="button" class="ab2-arr prev" aria-label="Scroll paintings left">&larr;</button><button type="button" class="ab2-arr next" aria-label="Scroll paintings right">&rarr;</button>
+          <div class="ab2-paint" data-gallery="Favorite paintings" tabindex="0" aria-label="Favorite paintings, scroll sideways">
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p01.jpg" aria-label="Enlarge: The Olive Trees, Vincent van Gogh, 1889"><img src="img/about/art/p01-sm.jpg" width="720" height="600" alt="The Olive Trees, Vincent van Gogh, 1889" loading="lazy"></button></div><figcaption><b>The Olive Trees</b><span>Vincent van Gogh, 1889</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p20.jpg" aria-label="Enlarge: The Starry Night, Vincent van Gogh, 1889"><img src="img/about/art/p20-sm.jpg" width="720" height="588" alt="The Starry Night, Vincent van Gogh, 1889" loading="lazy"></button></div><figcaption><b>The Starry Night</b><span>Vincent van Gogh, 1889</span></figcaption></figure>
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p02.jpg" aria-label="Enlarge: The Persistence of Memory, Salvador Dalí, 1931"><img src="img/about/art/p02-sm.jpg" width="720" height="617" alt="The Persistence of Memory, Salvador Dalí, 1931" loading="lazy"></button></div><figcaption><b>The Persistence of Memory</b><span>Salvador Dal&iacute;, 1931</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p21.jpg" aria-label="Enlarge: Gas, Edward Hopper, 1940"><img src="img/about/art/p21-sm.jpg" width="720" height="515" alt="Gas, Edward Hopper, 1940" loading="lazy"></button></div><figcaption><b>Gas</b><span>Edward Hopper, 1940</span></figcaption></figure>
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p03.jpg" aria-label="Enlarge: Dance (I), Henri Matisse, 1909"><img src="img/about/art/p03-sm.jpg" width="720" height="488" alt="Dance (I), Henri Matisse, 1909" loading="lazy"></button></div><figcaption><b>Dance (I)</b><span>Henri Matisse, 1909</span></figcaption></figure>
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p04.jpg" aria-label="Enlarge: The Horse Fair, Rosa Bonheur, 1852–55"><img src="img/about/art/p04-sm.jpg" width="720" height="562" alt="The Horse Fair, Rosa Bonheur, 1852–55" loading="lazy"></button></div><figcaption><b>The Horse Fair</b><span>Rosa Bonheur, 1852&ndash;55</span></figcaption></figure>
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p05.jpg" aria-label="Enlarge: The Daughters of Catulle Mendès, Pierre-Auguste Renoir, 1888"><img src="img/about/art/p05-sm.jpg" width="588" height="720" alt="The Daughters of Catulle Mendès, Pierre-Auguste Renoir, 1888" loading="lazy"></button></div><figcaption><b>The Daughters of Catulle Mend&egrave;s</b><span>Pierre-Auguste Renoir, 1888</span></figcaption></figure>
@@ -3552,6 +3570,8 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p18.jpg" aria-label="Enlarge: Salon interior, Mihály Munkácsy, 1879"><img src="img/about/art/p18-sm.jpg" width="720" height="540" alt="Salon interior, Mihály Munkácsy, 1879" loading="lazy"></button></div><figcaption><b>Salon interior</b><span>Mih&aacute;ly Munk&aacute;csy, 1879</span></figcaption></figure>
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p19.jpg" aria-label="Enlarge: Forest path"><img src="img/about/art/p19-sm.jpg" width="720" height="540" alt="Forest path" loading="lazy"></button></div><figcaption><b>Forest path</b></figcaption></figure>
           </div>
+          </div>
+          <div class="ab2-more"><button type="button" class="ab2-full" aria-expanded="false">See full gallery <span aria-hidden="true">(21)</span></button></div>
         </section>
 
         <section class="ab2-sec" id="ab-community" aria-labelledby="ab-com-h">
@@ -4687,6 +4707,26 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
       btns.forEach((b, i) => b.classList.toggle('on', i === cur));
     };
     addEventListener('scroll', pick, { passive: true }); addEventListener('hashchange', () => setTimeout(pick, 50));
+  })();
+
+  /* About gallery: arrows scroll the strip; "See full gallery" toggles the grid */
+  (function(){
+    const strip = document.querySelector('.ab2-paint'); if (!strip) return;
+    const wrap = strip.closest('.ab2-galwrap'), prev = wrap.querySelector('.prev'), next = wrap.querySelector('.next');
+    const btn = document.querySelector('.ab2-full');
+    const upd = () => { prev.disabled = strip.scrollLeft < 4; next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4; };
+    const step = d => strip.scrollBy({ left: d * strip.clientWidth * 0.8, behavior: 'smooth' });
+    prev.addEventListener('click', () => step(-1)); next.addEventListener('click', () => step(1));
+    strip.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); setTimeout(upd, 300);
+    strip.addEventListener('keydown', e => { if (strip.classList.contains('full')) return; if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); } });
+    btn.addEventListener('click', () => {
+      const on = !strip.classList.contains('full');
+      strip.classList.toggle('full', on); wrap.classList.toggle('is-full', on);
+      btn.setAttribute('aria-expanded', on);
+      btn.innerHTML = on ? 'Show less' : 'See full gallery <span aria-hidden="true">(21)</span>';
+      if (!on) { strip.scrollLeft = 0; document.getElementById('ab-gallery').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      upd();
+    });
   })();
 })();
 </script>
