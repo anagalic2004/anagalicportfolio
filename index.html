@@ -2271,6 +2271,27 @@ html.tabs-home [data-view="professional"],html.tabs-home [data-view="about"],htm
 .ab2-favs b{font-weight:500;font-size:16px;color:#2A2D33}
 @media (max-width:860px){.ab2-grid{grid-template-columns:minmax(0,1fr)}.ab2-side{display:none}.ab2-intro{grid-template-columns:minmax(0,1fr)}.ab2-figure{max-width:260px}}
 @media (max-width:560px){.ab2-gal,.ab2-favs{grid-template-columns:minmax(0,1fr)}.abx-row{grid-template-columns:48px minmax(0,1fr)}.abx-logo{width:48px;height:48px}.abx-when{grid-column:2;margin-top:-10px}}
+/* About v3: plaques add no shadow or glare over the pictures; intro snapshots; painting gallery */
+html body .plaque{background:linear-gradient(162deg,rgba(255,255,255,.95) 0%,rgba(246,247,250,.8) 40%,rgba(234,236,241,.7) 40.4%,rgba(244,245,248,.85) 100%)!important;
+  box-shadow:inset 0 1.5px 1px #fff,inset 0 0 0 1px rgba(255,255,255,.8),0 0 0 1px rgba(30,36,50,.09)!important}
+html body .plaque::after{display:none!important}
+html body .plaque img{box-shadow:none!important;filter:none!important}
+.ab2-snaps{grid-column:1 / -1;display:flex;gap:clamp(18px,2.4vw,32px);align-items:flex-start;margin-top:clamp(20px,2.6vw,36px)}
+.ab2-snaps figure{margin:0;min-width:0}
+.ab2-snaps figcaption{margin-top:12px;text-align:center;font-size:14px;color:#8A9099}
+.ab2-intro .abx{margin-top:clamp(40px,4.4vw,64px)!important}
+.ab2-sub{margin:-12px 0 26px;font-size:15.5px;color:#8A9099}
+.ab2-paint{columns:3 210px;column-gap:clamp(20px,2.4vw,32px)}
+.ab2-paint .pt{break-inside:avoid;margin:0 0 clamp(22px,2.6vw,34px);display:inline-block;width:100%}
+.ab2-paint .plaque{padding:12px}
+.ab2-paint .plaque::before{background-size:9px 9px!important}
+.pt-btn{all:unset;display:block;cursor:zoom-in;border-radius:3px;overflow:hidden}
+.pt-btn:focus-visible{outline:2px solid #5A1650;outline-offset:3px}
+.pt-btn img{display:block;width:100%;height:auto;border-radius:3px!important}
+.pt figcaption{display:flex;flex-direction:column;gap:2px;margin-top:10px;text-align:center}
+.pt figcaption b{font-weight:500;font-size:14px;color:#2A2D33}
+.pt figcaption span{font-size:13px;color:#8A9099}
+@media (max-width:560px){.ab2-snaps{flex-direction:column}.ab2-snaps figure{flex:none!important;width:100%}.ab2-paint{columns:2 140px}}
 </style>
 </head>
 <body>
@@ -3494,6 +3515,10 @@ html.tabs-home [data-view="professional"],html.tabs-home [data-view="about"],htm
               <a class="ab-link" href="mailto:anagalic.2004@gmail.com">Email me<span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
+          <div class="ab2-snaps">
+            <figure style="flex:1.95"><div class="plaque"><img src="img/about-moma.jpg" width="1600" height="820" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"></div><figcaption>At MoMA, New York</figcaption></figure>
+            <figure style="flex:.76"><div class="plaque"><img src="img/about-canyon.jpg" width="900" height="1180" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"></div><figcaption>On the trail</figcaption></figure>
+          </div>
           <div class="abx">
             <h2 class="ab2-h2">Experience</h2>
             <ul class="abx-list">
@@ -3505,11 +3530,27 @@ html.tabs-home [data-view="professional"],html.tabs-home [data-view="about"],htm
 
         <section class="ab2-sec" id="ab-gallery" aria-labelledby="ab-gal-h">
           <h2 class="ab2-h2" id="ab-gal-h">Gallery</h2>
-          <div class="ab2-gal">
-            <figure><div class="plaque"><img src="img/about-moma.jpg" width="1600" height="820" alt="Ana smiling in front of Picasso's Les Demoiselles d'Avignon at MoMA" loading="lazy"></div><figcaption>At MoMA, New York</figcaption></figure>
-            <figure><div class="plaque"><img src="img/about-canyon.jpg" width="900" height="1180" alt="Backpackers climbing a rocky trail under a red canyon overhang" loading="lazy"></div><figcaption>On the trail</figcaption></figure>
-            <figure><div class="plaque"><img src="img/peaceland/nyc/booth-sm.jpg" alt="Ana and Bella Miller holding up the Peaceland demo at the NYC PIT Pop Up" loading="lazy"></div><figcaption>Bringing Peaceland to the Oculus, NYC</figcaption></figure>
-            <figure><div class="plaque"><img src="img/peaceland/showcase-2026.jpg" alt="Ana with her Peaceland research poster" loading="lazy"></div><figcaption>Research Poster Showcase</figcaption></figure>
+          <p class="ab2-sub">Favorite paintings I&rsquo;ve seen in person.</p>
+          <div class="ab2-paint" data-gallery="Favorite paintings">
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p01.jpg" aria-label="Enlarge: The Olive Trees, Vincent van Gogh, 1889"><img src="img/about/art/p01-sm.jpg" width="720" height="600" alt="The Olive Trees, Vincent van Gogh, 1889" loading="lazy"></button></div><figcaption><b>The Olive Trees</b><span>Vincent van Gogh, 1889</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p02.jpg" aria-label="Enlarge: The Persistence of Memory, Salvador Dalí, 1931"><img src="img/about/art/p02-sm.jpg" width="720" height="617" alt="The Persistence of Memory, Salvador Dalí, 1931" loading="lazy"></button></div><figcaption><b>The Persistence of Memory</b><span>Salvador Dal&iacute;, 1931</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p03.jpg" aria-label="Enlarge: Dance (I), Henri Matisse, 1909"><img src="img/about/art/p03-sm.jpg" width="720" height="488" alt="Dance (I), Henri Matisse, 1909" loading="lazy"></button></div><figcaption><b>Dance (I)</b><span>Henri Matisse, 1909</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p04.jpg" aria-label="Enlarge: The Horse Fair, Rosa Bonheur, 1852–55"><img src="img/about/art/p04-sm.jpg" width="720" height="562" alt="The Horse Fair, Rosa Bonheur, 1852–55" loading="lazy"></button></div><figcaption><b>The Horse Fair</b><span>Rosa Bonheur, 1852&ndash;55</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p05.jpg" aria-label="Enlarge: The Daughters of Catulle Mendès, Pierre-Auguste Renoir, 1888"><img src="img/about/art/p05-sm.jpg" width="588" height="720" alt="The Daughters of Catulle Mendès, Pierre-Auguste Renoir, 1888" loading="lazy"></button></div><figcaption><b>The Daughters of Catulle Mend&egrave;s</b><span>Pierre-Auguste Renoir, 1888</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p06.jpg" aria-label="Enlarge: Bridge over a Pond of Water Lilies, Claude Monet, 1899"><img src="img/about/art/p06-sm.jpg" width="612" height="720" alt="Bridge over a Pond of Water Lilies, Claude Monet, 1899" loading="lazy"></button></div><figcaption><b>Bridge over a Pond of Water Lilies</b><span>Claude Monet, 1899</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p07.jpg" aria-label="Enlarge: The Rape of Tamar, Eustache Le Sueur, c. 1640"><img src="img/about/art/p07-sm.jpg" width="621" height="720" alt="The Rape of Tamar, Eustache Le Sueur, c. 1640" loading="lazy"></button></div><figcaption><b>The Rape of Tamar</b><span>Eustache Le Sueur, c. 1640</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p08.jpg" aria-label="Enlarge: Mountains at Saint-Rémy, Vincent van Gogh, 1889"><img src="img/about/art/p08-sm.jpg" width="720" height="604" alt="Mountains at Saint-Rémy, Vincent van Gogh, 1889" loading="lazy"></button></div><figcaption><b>Mountains at Saint-R&eacute;my</b><span>Vincent van Gogh, 1889</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p09.jpg" aria-label="Enlarge: Le Moulin de la Galette, Pablo Picasso, 1900"><img src="img/about/art/p09-sm.jpg" width="720" height="599" alt="Le Moulin de la Galette, Pablo Picasso, 1900" loading="lazy"></button></div><figcaption><b>Le Moulin de la Galette</b><span>Pablo Picasso, 1900</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p10.jpg" aria-label="Enlarge: Broadway Boogie Woogie, Piet Mondrian, 1942–43"><img src="img/about/art/p10-sm.jpg" width="720" height="502" alt="Broadway Boogie Woogie, Piet Mondrian, 1942–43" loading="lazy"></button></div><figcaption><b>Broadway Boogie Woogie</b><span>Piet Mondrian, 1942&ndash;43</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p11.jpg" aria-label="Enlarge: Woman Reading in the Woods, Gyula Benczúr, 1875"><img src="img/about/art/p11-sm.jpg" width="720" height="540" alt="Woman Reading in the Woods, Gyula Benczúr, 1875" loading="lazy"></button></div><figcaption><b>Woman Reading in the Woods</b><span>Gyula Bencz&uacute;r, 1875</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p12.jpg" aria-label="Enlarge: Sleeping woman"><img src="img/about/art/p12-sm.jpg" width="720" height="540" alt="Sleeping woman" loading="lazy"></button></div><figcaption><b>Sleeping woman</b></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p13.jpg" aria-label="Enlarge: Girls After the Ball, József Borsos, 1850"><img src="img/about/art/p13-sm.jpg" width="720" height="540" alt="Girls After the Ball, József Borsos, 1850" loading="lazy"></button></div><figcaption><b>Girls After the Ball</b><span>J&oacute;zsef Borsos, 1850</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p14.jpg" aria-label="Enlarge: Ossian"><img src="img/about/art/p14-sm.jpg" width="720" height="540" alt="Ossian" loading="lazy"></button></div><figcaption><b>Ossian</b></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p15.jpg" aria-label="Enlarge: The Mourning of László Hunyadi, Viktor Madarász, 1859"><img src="img/about/art/p15-sm.jpg" width="720" height="540" alt="The Mourning of László Hunyadi, Viktor Madarász, 1859" loading="lazy"></button></div><figcaption><b>The Mourning of L&aacute;szl&oacute; Hunyadi</b><span>Viktor Madar&aacute;sz, 1859</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p16.jpg" aria-label="Enlarge: Woman sharing her cloak"><img src="img/about/art/p16-sm.jpg" width="540" height="720" alt="Woman sharing her cloak" loading="lazy"></button></div><figcaption><b>Woman sharing her cloak</b></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p17.jpg" aria-label="Enlarge: Portrait of a girl, Mihály Munkácsy"><img src="img/about/art/p17-sm.jpg" width="545" height="720" alt="Portrait of a girl, Mihály Munkácsy" loading="lazy"></button></div><figcaption><b>Portrait of a girl</b><span>Mih&aacute;ly Munk&aacute;csy</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p18.jpg" aria-label="Enlarge: Salon interior, Mihály Munkácsy, 1879"><img src="img/about/art/p18-sm.jpg" width="720" height="540" alt="Salon interior, Mihály Munkácsy, 1879" loading="lazy"></button></div><figcaption><b>Salon interior</b><span>Mih&aacute;ly Munk&aacute;csy, 1879</span></figcaption></figure>
+            <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p19.jpg" aria-label="Enlarge: Forest path"><img src="img/about/art/p19-sm.jpg" width="720" height="540" alt="Forest path" loading="lazy"></button></div><figcaption><b>Forest path</b></figcaption></figure>
           </div>
         </section>
 
