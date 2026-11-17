@@ -2314,6 +2314,20 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
 @media (max-width:560px){.ab2-paint:not(.full) .pt-btn img{height:150px}}
 .ab2-main{gap:clamp(48px,5vw,72px)!important}
 .ab2-arr{line-height:1;padding:0;padding-bottom:2px}
+/* About v4: degrees on their own lines, aligned snapshots, Favorites with sub-sections */
+.ab2-meta{flex-direction:column!important;gap:8px!important}
+.ab2-snaps{align-items:stretch!important}
+.ab2-snaps figure{display:flex;flex-direction:column}
+.ab2-snaps .plaque img{height:clamp(220px,24vw,340px)!important;width:100%;object-fit:cover}
+.ab2-side button.sub{padding-left:16px;font-size:15px}
+.ab2-fav{scroll-margin-top:110px;margin-top:clamp(28px,3vw,40px)}
+.ab2-fav:first-of-type{margin-top:6px}
+.ab2-h3{margin:0 0 14px;font-weight:500;font-size:clamp(18px,1.6vw,21px);color:#3F434B;letter-spacing:-.005em}
+.ab2-fav .ab2-sub{margin:-6px 0 22px}
+.ab2-soon,.ab2-insp{margin:0;max-width:62ch;font-size:16px;line-height:1.65;color:#7A808A}
+.ab2-soon{display:inline-flex;padding:14px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(246,238,248,.6));box-shadow:inset 0 1px 1px #fff,0 0 0 1px rgba(120,80,130,.1),0 10px 20px -16px rgba(150,70,150,.3);font-size:15px}
+.ab2-insp{color:#4A4D55;font-size:16.5px}
+@media (max-width:560px){.ab2-snaps .plaque img{height:auto!important}}
 </style>
 </head>
 <body>
@@ -3515,9 +3529,12 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
     <div class="ab2-grid">
       <nav class="ab2-side" aria-label="On this page">
         <button type="button" data-ab="ab-intro" class="on">Let me introduce myself!</button>
-        <button type="button" data-ab="ab-gallery">Gallery</button>
         <button type="button" data-ab="ab-community">My community</button>
         <button type="button" data-ab="ab-favorites">Favorites</button>
+        <button type="button" data-ab="fav-museum" class="sub">Museum</button>
+        <button type="button" data-ab="fav-biblioteca" class="sub">Biblioteca</button>
+        <button type="button" data-ab="fav-playlist" class="sub">Playlist</button>
+        <button type="button" data-ab="fav-inspiration" class="sub">Inspiration</button>
       </nav>
       <div class="ab2-main">
         <section class="ab2-sec ab2-intro" id="ab-intro" aria-labelledby="ab-hi">
@@ -3527,7 +3544,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
           </figure>
           <div class="ab2-text">
             <h1 class="ab2-h" id="ab-hi">Hi, I&rsquo;m Ana!</h1>
-            <p class="ab2-meta"><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Rochester, NY</span><span><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.6L12 21l7-4.2v-3.6L12 17l-7-3.8z"/></svg>B.S. Computer Science &amp; B.A. Digital Media Studies, University of Rochester</span></p>
+            <p class="ab2-meta"><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Rochester, NY</span><span><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.6L12 21l7-4.2v-3.6L12 17l-7-3.8z"/></svg>B.S. Computer Science, University of Rochester</span><span><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.6L12 21l7-4.2v-3.6L12 17l-7-3.8z"/></svg>B.A. Digital Media Studies, University of Rochester</span></p>
             <p>I love the place where logic, design, and people meet. I study Computer Science and Digital Media Studies with a focus in Psychology, and I&rsquo;m happiest on problems that need both a clear head and a creative one.</p>
             <p>Most of my inspiration comes from the people and nature around me. People remind me who I&rsquo;m designing for. Nature shows me that beauty and purpose can be the same thing: every curve of a canyon wall and every vein in a leaf is there for a reason.</p>
             <p>My goal is work that&rsquo;s both beautiful and genuinely useful: products that are easy for everyone to use, and stories and games that bring people closer together.</p>
@@ -3543,9 +3560,20 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
           </div>
         </section>
 
-        <section class="ab2-sec" id="ab-gallery" aria-labelledby="ab-gal-h">
-          <h2 class="ab2-h2" id="ab-gal-h">Gallery</h2>
-          <p class="ab2-sub">Favorite paintings I&rsquo;ve seen in person.</p>
+        <section class="ab2-sec" id="ab-community" aria-labelledby="ab-com-h">
+          <h2 class="ab2-h2" id="ab-com-h">My community</h2>
+          <ul class="abx-list">
+            <li class="abx-row"><span class="abx-logo"><img src="img/uo/avatar.jpg" alt="" loading="lazy"></span><span class="abx-txt"><b>Rochester Design Hub</b><span>Executive Board &middot; leads the graphic design group</span></span><span class="abx-when">May 2026 &ndash; Present</span></li>
+            <li class="abx-row"><span class="abx-logo"><i>SWE</i></span><span class="abx-txt"><b>Society of Women Engineers</b><span>Professional Development Committee</span></span><span class="abx-when">Jan 2026 &ndash; Present</span></li>
+            <li class="abx-row"><span class="abx-logo"><img src="img/gwc/avatar.jpg" alt="" loading="lazy"></span><span class="abx-txt"><b>Girls Who Code</b><span>Executive Board &middot; workshops and mentoring</span></span><span class="abx-when">Sep 2025 &ndash; Present</span></li>
+          </ul>
+        </section>
+
+        <section class="ab2-sec" id="ab-favorites" aria-labelledby="ab-fav-h">
+          <h2 class="ab2-h2" id="ab-fav-h">Favorites</h2>
+          <div class="ab2-fav" id="fav-museum">
+            <h3 class="ab2-h3">Museum</h3>
+            <p class="ab2-sub">Favorite paintings I&rsquo;ve seen in person.</p>
           <div class="ab2-galwrap"><button type="button" class="ab2-arr prev" aria-label="Scroll paintings left">&larr;</button><button type="button" class="ab2-arr next" aria-label="Scroll paintings right">&rarr;</button>
           <div class="ab2-paint" data-gallery="Favorite paintings" tabindex="0" aria-label="Favorite paintings, scroll sideways">
             <figure class="pt"><div class="plaque"><button type="button" class="tx-ph pt-btn" data-full="img/about/art/p01.jpg" aria-label="Enlarge: The Olive Trees, Vincent van Gogh, 1889"><img src="img/about/art/p01-sm.jpg" width="720" height="600" alt="The Olive Trees, Vincent van Gogh, 1889" loading="lazy"></button></div><figcaption><b>The Olive Trees</b><span>Vincent van Gogh, 1889</span></figcaption></figure>
@@ -3572,25 +3600,19 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
           </div>
           </div>
           <div class="ab2-more"><button type="button" class="ab2-full" aria-expanded="false">See full gallery <span aria-hidden="true">(21)</span></button></div>
-        </section>
-
-        <section class="ab2-sec" id="ab-community" aria-labelledby="ab-com-h">
-          <h2 class="ab2-h2" id="ab-com-h">My community</h2>
-          <ul class="abx-list">
-            <li class="abx-row"><span class="abx-logo"><img src="img/uo/avatar.jpg" alt="" loading="lazy"></span><span class="abx-txt"><b>Rochester Design Hub</b><span>Executive Board &middot; leads the graphic design group</span></span><span class="abx-when">May 2026 &ndash; Present</span></li>
-            <li class="abx-row"><span class="abx-logo"><i>SWE</i></span><span class="abx-txt"><b>Society of Women Engineers</b><span>Professional Development Committee</span></span><span class="abx-when">Jan 2026 &ndash; Present</span></li>
-            <li class="abx-row"><span class="abx-logo"><img src="img/gwc/avatar.jpg" alt="" loading="lazy"></span><span class="abx-txt"><b>Girls Who Code</b><span>Executive Board &middot; workshops and mentoring</span></span><span class="abx-when">Sep 2025 &ndash; Present</span></li>
-          </ul>
-        </section>
-
-        <section class="ab2-sec" id="ab-favorites" aria-labelledby="ab-fav-h">
-          <h2 class="ab2-h2" id="ab-fav-h">Favorites</h2>
-          <ul class="ab2-favs">
-            <li><span>Museum</span><b>MoMA, New York</b></li>
-            <li><span>Happy place</span><b>Out on a trail</b></li>
-            <li><span>Tools</span><b>Figma, Procreate &amp; Photoshop</b></li>
-            <li><span>Inspiration</span><b>People and nature</b></li>
-          </ul>
+          </div>
+          <div class="ab2-fav" id="fav-biblioteca">
+            <h3 class="ab2-h3">Biblioteca</h3>
+            <p class="ab2-soon">The books on my shelf are coming soon.</p>
+          </div>
+          <div class="ab2-fav" id="fav-playlist">
+            <h3 class="ab2-h3">Playlist</h3>
+            <p class="ab2-soon">What I listen to while I design is coming soon.</p>
+          </div>
+          <div class="ab2-fav" id="fav-inspiration">
+            <h3 class="ab2-h3">Inspiration</h3>
+            <p class="ab2-insp">People and nature. People remind me who I&rsquo;m designing for, and nature shows me that beauty and purpose can be the same thing.</p>
+          </div>
         </section>
       </div>
     </div>
@@ -4724,7 +4746,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
       strip.classList.toggle('full', on); wrap.classList.toggle('is-full', on);
       btn.setAttribute('aria-expanded', on);
       btn.innerHTML = on ? 'Show less' : 'See full gallery <span aria-hidden="true">(21)</span>';
-      if (!on) { strip.scrollLeft = 0; document.getElementById('ab-gallery').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      if (!on) { strip.scrollLeft = 0; document.getElementById('fav-museum').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       upd();
     });
   })();
