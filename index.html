@@ -2386,6 +2386,11 @@ html body .mus-hall:not(.is-full) .pt .plaque{padding:5px!important;border:0!imp
 .card-soon{cursor:default}
 .howto-cover{display:grid;place-items:center;overflow:hidden;background:radial-gradient(60% 60% at 30% 30%,#F7DDF0,rgba(247,221,240,0) 70%),radial-gradient(60% 60% at 75% 70%,#DCE6FB,rgba(220,230,251,0) 70%),#F3F1F5}
 .howto-word{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--body);font-weight:700;font-size:clamp(56px,7vw,110px);letter-spacing:-.02em;color:#5A1650;opacity:.55;filter:blur(14px);user-select:none}
+/* Museum arrows: fully inside the hall, clean frosted circles */
+.mus-hall:not(.is-full) .ab2-arr{width:46px;height:46px;font-size:18px;color:#2A2D33;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.95);box-shadow:0 8px 20px -10px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.05);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.mus-hall:not(.is-full) .ab2-arr.prev{left:18px}.mus-hall:not(.is-full) .ab2-arr.next{right:18px}
+.mus-hall:not(.is-full) .ab2-arr:hover{background:#fff}
+@media (max-width:560px){.mus-hall:not(.is-full) .ab2-arr{width:40px;height:40px;font-size:16px}.mus-hall:not(.is-full) .ab2-arr.prev{left:10px}.mus-hall:not(.is-full) .ab2-arr.next{right:10px}}
 </style>
 </head>
 <body>
