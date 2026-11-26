@@ -2346,6 +2346,21 @@ html body .lb-close:focus-visible,html body .lb-nav:focus-visible{outline:2px so
 .ab2-shelf figcaption{margin-top:26px;text-align:center;font-size:13px;line-height:1.35;color:#7A808A;max-width:180px}
 .ab2-shelf figcaption b{display:block;color:#3A2A3C;font-weight:600;font-size:14px}
 @media (max-width:640px){.ab2-shelf{display:grid;grid-template-columns:1fr 1fr;gap:28px 18px;padding:0;align-items:end}.ab2-shelf .bk{justify-content:flex-end}.ab2-shelf::after{display:none}.ab2-shelf .bk-btn img{height:auto;width:100%;max-width:170px}.ab2-shelf figcaption{margin-top:12px}}
+/* Playlist: album sleeves with a record that slides out */
+.ab2-records{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(24px,2.6vw,36px) clamp(30px,3.4vw,52px);padding:4px 36px 0 4px;max-width:900px}
+.ab2-records .rec{margin:0}
+.rec-wrap{position:relative;aspect-ratio:1}
+.rec-disc{position:absolute;top:4%;bottom:4%;left:4%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#F6EEF8 0 4%,#2A1A2A 4.5% 5.5%,#E4A6D8 6% 17%,#1A1218 17.5% 19%,#141014 19% 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);transform:translateX(16%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.rec-disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),conic-gradient(from 30deg,transparent 0 10%,rgba(255,255,255,.16) 14%,transparent 20% 60%,rgba(255,255,255,.1) 64%,transparent 70%);-webkit-mask:radial-gradient(circle,transparent 0 19%,#000 19.5%);mask:radial-gradient(circle,transparent 0 19%,#000 19.5%)}
+.rec-btn{all:unset;cursor:pointer;position:relative;display:block;border-radius:6px;overflow:hidden;box-shadow:0 0 0 1px rgba(120,80,130,.1),4px 6px 16px -10px rgba(60,20,60,.5);transition:transform .35s}
+.rec-btn img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.rec-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%);pointer-events:none}
+.rec:hover .rec-disc,.rec:focus-within .rec-disc{transform:translateX(42%) rotate(160deg)}
+.rec:hover .rec-btn{transform:translateY(-3px)}
+.rec-btn:focus-visible{outline:2px solid #5A1650;outline-offset:4px}
+.ab2-records figcaption{margin-top:12px;font-size:13px;line-height:1.35;color:#7A808A}
+.ab2-records figcaption b{display:block;color:#3A2A3C;font-weight:600;font-size:14px}
+@media (max-width:640px){.ab2-records{grid-template-columns:1fr 1fr;gap:26px 34px;padding-right:26px}}
 </style>
 </head>
 <body>
@@ -3626,7 +3641,8 @@ html body .lb-close:focus-visible,html body .lb-nav:focus-visible{outline:2px so
           </div>
           <div class="ab2-fav" id="fav-playlist">
             <h3 class="ab2-h3">Playlist</h3>
-            <p class="ab2-soon">What I listen to while I design is coming soon.</p>
+            <p class="ab2-sub">What I listen to while I design.</p>
+            <div class="ab2-records" data-gallery="Playlist"><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m01.jpg" aria-label="Enlarge: Blonde, Frank Ocean, 2016"><img src="img/about/music/m01-sm.jpg" width="420" height="420" alt="Blonde, Frank Ocean, 2016, album cover" loading="lazy"></button></div><figcaption><b>Blonde</b><span>Frank Ocean, 2016</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m02.jpg" aria-label="Enlarge: channel ORANGE, Frank Ocean, 2012"><img src="img/about/music/m02-sm.jpg" width="420" height="420" alt="channel ORANGE, Frank Ocean, 2012, album cover" loading="lazy"></button></div><figcaption><b>channel ORANGE</b><span>Frank Ocean, 2012</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m03.jpg" aria-label="Enlarge: nostalgia, ULTRA., Frank Ocean, 2011"><img src="img/about/music/m03-sm.jpg" width="420" height="420" alt="nostalgia, ULTRA., Frank Ocean, 2011, album cover" loading="lazy"></button></div><figcaption><b>nostalgia, ULTRA.</b><span>Frank Ocean, 2011</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m04.jpg" aria-label="Enlarge: Honeymoon, Lana Del Rey, 2015"><img src="img/about/music/m04-sm.jpg" width="420" height="420" alt="Honeymoon, Lana Del Rey, 2015, album cover" loading="lazy"></button></div><figcaption><b>Honeymoon</b><span>Lana Del Rey, 2015</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m05.jpg" aria-label="Enlarge: Norman F***ing Rockwell!, Lana Del Rey, 2019"><img src="img/about/music/m05-sm.jpg" width="420" height="420" alt="Norman F***ing Rockwell!, Lana Del Rey, 2019, album cover" loading="lazy"></button></div><figcaption><b>Norman F***ing Rockwell!</b><span>Lana Del Rey, 2019</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m06.jpg" aria-label="Enlarge: Starboy, The Weeknd, 2016"><img src="img/about/music/m06-sm.jpg" width="420" height="420" alt="Starboy, The Weeknd, 2016, album cover" loading="lazy"></button></div><figcaption><b>Starboy</b><span>The Weeknd, 2016</span></figcaption></figure><figure class="rec"><div class="rec-wrap"><span class="rec-disc" aria-hidden="true"></span><button type="button" class="tx-ph rec-btn" data-full="img/about/music/m07.jpg" aria-label="Enlarge: On repeat"><img src="img/about/music/m07-sm.jpg" width="420" height="420" alt="On repeat, album cover" loading="lazy"></button></div><figcaption><b>On repeat</b></figcaption></figure></div>
           </div>
           <div class="ab2-fav" id="fav-inspiration">
             <h3 class="ab2-h3">Inspiration</h3>
