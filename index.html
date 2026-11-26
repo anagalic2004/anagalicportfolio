@@ -2382,6 +2382,10 @@ html body .mus-hall:not(.is-full) .pt .plaque{padding:5px!important;border:0!imp
 .mus-hall:not(.is-full) .ab2-arr{top:calc(58px + 64px + var(--ih) / 2)}
 .mus-hall.is-full .mh-ceil,.mus-hall.is-full .mh-floor{display:none}
 @media (max-width:560px){.mus-hall:not(.is-full){--ih:150px;padding:46px 0 84px;border-radius:16px}.mus-hall:not(.is-full) .mh-ceil{height:56px}.mus-hall:not(.is-full) .mh-floor{height:84px}.mus-hall:not(.is-full) .ab2-paint{padding:50px 16vw 22px!important;gap:30px!important;align-items:flex-start}.mus-hall:not(.is-full) .pt{flex-direction:column;align-items:center;gap:10px}.mus-hall:not(.is-full) .pt figcaption{width:auto;max-width:180px;margin:0!important}.mus-hall:not(.is-full) .ab2-arr{top:calc(46px + 50px + var(--ih) / 2)}}
+/* HOW TO placeholder card */
+.card-soon{cursor:default}
+.howto-cover{display:grid;place-items:center;overflow:hidden;background:radial-gradient(60% 60% at 30% 30%,#F7DDF0,rgba(247,221,240,0) 70%),radial-gradient(60% 60% at 75% 70%,#DCE6FB,rgba(220,230,251,0) 70%),#F3F1F5}
+.howto-word{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--body);font-weight:700;font-size:clamp(56px,7vw,110px);letter-spacing:-.02em;color:#5A1650;opacity:.55;filter:blur(14px);user-select:none}
 </style>
 </head>
 <body>
@@ -2476,6 +2480,14 @@ html body .mus-hall:not(.is-full) .pt .plaque{padding:5px!important;border:0!imp
             <p class="card-type">Product design · in progress</p>
           </div>
         </a>
+        <div class="card card-soon" style="--ar:1/1;order:9" data-tags="graphic" aria-label="HOW TO, coming soon">
+          <span class="card-pill">HOW TO<i aria-hidden="true">•</i><em>2026</em></span>
+          <div class="cover cover-soon howto-cover" aria-hidden="true"><span class="howto-word">HOW TO</span><span class="soon-tag">Coming soon</span></div>
+          <div class="card-body">
+            <div class="card-row" data-type="In progress"><h3>HOW TO</h3></div>
+            <p class="card-type">In progress</p>
+          </div>
+        </div>
       </div>
       <div class="m-col">
         <a class="card" style="--ar:1/1;order:3" href="#soulshine" data-tags="product research">
