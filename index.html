@@ -2328,6 +2328,12 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
 .ab2-soon{display:inline-flex;padding:14px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(246,238,248,.6));box-shadow:inset 0 1px 1px #fff,0 0 0 1px rgba(120,80,130,.1),0 10px 20px -16px rgba(150,70,150,.3);font-size:15px}
 .ab2-insp{color:#4A4D55;font-size:16.5px}
 @media (max-width:560px){.ab2-snaps .plaque img{height:auto!important}}
+/* Lightbox buttons as light liquid-glass pills */
+html body .lb-close{position:fixed;isolation:isolate;height:42px;padding:0 22px!important;border-radius:999px!important;font-size:15px!important;font-weight:500!important;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(246,238,248,.8))!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:inset 0 1px 1px #fff,inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.38),0 10px 22px -10px rgba(0,0,0,.45),0 0 0 1px rgba(120,80,130,.14)!important;color:#3A2A3C!important;transition:transform .25s}
+html body .lb-nav{isolation:isolate;width:48px;height:48px;border-radius:50%!important;font-size:18px!important;font-weight:500!important;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(246,238,248,.8))!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:inset 0 1px 1px #fff,inset 0 0 0 3px rgba(255,255,255,.35),inset 0 -8px 14px -6px rgba(214,150,214,.38),0 10px 22px -10px rgba(0,0,0,.45),0 0 0 1px rgba(120,80,130,.14)!important;color:#3A2A3C!important;transition:transform .25s}
+html body .lb-close::before,html body .lb-nav::before{content:"";position:absolute;left:12%;right:12%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,0));pointer-events:none;z-index:-1}
+html body .lb-close:hover,html body .lb-nav:hover{transform:translateY(-2px)}
+html body .lb-close:focus-visible,html body .lb-nav:focus-visible{outline:2px solid #fff;outline-offset:3px}
 </style>
 </head>
 <body>
@@ -2368,7 +2374,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
       <div class="m-col">
         <a class="card" style="--ar:1100/912;order:1" href="#peaceland" data-tags="games graphic research">
           <span class="card-pill">Peaceland<i aria-hidden="true">•</i><em>2026</em></span>
-          <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/peaceland-cover/playing2-poster.jpg" aria-hidden="true"><source src="img/peaceland-cover/playing2.webm" type="video/webm"><source src="img/peaceland-cover/playing2.mp4" type="video/mp4"></video></div>
+          <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="auto" poster="img/peaceland-cover/playing2-poster.jpg" aria-hidden="true"><source src="img/peaceland-cover/playing2.webm" type="video/webm"><source src="img/peaceland-cover/playing2.mp4" type="video/mp4"></video></div>
           <div class="card-body">
             <div class="card-row" data-type="Narrative-driven video game"><h3>Peaceland</h3></div>
             <p class="card-type">Narrative-driven video game</p>
@@ -2397,7 +2403,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
       <div class="m-col">
         <a class="card" style="--ar:16/10;order:2" href="#tedx" data-tags="graphic">
           <span class="card-pill">TEDxURochester<i aria-hidden="true">•</i><em>2026</em></span>
-          <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/tedx-cover/rehuman-poster.jpg" aria-hidden="true"><source src="img/tedx-cover/rehuman.webm" type="video/webm"><source src="img/tedx-cover/rehuman.mp4" type="video/mp4"></video></div>
+          <div class="cover cover-video"><video class="cover-img" autoplay muted loop playsinline preload="auto" poster="img/tedx-cover/rehuman-poster.jpg" aria-hidden="true"><source src="img/tedx-cover/rehuman.webm" type="video/webm"><source src="img/tedx-cover/rehuman.mp4" type="video/mp4"></video></div>
           <div class="card-body">
             <div class="card-row" data-type="Event branding & photography · reHuman"><h3><span class="nc">TEDxURochester</span></h3></div>
             <p class="card-type">Event branding &amp; photography · <i>reHuman</i></p>
@@ -2434,7 +2440,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
         </a>
         <a class="card" style="--ar:32/21;order:6" href="#rochester-design-hub" data-tags="graphic">
           <span class="card-pill">Rochester Design Hub<i aria-hidden="true">•</i><em>2026</em></span>
-          <div class="cover cover-video rdh-feed"><video class="cover-img" autoplay muted loop playsinline preload="metadata" poster="img/uo/rdh-feed-poster.jpg" aria-hidden="true"><source src="img/uo/rdh-feed.mp4" type="video/mp4"></video>
+          <div class="cover cover-video rdh-feed"><video class="cover-img" autoplay muted loop playsinline preload="auto" poster="img/uo/rdh-feed-poster.jpg" aria-hidden="true"><source src="img/uo/rdh-feed.mp4" type="video/mp4"></video>
             
           </div>
           <div class="card-body">
@@ -4630,7 +4636,7 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
     vids.forEach(v => {
       v.addEventListener('ended', () => { v.currentTime = 0; go(v); });
       v.addEventListener('pause', () => setTimeout(() => go(v), 250));
-      v.addEventListener('stalled', () => { v.load(); go(v); });
+      ['loadeddata', 'canplay', 'canplaythrough'].forEach(ev => v.addEventListener(ev, () => go(v)));
     });
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) go(en.target); }), { threshold: 0.1 });
@@ -4640,6 +4646,15 @@ html body .plaque img{box-shadow:none!important;filter:none!important}
     document.addEventListener('visibilitychange', () => { if (!document.hidden) all(); });
     ['touchstart', 'pointerdown', 'scroll'].forEach(e => addEventListener(e, all, { once: true, passive: true }));
     setInterval(all, 3000);
+    /* watchdog: if a video is meant to be playing but its picture hasn't moved for a while, nudge it */
+    const last = new Map();
+    setInterval(() => vids.forEach(v => {
+      if (v.offsetParent === null || document.hidden) return;
+      const t = v.currentTime, prev = last.get(v);
+      if (prev !== undefined && Math.abs(t - prev) < 0.01 && v.readyState >= 2) { v.pause(); go(v); }
+      last.set(v, t);
+    }), 4000);
+    all(); addEventListener('load', all);
   })();
   // shimmer placeholder until each lazy image has loaded
   (() => {
